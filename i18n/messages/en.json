@@ -3,6 +3,157 @@
     "home": "Home",
     "loading": "Loading …"
   },
+  "nav": {
+    "ariaPrimary": "Primary navigation",
+    "howItWorks": "How it works",
+    "pricing": "Pricing",
+    "testimonials": "Voices",
+    "faq": "FAQ",
+    "login": "Login",
+    "ctaStart": "Start for free",
+    "ctaStartMenu": "Start now for free",
+    "selectLanguage": "Choose language",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "languageNames": {
+      "de": "German",
+      "en": "English"
+    }
+  },
+  "hero": {
+    "eyebrow": "The Wedding Shoe Game — live with all your guests",
+    "headline": "Two shoes. One question. A room that <accent>holds its breath.</accent>",
+    "lead": "In the shoe game the couple answers by raising shoes. With TwoSoles the whole room votes first on their phones — and the projector reveals whether the majority really knows the couple.",
+    "ctaPrimary": "Create your event for free",
+    "ctaSecondary": "How it works",
+    "imageAlt": "Wedding couple raising shoes during the shoe game"
+  },
+  "ticker": {
+    "ariaLabel": "Example questions from the game",
+    "questions": [
+      "Who's more likely to give in during an argument?",
+      "Who's more likely to stumble during the first dance?",
+      "Who takes longer in the bathroom?",
+      "Who's more likely to forget the wedding anniversary?"
+    ]
+  },
+  "steps": {
+    "eyebrow": "How it works",
+    "title": "Simple. Fast. <accent>Unforgettable.</accent>",
+    "items": [
+      {
+        "label": "5-minute setup",
+        "title": "You set it up",
+        "description": "Enter the couple's names, pick questions or write your own, generate the QR code — done in five minutes, even on the wedding day itself."
+      },
+      {
+        "label": "No app download",
+        "title": "The audience votes",
+        "description": "Guests scan the QR code and vote anonymously on their own phones. No app, no login — from the godmother to the second cousin."
+      },
+      {
+        "label": "One button press",
+        "title": "The reveal moment",
+        "description": "The couple raises their shoes, you press a button — and the projector reveals how the room voted. The „ohhhh“ comes all by itself."
+      }
+    ]
+  },
+  "quote": {
+    "text": "“Finally, something where <accent>everyone joins in</accent> and doesn't just watch.”"
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "How many guests are <accent>coming?</accent>",
+    "lead": "One-off per event. No subscription. Small gathering? Completely free.",
+    "capacityPrefix": "Up to",
+    "perEvent": "/ event",
+    "cta": "Start for free",
+    "tiers": [
+      {
+        "name": "Small circle",
+        "tagline": "Pre-wedding party, closest friends",
+        "price": "Free",
+        "free": true,
+        "capacity": "10 guests"
+      },
+      {
+        "name": "Intimate",
+        "tagline": "The small city wedding",
+        "price": "€29",
+        "capacity": "50 guests"
+      },
+      {
+        "name": "Classic",
+        "tagline": "The whole room votes",
+        "price": "€49",
+        "capacity": "100 guests"
+      },
+      {
+        "name": "Big celebration",
+        "tagline": "Three generations, one room",
+        "price": "€79",
+        "capacity": "300 guests"
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Voices",
+    "title": "Afterwards everyone asks: <accent>“Where did you get this?”</accent>",
+    "items": [
+      {
+        "quote": "“I set it up two hours before my best friend's wedding. The room completely lost it at the first reveal.”",
+        "name": "Lena M.",
+        "role": "Maid of honour"
+      },
+      {
+        "quote": "“140 guests, zero tech problems. QR code on the projector, thirty seconds later everyone had voted. Even our grandma — and she got every question right.”",
+        "name": "Daniel R.",
+        "role": "Groom's brother"
+      },
+      {
+        "quote": "“Tested it at the pre-wedding party, played it again at the wedding. Both times the moment of the evening. One question reopened a ten-year debate.”",
+        "name": "Aylin T.",
+        "role": "Bride's best friend"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Briefly <accent>answered</accent>",
+    "note": "Didn't find your answer? Contact our <support>support</support>.",
+    "items": [
+      {
+        "question": "Do guests need an app?",
+        "answer": "No. Guests scan the QR code and vote right in the browser — no install, no login."
+      },
+      {
+        "question": "What if the venue's Wi-Fi is bad?",
+        "answer": "Voting runs over the guests' mobile data, not the venue Wi-Fi. A couple of bars of signal is enough."
+      },
+      {
+        "question": "Can I add my own questions?",
+        "answer": "Yes. Pick from our templates or write as many of your own as you like — tailored to your couple."
+      },
+      {
+        "question": "How far in advance do I need to book?",
+        "answer": "Not in advance at all. You can create your event in five minutes — even on the wedding day itself."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "For the night that stays",
+    "title": "The wedding game <accent>people talk about for years.</accent>",
+    "lead": "Ready in five minutes. No setup, no app for your guests.",
+    "cta": "Create your event for free",
+    "imageAlt": "Wedding couple celebrating during the game"
+  },
+  "footer": {
+    "copyright": "© 2026 TwoSoles · Made for best men & maids of honour with a plan.",
+    "legalNav": "Legal",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "imprint": "Imprint"
+  },
   "home": {
     "title": "TwoSoles",
     "intro": "The digital wedding shoe game.",
@@ -16,7 +167,10 @@
   },
   "auth": {
     "loginTitle": "Sign in",
+    "loginSubtitle": "Sign in to manage your event.",
     "registerTitle": "Create account",
+    "registerSubtitle": "Ready in two minutes — free.",
+    "or": "or",
     "nameLabel": "Name",
     "emailLabel": "Email",
     "sendLoginLink": "Send login link",

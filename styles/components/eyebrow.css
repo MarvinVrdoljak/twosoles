@@ -1,0 +1,19 @@
+/* Global .eyebrow atom — the uppercase, primary-coloured label that sits above
+   section headings (Figma text style "Legend"). Reused across many sections,
+   so it lives here as a global atom rather than in a single component module. */
+@layer components {
+  .eyebrow {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-body);
+    line-height: 1;
+    color: var(--color-primary);
+    text-transform: uppercase;
+  }
+
+  /* Smaller variant (Figma "Legend Small") — compose with .eyebrow. */
+  .eyebrowSmall {
+    font-size: var(--font-size-sm);
+  }
+}

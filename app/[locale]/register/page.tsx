@@ -1,8 +1,10 @@
 import {getTranslations, setRequestLocale} from 'next-intl/server'
 import {redirect} from 'next/navigation'
+import {FormDivider} from '@/components/form/FormDivider'
 import {FormGoogleButton} from '@/components/form/FormGoogleButton'
 import {FormRegister} from '@/components/form/FormRegister'
-import {Link, getPathname} from '@/i18n/navigation'
+import {LayoutAuth} from '@/components/layout/LayoutAuth'
+import {getPathname} from '@/i18n/navigation'
 import type {Locale} from '@/i18n/routing'
 import {getUser} from '@/utility/supabase/user'
 
@@ -22,16 +24,14 @@ export default async function RegisterPage({params}: RegisterPageProps) {
   const t = await getTranslations('auth')
 
   return (
-    <main>
-      <h1>{t('registerTitle')}</h1>
-
+    <LayoutAuth
+      title={t('registerTitle')}
+      subtitle={t('registerSubtitle')}
+      footer={{text: t('haveAccount'), linkLabel: t('toLogin'), href: '/login'}}
+    >
       <FormGoogleButton />
-
+      <FormDivider label={t('or')} />
       <FormRegister />
-
-      <p>
-        {t('haveAccount')} <Link href="/login">{t('toLogin')}</Link>
-      </p>
-    </main>
+    </LayoutAuth>
   )
 }

@@ -1,0 +1,94 @@
+.root {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--spacing-40);
+  padding-inline: var(--side-gap);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--spacing-32);
+  align-items: center;
+
+  @media (--bp-large-up) {
+    grid-template-columns: 4fr 3fr;
+    gap: var(--spacing-52);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-28);
+}
+
+.headline {
+  margin: 0;
+  font-size: var(--font-size-h1);
+}
+
+.accent {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.lead {
+  margin: 0;
+  max-width: 600px;
+  font-size: var(--font-size-lg);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-12);
+}
+
+.media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 487 / 576;
+  border-radius: 240px 240px var(--radius-xl) var(--radius-xl);
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Decorative shoe line-art — desktop only, behind the content. */
+.decorLeft,
+.decorRight {
+  display: none;
+}
+
+@media (--bp-large-up) {
+  .decorLeft,
+  .decorRight {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .decorLeft {
+    left: -40px;
+    bottom: -40px;
+    width: 300px;
+    height: auto;
+    transform: rotate(-24deg);
+  }
+
+  .decorRight {
+    right: -30px;
+    top: -20px;
+    width: 240px;
+    height: auto;
+    transform: rotate(180deg);
+  }
+}

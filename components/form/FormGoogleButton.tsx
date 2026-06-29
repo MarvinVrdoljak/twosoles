@@ -2,6 +2,7 @@
 
 import {useState} from 'react'
 import {useTranslations} from 'next-intl'
+import {CommonButton} from '@/components/common/CommonButton'
 import {createClient} from '@/utility/supabase/client'
 
 // Starts the Google OAuth flow. Supabase redirects to Google and back to
@@ -26,8 +27,15 @@ export function FormGoogleButton() {
   }
 
   return (
-    <button type="button" disabled={pending} onClick={handleGoogle}>
+    <CommonButton
+      type="button"
+      variant="secondary"
+      size="lg"
+      fullWidth
+      disabled={pending}
+      onClick={handleGoogle}
+    >
       {t('continueWithGoogle')}
-    </button>
+    </CommonButton>
   )
 }

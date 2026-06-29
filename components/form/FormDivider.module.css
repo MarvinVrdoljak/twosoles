@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}

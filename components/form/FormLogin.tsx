@@ -2,7 +2,11 @@
 
 import {useState} from 'react'
 import {useTranslations} from 'next-intl'
+import {MailCheck} from 'lucide-react'
+import {CommonButton} from '@/components/common/CommonButton'
+import {FormField} from '@/components/form/FormField'
 import {createClient} from '@/utility/supabase/client'
+import styles from './FormLogin.module.css'
 
 type Status = 'idle' | 'pending' | 'sent' | 'error'
 
@@ -26,9 +30,6 @@ export function FormLogin() {
 
     if (authError) {
       setStatus('error')
-      // `otp_disabled` means no account exists for this email (shouldCreateUser
-      // is false on login) — point the user to registration instead of leaking
-      // the raw GoTrue message.
       setError(authError.code === 'otp_disabled' ? t('noAccountError') : authError.message)
       return
     }
@@ -37,29 +38,35 @@ export function FormLogin() {
   }
 
   if (status === 'sent') {
-    return <p>{t('linkSent', {email})}</p>
+    return (
+      <div className={styles.sent} role="status">
+        <MailCheck className={styles.sentIcon} size={32} aria-hidden="true" />
+        <p className={styles.sentText}>{t('linkSent', {email})}</p>
+      </div>
+    )
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">{t('emailLabel')}</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          autoComplete="email"
-          required
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-      </div>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <FormField
+        id="email"
+        label={t('emailLabel')}
+        type="email"
+        autoComplete="email"
+        required
+        value={email}
+        onChange={setEmail}
+      />
 
-      {error ? <p role="alert">{error}</p> : null}
+      {error ? (
+        <p className={styles.error} role="alert">
+          {error}
+        </p>
+      ) : null}
 
-      <button type="submit" disabled={status === 'pending'}>
+      <CommonButton type="submit" variant="primary" size="lg" fullWidth disabled={status === 'pending'}>
         {status === 'pending' ? t('pending') : t('sendLoginLink')}
-      </button>
+      </CommonButton>
     </form>
   )
 }

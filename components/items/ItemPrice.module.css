@@ -1,0 +1,48 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-20);
+  padding: var(--spacing-24);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.name {
+  margin: 0;
+  font-size: var(--font-size-h3);
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-4);
+  margin: 0;
+}
+
+.amount {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-heading);
+  font-size: 40px;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.period {
+  color: var(--color-text-muted);
+}
+
+.capacity {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.capacityCount {
+  font-weight: var(--font-weight-bold);
+}

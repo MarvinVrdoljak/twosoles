@@ -1,0 +1,88 @@
+.root {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  background: var(--color-surface);
+
+  @media (--bp-large-up) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mood image — hidden on mobile, shown beside the form on large screens. */
+.media {
+  display: none;
+
+  @media (--bp-large-up) {
+    position: relative;
+    display: block;
+  }
+}
+
+.image {
+  object-fit: cover;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--spacing-40);
+  padding-inline: var(--side-gap);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  width: 100%;
+  max-width: 400px;
+}
+
+.logo {
+  align-self: flex-start;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: var(--font-weight-bold);
+  font-size: 28px;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 36px);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.error {
+  margin: 0;
+  padding: var(--spacing-12) var(--spacing-16);
+  font-size: var(--font-size-sm);
+  color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-danger) 24%, transparent);
+  border-radius: var(--radius-md);
+}
+
+.footer {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.footerLink {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}

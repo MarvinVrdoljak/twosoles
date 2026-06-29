@@ -4,3 +4,4 @@
    Prefer CSS Modules for actual React components.
    ============================================================ */
 @import './button.css';
+@import './eyebrow.css';

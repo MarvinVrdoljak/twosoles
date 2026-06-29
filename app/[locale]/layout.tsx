@@ -4,14 +4,23 @@ import React from 'react'
 import {notFound} from 'next/navigation'
 import {NextIntlClientProvider, hasLocale} from 'next-intl'
 import {setRequestLocale} from 'next-intl/server'
-import {Inter} from 'next/font/google'
+import {Fraunces, Nunito} from 'next/font/google'
 import {routing} from '@/i18n/routing'
 
-// Self-hosted Google font exposed as a CSS variable consumed by tokens.css.
-const inter = Inter({
+// Self-hosted Google fonts exposed as CSS variables consumed by tokens.css.
+// Nunito = body (--font-sans), Fraunces = headlines (--font-display).
+const nunito = Nunito({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sans',
+})
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  display: 'swap',
+  style: ['normal', 'italic'],
+  axes: ['SOFT', 'WONK', 'opsz'],
+  variable: '--font-display',
 })
 
 // Statically generate a layout per locale.
@@ -35,7 +44,7 @@ export default async function LocaleLayout({children, params}: LocaleLayoutProps
   setRequestLocale(locale)
 
   return (
-    <html lang={locale} className={inter.variable}>
+    <html lang={locale} className={`${nunito.variable} ${fraunces.variable}`}>
       <body>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

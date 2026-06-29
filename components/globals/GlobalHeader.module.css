@@ -1,0 +1,210 @@
+.root {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+  min-height: 72px;
+  padding-inline: var(--side-gap);
+
+  @media (--bp-medium-up) {
+    min-height: 100px;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-32);
+
+  @media (--bp-large-up) {
+    gap: var(--spacing-64);
+  }
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: var(--font-weight-bold);
+  font-size: 28px;
+  color: var(--color-primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navDesktop {
+  display: none;
+
+  @media (--bp-large-up) {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-32);
+  }
+}
+
+.navLink {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+
+  @media (--bp-large-up) {
+    gap: var(--spacing-24);
+  }
+}
+
+.langDesktop {
+  display: none;
+
+  @media (--bp-large-up) {
+    /* Lift above the sibling buttons so the open dropdown is not painted
+       behind them (flex items stack in document order otherwise). */
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+  }
+}
+
+/* Sign-up CTA is hidden on mobile (Login + hamburger remain). */
+.ctaDesktop {
+  display: none;
+
+  @media (--bp-large-up) {
+    display: inline-flex;
+  }
+}
+
+.hamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-8);
+  color: var(--color-text);
+
+  @media (--bp-large-up) {
+    display: none;
+  }
+}
+
+/* ── Mobile drawer (always mounted so it can animate both ways) ──
+   Positioned absolutely below the bar so it overlays the page content
+   instead of pushing it down. */
+.drawer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  padding-inline: var(--side-gap);
+  padding-block: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background: var(--color-surface);
+  border-bottom: 1px solid transparent;
+  box-shadow: 0 16px 32px color-mix(in srgb, var(--color-text) 10%, transparent);
+  transition:
+    max-height 0.32s ease,
+    padding-block 0.32s ease,
+    opacity 0.24s ease,
+    border-bottom-color 0.32s ease;
+
+  @media (--bp-large-up) {
+    display: none;
+  }
+}
+
+.drawerOpen {
+  max-height: 520px;
+  padding-block: var(--spacing-24) var(--spacing-32);
+  opacity: 1;
+  border-bottom-color: var(--color-border);
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawerLink {
+  padding-block: var(--spacing-12);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.langDrawer {
+  /* Above the buttons below it so the open dropdown overlays them. */
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.drawerActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+/* Staggered fade-in of the drawer contents while opening. */
+.drawerNav,
+.langDrawer,
+.drawerActions {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.24s ease,
+    transform 0.24s ease;
+}
+
+.drawerOpen .drawerNav,
+.drawerOpen .langDrawer,
+.drawerOpen .drawerActions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.drawerOpen .drawerNav {
+  transition-delay: 0.06s;
+}
+
+.drawerOpen .langDrawer {
+  transition-delay: 0.12s;
+}
+
+.drawerOpen .drawerActions {
+  transition-delay: 0.16s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer,
+  .drawerNav,
+  .langDrawer,
+  .drawerActions {
+    transition: none;
+  }
+}

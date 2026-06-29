@@ -1,0 +1,53 @@
+.root {
+  width: 100%;
+  overflow: hidden;
+  padding-block: var(--spacing-28);
+  background: var(--color-surface-variant);
+  border-block: 1px solid var(--color-border);
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+/* Wrapper that doesn't generate a box, so items flow directly into the
+   track's flex layout (keeps the spacing uniform for a seamless loop). */
+.set {
+  display: contents;
+}
+
+.item {
+  margin-right: var(--spacing-40);
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--font-size-lg);
+  line-height: 1.1;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.heart {
+  flex-shrink: 0;
+  margin-right: var(--spacing-40);
+  color: var(--color-primary);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

@@ -1,17 +1,55 @@
 import React from 'react'
+import {Link} from '@/i18n/navigation'
 import styles from './CommonButton.module.css'
 
-interface CommonButtonProps {
+type CommonButtonProps = {
   children: React.ReactNode
+  variant?: 'primary' | 'secondary'
+  size?: 'md' | 'lg'
+  fullWidth?: boolean
+  // Link mode: internal routes (starting with "/") use the locale-aware Link,
+  // in-page (#) or external links use a plain anchor.
+  href?: string
+  // Button mode (when no href): native button for forms / handlers.
+  type?: 'button' | 'submit'
   disabled?: boolean
   onClick?: () => void
 }
 
-// Each element gets its own explicit class — no nested/descendant selectors.
-export function CommonButton({children, disabled, onClick}: CommonButtonProps) {
+// Pill-shaped action used across the app. Renders a link when `href` is given,
+// otherwise a native button.
+export function CommonButton({
+  children,
+  variant = 'primary',
+  size = 'lg',
+  fullWidth = false,
+  href,
+  type = 'button',
+  disabled,
+  onClick,
+}: CommonButtonProps) {
+  const className = `${styles.root} ${styles[variant]} ${styles[size]}${
+    fullWidth ? ` ${styles.fullWidth}` : ''
+  }`
+
+  if (href) {
+    if (href.startsWith('/')) {
+      return (
+        <Link href={href} className={className}>
+          {children}
+        </Link>
+      )
+    }
+    return (
+      <a href={href} className={className}>
+        {children}
+      </a>
+    )
+  }
+
   return (
-    <button className={styles.root} disabled={disabled} onClick={onClick}>
-      <span className={styles.label}>{children}</span>
+    <button type={type} className={className} disabled={disabled} onClick={onClick}>
+      {children}
     </button>
   )
 }

@@ -3,6 +3,157 @@
     "home": "Startseite",
     "loading": "Laden …"
   },
+  "nav": {
+    "ariaPrimary": "Hauptnavigation",
+    "howItWorks": "So funktioniert’s",
+    "pricing": "Preise",
+    "testimonials": "Stimmen",
+    "faq": "FAQ",
+    "login": "Login",
+    "ctaStart": "Kostenlos starten",
+    "ctaStartMenu": "Jetzt kostenlos starten",
+    "selectLanguage": "Sprache wählen",
+    "menuOpen": "Menü öffnen",
+    "menuClose": "Menü schließen",
+    "languageNames": {
+      "de": "Deutsch",
+      "en": "Englisch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Das Wedding Shoe Game — live mit allen Gästen",
+    "headline": "Zwei Schuhe. Eine Frage. Ein Saal, der die <accent>Luft anhält.</accent>",
+    "lead": "Beim Schuh-Spiel antwortet das Brautpaar mit hochgehaltenen Schuhen. Mit TwoSoles stimmt vorher der ganze Saal per Handy ab — und der Beamer enthüllt, ob die Mehrheit das Paar wirklich kennt.",
+    "ctaPrimary": "Event kostenlos erstellen",
+    "ctaSecondary": "So funktioniert’s",
+    "imageAlt": "Brautpaar beim Schuh-Spiel hält Schuhe in die Höhe"
+  },
+  "ticker": {
+    "ariaLabel": "Beispielfragen aus dem Spiel",
+    "questions": [
+      "Wer neigt dazu, bei einem Streit eher nachzugeben?",
+      "Wer würde sich eher beim Hochzeitstanz vertanzen?",
+      "Wer braucht länger im Bad?",
+      "Wer würde eher den Hochzeitstag vergessen?"
+    ]
+  },
+  "steps": {
+    "eyebrow": "So funktioniert’s",
+    "title": "Einfach. Schnell. <accent>Unvergesslich.</accent>",
+    "items": [
+      {
+        "label": "5 Minuten Setup",
+        "title": "Du richtest es ein",
+        "description": "Paarnamen eingeben, Fragen wählen oder eigene schreiben, QR-Code generieren — fertig in fünf Minuten, auch noch am Tag der Hochzeit."
+      },
+      {
+        "label": "Kein App-Download",
+        "title": "Das Publikum stimmt ab",
+        "description": "Gäste scannen den QR-Code und voten anonym auf dem eigenen Handy. Keine App, kein Login — von der Patentante bis zum Großcousin."
+      },
+      {
+        "label": "Ein Knopfdruck",
+        "title": "Der Reveal-Moment",
+        "description": "Das Paar hebt die Schuhe, du drückst einen Button — und der Beamer enthüllt, wie der Saal abgestimmt hat. Das „Ohhhh“ kommt von allein."
+      }
+    ]
+  },
+  "quote": {
+    "text": "«Endlich mal was, wo <accent>alle mitmachen</accent> und nicht nur zuschauen.»"
+  },
+  "pricing": {
+    "eyebrow": "Preise",
+    "title": "Wie viele Gäste <accent>kommen?</accent>",
+    "lead": "Einmalig pro Event. Kein Abo. Kleine Feier? Komplett kostenlos.",
+    "capacityPrefix": "Bis zu",
+    "perEvent": "/ Event",
+    "cta": "Kostenlos starten",
+    "tiers": [
+      {
+        "name": "Kleine Runde",
+        "tagline": "Polterabend im engsten Kreis",
+        "price": "Gratis",
+        "free": true,
+        "capacity": "10 Gäste"
+      },
+      {
+        "name": "Intim",
+        "tagline": "Die kleine Stadthochzeit",
+        "price": "29 €",
+        "capacity": "50 Gäste"
+      },
+      {
+        "name": "Klassisch",
+        "tagline": "Der ganze Saal stimmt ab",
+        "price": "49 €",
+        "capacity": "100 Gäste"
+      },
+      {
+        "name": "Große Feier",
+        "tagline": "Drei Generationen, ein Saal",
+        "price": "79 €",
+        "capacity": "300 Gäste"
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Stimmen",
+    "title": "Danach fragt dich jeder: <accent>«Wo hast du das her?»</accent>",
+    "items": [
+      {
+        "quote": "«Ich hab das mit zwei Stunden Vorlauf auf der Hochzeit meiner besten Freundin eingesetzt. Der Saal ist beim ersten Reveal komplett ausgeflippt.»",
+        "name": "Lena M.",
+        "role": "Trauzeugin"
+      },
+      {
+        "quote": "«140 Gäste, null Technik-Probleme. QR-Code auf den Beamer, dreißig Sekunden später hatten alle gevotet. Sogar unsere Oma — und die lag bei jeder Frage richtig.»",
+        "name": "Daniel R.",
+        "role": "Bruder des Bräutigams"
+      },
+      {
+        "quote": "«Erst beim Polterabend getestet, auf der Hochzeit nochmal gespielt. Beide Male der Moment des Abends. Eine Frage hat eine zehnjährige Debatte neu eröffnet.»",
+        "name": "Aylin T.",
+        "role": "Beste Freundin der Braut"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Kurz <accent>beantwortet</accent>",
+    "note": "Keine passende Antwort gefunden? Kontaktiere unseren <support>Support</support>.",
+    "items": [
+      {
+        "question": "Brauchen die Gäste eine App?",
+        "answer": "Nein. Die Gäste scannen den QR-Code und stimmen direkt im Browser ab — keine Installation, kein Login."
+      },
+      {
+        "question": "Was, wenn das WLAN auf der Location schlecht ist?",
+        "answer": "Das Voting läuft über das Mobilfunknetz der Gäste, nicht über das WLAN der Location. Ein paar Balken Empfang genügen."
+      },
+      {
+        "question": "Kann ich eigene Fragen hinzufügen?",
+        "answer": "Ja. Du wählst aus unseren Vorlagen oder schreibst beliebig viele eigene Fragen — passend zu eurem Paar."
+      },
+      {
+        "question": "Wie lange vor der Hochzeit muss ich buchen?",
+        "answer": "Gar nicht im Voraus. Du erstellst dein Event in fünf Minuten — auch noch am Tag der Hochzeit selbst."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Für den Abend, der bleibt",
+    "title": "Das Hochzeitsspiel, über das <accent>noch Jahre geredet wird.</accent>",
+    "lead": "In fünf Minuten startklar. Kein Setup, keine App für deine Gäste.",
+    "cta": "Event kostenlos erstellen",
+    "imageAlt": "Brautpaar feiert beim Hochzeitsspiel"
+  },
+  "footer": {
+    "copyright": "© 2026 TwoSoles · Gemacht für Trauzeug*innen mit Plan.",
+    "legalNav": "Rechtliches",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "imprint": "Impressum"
+  },
   "home": {
     "title": "TwoSoles",
     "intro": "Das digitale Hochzeits-Schuhspiel.",
@@ -16,7 +167,10 @@
   },
   "auth": {
     "loginTitle": "Anmelden",
+    "loginSubtitle": "Melde dich an, um dein Event zu verwalten.",
     "registerTitle": "Konto erstellen",
+    "registerSubtitle": "In zwei Minuten startklar — kostenlos.",
+    "or": "oder",
     "nameLabel": "Name",
     "emailLabel": "E-Mail",
     "sendLoginLink": "Login-Link senden",

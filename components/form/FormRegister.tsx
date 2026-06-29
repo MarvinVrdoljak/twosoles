@@ -2,7 +2,11 @@
 
 import {useState} from 'react'
 import {useTranslations} from 'next-intl'
+import {MailCheck} from 'lucide-react'
+import {CommonButton} from '@/components/common/CommonButton'
+import {FormField} from '@/components/form/FormField'
 import {createClient} from '@/utility/supabase/client'
+import styles from './FormRegister.module.css'
 
 type Status = 'idle' | 'pending' | 'sent' | 'error'
 
@@ -36,42 +40,44 @@ export function FormRegister() {
   }
 
   if (status === 'sent') {
-    return <p>{t('linkSent', {email})}</p>
+    return (
+      <div className={styles.sent} role="status">
+        <MailCheck className={styles.sentIcon} size={32} aria-hidden="true" />
+        <p className={styles.sentText}>{t('linkSent', {email})}</p>
+      </div>
+    )
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">{t('nameLabel')}</label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          autoComplete="name"
-          required
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-      </div>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <FormField
+        id="name"
+        label={t('nameLabel')}
+        type="text"
+        autoComplete="name"
+        required
+        value={name}
+        onChange={setName}
+      />
+      <FormField
+        id="email"
+        label={t('emailLabel')}
+        type="email"
+        autoComplete="email"
+        required
+        value={email}
+        onChange={setEmail}
+      />
 
-      <div>
-        <label htmlFor="email">{t('emailLabel')}</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          autoComplete="email"
-          required
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-      </div>
+      {error ? (
+        <p className={styles.error} role="alert">
+          {error}
+        </p>
+      ) : null}
 
-      {error ? <p role="alert">{error}</p> : null}
-
-      <button type="submit" disabled={status === 'pending'}>
+      <CommonButton type="submit" variant="primary" size="lg" fullWidth disabled={status === 'pending'}>
         {status === 'pending' ? t('pending') : t('sendRegisterLink')}
-      </button>
+      </CommonButton>
     </form>
   )
 }

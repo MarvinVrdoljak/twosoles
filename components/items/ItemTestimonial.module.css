@@ -1,0 +1,45 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-28);
+  height: 100%;
+  padding: var(--spacing-24);
+  background: var(--color-surface-variant);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.heart {
+  color: var(--color-primary);
+}
+
+.quote {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--font-size-lg);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-heading);
+  font-size: var(--font-size-lg);
+  line-height: 1.1;
+  color: var(--color-text);
+}
