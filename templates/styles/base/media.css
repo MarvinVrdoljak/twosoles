@@ -1,0 +1,10 @@
+/* ============================================================
+   Custom Media Queries (CSS Level 5 — processed by PostCSS)
+   Usage: @media (--bp-medium-up) { ... }
+   ============================================================ */
+@custom-media --bp-small-up (min-width: 640px);
+@custom-media --bp-medium-up (min-width: 768px);
+@custom-media --bp-medium-down (max-width: 767px);
+@custom-media --bp-large-up (min-width: 1024px);
+@custom-media --bp-large-down (max-width: 1023px);
+@custom-media --bp-xlarge-up (min-width: 1280px);

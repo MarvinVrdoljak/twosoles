@@ -1,0 +1,6 @@
+/* ============================================================
+   Components Layer — global atoms not tied to one React component
+   (e.g. styles applied to rich-text / server-rendered markup).
+   Prefer CSS Modules for actual React components.
+   ============================================================ */
+@import './button.css';

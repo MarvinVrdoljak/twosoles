@@ -1,0 +1,10 @@
+{
+  "general": {
+    "home": "Startseite",
+    "loading": "Laden …"
+  },
+  "home": {
+    "title": "Willkommen",
+    "intro": "Dies ist die Startseite."
+  }
+}

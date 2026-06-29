@@ -1,0 +1,36 @@
+{
+  "general": {
+    "home": "Startseite",
+    "loading": "Laden …"
+  },
+  "home": {
+    "title": "TwoSoles",
+    "intro": "Das digitale Hochzeits-Schuhspiel.",
+    "goToLogin": "Anmelden",
+    "goToRegister": "Konto erstellen"
+  },
+  "host": {
+    "title": "Host-Bereich",
+    "loggedInAs": "Eingeloggt als {name}",
+    "logout": "Abmelden"
+  },
+  "auth": {
+    "loginTitle": "Anmelden",
+    "registerTitle": "Konto erstellen",
+    "nameLabel": "Name",
+    "emailLabel": "E-Mail",
+    "sendLoginLink": "Login-Link senden",
+    "sendRegisterLink": "Registrieren",
+    "continueWithGoogle": "Mit Google fortfahren",
+    "oauthError": "Die Anmeldung mit Google ist fehlgeschlagen. Bitte versuche es erneut.",
+    "pending": "Bitte warten …",
+    "linkSent": "Wir haben dir einen Link an {email} geschickt. Öffne ihn, um dich anzumelden.",
+    "linkInvalid": "Der Link ist ungültig oder abgelaufen. Bitte fordere einen neuen an.",
+    "noAccountError": "Für diese E-Mail gibt es kein Konto. Bitte registriere dich zuerst.",
+    "noAccount": "Noch kein Konto?",
+    "haveAccount": "Schon ein Konto?",
+    "toRegister": "Konto erstellen",
+    "toLogin": "Anmelden",
+    "errorGeneric": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+  }
+}

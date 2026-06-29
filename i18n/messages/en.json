@@ -1,0 +1,36 @@
+{
+  "general": {
+    "home": "Home",
+    "loading": "Loading …"
+  },
+  "home": {
+    "title": "TwoSoles",
+    "intro": "The digital wedding shoe game.",
+    "goToLogin": "Sign in",
+    "goToRegister": "Create account"
+  },
+  "host": {
+    "title": "Host area",
+    "loggedInAs": "Signed in as {name}",
+    "logout": "Sign out"
+  },
+  "auth": {
+    "loginTitle": "Sign in",
+    "registerTitle": "Create account",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "sendLoginLink": "Send login link",
+    "sendRegisterLink": "Register",
+    "continueWithGoogle": "Continue with Google",
+    "oauthError": "Google sign-in failed. Please try again.",
+    "pending": "Please wait …",
+    "linkSent": "We sent a link to {email}. Open it to sign in.",
+    "linkInvalid": "The link is invalid or has expired. Please request a new one.",
+    "noAccountError": "There is no account for this email. Please register first.",
+    "noAccount": "No account yet?",
+    "haveAccount": "Already have an account?",
+    "toRegister": "Create account",
+    "toLogin": "Sign in",
+    "errorGeneric": "Something went wrong. Please try again."
+  }
+}

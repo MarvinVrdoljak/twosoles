@@ -1,0 +1,120 @@
+/* ============================================================
+   Base Layer — minimal reset + element typography.
+   Never override these from a component module; fix them here.
+   ============================================================ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background: var(--color-background);
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  figure {
+    margin: 0;
+    line-height: 0;
+  }
+
+  figure figcaption {
+    line-height: var(--line-height-base);
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-heading);
+    margin-top: 0;
+  }
+
+  h1 {
+    margin: 0 0 20px;
+    font-size: var(--font-size-h1);
+  }
+  h2 {
+    margin: 0 0 20px;
+    font-size: var(--font-size-h2);
+  }
+  h3 {
+    margin: 0 0 12px;
+    font-size: var(--font-size-h3);
+  }
+  h4 {
+    margin: 0 0 12px;
+    font-size: var(--font-size-h4);
+  }
+  h5 {
+    margin: 0 0 12px;
+    font-size: var(--font-size-h5);
+  }
+  h6 {
+    margin: 0 0 12px;
+    font-size: var(--font-size-h6);
+  }
+
+  p {
+    margin: 0 0 20px;
+  }
+
+  h1:last-child,
+  h2:last-child,
+  h3:last-child,
+  h4:last-child,
+  h5:last-child,
+  h6:last-child,
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    color: var(--color-text);
+  }
+
+  blockquote {
+    margin: 0;
+  }
+
+  /* details / accordion reset */
+  details {
+    outline: none;
+  }
+  details > summary {
+    list-style: none;
+    outline: none;
+  }
+  details > summary::marker,
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Button reset */
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+  }
+}

@@ -1,0 +1,21 @@
+/* Global .button atom — for use in markup/rich-text where a CSS Module
+   is not available. React components should use a Button.module.css instead. */
+@layer components {
+  .button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    padding: var(--spacing-8) var(--spacing-16);
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .button:hover {
+    background: var(--color-primary-hover);
+  }
+}

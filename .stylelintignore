@@ -1,0 +1,5 @@
+node_modules
+.next
+out
+# SKILL reference templates — not project source, not linted.
+templates

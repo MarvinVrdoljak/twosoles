@@ -1,0 +1,27 @@
+/* ============================================================
+   Utilities Layer — reusable layout patterns used in >1 place.
+   ============================================================ */
+@layer utilities {
+  /* App shell */
+  .layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Max-width content wrapper, used on every page */
+  .grid {
+    display: grid;
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: var(--spacing-20);
+  }
+
+  /* Disabled state */
+  .disabled,
+  *:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}

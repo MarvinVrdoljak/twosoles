@@ -1,0 +1,4 @@
+.root {
+  gap: var(--spacing-24);
+  padding-block: var(--block-spacing-md);
+}
