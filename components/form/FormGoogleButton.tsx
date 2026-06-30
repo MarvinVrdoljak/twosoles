@@ -4,6 +4,7 @@ import {useState} from 'react'
 import {useTranslations} from 'next-intl'
 import {CommonButton} from '@/components/common/CommonButton'
 import {createClient} from '@/utility/supabase/client'
+import styles from './FormGoogleButton.module.css'
 
 // Starts the Google OAuth flow. Supabase redirects to Google and back to
 // /auth/callback, which exchanges the code for a session.
@@ -30,11 +31,12 @@ export function FormGoogleButton() {
     <CommonButton
       type="button"
       variant="secondary"
-      size="lg"
+      size="md"
       fullWidth
       disabled={pending}
       onClick={handleGoogle}
     >
+      <img className={styles.icon} src="/images/google.svg" alt="" width={20} height={20} />
       {t('continueWithGoogle')}
     </CommonButton>
   )

@@ -1,7 +1,5 @@
 import {getTranslations, setRequestLocale} from 'next-intl/server'
 import {redirect} from 'next/navigation'
-import {FormDivider} from '@/components/form/FormDivider'
-import {FormGoogleButton} from '@/components/form/FormGoogleButton'
 import {FormRegister} from '@/components/form/FormRegister'
 import {LayoutAuth} from '@/components/layout/LayoutAuth'
 import {getPathname} from '@/i18n/navigation'
@@ -25,12 +23,11 @@ export default async function RegisterPage({params}: RegisterPageProps) {
 
   return (
     <LayoutAuth
-      title={t('registerTitle')}
+      eyebrow={t('registerTitle')}
+      title={t('registerHeading')}
       subtitle={t('registerSubtitle')}
-      footer={{text: t('haveAccount'), linkLabel: t('toLogin'), href: '/login'}}
+      toggle={{text: t('haveAccount'), linkLabel: t('toLogin'), href: '/login'}}
     >
-      <FormGoogleButton />
-      <FormDivider label={t('or')} />
       <FormRegister />
     </LayoutAuth>
   )

@@ -1,7 +1,5 @@
 import {getTranslations, setRequestLocale} from 'next-intl/server'
 import {redirect} from 'next/navigation'
-import {FormDivider} from '@/components/form/FormDivider'
-import {FormGoogleButton} from '@/components/form/FormGoogleButton'
 import {FormLogin} from '@/components/form/FormLogin'
 import {LayoutAuth} from '@/components/layout/LayoutAuth'
 import {getPathname} from '@/i18n/navigation'
@@ -30,13 +28,12 @@ export default async function LoginPage({params, searchParams}: LoginPageProps) 
 
   return (
     <LayoutAuth
-      title={t('loginTitle')}
+      eyebrow={t('loginTitle')}
+      title={t('loginHeading')}
       subtitle={t('loginSubtitle')}
       error={errorMessage}
-      footer={{text: t('noAccount'), linkLabel: t('toRegister'), href: '/register'}}
+      toggle={{text: t('noAccount'), linkLabel: t('toRegister'), href: '/register'}}
     >
-      <FormGoogleButton />
-      <FormDivider label={t('or')} />
       <FormLogin />
     </LayoutAuth>
   )

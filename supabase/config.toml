@@ -243,15 +243,11 @@ otp_expiry = 3600
 # admin_email = "admin@email.com"
 # sender_name = "Admin"
 
-# Magic-link login email (existing users).
+# Magic-link email — used for both login and registration. Subject and body
+# are localized via the user's stored `locale` metadata (de fallback).
 [auth.email.template.magic_link]
-subject = "Dein TwoSoles Login-Link"
+subject = "{{ if eq .Data.locale `en` }}Your sign-in link for TwoSoles{{ else }}Dein Anmelde-Link für TwoSoles{{ end }}"
 content_path = "./supabase/templates/magic_link.html"
-
-# Registration confirmation email (new users).
-[auth.email.template.confirmation]
-subject = "Bestätige deine Registrierung bei TwoSoles"
-content_path = "./supabase/templates/confirmation.html"
 
 # Uncomment to customize email template
 # [auth.email.template.invite]
@@ -408,7 +404,7 @@ deno_version = 2
 # secret_key = "env(SECRET_VALUE)"
 
 [analytics]
-enabled = true
+enabled = false
 port = 54327
 # Configure one of the supported backends: `postgres`, `bigquery`.
 backend = "postgres"

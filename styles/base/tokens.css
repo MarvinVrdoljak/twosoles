@@ -15,16 +15,19 @@
   --color-surface-variant: #fff;
   --color-background: var(--color-surface);
   --color-danger: #b42318;
+  --color-placeholder: #c5c7cd;
 
   /* Fonts — injected by next/font as CSS variables on <html> */
   --font-body: var(--font-sans, system-ui, sans-serif);
   --font-heading: var(--font-display, Georgia, "Times New Roman", serif);
 
   /* Font sizes — body fixed (Figma), headings fluid with desktop max from Figma */
+  --font-size-xs: 12px;
   --font-size-sm: 14px;
   --font-size-base: 16px;
   --font-size-lg: 20px;
   --font-size-h1: clamp(40px, 5vw, 64px);
+  --font-size-h1-small: 36px;
   --font-size-h2: clamp(36px, 5vw, 54px);
   --font-size-h3: clamp(20px, 2.5vw, 24px);
   --font-size-h4: 20px;

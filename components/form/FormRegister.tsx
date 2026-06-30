@@ -1,19 +1,24 @@
 'use client'
 
 import {useState} from 'react'
-import {useTranslations} from 'next-intl'
+import {useLocale, useTranslations} from 'next-intl'
 import {MailCheck} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
+import {FormDivider} from '@/components/form/FormDivider'
 import {FormField} from '@/components/form/FormField'
+import {FormGoogleButton} from '@/components/form/FormGoogleButton'
 import {createClient} from '@/utility/supabase/client'
 import styles from './FormRegister.module.css'
 
 type Status = 'idle' | 'pending' | 'sent' | 'error'
 
-// Passwordless registration: creates the account (storing the name in user
-// metadata) and sends a confirmation magic link.
+// Passwordless registration: creates the account (storing the name and the
+// chosen UI language in user metadata) and sends a magic link. The stored
+// `locale` drives the language of all future auth emails and can later be
+// changed from the user's account settings.
 export function FormRegister() {
   const t = useTranslations('auth')
+  const locale = useLocale()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<Status>('idle')
@@ -27,7 +32,7 @@ export function FormRegister() {
     const supabase = createClient()
     const {error: authError} = await supabase.auth.signInWithOtp({
       email,
-      options: {shouldCreateUser: true, data: {name}},
+      options: {shouldCreateUser: true, data: {name, locale}},
     })
 
     if (authError) {
@@ -49,35 +54,42 @@ export function FormRegister() {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <FormField
-        id="name"
-        label={t('nameLabel')}
-        type="text"
-        autoComplete="name"
-        required
-        value={name}
-        onChange={setName}
-      />
-      <FormField
-        id="email"
-        label={t('emailLabel')}
-        type="email"
-        autoComplete="email"
-        required
-        value={email}
-        onChange={setEmail}
-      />
+    <>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <FormField
+          id="name"
+          label={t('nameLabel')}
+          type="text"
+          placeholder={t('namePlaceholder')}
+          autoComplete="name"
+          required
+          value={name}
+          onChange={setName}
+        />
+        <FormField
+          id="email"
+          label={t('emailLabel')}
+          type="email"
+          placeholder={t('emailPlaceholder')}
+          autoComplete="email"
+          required
+          value={email}
+          onChange={setEmail}
+        />
 
-      {error ? (
-        <p className={styles.error} role="alert">
-          {error}
-        </p>
-      ) : null}
+        {error ? (
+          <p className={styles.error} role="alert">
+            {error}
+          </p>
+        ) : null}
 
-      <CommonButton type="submit" variant="primary" size="lg" fullWidth disabled={status === 'pending'}>
-        {status === 'pending' ? t('pending') : t('sendRegisterLink')}
-      </CommonButton>
-    </form>
+        <CommonButton type="submit" variant="primary" size="md" fullWidth disabled={status === 'pending'}>
+          {status === 'pending' ? t('pending') : t('sendRegisterLink')}
+        </CommonButton>
+      </form>
+
+      <FormDivider label={t('or')} />
+      <FormGoogleButton />
+    </>
   )
 }

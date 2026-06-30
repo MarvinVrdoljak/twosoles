@@ -1,56 +1,99 @@
 import React from 'react'
+import {getTranslations} from 'next-intl/server'
+import {ArrowLeft} from 'lucide-react'
 import {CommonImage} from '@/components/common/CommonImage'
 import {Link} from '@/i18n/navigation'
 import styles from './LayoutAuth.module.css'
 
 type LayoutAuthProps = {
+  eyebrow: string
   title: string
-  subtitle?: string
+  subtitle: string
   error?: string
-  footer: {text: string; linkLabel: string; href: string}
+  toggle: {text: string; linkLabel: string; href: string}
   children: React.ReactNode
 }
 
-// Split auth shell: a mood image on the left (hidden on mobile) and a centered
-// form column on the right. The page passes the form pieces as children.
-export function LayoutAuth({title, subtitle, error, footer, children}: LayoutAuthProps) {
+// Split auth shell: a photo with a testimonial overlay on the left (hidden on
+// mobile) and the form column on the right.
+export async function LayoutAuth({eyebrow, title, subtitle, error, toggle, children}: LayoutAuthProps) {
+  const t = await getTranslations('auth')
+
   return (
     <div className={styles.root}>
-      <div className={styles.media}>
+      <aside className={styles.media}>
         <CommonImage
           className={styles.image}
-          src="/images/hero-couple.jpg"
+          src="/images/auth-couple.jpg"
           alt=""
           fill
           priority
-          sizes="(max-width: 1024px) 0px, 50vw"
+          sizes="(max-width: 1024px) 0px, 58vw"
         />
-      </div>
+        <div className={styles.overlay} />
+        <div className={styles.mediaContent}>
+          <span className={styles.logoWhite}>TwoSoles</span>
+          <figure className={styles.testimonial}>
+            <blockquote className={styles.quote}>{t('testimonialQuote')}</blockquote>
+            <figcaption className={styles.figcaption}>
+              <span className={styles.author}>{t('testimonialName')}</span>
+              <span className={styles.role}>{t('testimonialRole')}</span>
+            </figcaption>
+          </figure>
+        </div>
+      </aside>
 
       <main className={styles.content}>
-        <div className={styles.inner}>
-          <Link href="/" className={styles.logo}>
-            TwoSoles
-          </Link>
+        <img className={styles.leafTop} src="/images/auth-leaf-1.svg" alt="" aria-hidden="true" />
+        <img className={styles.leafBottom} src="/images/auth-leaf-2.svg" alt="" aria-hidden="true" />
 
-          <div className={styles.head}>
-            <h1 className={styles.title}>{title}</h1>
-            {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
+        <div className={styles.inner}>
+          <div className={styles.top}>
+            <Link href="/" className={styles.logoMobile}>
+              TwoSoles
+            </Link>
+            <Link href="/" className={styles.back}>
+              <ArrowLeft size={16} aria-hidden="true" />
+              {t('backToHome')}
+            </Link>
           </div>
 
-          {error ? (
-            <p className={styles.error} role="alert">
-              {error}
+          <div className={styles.formBlock}>
+            <div className={styles.head}>
+              <p className="eyebrow eyebrowSmall">{eyebrow}</p>
+              <h1 className={styles.title}>{title}</h1>
+              <p className={styles.subtitle}>{subtitle}</p>
+            </div>
+
+            {error ? (
+              <p className={styles.error} role="alert">
+                {error}
+              </p>
+            ) : null}
+
+            {children}
+
+            <p className={styles.toggle}>
+              {toggle.text}{' '}
+              <Link href={toggle.href} className={styles.toggleLink}>
+                {toggle.linkLabel}
+              </Link>
             </p>
-          ) : null}
+          </div>
 
-          {children}
-
-          <p className={styles.footer}>
-            {footer.text}{' '}
-            <Link href={footer.href} className={styles.footerLink}>
-              {footer.linkLabel}
-            </Link>
+          <p className={styles.legal}>
+            {t.rich('legalNote', {
+              agb: (chunks) => (
+                <Link href="/agb" className={styles.legalLink}>
+                  {chunks}
+                </Link>
+              ),
+              privacy: (chunks) => (
+                <Link href="/datenschutz" className={styles.legalLink}>
+                  {chunks}
+                </Link>
+              ),
+            })}
           </p>
         </div>
       </main>

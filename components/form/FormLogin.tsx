@@ -4,7 +4,9 @@ import {useState} from 'react'
 import {useTranslations} from 'next-intl'
 import {MailCheck} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
+import {FormDivider} from '@/components/form/FormDivider'
 import {FormField} from '@/components/form/FormField'
+import {FormGoogleButton} from '@/components/form/FormGoogleButton'
 import {createClient} from '@/utility/supabase/client'
 import styles from './FormLogin.module.css'
 
@@ -47,26 +49,32 @@ export function FormLogin() {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <FormField
-        id="email"
-        label={t('emailLabel')}
-        type="email"
-        autoComplete="email"
-        required
-        value={email}
-        onChange={setEmail}
-      />
+    <>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <FormField
+          id="email"
+          label={t('emailLabel')}
+          type="email"
+          placeholder={t('emailPlaceholder')}
+          autoComplete="email"
+          required
+          value={email}
+          onChange={setEmail}
+        />
 
-      {error ? (
-        <p className={styles.error} role="alert">
-          {error}
-        </p>
-      ) : null}
+        {error ? (
+          <p className={styles.error} role="alert">
+            {error}
+          </p>
+        ) : null}
 
-      <CommonButton type="submit" variant="primary" size="lg" fullWidth disabled={status === 'pending'}>
-        {status === 'pending' ? t('pending') : t('sendLoginLink')}
-      </CommonButton>
-    </form>
+        <CommonButton type="submit" variant="primary" size="md" fullWidth disabled={status === 'pending'}>
+          {status === 'pending' ? t('pending') : t('sendLoginLink')}
+        </CommonButton>
+      </form>
+
+      <FormDivider label={t('or')} />
+      <FormGoogleButton />
+    </>
   )
 }

@@ -1,0 +1,41 @@
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+/* Botanical decoration — desktop only, behind the content. */
+.leafTop,
+.leafBottom {
+  display: none;
+
+  @media (--bp-large-up) {
+    position: absolute;
+    z-index: 0;
+    display: block;
+    pointer-events: none;
+  }
+}
+
+.leafTop {
+  top: -40px;
+  left: -60px;
+  width: 220px;
+  height: auto;
+}
+
+.leafBottom {
+  right: -80px;
+  bottom: -40px;
+  width: 260px;
+  height: auto;
+}

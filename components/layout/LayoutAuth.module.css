@@ -5,17 +5,18 @@
   background: var(--color-surface);
 
   @media (--bp-large-up) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 7fr 5fr;
   }
 }
 
-/* Mood image — hidden on mobile, shown beside the form on large screens. */
+/* ── Image side (desktop only) ─────────────────────────────── */
 .media {
   display: none;
 
   @media (--bp-large-up) {
     position: relative;
     display: block;
+    overflow: hidden;
   }
 }
 
@@ -23,23 +24,121 @@
   object-fit: cover;
 }
 
-.content {
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, black 35%, transparent);
+}
+
+.mediaContent {
+  position: relative;
+  z-index: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: var(--spacing-32);
+  color: var(--color-white);
+}
+
+.logoWhite {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: var(--font-weight-bold);
+  font-size: 28px;
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-28);
+  max-width: 480px;
+  margin: 0;
+  text-shadow: 0 0 6px color-mix(in srgb, black 30%, transparent);
+}
+
+.quote {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: var(--font-weight-heading);
+  font-size: 32px;
+  line-height: 1.3;
+}
+
+.figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.author {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-heading);
+  font-size: var(--font-size-lg);
+  line-height: 1.1;
+}
+
+.role {
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+}
+
+/* ── Form side ─────────────────────────────────────────────── */
+.content {
+  position: relative;
+  display: flex;
+  align-items: stretch;
   justify-content: center;
-  padding-block: var(--spacing-40);
+  overflow: hidden;
+  padding-block: var(--spacing-32);
   padding-inline: var(--side-gap);
 }
 
+.leafTop,
+.leafBottom {
+  display: none;
+
+  @media (--bp-large-up) {
+    position: absolute;
+    z-index: 0;
+    display: block;
+    pointer-events: none;
+  }
+}
+
+.leafTop {
+  top: -50px;
+  right: -30px;
+  width: 130px;
+  height: auto;
+}
+
+.leafBottom {
+  bottom: 40px;
+  left: -40px;
+  width: 150px;
+  height: auto;
+}
+
 .inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-24);
+  justify-content: space-between;
+  gap: var(--spacing-32);
   width: 100%;
   max-width: 400px;
 }
 
-.logo {
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.logoMobile {
   align-self: flex-start;
   font-family: var(--font-heading);
   font-style: italic;
@@ -47,6 +146,31 @@
   font-size: 28px;
   color: var(--color-primary);
   text-decoration: none;
+
+  @media (--bp-large-up) {
+    display: none;
+  }
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: var(--spacing-4);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.formBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-20);
 }
 
 .head {
@@ -57,7 +181,7 @@
 
 .title {
   margin: 0;
-  font-size: clamp(28px, 4vw, 36px);
+  font-size: var(--font-size-h1-small);
 }
 
 .subtitle {
@@ -76,13 +200,34 @@
   border-radius: var(--radius-md);
 }
 
-.footer {
+.toggle {
   margin: 0;
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
+  text-align: center;
 }
 
-.footerLink {
+.toggleLink {
   color: var(--color-primary);
-  font-weight: var(--font-weight-semibold);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.legal {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  line-height: 1.3;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.legalLink {
+  color: var(--color-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

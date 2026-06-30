@@ -6,6 +6,7 @@ type FormFieldProps = {
   type: string
   value: string
   onChange: (value: string) => void
+  placeholder?: string
   autoComplete?: string
   required?: boolean
   name?: string
@@ -18,6 +19,7 @@ export function FormField({
   type,
   value,
   onChange,
+  placeholder,
   autoComplete,
   required,
   name,
@@ -32,6 +34,7 @@ export function FormField({
         name={name ?? id}
         type={type}
         value={value}
+        placeholder={placeholder}
         autoComplete={autoComplete}
         required={required}
         className={styles.input}

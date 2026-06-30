@@ -1,34 +1,42 @@
 import {getTranslations, setRequestLocale} from 'next-intl/server'
 import {redirect} from 'next/navigation'
-import {FormLogoutButton} from '@/components/form/FormLogoutButton'
+import {ItemAddEventCard} from '@/components/items/ItemAddEventCard'
+import {LayoutDashboard} from '@/components/layout/LayoutDashboard'
 import {getPathname} from '@/i18n/navigation'
 import type {Locale} from '@/i18n/routing'
 import {getUser} from '@/utility/supabase/user'
+import styles from './page.module.css'
 
 type HostPageProps = {
   params: Promise<{locale: Locale}>
 }
 
-// Authenticated area. Non-authenticated visitors are sent to /login.
+// Signed-in dashboard. Empty state (no events yet). Non-authenticated visitors
+// are sent to /login.
 export default async function HostPage({params}: HostPageProps) {
   const {locale} = await params
   setRequestLocale(locale)
 
-  const user = await getUser()
-  if (!user) {
+  if (!(await getUser())) {
     redirect(getPathname({href: '/login', locale}))
   }
 
-  const t = await getTranslations('host')
-
-  const rawName: unknown = user.user_metadata?.name
-  const displayName = typeof rawName === 'string' && rawName.length > 0 ? rawName : user.email
+  const t = await getTranslations('dashboard')
 
   return (
-    <main>
-      <h1>{t('title')}</h1>
-      <p>{t('loggedInAs', {name: displayName ?? ''})}</p>
-      <FormLogoutButton />
-    </main>
+    <LayoutDashboard active="events">
+      <div className={styles.root}>
+        <div className={styles.header}>
+          <h1 className={styles.title}>{t('eventsTitle')}</h1>
+          <p className={styles.subtitle}>{t('eventsSubtitle')}</p>
+        </div>
+
+        <ItemAddEventCard
+          href="/host/create"
+          title={t('addEventTitle')}
+          subtitle={t('addEventSubtitle')}
+        />
+      </div>
+    </LayoutDashboard>
   )
 }
