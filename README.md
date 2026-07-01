@@ -23,12 +23,12 @@ und E-Mail/Passwort-Login inklusive Konto-Erstellung. **Noch kein Styling.**
 ```bash
 npm install
 npm run supabase:start    # startet den lokalen Supabase-Stack (Docker)
-npm run dev               # http://localhost:3000
+npm run dev               # http://localhost:3001
 ```
 
 Nützliche Adressen im lokalen Betrieb:
 
-- App: http://localhost:3000
+- App: http://localhost:3001
 - Supabase Studio: http://127.0.0.1:54323
 - Eingehende Mails (Mailpit): http://127.0.0.1:54324
 
@@ -60,7 +60,7 @@ Weitere Skripte: `npm run supabase:stop`, `npm run supabase:status`,
 > Lokal werden Mails **nicht** versendet, sondern landen in **Mailpit**
 > (http://127.0.0.1:54324). Dort den Link öffnen, um den Flow zu testen.
 > Nach Config-Änderungen unter `supabase/` einmal `npm run supabase:stop &&
-> npm run supabase:start` ausführen.
+npm run supabase:start` ausführen.
 
 ### Google OAuth (Social Login)
 
@@ -76,8 +76,8 @@ git-ignorierten `.env` (`SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID` / `_SECRET`).
 
 **Einrichtung (Google Cloud Console):**
 
-1. Projekt anlegen → **OAuth consent screen** konfigurieren (User type *External*,
-   App-Name, Support-Mail; Scopes `email`/`profile`/`openid`). Während *Testing*
+1. Projekt anlegen → **OAuth consent screen** konfigurieren (User type _External_,
+   App-Name, Support-Mail; Scopes `email`/`profile`/`openid`). Während _Testing_
    dich als Test-User hinzufügen; für den öffentlichen Betrieb veröffentlichen.
 2. **Credentials → Create credentials → OAuth client ID → Web application**.
 3. **Authorized redirect URI** = der **Supabase**-Callback (nicht die App!):
@@ -87,16 +87,16 @@ git-ignorierten `.env` (`SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID` / `_SECRET`).
    `npm run supabase:stop && npm run supabase:start`.
 
 Live (supabase.com): dieselben Client-ID/-Secret im Dashboard unter
-*Authentication → Providers → Google* setzen (statt in der lokalen `.env`).
+_Authentication → Providers → Google_ setzen (statt in der lokalen `.env`).
 
 ## Umgebungsvariablen
 
 `.env.local` ist mit den lokalen Supabase-Defaults vorbefüllt. Vorlage: `.env.example`.
 
-| Variable | Lokal | Live (supabase.com) |
-| --- | --- | --- |
-| `NEXT_PUBLIC_SUPABASE_URL` | `http://127.0.0.1:54321` | `https://<ref>.supabase.co` |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | lokaler anon key | anon (public) key aus dem Dashboard |
+| Variable                        | Lokal                    | Live (supabase.com)                 |
+| ------------------------------- | ------------------------ | ----------------------------------- |
+| `NEXT_PUBLIC_SUPABASE_URL`      | `http://127.0.0.1:54321` | `https://<ref>.supabase.co`         |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | lokaler anon key         | anon (public) key aus dem Dashboard |
 
 ## Migration nach supabase.com (live)
 

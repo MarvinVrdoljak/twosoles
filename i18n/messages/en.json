@@ -200,6 +200,179 @@
       ]
     }
   },
+  "eventWizard": {
+    "cancel": "Cancel",
+    "back": "Back",
+    "next": "Next",
+    "stepOf": "Step {current} of {total}",
+    "steps": [
+      {"title": "The couple", "subtitle": "Names, photos & colours"},
+      {"title": "Key facts", "subtitle": "Title, date, language"},
+      {"title": "Questions", "subtitle": "Your question set"},
+      {"title": "Guests", "subtitle": "Size & package"},
+      {"title": "Overview", "subtitle": "Save & go"}
+    ],
+    "couple": {
+      "title": "Who's being put to the test?",
+      "subtitle": "Both names appear on the projector and the voting buttons. Photos are optional.",
+      "name1": "Name person 1",
+      "name2": "Name person 2",
+      "photoLabel": "Add photo (optional)",
+      "removePhoto": "Remove photo",
+      "colorLabel": "Pick a colour"
+    },
+    "details": {
+      "title": "The key facts of the celebration",
+      "subtitle": "Title, date and language. The guest count comes later. Build first, decide later.",
+      "occasionLabel": "Occasion",
+      "occasionPlaceholder": "Wedding",
+      "occasions": [
+        {"value": "wedding", "label": "Wedding"},
+        {"value": "engagement", "label": "Engagement"},
+        {"value": "civil", "label": "Civil ceremony"},
+        {"value": "prewedding", "label": "Pre-wedding party"},
+        {"value": "anniversary", "label": "Anniversary"},
+        {"value": "other", "label": "Other"}
+      ],
+      "titleLabel": "Event title",
+      "titlePlaceholder": "Sophie & Jonas – Wedding",
+      "dateLabel": "Date of the celebration",
+      "languageLabel": "Game language"
+    },
+    "questions": {
+      "title": "The questions for the big moment",
+      "subtitle": "Roll a set, pick from the catalogue or write your own. Reorder by drag & drop.",
+      "addPlaceholder": "Your own question: Who is more likely to … ?",
+      "add": "Add",
+      "count": "{count} questions",
+      "random": "Random",
+      "catalog": "Question catalogue",
+      "catalogTitle": "Choose from the catalogue",
+      "catalogEmpty": "All catalogue questions are already in your set.",
+      "apply": "Apply",
+      "remove": "Remove question",
+      "customBadge": "Custom question",
+      "empty": "No questions yet. Write your own, roll 15 from the catalogue or pick from it.",
+      "close": "Close",
+      "randomConfirmTitle": "Re-roll the questions?",
+      "randomConfirmText": "This overwrites all current questions and drops in 15 random questions from the catalogue.",
+      "randomConfirm": "Re-roll",
+      "randomKeep": "Keep"
+    },
+    "package": {
+      "title": "How many guests are playing?",
+      "subtitle": "Up to 10 guests free. Upgrade any time. Pay once per event.",
+      "select": "Select",
+      "selected": "Selected",
+      "upTo": "Up to {capacity}"
+    },
+    "summary": {
+      "title": "Almost there!",
+      "subtitle": "Check your event and secure it. For the first step you need a free account.",
+      "couple": "Couple",
+      "occasion": "Occasion",
+      "date": "Date",
+      "language": "Language",
+      "questions": "Questions",
+      "package": "Guests / package",
+      "packageValue": "«{name}» (up to {capacity})",
+      "notSet": "—",
+      "freeTitle": "Secure it for free first",
+      "freeText": "You can also create the event for free in the «Kleine Runde» package (max. 10 players) first. You can upgrade to your preferred package any time later.",
+      "freeButton": "Create event for free",
+      "creatingFree": "Creating …",
+      "createError": "The event couldn't be created. Please try again.",
+      "submit": "Create event & pay",
+      "stubNotice": "Payment isn't connected yet (Stripe to follow). Use \"Create event for free\" for the Small circle plan."
+    }
+  },
+  "eventDetail": {
+    "back": "Back to events",
+    "guestLink": "Guest link",
+    "downloadQr": "Download QR code PDF",
+    "testGame": "Test the game",
+    "startGame": "Start the game",
+    "save": "Save",
+    "saving": "Saving …",
+    "saveError": "Couldn't save. Please try again.",
+    "comingSoon": "Coming soon.",
+    "tabs": {
+      "couple": "The couple",
+      "details": "Key facts",
+      "questions": "Questions",
+      "guide": "How to play",
+      "settings": "Settings"
+    },
+    "coupleTitle": "The couple",
+    "coupleSubtitle": "Names and photos as they appear on the projector.",
+    "detailsTitle": "The key facts of the celebration",
+    "detailsSubtitle": "Title, date and language of your celebration.",
+    "questionsTitle": "The questions for the big moment",
+    "questionsSubtitle": "Your question set — reorder, add and swap.",
+    "settings": {
+      "statusTitle": "Status",
+      "statusDraftText": "Once you activate the event you have 48 hours to play the game. During this time any number of guests can join. After that the event is closed and cannot be started again.",
+      "statusDraftWarning": "Note: the event can only be set live once.",
+      "goLive": "Set event live",
+      "statusLiveText": "Your event is live. Share the guest code with your guests. They don't need an app.",
+      "statusEndedText": "The event has ended. The results stay saved for you.",
+      "statusExpiredText": "The date has passed and the event was never set live.",
+      "pinTitle": "Host PIN",
+      "pinText": "Protects the projector controls. Guests don't need it.",
+      "pinRegenerate": "Regenerate",
+      "packageTitle": "Package & capacity",
+      "packageText": "Up to 10 guests free. Upgrade any time. Pay once per event.",
+      "packageCurrent": "Current plan",
+      "packageUpgrade": "Upgrade",
+      "packageDowngrade": "Downgrade not possible",
+      "upgradeNotice": "Upgrades aren't connected yet (Stripe to follow).",
+      "deleteTitle": "Delete event",
+      "deleteText": "Permanent and irreversible. All questions, results and the QR code are removed. This step cannot be undone. Payments are not refunded.",
+      "deleteButton": "Delete event",
+      "deleteConfirm": "Really delete this event? This cannot be undone."
+    },
+    "guide": {
+      "title": "How you play TwoSoles",
+      "intro": "The shoe game, live with the whole room. Plan around 20–30 minutes for 10–15 questions. Here's the full flow — to read along or as a PDF for the day itself.",
+      "needsTitle": "What you need",
+      "needs": [
+        "A projector (incl. screen) or large display for the projector view.",
+        "A device for the projector view (connected to the projector/display): laptop or tablet, min. 1024px recommended.",
+        "A second device for the host controls: laptop, tablet or phone (with an internet connection).",
+        "Internet for the projector/host device. A phone hotspot is enough.",
+        "Two chairs and a pair of shoes each (classic: one own + one partner shoe).",
+        "Your question set from the “Questions” tab.",
+        "Optional: a microphone for hosting."
+      ],
+      "stepsTitle": "The flow in 6 steps",
+      "steps": [
+        {"title": "Set-up", "text": "The couple sits back to back on two chairs — each person holds one of their own and one of their partner's shoes. The projector shows the projector view, your phone or laptop the host controls."},
+        {"title": "Guests join", "text": "A QR code appears on the projector. Guests scan it with their phone camera and land right on the voting page — no app, no login."},
+        {"title": "Ask a question", "text": "You open the next question in the host controls. It appears large on the projector, guests tap one of the two people on their phone."},
+        {"title": "Close the vote", "text": "Once enough votes are in, you close the vote. Now the couple raises their own answer as a shoe — before the audience result is shown."},
+        {"title": "The reveal", "text": "You press “Reveal”. Countdown, then the bar reveals how the room voted. The big question: was the majority right?"},
+        {"title": "Keep going", "text": "Next question — and so on through your whole set. At the end the projector shows the finale."}
+      ],
+      "viewsTitle": "The 3 views",
+      "views": [
+        {"title": "Projector", "text": "On the projector for everyone. Shows the question, countdown and the reveal."},
+        {"title": "Guest phone", "text": "One question, two buttons. Opens via QR code."},
+        {"title": "Host controls", "text": "Your device. You set the pace and the reveals."}
+      ],
+      "open": "Open",
+      "tipsTitle": "Tips for the big moment",
+      "tips": [
+        "10–15 questions is ideal — enough tension without dragging.",
+        "Insider questions get the loudest laughs. Mix classics with what you know about the couple.",
+        "No wedding Wi-Fi needed — guests vote over their mobile data. Only the projector device needs to be online.",
+        "Keep the projector/host device plugged in and check the internet connection beforehand — nothing runs without it.",
+        "Wait to close the vote until enough guests have voted (you see the vote count live in the controls).",
+        "Have the couple raise their shoes first, then reveal — that's the moment of suspense.",
+        "Do a quick test run beforehand so everything's set on the day."
+      ],
+      "download": "Download guide"
+    }
+  },
   "home": {
     "title": "TwoSoles",
     "intro": "The digital wedding shoe game.",
@@ -222,7 +395,16 @@
     "eventsTitle": "Your events",
     "eventsSubtitle": "All your games in one place — past and upcoming. Create a new event, manage your questions and share the guest code right from the dashboard.",
     "addEventTitle": "Create a new event",
-    "addEventSubtitle": "Ready in 5 minutes"
+    "addEventSubtitle": "Ready in 5 minutes",
+    "statusDraft": "Draft",
+    "statusLive": "Live",
+    "statusEnded": "Ended",
+    "statusExpired": "Expired",
+    "cardGuests": "Up to {capacity} · «{name}»",
+    "cardQuestions": "{count} questions selected",
+    "cardManage": "Manage event",
+    "cardControl": "Control game",
+    "cardSummary": "Summary"
   },
   "account": {
     "title": "Account",

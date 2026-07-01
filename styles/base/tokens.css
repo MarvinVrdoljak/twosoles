@@ -6,6 +6,7 @@
   /* Colors */
   --color-primary: #a67070;
   --color-primary-hover: #905f5f;
+  --color-primary-light: #e8d5d5;
   --color-text: #1f2937;
   --color-text-muted: #6b7280;
   --color-on-primary: #fff;
@@ -15,6 +16,8 @@
   --color-surface-variant: #fff;
   --color-background: var(--color-surface);
   --color-danger: #cd3a3d;
+  --color-success: #5f8f5f;
+  --color-success-light: #c5e4c5;
   --color-placeholder: #c5c7cd;
 
   /* Fonts — injected by next/font as CSS variables on <html> */

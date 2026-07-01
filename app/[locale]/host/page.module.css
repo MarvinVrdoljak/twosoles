@@ -5,3 +5,10 @@
   padding-block: var(--spacing-64);
   padding-inline: var(--side-gap);
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 340px));
+  gap: var(--spacing-24);
+  align-items: start;
+}

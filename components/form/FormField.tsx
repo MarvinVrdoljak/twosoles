@@ -12,6 +12,7 @@ type FormFieldProps = {
   disabled?: boolean
   hint?: string
   name?: string
+  min?: string
 }
 
 // Labelled text input with consistent styling. Used inside the auth + account forms.
@@ -27,6 +28,7 @@ export function FormField({
   disabled,
   hint,
   name,
+  min,
 }: FormFieldProps) {
   return (
     <div className={styles.root}>
@@ -42,6 +44,7 @@ export function FormField({
         autoComplete={autoComplete}
         required={required}
         disabled={disabled}
+        min={min}
         className={styles.input}
         onChange={(event) => onChange(event.target.value)}
       />

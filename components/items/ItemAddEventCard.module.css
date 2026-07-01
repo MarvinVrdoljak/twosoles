@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--spacing-20);
-  min-height: 320px;
+  min-height: 276px;
   padding: var(--spacing-24);
   text-align: center;
   text-decoration: none;
@@ -14,10 +14,6 @@
   transition:
     border-color 0.15s ease,
     background 0.15s ease;
-
-  @media (--bp-medium-up) {
-    min-height: 460px;
-  }
 
   &:hover {
     background: var(--color-surface-variant);

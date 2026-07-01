@@ -200,6 +200,179 @@
       ]
     }
   },
+  "eventWizard": {
+    "cancel": "Abbrechen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "stepOf": "Schritt {current} von {total}",
+    "steps": [
+      {"title": "Das Paar", "subtitle": "Name, Fotos & Farben"},
+      {"title": "Eckdaten", "subtitle": "Titel, Datum, Sprache"},
+      {"title": "Fragen", "subtitle": "Dein Frage-Set"},
+      {"title": "Gäste", "subtitle": "Größe & Paket"},
+      {"title": "Übersicht", "subtitle": "Sichern & los"}
+    ],
+    "couple": {
+      "title": "Wer wird auf die Probe gestellt?",
+      "subtitle": "Die beiden Namen erscheinen auf der Leinwand und den Abstimm-Buttons. Fotos sind optional.",
+      "name1": "Name Person 1",
+      "name2": "Name Person 2",
+      "photoLabel": "Foto hinzufügen (optional)",
+      "removePhoto": "Foto entfernen",
+      "colorLabel": "Farbe wählen"
+    },
+    "details": {
+      "title": "Die Eckdaten der Feier",
+      "subtitle": "Titel, Datum und Sprache. Die Gästezahl kommt später. Erst bauen, dann entscheiden.",
+      "occasionLabel": "Anlass",
+      "occasionPlaceholder": "Hochzeit",
+      "occasions": [
+        {"value": "wedding", "label": "Hochzeit"},
+        {"value": "engagement", "label": "Verlobung"},
+        {"value": "civil", "label": "Standesamt"},
+        {"value": "prewedding", "label": "Polterabend"},
+        {"value": "anniversary", "label": "Jubiläum"},
+        {"value": "other", "label": "Sonstiges"}
+      ],
+      "titleLabel": "Event-Titel",
+      "titlePlaceholder": "Sophie & Jonas – Hochzeit",
+      "dateLabel": "Datum der Feier",
+      "languageLabel": "Spiel-Sprache"
+    },
+    "questions": {
+      "title": "Die Fragen für den großen Moment",
+      "subtitle": "Würfle ein Set, wähle aus dem Katalog oder schreib eigene. Sortieren per Drag & Drop.",
+      "addPlaceholder": "Eigene Frage: Wer würde eher … ?",
+      "add": "Hinzufügen",
+      "count": "{count} Fragen",
+      "random": "Zufällig",
+      "catalog": "Fragenkatalog",
+      "catalogTitle": "Aus dem Katalog wählen",
+      "catalogEmpty": "Alle Katalog-Fragen sind schon in deinem Set.",
+      "apply": "Übernehmen",
+      "remove": "Frage entfernen",
+      "customBadge": "Eigene Frage",
+      "empty": "Noch keine Fragen. Schreib eigene, würfle 15 aus dem Katalog oder wähle aus dem Fragenkatalog.",
+      "close": "Schließen",
+      "randomConfirmTitle": "Fragen neu würfeln?",
+      "randomConfirmText": "Dabei werden alle aktuellen Fragen überschrieben und 15 zufällige Fragen aus dem Katalog eingesetzt.",
+      "randomConfirm": "Neu würfeln",
+      "randomKeep": "Behalten"
+    },
+    "package": {
+      "title": "Wie viele Gäste spielen mit?",
+      "subtitle": "Bis 10 Gäste kostenlos. Ein Upgrade jederzeit möglich. Bezahlt wird einmalig pro Event.",
+      "select": "Auswählen",
+      "selected": "Ausgewählt",
+      "upTo": "Bis zu {capacity}"
+    },
+    "summary": {
+      "title": "Fast geschafft!",
+      "subtitle": "Prüf kurz dein Event und sichere es dir. Für den ersten Schritt brauchst du ein kostenloses Konto.",
+      "couple": "Paar",
+      "occasion": "Anlass",
+      "date": "Datum",
+      "language": "Sprache",
+      "questions": "Fragen",
+      "package": "Gäste / Paket",
+      "packageValue": "«{name}» (bis {capacity})",
+      "notSet": "—",
+      "freeTitle": "Erstmal kostenlos sichern",
+      "freeText": "Du kannst das Event auch erst einmal kostenlos im Paket «Kleine Runde» (max. 10 Spieler) anlegen. Du kannst später jederzeit auf dein gewünschtes Paket upgraden.",
+      "freeButton": "Event kostenlos anlegen",
+      "creatingFree": "Wird angelegt …",
+      "createError": "Das Event konnte nicht angelegt werden. Bitte versuch es erneut.",
+      "submit": "Event erstellen & bezahlen",
+      "stubNotice": "Die Bezahlung ist noch nicht angebunden (Stripe folgt). Nutze «Event kostenlos anlegen» für den Small-Circle-Plan."
+    }
+  },
+  "eventDetail": {
+    "back": "Zur Event-Übersicht",
+    "guestLink": "Gäste Link",
+    "downloadQr": "Download QR-Code-PDF",
+    "testGame": "Spiel testen",
+    "startGame": "Spiel starten",
+    "save": "Speichern",
+    "saving": "Speichern …",
+    "saveError": "Konnte nicht gespeichert werden. Bitte versuch es erneut.",
+    "comingSoon": "Kommt bald.",
+    "tabs": {
+      "couple": "Das Paar",
+      "details": "Eckdaten",
+      "questions": "Fragen",
+      "guide": "Anleitung",
+      "settings": "Einstellungen"
+    },
+    "coupleTitle": "Das Paar",
+    "coupleSubtitle": "Namen und Fotos, wie sie auf der Leinwand erscheinen.",
+    "detailsTitle": "Die Eckdaten der Feier",
+    "detailsSubtitle": "Titel, Datum und Sprache eurer Feier.",
+    "questionsTitle": "Die Fragen für den großen Moment",
+    "questionsSubtitle": "Dein Frage-Set — sortieren, ergänzen und austauschen.",
+    "settings": {
+      "statusTitle": "Status",
+      "statusDraftText": "Sobald du das Event aktivierst, hast du 48 Stunden Zeit, das Spiel zu spielen. In dieser Zeit können sich unbegrenzt viele Gäste verbinden. Nach Ablauf ist das Event abgeschlossen und kann nicht erneut gestartet werden.",
+      "statusDraftWarning": "Achtung: Das Event kann nur einmal live geschaltet werden.",
+      "goLive": "Event live schalten",
+      "statusLiveText": "Dein Event läuft. Teile den Gastcode mit deinen Gästen. Sie brauchen keine App.",
+      "statusEndedText": "Das Event ist beendet. Die Ergebnisse bleiben für dich gespeichert.",
+      "statusExpiredText": "Das Datum ist verstrichen und das Event wurde nie live geschaltet.",
+      "pinTitle": "Host-Pin",
+      "pinText": "Schützt die Beamer-Steuerung. Gäste brauchen ihn nicht.",
+      "pinRegenerate": "Neu generieren",
+      "packageTitle": "Paket & Kapazität",
+      "packageText": "Bis 10 Gäste kostenlos. Ein Upgrade jederzeit möglich. Bezahlt wird einmalig pro Event.",
+      "packageCurrent": "Aktueller Tarif",
+      "packageUpgrade": "Upgraden",
+      "packageDowngrade": "Downgrade nicht möglich",
+      "upgradeNotice": "Upgrades sind noch nicht angebunden (Stripe folgt).",
+      "deleteTitle": "Event löschen",
+      "deleteText": "Dauerhaft und unwiderruflich. Alle Fragen, Ergebnisse und der QR-Code werden entfernt. Dieser Schritt kann nicht rückgängig gemacht werden. Ausgaben werden nicht zurück erstattet.",
+      "deleteButton": "Event löschen",
+      "deleteConfirm": "Dieses Event wirklich löschen? Das kann nicht rückgängig gemacht werden."
+    },
+    "guide": {
+      "title": "So spielt ihr TwoSoles",
+      "intro": "Das Schuh-Spiel, live mit dem ganzen Saal. Plane rund 20–30 Minuten für 10–15 Fragen. Hier ist der ganze Ablauf — zum Mitlesen oder als PDF für den Tag selbst.",
+      "needsTitle": "Was wird benötigt",
+      "needs": [
+        "Ein Beamer (inkl. Leinwand) oder großer Bildschirm für die Leinwand-Ansicht.",
+        "Ein Gerät für die Leinwand-Ansicht (an Beamer/Bildschirm angeschlossen): Laptop oder Tablet, empfohlen min. 1024px.",
+        "Ein zweites Gerät für die Host-Steuerung: Laptop, Tablet oder Handy (mit Internetverbindung).",
+        "Internet für das Beamer-/Host-Gerät. Ein Handy-Hotspot genügt.",
+        "Zwei Stühle und je ein Paar Schuhe der beiden (klassisch: ein eigener + ein Partner-Schuh).",
+        "Euer Fragen-Set aus dem Tab „Fragen“.",
+        "Optional: ein Mikrofon für die Moderation."
+      ],
+      "stepsTitle": "Der Ablauf in 6 Schritten",
+      "steps": [
+        {"title": "Aufstellung", "text": "Das Paar sitzt mit dem Rücken zueinander auf zwei Stühlen — jede Person hält einen eigenen und einen Schuh des Partners. Der Beamer zeigt die Leinwand-Ansicht, dein Handy oder Laptop die Host-Steuerung."},
+        {"title": "Gäste holen sich rein", "text": "Auf der Leinwand erscheint ein QR-Code. Die Gäste scannen ihn mit der Handykamera und landen direkt auf der Abstimmseite — keine App, kein Login."},
+        {"title": "Frage stellen", "text": "Du öffnest in der Host-Steuerung die nächste Frage. Sie erscheint groß auf der Leinwand, die Gäste tippen auf ihrem Handy auf eine der beiden Personen."},
+        {"title": "Abstimmung schließen", "text": "Sind genug Stimmen da, schließt du die Abstimmung. Jetzt heben die beiden ihre eigene Antwort als Schuh hoch — bevor das Publikumsergebnis sichtbar wird."},
+        {"title": "Der Reveal", "text": "Du drückst „Auflösen“. Countdown, dann enthüllt der Balken, wie der Saal abgestimmt hat. Die große Frage: Lag die Mehrheit richtig?"},
+        {"title": "Weiter geht's", "text": "Nächste Frage — und so durch euer ganzes Set. Am Ende zeigt die Leinwand den Abschluss."}
+      ],
+      "viewsTitle": "Die 3 Ansichten",
+      "views": [
+        {"title": "Leinwand", "text": "Am Beamer für alle. Zeigt Frage, Countdown und den Reveal."},
+        {"title": "Gäste-Handy", "text": "Eine Frage, zwei Buttons. Öffnet sich per QR-Code."},
+        {"title": "Host-Steuerung", "text": "Dein Gerät. Du gibst Tempo und Reveals vor."}
+      ],
+      "open": "Öffnen",
+      "tipsTitle": "Tipps für den großen Moment",
+      "tips": [
+        "10–15 Fragen sind ideal — genug Spannung, ohne dass es zäh wird.",
+        "Insider-Fragen bringen die lautesten Lacher. Mischt Klassiker mit eurem Paar-Wissen.",
+        "Kein Hochzeits-WLAN nötig — die Gäste voten über ihr Mobilfunknetz. Nur das Beamer-Gerät sollte online sein.",
+        "Lass das Beamer-/Host-Gerät am Strom und prüfe vorher die Internetverbindung — ohne sie läuft nichts.",
+        "Warte mit dem Schließen, bis genug Gäste abgestimmt haben (die Stimmenzahl siehst du live in der Steuerung).",
+        "Erst das Paar die Schuhe heben lassen, dann auflösen — das ist der Spannungsmoment.",
+        "Macht vorher einen kurzen Probelauf, damit am Tag alles sitzt."
+      ],
+      "download": "Download Anleitung"
+    }
+  },
   "home": {
     "title": "TwoSoles",
     "intro": "Das digitale Hochzeits-Schuhspiel.",
@@ -222,7 +395,16 @@
     "eventsTitle": "Deine Events",
     "eventsSubtitle": "Hier findest du alle deine Spiele — vergangene und kommende. Erstelle ein neues Event, verwalte deine Fragen und teile den Gastcode direkt aus dem Dashboard.",
     "addEventTitle": "Neues Event anlegen",
-    "addEventSubtitle": "In 5 Minuten startklar"
+    "addEventSubtitle": "In 5 Minuten startklar",
+    "statusDraft": "Entwurf",
+    "statusLive": "Live",
+    "statusEnded": "Beendet",
+    "statusExpired": "Abgelaufen",
+    "cardGuests": "Bis {capacity} · «{name}»",
+    "cardQuestions": "{count} Fragen ausgewählt",
+    "cardManage": "Event verwalten",
+    "cardControl": "Spiel steuern",
+    "cardSummary": "Zusammenfassung"
   },
   "account": {
     "title": "Konto",
