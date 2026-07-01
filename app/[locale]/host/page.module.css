@@ -8,7 +8,25 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 340px));
+  grid-template-columns: 1fr;
   gap: var(--spacing-24);
   align-items: start;
+}
+
+@media (--bp-medium-up) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (--bp-xlarge-up) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (--bp-xxxlarge-up) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
