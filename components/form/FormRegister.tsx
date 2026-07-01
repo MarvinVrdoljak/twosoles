@@ -2,8 +2,8 @@
 
 import {useState} from 'react'
 import {useLocale, useTranslations} from 'next-intl'
-import {MailCheck} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
+import {FormAuthSent} from '@/components/form/FormAuthSent'
 import {FormDivider} from '@/components/form/FormDivider'
 import {FormField} from '@/components/form/FormField'
 import {FormGoogleButton} from '@/components/form/FormGoogleButton'
@@ -45,12 +45,7 @@ export function FormRegister() {
   }
 
   if (status === 'sent') {
-    return (
-      <div className={styles.sent} role="status">
-        <MailCheck className={styles.sentIcon} size={32} aria-hidden="true" />
-        <p className={styles.sentText}>{t('linkSent', {email})}</p>
-      </div>
-    )
+    return <FormAuthSent text={t('linkSent', {email})} />
   }
 
   return (

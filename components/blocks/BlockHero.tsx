@@ -26,7 +26,7 @@ export async function BlockHero() {
             <CommonButton href="/register" variant="primary" size="lg">
               {t('ctaPrimary')}
             </CommonButton>
-            <CommonButton href="#so-funktionierts" variant="secondary" size="lg">
+            <CommonButton href="#how-it-works" variant="secondary" size="lg">
               {t('ctaSecondary')}
             </CommonButton>
           </div>

@@ -4,7 +4,7 @@ import {GlobalFooter} from '@/components/globals/GlobalFooter'
 import styles from './LayoutDashboard.module.css'
 
 type LayoutDashboardProps = {
-  active?: 'events' | 'konto'
+  active?: 'events' | 'account'
   children: React.ReactNode
 }
 

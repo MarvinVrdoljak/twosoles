@@ -1,5 +1,6 @@
 import {getTranslations, setRequestLocale} from 'next-intl/server'
 import {redirect} from 'next/navigation'
+import {CommonPageHeader} from '@/components/common/CommonPageHeader'
 import {ItemAddEventCard} from '@/components/items/ItemAddEventCard'
 import {LayoutDashboard} from '@/components/layout/LayoutDashboard'
 import {getPathname} from '@/i18n/navigation'
@@ -26,10 +27,7 @@ export default async function HostPage({params}: HostPageProps) {
   return (
     <LayoutDashboard active="events">
       <div className={styles.root}>
-        <div className={styles.header}>
-          <h1 className={styles.title}>{t('eventsTitle')}</h1>
-          <p className={styles.subtitle}>{t('eventsSubtitle')}</p>
-        </div>
+        <CommonPageHeader title={t('eventsTitle')} subtitle={t('eventsSubtitle')} />
 
         <ItemAddEventCard
           href="/host/create"

@@ -4,11 +4,13 @@ import {Link} from '@/i18n/navigation'
 import styles from './GlobalAppHeader.module.css'
 
 type GlobalAppHeaderProps = {
-  active?: 'events' | 'konto'
+  active?: 'events' | 'account'
 }
 
 // Header for the signed-in app area: logo, section nav and the account menu.
-export async function GlobalAppHeader({active = 'events'}: GlobalAppHeaderProps) {
+// `active` is optional — pages without a matching nav item (e.g. legal pages)
+// simply highlight nothing.
+export async function GlobalAppHeader({active}: GlobalAppHeaderProps) {
   const t = await getTranslations('dashboard')
 
   return (
@@ -25,8 +27,8 @@ export async function GlobalAppHeader({active = 'events'}: GlobalAppHeaderProps)
             {t('navEvents')}
           </Link>
           <Link
-            href="/host/konto"
-            className={`${styles.navLink} ${active === 'konto' ? styles.active : ''}`}
+            href="/host/account"
+            className={`${styles.navLink} ${active === 'account' ? styles.active : ''}`}
           >
             {t('navAccount')}
           </Link>

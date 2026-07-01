@@ -9,10 +9,12 @@ type FormFieldProps = {
   placeholder?: string
   autoComplete?: string
   required?: boolean
+  disabled?: boolean
+  hint?: string
   name?: string
 }
 
-// Labelled text input with consistent styling. Used inside the auth forms.
+// Labelled text input with consistent styling. Used inside the auth + account forms.
 export function FormField({
   id,
   label,
@@ -22,6 +24,8 @@ export function FormField({
   placeholder,
   autoComplete,
   required,
+  disabled,
+  hint,
   name,
 }: FormFieldProps) {
   return (
@@ -37,9 +41,11 @@ export function FormField({
         placeholder={placeholder}
         autoComplete={autoComplete}
         required={required}
+        disabled={disabled}
         className={styles.input}
         onChange={(event) => onChange(event.target.value)}
       />
+      {hint ? <p className={styles.hint}>{hint}</p> : null}
     </div>
   )
 }

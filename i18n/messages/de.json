@@ -154,6 +154,52 @@
     "terms": "AGB",
     "imprint": "Impressum"
   },
+  "legal": {
+    "updatedLabel": "Stand",
+    "updated": "Juli 2026",
+    "placeholderNote": "Hinweis: Dies ist eine unverbindliche Vorlage mit Platzhaltern. Ersetze alle in eckigen Klammern markierten Angaben durch deine eigenen Daten und lass die Texte vor der Veröffentlichung rechtlich prüfen.",
+    "imprint": {
+      "title": "Impressum",
+      "sections": [
+        {"heading": "Angaben gemäß § 5 DDG", "body": "[Name des Anbieters / Firmenname]\n[Straße und Hausnummer]\n[PLZ und Ort]\n[Land]"},
+        {"heading": "Vertreten durch", "body": "[Name der vertretungsberechtigten Person(en)]"},
+        {"heading": "Kontakt", "body": "Telefon: [Telefonnummer]\nE-Mail: [E-Mail-Adresse]"},
+        {"heading": "Umsatzsteuer-ID", "body": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:\n[USt-IdNr., sofern vorhanden]"},
+        {"heading": "Redaktionell verantwortlich", "body": "[Name und Anschrift der verantwortlichen Person]"},
+        {"heading": "Haftung für Inhalte", "body": "Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen."},
+        {"heading": "Haftung für Links", "body": "Unser Angebot enthält gegebenenfalls Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich."},
+        {"heading": "Urheberrecht", "body": "Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet."}
+      ]
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "intro": "Der Schutz deiner personenbezogenen Daten ist uns wichtig. Nachfolgend informieren wir dich darüber, welche Daten wir bei der Nutzung von TwoSoles verarbeiten und wozu.",
+      "sections": [
+        {"heading": "Verantwortlicher", "body": "Verantwortlich für die Datenverarbeitung ist:\n[Name / Firmenname]\n[Anschrift]\nE-Mail: [E-Mail-Adresse]"},
+        {"heading": "Welche Daten wir verarbeiten", "body": "Kontodaten: E-Mail-Adresse und Name, die du bei der Registrierung angibst.\nEvent- und Spieldaten: die von dir angelegten Fragen sowie die anonym abgegebenen Stimmen deiner Gäste.\nTechnische Daten: Server-Logdaten wie IP-Adresse sowie Datum und Uhrzeit des Zugriffs, die aus technischen Gründen verarbeitet werden."},
+        {"heading": "Zwecke und Rechtsgrundlagen", "body": "Wir verarbeiten deine Daten zur Bereitstellung des Dienstes und zur Erfüllung unseres Vertrags mit dir (Art. 6 Abs. 1 lit. b DSGVO), zur Gewährleistung eines sicheren Betriebs auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) sowie – soweit erforderlich – auf Grundlage deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)."},
+        {"heading": "Eingesetzte Dienste", "body": "Hosting: [Vercel Inc., USA].\nAuthentifizierung und Datenbank: [Supabase].\nZahlungsabwicklung: [Stripe]. Bei einer kostenpflichtigen Buchung werden die zur Zahlung erforderlichen Daten an den Zahlungsdienstleister übermittelt. Mit allen Dienstleistern bestehen, soweit erforderlich, Verträge zur Auftragsverarbeitung."},
+        {"heading": "Cookies", "body": "Wir verwenden ausschließlich technisch notwendige Cookies, etwa zur Speicherung deiner Anmeldung und deiner Sprachauswahl. Diese sind für den Betrieb erforderlich und bedürfen keiner Einwilligung."},
+        {"heading": "Speicherdauer", "body": "Wir speichern deine Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen dies vorsehen. Anschließend werden die Daten gelöscht."},
+        {"heading": "Deine Rechte", "body": "Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten sowie auf Datenübertragbarkeit und Widerspruch. Zudem steht dir ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu."},
+        {"heading": "Kontakt zum Datenschutz", "body": "Bei Fragen zum Datenschutz erreichst du uns unter: [E-Mail-Adresse]."}
+      ]
+    },
+    "terms": {
+      "title": "Allgemeine Geschäftsbedingungen",
+      "intro": "Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Nutzung des Dienstes TwoSoles.",
+      "sections": [
+        {"heading": "§ 1 Geltungsbereich", "body": "Diese AGB gelten für die Nutzung der über TwoSoles bereitgestellten Online-Dienste durch Verbraucher und Unternehmer. Abweichende Bedingungen des Nutzers werden nicht anerkannt, es sei denn, ihrer Geltung wird ausdrücklich zugestimmt."},
+        {"heading": "§ 2 Leistungsbeschreibung", "body": "TwoSoles ist eine digitale Version des Hochzeits-Schuhspiels. Der Anbieter stellt eine Anwendung bereit, mit der Gäste per QR-Code live abstimmen und mit der die Ergebnisse präsentiert werden können. Der konkrete Funktionsumfang richtet sich nach der gewählten Paketgröße."},
+        {"heading": "§ 3 Registrierung und Vertragsschluss", "body": "Zur Nutzung ist ein Konto erforderlich. Die Anmeldung erfolgt passwortlos über einen per E-Mail zugesandten Anmeldelink. Der Vertrag über ein kostenpflichtiges Paket kommt mit der Bestätigung der Buchung zustande."},
+        {"heading": "§ 4 Preise und Zahlung", "body": "Die Nutzung erfolgt als einmalige Zahlung pro Event; der Preis richtet sich nach der gebuchten Gästekapazität. Kleine Veranstaltungen sind kostenlos. Die Zahlung wird über unseren Zahlungsdienstleister abgewickelt. Alle Preise verstehen sich inklusive der gesetzlichen Umsatzsteuer."},
+        {"heading": "§ 5 Widerrufsrecht", "body": "Verbrauchern steht grundsätzlich ein gesetzliches Widerrufsrecht zu. Bei digitalen Inhalten kann dieses vorzeitig erlöschen, wenn die Ausführung mit ausdrücklicher Zustimmung des Verbrauchers vor Ablauf der Widerrufsfrist begonnen hat. [Widerrufsbelehrung ergänzen.]"},
+        {"heading": "§ 6 Verfügbarkeit", "body": "Der Anbieter bemüht sich um eine möglichst unterbrechungsfreie Verfügbarkeit des Dienstes, schuldet diese aber nicht ununterbrochen. Wartungsarbeiten, technische Störungen oder höhere Gewalt können zu Einschränkungen führen."},
+        {"heading": "§ 7 Haftung", "body": "Der Anbieter haftet unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie nach dem Produkthaftungsgesetz. Bei einfacher Fahrlässigkeit haftet der Anbieter nur bei Verletzung einer wesentlichen Vertragspflicht und begrenzt auf den vertragstypischen, vorhersehbaren Schaden."},
+        {"heading": "§ 8 Schlussbestimmungen", "body": "Es gilt das Recht der Bundesrepublik Deutschland. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt."}
+      ]
+    }
+  },
   "home": {
     "title": "TwoSoles",
     "intro": "Das digitale Hochzeits-Schuhspiel.",
@@ -171,11 +217,27 @@
     "navAccount": "Konto",
     "userMenu": "Konto-Menü",
     "account": "Konto",
+    "language": "Sprache",
     "logout": "Abmelden",
     "eventsTitle": "Deine Events",
     "eventsSubtitle": "Hier findest du alle deine Spiele — vergangene und kommende. Erstelle ein neues Event, verwalte deine Fragen und teile den Gastcode direkt aus dem Dashboard.",
     "addEventTitle": "Neues Event anlegen",
     "addEventSubtitle": "In 5 Minuten startklar"
+  },
+  "account": {
+    "title": "Konto",
+    "subtitle": "Deine Profildaten, Abrechnungen und Konto-Einstellungen.",
+    "profileTitle": "Profil",
+    "nameLabel": "Name",
+    "emailLabel": "E-Mail",
+    "emailHint": "Mit deinem Login verknüpft und nicht änderbar.",
+    "save": "Speichern",
+    "saving": "Speichern …",
+    "billingTitle": "Abrechnungen",
+    "downloadPdf": "PDF",
+    "deleteTitle": "Konto löschen",
+    "deleteText": "Dauerhaft und unwiderruflich. Beim Löschen werden alle Events, Ergebnisse und Rechnungen entfernt. Dieser Schritt kann nicht rückgängig gemacht werden.",
+    "deleteButton": "Konto löschen"
   },
   "auth": {
     "loginTitle": "Anmelden",

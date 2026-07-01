@@ -17,7 +17,7 @@ export async function BlockPricing() {
   const tiers = t.raw('tiers') as PriceTier[]
 
   return (
-    <section id="preise" className={styles.root} aria-labelledby="pricing-title">
+    <section id="pricing" className={styles.root} aria-labelledby="pricing-title">
       <div className={styles.header}>
         <p className="eyebrow">{t('eyebrow')}</p>
         <h2 id="pricing-title" className={styles.title}>

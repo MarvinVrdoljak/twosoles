@@ -14,7 +14,7 @@
   --color-surface: #faf7f2;
   --color-surface-variant: #fff;
   --color-background: var(--color-surface);
-  --color-danger: #b42318;
+  --color-danger: #cd3a3d;
   --color-placeholder: #c5c7cd;
 
   /* Fonts — injected by next/font as CSS variables on <html> */

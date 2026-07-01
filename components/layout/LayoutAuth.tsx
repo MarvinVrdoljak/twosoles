@@ -32,7 +32,9 @@ export async function LayoutAuth({eyebrow, title, subtitle, error, toggle, child
         />
         <div className={styles.overlay} />
         <div className={styles.mediaContent}>
-          <span className={styles.logoWhite}>TwoSoles</span>
+          <Link href="/" className={styles.logoWhite}>
+            TwoSoles
+          </Link>
           <figure className={styles.testimonial}>
             <blockquote className={styles.quote}>{t('testimonialQuote')}</blockquote>
             <figcaption className={styles.figcaption}>
@@ -84,12 +86,12 @@ export async function LayoutAuth({eyebrow, title, subtitle, error, toggle, child
           <p className={styles.legal}>
             {t.rich('legalNote', {
               agb: (chunks) => (
-                <Link href="/agb" className={styles.legalLink}>
+                <Link href="/terms" className={styles.legalLink}>
                   {chunks}
                 </Link>
               ),
               privacy: (chunks) => (
-                <Link href="/datenschutz" className={styles.legalLink}>
+                <Link href="/privacy" className={styles.legalLink}>
                   {chunks}
                 </Link>
               ),

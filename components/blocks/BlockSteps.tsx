@@ -15,7 +15,7 @@ export async function BlockSteps() {
   const items = t.raw('items') as StepItem[]
 
   return (
-    <section id="so-funktionierts" className={styles.root} aria-labelledby="steps-title">
+    <section id="how-it-works" className={styles.root} aria-labelledby="steps-title">
       <div className={styles.header}>
         <p className="eyebrow">{t('eyebrow')}</p>
         <h2 id="steps-title" className={styles.title}>

@@ -38,7 +38,23 @@
   }
 }
 
+.danger {
+  background: transparent;
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-danger) 8%, transparent);
+  }
+}
+
 /* Sizes */
+.sm {
+  padding: var(--spacing-8) var(--spacing-12);
+  font-size: var(--font-size-xs);
+  line-height: 18px;
+}
+
 .md {
   padding: var(--spacing-12) var(--spacing-24);
 }

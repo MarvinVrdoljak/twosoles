@@ -10,9 +10,9 @@ import {routing} from '@/i18n/routing'
 import styles from './GlobalHeader.module.css'
 
 const NAV_LINKS = [
-  {key: 'howItWorks', href: '#so-funktionierts'},
-  {key: 'pricing', href: '#preise'},
-  {key: 'testimonials', href: '#stimmen'},
+  {key: 'howItWorks', href: '#how-it-works'},
+  {key: 'pricing', href: '#pricing'},
+  {key: 'testimonials', href: '#voices'},
   {key: 'faq', href: '#faq'},
 ] as const
 

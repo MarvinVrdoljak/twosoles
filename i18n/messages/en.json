@@ -154,6 +154,52 @@
     "terms": "Terms",
     "imprint": "Imprint"
   },
+  "legal": {
+    "updatedLabel": "Last updated",
+    "updated": "July 2026",
+    "placeholderNote": "Note: this is a non-binding template with placeholders. Replace everything marked in square brackets with your own details and have the texts reviewed by a lawyer before publishing.",
+    "imprint": {
+      "title": "Imprint",
+      "sections": [
+        {"heading": "Provider information", "body": "[Provider / company name]\n[Street and number]\n[Postal code and city]\n[Country]"},
+        {"heading": "Represented by", "body": "[Name of the authorised representative(s)]"},
+        {"heading": "Contact", "body": "Phone: [phone number]\nEmail: [email address]"},
+        {"heading": "VAT ID", "body": "VAT identification number:\n[VAT ID, if applicable]"},
+        {"heading": "Responsible for content", "body": "[Name and address of the responsible person]"},
+        {"heading": "Liability for content", "body": "As a service provider, we are responsible for our own content on these pages in accordance with general law. However, we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity."},
+        {"heading": "Liability for links", "body": "Our offer may contain links to external third-party websites over whose content we have no influence. The respective provider or operator of the linked pages is always responsible for their content."},
+        {"heading": "Copyright", "body": "The content and works created by the site operator on these pages are subject to copyright law. Contributions by third parties are marked as such."}
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "Protecting your personal data matters to us. Below we explain which data we process when you use TwoSoles, and why.",
+      "sections": [
+        {"heading": "Controller", "body": "The controller responsible for data processing is:\n[Name / company name]\n[Address]\nEmail: [email address]"},
+        {"heading": "What data we process", "body": "Account data: the email address and name you provide when registering.\nEvent and game data: the questions you create and the anonymous votes cast by your guests.\nTechnical data: server log data such as IP address and the date and time of access, processed for technical reasons."},
+        {"heading": "Purposes and legal bases", "body": "We process your data to provide the service and to perform our contract with you (Art. 6(1)(b) GDPR), to ensure secure operation based on our legitimate interest (Art. 6(1)(f) GDPR) and, where required, based on your consent (Art. 6(1)(a) GDPR)."},
+        {"heading": "Services we use", "body": "Hosting: [Vercel Inc., USA].\nAuthentication and database: [Supabase].\nPayment processing: [Stripe]. For paid bookings, the data required for payment is transmitted to the payment provider. Where required, data processing agreements are in place with all providers."},
+        {"heading": "Cookies", "body": "We only use technically necessary cookies, for example to store your login and your language choice. These are required for operation and do not require consent."},
+        {"heading": "Retention period", "body": "We store your data only for as long as necessary for the stated purposes or as required by statutory retention periods. Afterwards the data is deleted."},
+        {"heading": "Your rights", "body": "You have the right to access, rectification, erasure and restriction of processing of your data, as well as to data portability and objection. You also have the right to lodge a complaint with a data protection supervisory authority."},
+        {"heading": "Data protection contact", "body": "If you have any questions about data protection, you can reach us at: [email address]."}
+      ]
+    },
+    "terms": {
+      "title": "Terms & Conditions",
+      "intro": "These Terms & Conditions govern the use of the TwoSoles service.",
+      "sections": [
+        {"heading": "1. Scope", "body": "These terms apply to the use of the online services provided via TwoSoles by consumers and businesses. Conflicting terms of the user are not accepted unless their validity is expressly agreed."},
+        {"heading": "2. Description of services", "body": "TwoSoles is a digital version of the wedding shoe game. The provider offers an application that lets guests vote live via QR code and presents the results. The specific scope of features depends on the chosen package size."},
+        {"heading": "3. Registration and conclusion of contract", "body": "An account is required to use the service. Sign-in is passwordless via a login link sent by email. A contract for a paid package is concluded upon confirmation of the booking."},
+        {"heading": "4. Prices and payment", "body": "Use is charged as a one-off payment per event; the price depends on the booked guest capacity. Small events are free. Payment is handled by our payment provider. All prices include statutory VAT."},
+        {"heading": "5. Right of withdrawal", "body": "Consumers generally have a statutory right of withdrawal. For digital content, this right may expire early if performance begins, with the consumer's express consent, before the withdrawal period ends. [Add withdrawal instructions.]"},
+        {"heading": "6. Availability", "body": "The provider strives to keep the service available with as little interruption as possible but does not owe uninterrupted availability. Maintenance, technical faults or force majeure may lead to restrictions."},
+        {"heading": "7. Liability", "body": "The provider is liable without limitation in cases of intent and gross negligence and under applicable product liability law. In the case of slight negligence, the provider is only liable for the breach of an essential contractual obligation and limited to the foreseeable damage typical for the contract."},
+        {"heading": "8. Final provisions", "body": "The law of the Federal Republic of Germany applies. Should individual provisions of these terms be invalid, the validity of the remaining provisions remains unaffected."}
+      ]
+    }
+  },
   "home": {
     "title": "TwoSoles",
     "intro": "The digital wedding shoe game.",
@@ -171,11 +217,27 @@
     "navAccount": "Account",
     "userMenu": "Account menu",
     "account": "Account",
+    "language": "Language",
     "logout": "Sign out",
     "eventsTitle": "Your events",
     "eventsSubtitle": "All your games in one place — past and upcoming. Create a new event, manage your questions and share the guest code right from the dashboard.",
     "addEventTitle": "Create a new event",
     "addEventSubtitle": "Ready in 5 minutes"
+  },
+  "account": {
+    "title": "Account",
+    "subtitle": "Your profile, invoices and account settings.",
+    "profileTitle": "Profile",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "emailHint": "Linked to your login and can't be changed.",
+    "save": "Save",
+    "saving": "Saving …",
+    "billingTitle": "Invoices",
+    "downloadPdf": "PDF",
+    "deleteTitle": "Delete account",
+    "deleteText": "Permanent and irreversible. Deleting removes all events, results and invoices. This step cannot be undone.",
+    "deleteButton": "Delete account"
   },
   "auth": {
     "loginTitle": "Sign in",

@@ -4,8 +4,8 @@ import styles from './CommonButton.module.css'
 
 type CommonButtonProps = {
   children: React.ReactNode
-  variant?: 'primary' | 'secondary'
-  size?: 'md' | 'lg'
+  variant?: 'primary' | 'secondary' | 'danger'
+  size?: 'sm' | 'md' | 'lg'
   fullWidth?: boolean
   // Link mode: internal routes (starting with "/") use the locale-aware Link,
   // in-page (#) or external links use a plain anchor.

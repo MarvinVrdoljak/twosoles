@@ -5,21 +5,3 @@
   padding-block: var(--spacing-64);
   padding-inline: var(--side-gap);
 }
-
-.header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-12);
-  max-width: 620px;
-}
-
-.title {
-  margin: 0;
-  font-size: var(--font-size-h1-small);
-}
-
-.subtitle {
-  margin: 0;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-}

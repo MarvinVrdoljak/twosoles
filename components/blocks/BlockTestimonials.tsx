@@ -14,7 +14,7 @@ export async function BlockTestimonials() {
   const items = t.raw('items') as Testimonial[]
 
   return (
-    <section id="stimmen" className={styles.root} aria-labelledby="testimonials-title">
+    <section id="voices" className={styles.root} aria-labelledby="testimonials-title">
       <div className={styles.header}>
         <p className="eyebrow">{t('eyebrow')}</p>
         <h2 id="testimonials-title" className={styles.title}>

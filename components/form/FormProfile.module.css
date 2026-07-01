@@ -1,0 +1,27 @@
+.form {
+  /* Inputs sit on the white card, so use the cream surface for contrast. */
+  --field-bg: var(--color-surface);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-28);
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-h3);
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  width: 100%;
+}
+
+.error {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-danger);
+}
