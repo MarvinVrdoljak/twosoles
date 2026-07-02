@@ -439,7 +439,8 @@
         "Erst das Paar die Schuhe heben lassen, dann auflösen — das ist der Spannungsmoment.",
         "Macht vorher einen kurzen Probelauf, damit am Tag alles sitzt."
       ],
-      "download": "Download Anleitung"
+      "download": "Download Anleitung",
+      "downloadHint": "Alles dabei? Druck dir die Anleitung für den Tag aus."
     }
   },
   "home": {

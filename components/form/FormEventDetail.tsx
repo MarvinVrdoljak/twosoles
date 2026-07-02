@@ -76,6 +76,7 @@ export function FormEventDetail({
   userId,
 }: FormEventDetailProps) {
   const t = useTranslations('eventDetail')
+  const tDash = useTranslations('dashboard')
   const router = useRouter()
 
   const [tab, setTab] = useState<Tab>('couple')
@@ -229,7 +230,7 @@ export function FormEventDetail({
           occasion={occasionLabel}
           date={dateText}
           guests={guests}
-          questions={String(draft.questions.length)}
+          questions={tDash('cardQuestions', {count: draft.questions.length})}
           status={status}
           guestUrl={guestUrl}
           goingLive={goingLive}

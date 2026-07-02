@@ -92,9 +92,6 @@ export function LayoutEventCreation({
       </aside>
 
       <div className={styles.content}>
-        <img className={styles.leafTop} src="/images/dash-leaf-1.svg" alt="" aria-hidden="true" />
-        <img className={styles.leafBottom} src="/images/dash-leaf-2.svg" alt="" aria-hidden="true" />
-
         <div className={styles.scroll}>
           <div className={styles.inner}>
             <header className={styles.head}>

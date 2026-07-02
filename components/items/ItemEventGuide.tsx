@@ -17,12 +17,14 @@ export function ItemEventGuide({onStub}: {onStub: () => void}) {
 
   return (
     <div className={styles.guide}>
-      <section className={styles.card}>
-        <h2 className={styles.cardTitle}>{t('guide.title')}</h2>
-        <p className={styles.cardText}>{t('guide.intro')}</p>
+      <section className={styles.guideSection}>
+        <h2 className={styles.guideTitle}>{t('guide.title')}</h2>
+        <p className={styles.guideIntro}>{t('guide.intro')}</p>
       </section>
 
-      <section className={styles.card}>
+      <hr className={styles.divider} />
+
+      <section className={styles.guideSection}>
         <h3 className={styles.guideHeading}>{t('guide.needsTitle')}</h3>
         <ul className={styles.bullets}>
           {needs.map((need) => (
@@ -31,7 +33,7 @@ export function ItemEventGuide({onStub}: {onStub: () => void}) {
         </ul>
       </section>
 
-      <section className={styles.card}>
+      <section className={styles.guideSection}>
         <h3 className={styles.guideHeading}>{t('guide.stepsTitle')}</h3>
         <ol className={styles.steps}>
           {steps.map((step, index) => (
@@ -46,24 +48,28 @@ export function ItemEventGuide({onStub}: {onStub: () => void}) {
         </ol>
       </section>
 
-      <section className={styles.card}>
+      <section className={styles.guideSection}>
         <h3 className={styles.guideHeading}>{t('guide.viewsTitle')}</h3>
         <div className={styles.views}>
           {views.map((view, index) => (
             <div key={view.title} className={styles.view}>
               <span className={styles.stepNumber}>{index + 1}</span>
-              <span className={styles.viewTitle}>{view.title}</span>
-              <span className={styles.viewText}>{view.text}</span>
-              <button type="button" className={styles.viewOpen} onClick={onStub}>
-                <ArrowUpRight size={16} aria-hidden="true" />
-                {t('guide.open')}
-              </button>
+              <span className={styles.viewBody}>
+                <span className={styles.viewTextGroup}>
+                  <span className={styles.viewTitle}>{view.title}</span>
+                  <span className={styles.viewText}>{view.text}</span>
+                </span>
+                <button type="button" className={styles.viewOpen} onClick={onStub}>
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                  {t('guide.open')}
+                </button>
+              </span>
             </div>
           ))}
         </div>
       </section>
 
-      <section className={styles.card}>
+      <section className={styles.guideSection}>
         <h3 className={styles.guideHeading}>{t('guide.tipsTitle')}</h3>
         <ul className={styles.bullets}>
           {tips.map((tip) => (
@@ -72,8 +78,11 @@ export function ItemEventGuide({onStub}: {onStub: () => void}) {
         </ul>
       </section>
 
+      <hr className={styles.divider} />
+
       <div className={styles.guideDownload}>
-        <CommonButton variant="secondary" size="md" onClick={onStub}>
+        <p className={styles.guideDownloadHint}>{t('guide.downloadHint')}</p>
+        <CommonButton variant="primary" size="md" onClick={onStub}>
           <Download size={18} aria-hidden="true" />
           {t('guide.download')}
         </CommonButton>

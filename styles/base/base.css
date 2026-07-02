@@ -22,6 +22,19 @@
     margin: 0;
   }
 
+  /* Offset anchor targets so they clear the sticky header. Applies to both the
+     JS smooth scroll (same page) and the native jump (cross-page). No global
+     scroll-behavior: cross-page navigation must jump instantly, not animate. */
+  html {
+    scroll-padding-top: 88px;
+  }
+
+  @media (--bp-medium-up) {
+    html {
+      scroll-padding-top: 116px;
+    }
+  }
+
   figure {
     margin: 0;
     line-height: 0;

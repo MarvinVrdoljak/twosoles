@@ -6,15 +6,13 @@ import Leaf01 from '@/public/images/leaf_01.svg'
 import Leaf02 from '@/public/images/leaf_02.svg'
 import Leaf03 from '@/public/images/leaf_03.svg'
 
-// Landing hero: eyebrow, headline with an italic accent, lead text, two CTAs and
-// an arched photo. Decorative shoe line-art sits behind the content on desktop.
 export async function BlockHero() {
   const t = await getTranslations('hero')
 
   return (
     <section className={styles.root}>
-      <Leaf02 className={styles.decorLeft} aria-hidden="true" />
-      <Leaf03 className={styles.decorRight} aria-hidden="true" />
+      <Leaf02 className={styles.leafLeft} aria-hidden="true" />
+      <Leaf03 className={styles.leafRight} aria-hidden="true" />
       <div className={styles.inner}>
         <div className={styles.content}>
           <p className="eyebrow">{t('eyebrow')}</p>
@@ -35,7 +33,7 @@ export async function BlockHero() {
         </div>
 
         <div className={styles.mediaWrapper}>
-          <Leaf01 className={styles.decorMiddle} aria-hidden="true" />
+          <Leaf01 className={styles.leafMiddle} aria-hidden="true" />
           <div className={styles.media}>
             <CommonImage
               className={styles.image}

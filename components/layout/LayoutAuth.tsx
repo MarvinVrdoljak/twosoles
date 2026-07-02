@@ -16,7 +16,14 @@ type LayoutAuthProps = {
 
 // Split auth shell: a photo with a testimonial overlay on the left (hidden on
 // mobile) and the form column on the right.
-export async function LayoutAuth({eyebrow, title, subtitle, error, toggle, children}: LayoutAuthProps) {
+export async function LayoutAuth({
+  eyebrow,
+  title,
+  subtitle,
+  error,
+  toggle,
+  children,
+}: LayoutAuthProps) {
   const t = await getTranslations('auth')
 
   return (
@@ -46,9 +53,6 @@ export async function LayoutAuth({eyebrow, title, subtitle, error, toggle, child
       </aside>
 
       <main className={styles.content}>
-        <img className={styles.leafTop} src="/images/auth-leaf-1.svg" alt="" aria-hidden="true" />
-        <img className={styles.leafBottom} src="/images/auth-leaf-2.svg" alt="" aria-hidden="true" />
-
         <div className={styles.inner}>
           <div className={styles.top}>
             <Link href="/" className={styles.logoMobile}>

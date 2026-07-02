@@ -13,9 +13,6 @@ type LayoutDashboardProps = {
 export function LayoutDashboard({active, children}: LayoutDashboardProps) {
   return (
     <div className={styles.root}>
-      <img className={styles.leafTop} src="/images/dash-leaf-1.svg" alt="" aria-hidden="true" />
-      <img className={styles.leafBottom} src="/images/dash-leaf-2.svg" alt="" aria-hidden="true" />
-
       <GlobalAppHeader active={active} />
       <main className={styles.main}>{children}</main>
       <GlobalFooter />

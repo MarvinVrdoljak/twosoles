@@ -65,9 +65,9 @@
   object-fit: cover;
 }
 
-.decorMiddle,
-.decorLeft,
-.decorRight {
+.leafMiddle,
+.leafLeft,
+.leafRight {
   color: var(--color-border);
   display: block;
   position: absolute;
@@ -75,7 +75,7 @@
   pointer-events: none;
 }
 
-.decorLeft {
+.leafLeft {
   left: -20px;
   bottom: -60px;
   width: clamp(150px, 8.216rem + 4.76vw, 200px);
@@ -83,7 +83,7 @@
   transform: rotate(-24deg);
 }
 
-.decorRight {
+.leafRight {
   right: -30px;
   top: -20px;
   width: clamp(150px, 7.287rem + 8.57vw, 240px);
@@ -92,7 +92,7 @@
   z-index: 2;
 }
 
-.decorMiddle {
+.leafMiddle {
   z-index: 2;
   left: -40px;
   bottom: -80px;
@@ -102,12 +102,12 @@
 }
 
 @media (--bp-large-down) {
-  /* Decorative shoe line-art — desktop only, behind the content. */
-  .decorLeft {
+  /* leafative shoe line-art — desktop only, behind the content. */
+  .leafLeft {
     display: none;
   }
 
-  .decorRight {
+  .leafRight {
     z-index: 0;
   }
 }

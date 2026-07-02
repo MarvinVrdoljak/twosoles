@@ -1,6 +1,6 @@
 'use client'
 
-import {useState} from 'react'
+import {useState, type MouseEvent} from 'react'
 import {hasLocale, useLocale, useTranslations} from 'next-intl'
 import {Menu, X} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
@@ -9,11 +9,13 @@ import {Link, usePathname, useRouter} from '@/i18n/navigation'
 import {routing} from '@/i18n/routing'
 import styles from './GlobalHeader.module.css'
 
+// Full paths (not bare fragments) so the anchors also work from subpages like
+// /impressum — clicking jumps back to the home page and scrolls to the target.
 const NAV_LINKS = [
-  {key: 'howItWorks', href: '#how-it-works'},
-  {key: 'pricing', href: '#pricing'},
-  {key: 'testimonials', href: '#voices'},
-  {key: 'faq', href: '#faq'},
+  {key: 'howItWorks', href: '/#how-it-works'},
+  {key: 'pricing', href: '/#pricing'},
+  {key: 'testimonials', href: '/#voices'},
+  {key: 'faq', href: '/#faq'},
 ] as const
 
 // Marketing site header. Desktop shows the full nav (links, language, Login,
@@ -32,6 +34,21 @@ export function GlobalHeader() {
     }
   }
 
+  // On the home page, scroll to the section smoothly instead of letting the
+  // Link jump. From any other page we let the Link navigate — it lands on the
+  // home page and jumps straight to the anchor (no smooth animation).
+  const handleNavClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    setOpen(false)
+    if (pathname !== '/') return
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+    const id = href.split('#')[1]
+    const target = id ? document.getElementById(id) : null
+    if (!target) return
+    event.preventDefault()
+    target.scrollIntoView({behavior: 'smooth'})
+    window.history.replaceState(null, '', `#${id}`)
+  }
+
   // Full, localized language names in the list; compact code on the trigger.
   const languageOptions = routing.locales.map((code) => ({
     value: code,
@@ -48,9 +65,14 @@ export function GlobalHeader() {
 
           <nav className={styles.navDesktop} aria-label={t('ariaPrimary')}>
             {NAV_LINKS.map((link) => (
-              <a key={link.key} className={styles.navLink} href={link.href}>
+              <Link
+                key={link.key}
+                className={styles.navLink}
+                href={link.href}
+                onClick={(event) => handleNavClick(event, link.href)}
+              >
                 {t(link.key)}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>
@@ -96,14 +118,14 @@ export function GlobalHeader() {
       >
         <nav className={styles.drawerNav} aria-label={t('ariaPrimary')}>
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.key}
               className={styles.drawerLink}
               href={link.href}
-              onClick={() => setOpen(false)}
+              onClick={(event) => handleNavClick(event, link.href)}
             >
               {t(link.key)}
-            </a>
+            </Link>
           ))}
         </nav>
 

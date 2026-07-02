@@ -98,32 +98,6 @@
   padding-inline: var(--side-gap);
 }
 
-.leafTop,
-.leafBottom {
-  display: none;
-
-  @media (--bp-large-up) {
-    position: absolute;
-    z-index: 0;
-    display: block;
-    pointer-events: none;
-  }
-}
-
-.leafTop {
-  top: -50px;
-  right: -30px;
-  width: 130px;
-  height: auto;
-}
-
-.leafBottom {
-  bottom: 40px;
-  left: -40px;
-  width: 150px;
-  height: auto;
-}
-
 .inner {
   position: relative;
   z-index: 1;
