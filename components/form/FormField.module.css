@@ -39,6 +39,12 @@
   cursor: not-allowed;
 }
 
+.textarea {
+  min-height: 140px;
+  line-height: var(--line-height-base);
+  resize: vertical;
+}
+
 .hint {
   margin: 0;
   font-size: var(--font-size-xs);

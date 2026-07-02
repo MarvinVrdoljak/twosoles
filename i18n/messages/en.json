@@ -150,9 +150,67 @@
   "footer": {
     "copyright": "© 2026 TwoSoles · Made for best men & maids of honour with a plan.",
     "legalNav": "Legal",
+    "contact": "Contact",
     "privacy": "Privacy",
     "terms": "Terms",
     "imprint": "Imprint"
+  },
+  "contact": {
+    "metaTitle": "Contact",
+    "eyebrow": "Contact",
+    "title": "Write to us – we're here for you",
+    "subtitle": "Whether it's a question about your event, a technical issue or a special idea: we'll help you personally.",
+    "info": {
+      "title": "Prefer it direct?",
+      "lead": "You can reach us the classic way too — we read every message ourselves, no bot in between.",
+      "email": {
+        "title": "Email",
+        "value": "hallo@twosoles.app"
+      },
+      "response": {
+        "title": "Response time",
+        "value": "Usually within 24 hours — weekends included."
+      },
+      "bigEvent": {
+        "title": "Planning a big event?",
+        "value": "More than 300 guests or a special format? Write to us via the form — we'll find a solution."
+      }
+    },
+    "form": {
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "Please choose …",
+      "subjects": {
+        "general": "General enquiry",
+        "event": "Question about an event",
+        "technical": "Technical issue",
+        "bigEvent": "Large event (300+ guests)",
+        "feedback": "Feedback",
+        "other": "Other"
+      },
+      "firstNameLabel": "First name",
+      "firstNamePlaceholder": "Sophie",
+      "lastNameLabel": "Last name",
+      "lastNamePlaceholder": "Doe",
+      "emailLabel": "Email",
+      "emailPlaceholder": "sophie@example.com",
+      "weddingDateLabel": "Wedding date",
+      "guestCountLabel": "Number of guests",
+      "guestCountPlaceholder": "e.g. 120",
+      "messageLabel": "Your message",
+      "messagePlaceholder": "Tell us briefly what it's about …",
+      "submit": "Send",
+      "sending": "Sending …",
+      "consent": "By submitting you agree to our <privacy>privacy policy</privacy>.",
+      "errors": {
+        "subject": "Please choose a subject.",
+        "invalid": "Please fill in all required fields correctly.",
+        "failed": "Sending didn't work. Please try again later or email us directly."
+      },
+      "success": {
+        "title": "Message sent!",
+        "text": "Thanks for your message — we usually get back to you within 24 hours."
+      }
+    }
   },
   "legal": {
     "updatedLabel": "Last updated",

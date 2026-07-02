@@ -150,9 +150,67 @@
   "footer": {
     "copyright": "© 2026 TwoSoles · Gemacht für Trauzeug*innen mit Plan.",
     "legalNav": "Rechtliches",
+    "contact": "Kontakt",
     "privacy": "Datenschutz",
     "terms": "AGB",
     "imprint": "Impressum"
+  },
+  "contact": {
+    "metaTitle": "Kontakt",
+    "eyebrow": "Kontakt",
+    "title": "Schreib uns – wir sind für dich da",
+    "subtitle": "Ob Frage zu eurem Event, ein technisches Problem oder eine besondere Idee: Wir helfen dir persönlich weiter.",
+    "info": {
+      "title": "Lieber direkt?",
+      "lead": "Du erreichst uns auch klassisch — wir lesen jede Nachricht selbst, kein Bot dazwischen.",
+      "email": {
+        "title": "E-Mail",
+        "value": "hallo@twosoles.app"
+      },
+      "response": {
+        "title": "Antwortzeit",
+        "value": "In der Regel innerhalb von 24 Stunden — auch am Wochenende."
+      },
+      "bigEvent": {
+        "title": "Großes Event geplant?",
+        "value": "Über 300 Gäste oder ein besonderes Format? Schreib uns über das Formular — wir finden eine Lösung."
+      }
+    },
+    "form": {
+      "subjectLabel": "Betreff",
+      "subjectPlaceholder": "Bitte auswählen …",
+      "subjects": {
+        "general": "Allgemeine Anfrage",
+        "event": "Frage zu einem Event",
+        "technical": "Technisches Problem",
+        "bigEvent": "Großes Event (300+ Gäste)",
+        "feedback": "Feedback",
+        "other": "Sonstiges"
+      },
+      "firstNameLabel": "Vorname",
+      "firstNamePlaceholder": "Sophie",
+      "lastNameLabel": "Name",
+      "lastNamePlaceholder": "Mustermann",
+      "emailLabel": "E-Mail",
+      "emailPlaceholder": "sophie@beispiel.de",
+      "weddingDateLabel": "Datum der Hochzeit",
+      "guestCountLabel": "Anzahl Gäste",
+      "guestCountPlaceholder": "z. B. 120",
+      "messageLabel": "Deine Nachricht",
+      "messagePlaceholder": "Erzähl uns kurz, worum es geht …",
+      "submit": "Abschicken",
+      "sending": "Wird gesendet …",
+      "consent": "Mit dem Absenden stimmst du unserer <privacy>Datenschutzerklärung</privacy> zu.",
+      "errors": {
+        "subject": "Bitte wähle einen Betreff aus.",
+        "invalid": "Bitte fülle alle Pflichtfelder korrekt aus.",
+        "failed": "Das Versenden hat nicht geklappt. Bitte versuche es später erneut oder schreib uns direkt per E-Mail."
+      },
+      "success": {
+        "title": "Nachricht gesendet!",
+        "text": "Danke für deine Nachricht — wir melden uns in der Regel innerhalb von 24 Stunden bei dir."
+      }
+    }
   },
   "legal": {
     "updatedLabel": "Stand",

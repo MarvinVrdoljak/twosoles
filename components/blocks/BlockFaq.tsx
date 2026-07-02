@@ -1,5 +1,6 @@
 import {getTranslations} from 'next-intl/server'
 import {ItemFaq} from '@/components/items/ItemFaq'
+import {Link} from '@/i18n/navigation'
 import styles from './BlockFaq.module.css'
 
 type FaqItem = {
@@ -33,9 +34,9 @@ export async function BlockFaq() {
         <p className={styles.note}>
           {t.rich('note', {
             support: (chunks) => (
-              <a className={styles.support} href="#">
+              <Link className={styles.support} href="/contact">
                 {chunks}
-              </a>
+              </Link>
             ),
           })}
         </p>

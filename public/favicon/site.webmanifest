@@ -1,0 +1,21 @@
+{
+  "name": "TwoSoles",
+  "short_name": "TwoSoles",
+  "icons": [
+    {
+      "src": "/favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#a67070",
+  "background_color": "#faf7f2",
+  "display": "standalone"
+}
