@@ -15,6 +15,7 @@ type Props = {
   title?: string
   subtitle?: string
   footer?: ReactNode
+  readOnly?: boolean
 }
 
 type Occasion = {value: string; label: string}
@@ -26,12 +27,14 @@ function SelectField({
   value,
   options,
   onChange,
+  disabled,
 }: {
   id: string
   label: string
   value: string
   options: Option[]
   onChange: (value: string) => void
+  disabled?: boolean
 }) {
   return (
     <div className={styles.field}>
@@ -43,6 +46,7 @@ function SelectField({
           id={id}
           className={styles.select}
           value={value}
+          disabled={disabled}
           onChange={(event) => onChange(event.target.value)}
         >
           {options.map((option) => (
@@ -57,7 +61,7 @@ function SelectField({
   )
 }
 
-export function FormEventDetails({draft, update, title, subtitle, footer}: Props) {
+export function FormEventDetails({draft, update, title, subtitle, footer, readOnly}: Props) {
   const t = useTranslations('eventWizard')
   const tNav = useTranslations('nav')
 
@@ -87,6 +91,7 @@ export function FormEventDetails({draft, update, title, subtitle, footer}: Props
           value={draft.occasion}
           options={occasions}
           onChange={(value) => update({occasion: value})}
+          disabled={readOnly}
         />
 
         <FormField
@@ -96,6 +101,7 @@ export function FormEventDetails({draft, update, title, subtitle, footer}: Props
           value={draft.title}
           placeholder={t('details.titlePlaceholder')}
           required
+          disabled={readOnly}
           onChange={(value) => update({title: value})}
         />
 
@@ -106,6 +112,7 @@ export function FormEventDetails({draft, update, title, subtitle, footer}: Props
           value={draft.date}
           required
           min={todayISODate()}
+          disabled={readOnly}
           onChange={(value) => update({date: value})}
         />
 
@@ -115,6 +122,7 @@ export function FormEventDetails({draft, update, title, subtitle, footer}: Props
           value={draft.language}
           options={languageOptions}
           onChange={(value) => update({language: value})}
+          disabled={readOnly}
         />
       </div>
 

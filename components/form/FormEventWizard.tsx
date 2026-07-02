@@ -99,7 +99,7 @@ export function FormEventWizard({userId}: FormEventWizardProps) {
           title: draft.title.trim(),
           event_date: draft.date || null,
           game_language: draft.language,
-          questions: draft.questions.map((q) => ({text: q.text, custom: q.custom})),
+          questions: draft.questions.map((q) => ({text: q.text})),
           package: pkg,
         })
         .select('id')

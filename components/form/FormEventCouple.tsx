@@ -13,16 +13,19 @@ type Props = {
   title?: string
   subtitle?: string
   footer?: React.ReactNode
+  readOnly?: boolean
 }
 
 function ColorPicker({
   color,
   label,
   onSelect,
+  disabled,
 }: {
   color: string
   label: string
   onSelect: (value: string) => void
+  disabled?: boolean
 }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -44,6 +47,7 @@ function ColorPicker({
         className={styles.swatch}
         style={{background: color}}
         onClick={() => setOpen((value) => !value)}
+        disabled={disabled}
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label={label}
@@ -83,6 +87,7 @@ type PersonProps = {
   onName: (value: string) => void
   onColor: (value: string) => void
   onPhoto: (file: File | null) => void
+  readOnly?: boolean
 }
 
 function Person({
@@ -96,6 +101,7 @@ function Person({
   onName,
   onColor,
   onPhoto,
+  readOnly,
 }: PersonProps) {
   const fileRef = useRef<HTMLInputElement>(null)
 
@@ -113,12 +119,13 @@ function Person({
           type="button"
           className={styles.photo}
           onClick={() => fileRef.current?.click()}
+          disabled={readOnly}
           aria-label={photoLabel}
           style={photo ? {backgroundImage: `url(${photo})`} : undefined}
         >
           {photo ? null : <ImagePlus size={24} aria-hidden="true" />}
         </button>
-        {photo ? (
+        {photo && !readOnly ? (
           <button
             type="button"
             className={styles.photoRemove}
@@ -145,15 +152,16 @@ function Person({
           value={name}
           placeholder={placeholder}
           required
+          disabled={readOnly}
           onChange={(event) => onName(event.target.value)}
         />
-        <ColorPicker color={color} label={colorLabel} onSelect={onColor} />
+        <ColorPicker color={color} label={colorLabel} onSelect={onColor} disabled={readOnly} />
       </div>
     </div>
   )
 }
 
-export function FormEventCouple({draft, update, title, subtitle, footer}: Props) {
+export function FormEventCouple({draft, update, title, subtitle, footer, readOnly}: Props) {
   const t = useTranslations('eventWizard')
 
   return (
@@ -179,6 +187,7 @@ export function FormEventCouple({draft, update, title, subtitle, footer}: Props)
           onPhoto={(file) =>
             update({photo1File: file, photo1: file ? URL.createObjectURL(file) : null})
           }
+          readOnly={readOnly}
         />
 
         <span className={styles.amp} aria-hidden="true">
@@ -198,6 +207,7 @@ export function FormEventCouple({draft, update, title, subtitle, footer}: Props)
           onPhoto={(file) =>
             update({photo2File: file, photo2: file ? URL.createObjectURL(file) : null})
           }
+          readOnly={readOnly}
         />
       </div>
 

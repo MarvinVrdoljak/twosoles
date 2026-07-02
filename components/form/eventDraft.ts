@@ -4,7 +4,6 @@
 export type EventQuestion = {
   id: string
   text: string
-  custom: boolean
 }
 
 export type EventDraft = {

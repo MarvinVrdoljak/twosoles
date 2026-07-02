@@ -1,5 +1,4 @@
 .root {
-  padding: var(--spacing-16) var(--spacing-24);
   background: var(--color-surface-variant);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -13,6 +12,7 @@
   width: 100%;
   text-align: left;
   cursor: pointer;
+  padding: var(--spacing-20) var(--spacing-24);
 }
 
 .question {
@@ -44,7 +44,7 @@
 }
 
 .answer {
-  margin: var(--spacing-16) 0 0;
+  padding: 0 var(--spacing-24) var(--spacing-20);
   color: var(--color-text-muted);
   line-height: 1.5;
 }

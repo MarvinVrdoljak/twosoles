@@ -22,20 +22,20 @@
 
   /* Fonts — injected by next/font as CSS variables on <html> */
   --font-body: var(--font-sans, system-ui, sans-serif);
-  --font-heading: var(--font-display, Georgia, "Times New Roman", serif);
+  --font-heading: var(--font-display, Georgia, 'Times New Roman', serif);
 
-  /* Font sizes — body fixed (Figma), headings fluid with desktop max from Figma */
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-base: 16px;
-  --font-size-lg: 20px;
-  --font-size-h1: clamp(40px, 5vw, 64px);
-  --font-size-h1-small: 36px;
-  --font-size-h2: clamp(36px, 5vw, 54px);
-  --font-size-h3: clamp(20px, 2.5vw, 24px);
-  --font-size-h4: 20px;
-  --font-size-h5: 20px;
-  --font-size-h6: 16px;
+  /* Font sizes — fluid via clamp; grows from ~390px and hits the Figma value exactly at 1440px */
+  --font-size-xs: clamp(11px, 0.66rem + 0.1vw, 12px);
+  --font-size-sm: clamp(12px, 0.704rem + 0.19vw, 14px);
+  --font-size-base: clamp(14px, 0.829rem + 0.19vw, 18px);
+  --font-size-lg: clamp(17px, 0.989rem + 0.29vw, 22px);
+  --font-size-h1: clamp(40px, 1.939rem + 2.29vw, 64px);
+  --font-size-h1-small: clamp(30px, 1.737rem + 0.57vw, 36px);
+  --font-size-h2: clamp(36px, 1.827rem + 1.72vw, 54px);
+  --font-size-h3: clamp(20px, 1.149rem + 0.39vw, 24px);
+  --font-size-h4: clamp(18px, 1.079rem + 0.19vw, 20px);
+  --font-size-h5: clamp(18px, 1.079rem + 0.19vw, 20px);
+  --font-size-h6: clamp(15px, 0.91rem + 0.1vw, 16px);
   --font-weight-body: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
@@ -55,6 +55,7 @@
   --spacing-40: 40px;
   --spacing-52: 52px;
   --spacing-64: 64px;
+  --spacing-100: 128px;
   --spacing-128: 128px;
 
   /* Horizontal page gutter (Figma sideGapDefault 100), responsive */

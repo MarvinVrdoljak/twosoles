@@ -296,6 +296,17 @@
     "saving": "Speichern …",
     "saveError": "Konnte nicht gespeichert werden. Bitte versuch es erneut.",
     "comingSoon": "Kommt bald.",
+    "goLiveConfirm": {
+      "title": "Event wirklich live schalten?",
+      "text": "Bitte gut überlegen — das lässt sich nicht rückgängig machen:",
+      "points": [
+        "Du kannst jedes Event nur EIN EINZIGES Mal live schalten.",
+        "Ab dem Live-Schalten hast du genau 48 Stunden Zeit, das Spiel zu spielen.",
+        "Nach Ablauf der 48 Stunden ist das Event endgültig beendet und kann nicht erneut gestartet werden."
+      ],
+      "confirm": "Ja, jetzt live schalten",
+      "cancel": "Abbrechen"
+    },
     "tabs": {
       "couple": "Das Paar",
       "details": "Eckdaten",

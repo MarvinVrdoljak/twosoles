@@ -6,6 +6,11 @@
   padding-inline: var(--side-gap);
 }
 
+.devBar {
+  display: flex;
+  margin-top: calc(-1 * var(--spacing-24));
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;

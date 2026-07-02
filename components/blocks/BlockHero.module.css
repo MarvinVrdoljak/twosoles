@@ -48,10 +48,15 @@
   gap: var(--spacing-12);
 }
 
+.mediaWrapper {
+  position: relative;
+}
+
 .media {
   position: relative;
   width: 100%;
-  aspect-ratio: 487 / 576;
+  max-width: 625px;
+  aspect-ratio: 475 / 525;
   border-radius: 240px 240px var(--radius-xl) var(--radius-xl);
   overflow: hidden;
 }
@@ -60,35 +65,49 @@
   object-fit: cover;
 }
 
-/* Decorative shoe line-art — desktop only, behind the content. */
+.decorMiddle,
 .decorLeft,
 .decorRight {
-  display: none;
+  color: var(--color-border);
+  display: block;
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
 }
 
-@media (--bp-large-up) {
-  .decorLeft,
-  .decorRight {
-    display: block;
-    position: absolute;
-    z-index: 0;
-    opacity: 0.4;
-    pointer-events: none;
-  }
+.decorLeft {
+  left: -20px;
+  bottom: -60px;
+  width: clamp(150px, 8.216rem + 4.76vw, 200px);
+  height: auto;
+  transform: rotate(-24deg);
+}
 
+.decorRight {
+  right: -30px;
+  top: -20px;
+  width: clamp(150px, 7.287rem + 8.57vw, 240px);
+  height: auto;
+  transform: rotate(180deg);
+  z-index: 2;
+}
+
+.decorMiddle {
+  z-index: 2;
+  left: -40px;
+  bottom: -80px;
+  width: clamp(120px, 6.341rem + 4.76vw, 170px);
+  height: auto;
+  transform: rotate(-24deg);
+}
+
+@media (--bp-large-down) {
+  /* Decorative shoe line-art — desktop only, behind the content. */
   .decorLeft {
-    left: -40px;
-    bottom: -40px;
-    width: 300px;
-    height: auto;
-    transform: rotate(-24deg);
+    display: none;
   }
 
   .decorRight {
-    right: -30px;
-    top: -20px;
-    width: 240px;
-    height: auto;
-    transform: rotate(180deg);
+    z-index: 0;
   }
 }

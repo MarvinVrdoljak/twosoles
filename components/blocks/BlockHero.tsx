@@ -2,6 +2,9 @@ import {getTranslations} from 'next-intl/server'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonImage} from '@/components/common/CommonImage'
 import styles from './BlockHero.module.css'
+import Leaf01 from '@/public/images/leaf_01.svg'
+import Leaf02 from '@/public/images/leaf_02.svg'
+import Leaf03 from '@/public/images/leaf_03.svg'
 
 // Landing hero: eyebrow, headline with an italic accent, lead text, two CTAs and
 // an arched photo. Decorative shoe line-art sits behind the content on desktop.
@@ -10,9 +13,8 @@ export async function BlockHero() {
 
   return (
     <section className={styles.root}>
-      <img className={styles.decorLeft} src="/images/decor-shoe-left.svg" alt="" aria-hidden="true" />
-      <img className={styles.decorRight} src="/images/decor-shoe-right.svg" alt="" aria-hidden="true" />
-
+      <Leaf02 className={styles.decorLeft} aria-hidden="true" />
+      <Leaf03 className={styles.decorRight} aria-hidden="true" />
       <div className={styles.inner}>
         <div className={styles.content}>
           <p className="eyebrow">{t('eyebrow')}</p>
@@ -32,15 +34,18 @@ export async function BlockHero() {
           </div>
         </div>
 
-        <div className={styles.media}>
-          <CommonImage
-            className={styles.image}
-            src="/images/hero-couple.jpg"
-            alt={t('imageAlt')}
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 40vw"
-          />
+        <div className={styles.mediaWrapper}>
+          <Leaf01 className={styles.decorMiddle} aria-hidden="true" />
+          <div className={styles.media}>
+            <CommonImage
+              className={styles.image}
+              src="/images/hero-couple.jpg"
+              alt={t('imageAlt')}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
+          </div>
         </div>
       </div>
     </section>

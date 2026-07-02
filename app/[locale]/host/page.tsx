@@ -2,6 +2,7 @@ import {getTranslations, setRequestLocale} from 'next-intl/server'
 import {redirect} from 'next/navigation'
 import {CommonPageHeader} from '@/components/common/CommonPageHeader'
 import {ItemAddEventCard} from '@/components/items/ItemAddEventCard'
+import {ItemDevSeed} from '@/components/items/ItemDevSeed'
 import {ItemEventCard} from '@/components/items/ItemEventCard'
 import {LayoutDashboard} from '@/components/layout/LayoutDashboard'
 import {getPathname} from '@/i18n/navigation'
@@ -60,6 +61,12 @@ export default async function HostPage({params}: HostPageProps) {
     <LayoutDashboard active="events">
       <div className={styles.root}>
         <CommonPageHeader title={t('eventsTitle')} subtitle={t('eventsSubtitle')} />
+
+        {process.env.NODE_ENV === 'development' ? (
+          <div className={styles.devBar}>
+            <ItemDevSeed />
+          </div>
+        ) : null}
 
         <div className={styles.grid}>
           {events.map((event) => {

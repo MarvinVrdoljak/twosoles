@@ -11,7 +11,7 @@
 
 .media {
   position: relative;
-  aspect-ratio: 715 / 635;
+  aspect-ratio: 1 / 1;
 
   @media (--bp-large-up) {
     /* Fill the grid row height (matches the content column). */
@@ -32,6 +32,10 @@
 
   @media (--bp-medium-up) {
     padding: var(--spacing-64);
+  }
+
+  @media (--bp-large-up) {
+    padding: var(--spacing-100) var(--spacing-64);
   }
 }
 

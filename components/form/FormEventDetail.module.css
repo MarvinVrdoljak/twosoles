@@ -81,6 +81,48 @@
   justify-content: flex-end;
 }
 
+/* ---- Go-live confirmation ---- */
+.goLive {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.goLiveText {
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+}
+
+.goLivePoints {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  margin: 0;
+  padding: var(--spacing-16) var(--spacing-20);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  list-style: none;
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface-variant));
+  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
+  border-radius: var(--radius-md);
+}
+
+.goLivePoints li {
+  position: relative;
+  padding-left: var(--spacing-20);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.goLivePoints li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
 /* ---- Settings ---- */
 .settings {
   display: flex;

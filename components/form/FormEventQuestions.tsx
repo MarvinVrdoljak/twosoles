@@ -2,7 +2,7 @@
 
 import React, {useState} from 'react'
 import {useTranslations} from 'next-intl'
-import {Check, GripVertical, Plus, Shuffle, Sparkles, X} from 'lucide-react'
+import {Check, GripVertical, Plus, Shuffle, X} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonModal} from '@/components/common/CommonModal'
 import {getCatalog} from './questionCatalog'
@@ -15,6 +15,7 @@ type Props = {
   title?: string
   subtitle?: string
   footer?: React.ReactNode
+  readOnly?: boolean
 }
 
 const RANDOM_COUNT = 15
@@ -23,26 +24,32 @@ function makeId() {
   return `q-${crypto.randomUUID()}`
 }
 
-export function FormEventQuestions({draft, update, title, subtitle, footer}: Props) {
+export function FormEventQuestions({draft, update, title, subtitle, footer, readOnly}: Props) {
   const t = useTranslations('eventWizard')
   const [input, setInput] = useState('')
   const [catalogOpen, setCatalogOpen] = useState(false)
   const [confirmOpen, setConfirmOpen] = useState(false)
   const [selected, setSelected] = useState<Set<string>>(new Set())
   const [dragIndex, setDragIndex] = useState<number | null>(null)
+  const [editingId, setEditingId] = useState<string | null>(null)
 
   const questions = draft.questions
   // Catalogue follows the GAME language (draft.language), not the UI locale.
+  // It never filters out already-added questions — picking one just copies it
+  // into the set (duplicates allowed), and picked questions are yours to edit.
   const catalog = getCatalog(draft.language)
-  const available = catalog.filter((text) => !questions.some((q) => q.text === text))
 
   const setQuestions = (next: EventQuestion[]) => update({questions: next})
 
   const addCustom = () => {
     const text = input.trim()
     if (!text) return
-    setQuestions([...questions, {id: makeId(), text, custom: true}])
+    setQuestions([...questions, {id: makeId(), text}])
     setInput('')
+  }
+
+  const editText = (id: string, text: string) => {
+    setQuestions(questions.map((q) => (q.id === id ? {...q, text} : q)))
   }
 
   const remove = (id: string) => {
@@ -56,7 +63,7 @@ export function FormEventQuestions({draft, update, title, subtitle, footer}: Pro
       const j = Math.floor(Math.random() * (i + 1))
       ;[pool[i], pool[j]] = [pool[j], pool[i]]
     }
-    setQuestions(pool.slice(0, RANDOM_COUNT).map((text) => ({id: makeId(), text, custom: false})))
+    setQuestions(pool.slice(0, RANDOM_COUNT).map((text) => ({id: makeId(), text})))
   }
 
   const handleRandom = () => {
@@ -96,7 +103,7 @@ export function FormEventQuestions({draft, update, title, subtitle, footer}: Pro
 
   // Commit the staged selection to the list, then close.
   const applySelected = () => {
-    const additions = [...selected].map((text) => ({id: makeId(), text, custom: false}))
+    const additions = [...selected].map((text) => ({id: makeId(), text}))
     if (additions.length > 0) setQuestions([...questions, ...additions])
     closeCatalog()
   }
@@ -110,37 +117,41 @@ export function FormEventQuestions({draft, update, title, subtitle, footer}: Pro
         </div>
       ) : null}
 
-      <div className={styles.qAddRow}>
-        <input
-          className={styles.qInput}
-          type="text"
-          value={input}
-          placeholder={t('questions.addPlaceholder')}
-          onChange={(event) => setInput(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key === 'Enter') {
-              event.preventDefault()
-              addCustom()
-            }
-          }}
-        />
-        <CommonButton variant="primary" size="md" onClick={addCustom} disabled={!input.trim()}>
-          <Plus size={18} aria-hidden="true" />
-          {t('questions.add')}
-        </CommonButton>
-      </div>
+      {readOnly ? null : (
+        <div className={styles.qAddRow}>
+          <input
+            className={styles.qInput}
+            type="text"
+            value={input}
+            placeholder={t('questions.addPlaceholder')}
+            onChange={(event) => setInput(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                event.preventDefault()
+                addCustom()
+              }
+            }}
+          />
+          <CommonButton variant="primary" size="md" onClick={addCustom} disabled={!input.trim()}>
+            <Plus size={18} aria-hidden="true" />
+            {t('questions.add')}
+          </CommonButton>
+        </div>
+      )}
 
       <div className={styles.qMeta}>
         <span className={styles.qCount}>{t('questions.count', {count: questions.length})}</span>
-        <div className={styles.qMetaActions}>
-          <CommonButton variant="secondary" size="sm" onClick={handleRandom}>
-            <Shuffle size={16} aria-hidden="true" />
-            {t('questions.random')}
-          </CommonButton>
-          <CommonButton variant="secondary" size="sm" onClick={openCatalog}>
-            {t('questions.catalog')}
-          </CommonButton>
-        </div>
+        {readOnly ? null : (
+          <div className={styles.qMetaActions}>
+            <CommonButton variant="secondary" size="sm" onClick={handleRandom}>
+              <Shuffle size={16} aria-hidden="true" />
+              {t('questions.random')}
+            </CommonButton>
+            <CommonButton variant="secondary" size="sm" onClick={openCatalog}>
+              {t('questions.catalog')}
+            </CommonButton>
+          </div>
+        )}
       </div>
 
       {questions.length === 0 ? (
@@ -151,9 +162,10 @@ export function FormEventQuestions({draft, update, title, subtitle, footer}: Pro
             <li
               key={question.id}
               className={`${styles.qRow} ${dragIndex === index ? styles.qRowDragging : ''}`}
-              draggable
+              draggable={!readOnly && editingId !== question.id}
               onDragStart={() => setDragIndex(index)}
               onDragOver={(event) => {
+                if (readOnly) return
                 event.preventDefault()
                 if (dragIndex === null || dragIndex === index) return
                 moveTo(dragIndex, index)
@@ -161,24 +173,57 @@ export function FormEventQuestions({draft, update, title, subtitle, footer}: Pro
               }}
               onDragEnd={() => setDragIndex(null)}
             >
-              <span className={styles.qHandle} aria-hidden="true">
-                <GripVertical size={18} />
-              </span>
-              <span className={styles.qNumber}>{index + 1}</span>
-              <span className={styles.qText}>{question.text}</span>
-              {question.custom ? (
-                <span className={styles.qCustom} title={t('questions.customBadge')}>
-                  <Sparkles size={16} aria-hidden="true" />
+              {readOnly ? null : (
+                <span className={styles.qHandle} aria-hidden="true">
+                  <GripVertical size={18} />
                 </span>
-              ) : null}
-              <button
-                type="button"
-                className={styles.qRemove}
-                onClick={() => remove(question.id)}
-                aria-label={t('questions.remove')}
-              >
-                <X size={18} aria-hidden="true" />
-              </button>
+              )}
+              <span className={styles.qNumber}>{index + 1}</span>
+
+              {readOnly ? (
+                <span className={styles.qText}>{question.text}</span>
+              ) : editingId === question.id ? (
+                <input
+                  className={styles.qEditInput}
+                  type="text"
+                  value={question.text}
+                  autoFocus
+                  onChange={(event) => editText(question.id, event.target.value)}
+                  onBlur={() => setEditingId(null)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === 'Escape') {
+                      event.preventDefault()
+                      setEditingId(null)
+                    }
+                  }}
+                />
+              ) : (
+                <span
+                  className={styles.qTextButton}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setEditingId(question.id)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault()
+                      setEditingId(question.id)
+                    }
+                  }}
+                >
+                  {question.text}
+                </span>
+              )}
+
+              {readOnly ? null : (
+                <button
+                  type="button"
+                  className={styles.qRemove}
+                  onClick={() => remove(question.id)}
+                  aria-label={t('questions.remove')}
+                >
+                  <X size={18} aria-hidden="true" />
+                </button>
+              )}
             </li>
           ))}
         </ul>
@@ -203,32 +248,28 @@ export function FormEventQuestions({draft, update, title, subtitle, footer}: Pro
           </CommonButton>
         }
       >
-        {available.length === 0 ? (
-          <p className={styles.catalogEmpty}>{t('questions.catalogEmpty')}</p>
-        ) : (
-          <ul className={styles.catalogList}>
-            {available.map((text) => {
-              const isSelected = selected.has(text)
-              return (
-                <li key={text}>
-                  <button
-                    type="button"
-                    className={`${styles.catalogItem} ${isSelected ? styles.catalogItemSelected : ''}`}
-                    onClick={() => toggleSelect(text)}
-                    aria-pressed={isSelected}
-                  >
-                    {isSelected ? (
-                      <Check size={16} aria-hidden="true" />
-                    ) : (
-                      <Plus size={16} aria-hidden="true" />
-                    )}
-                    <span>{text}</span>
-                  </button>
-                </li>
-              )
-            })}
-          </ul>
-        )}
+        <ul className={styles.catalogList}>
+          {catalog.map((text) => {
+            const isSelected = selected.has(text)
+            return (
+              <li key={text}>
+                <button
+                  type="button"
+                  className={`${styles.catalogItem} ${isSelected ? styles.catalogItemSelected : ''}`}
+                  onClick={() => toggleSelect(text)}
+                  aria-pressed={isSelected}
+                >
+                  {isSelected ? (
+                    <Check size={16} aria-hidden="true" />
+                  ) : (
+                    <Plus size={16} aria-hidden="true" />
+                  )}
+                  <span>{text}</span>
+                </button>
+              </li>
+            )
+          })}
+        </ul>
       </CommonModal>
 
       <CommonModal

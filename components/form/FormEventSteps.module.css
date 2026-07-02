@@ -377,6 +377,32 @@
   color: var(--color-text);
 }
 
+.qTextButton {
+  flex: 1 0 0;
+  min-width: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: text;
+}
+
+.qEditInput {
+  flex: 1 0 0;
+  min-width: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background: none;
+  border: none;
+  outline: none;
+}
+
 .qCustom {
   display: flex;
   flex-shrink: 0;
@@ -576,6 +602,14 @@
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.nameInput:disabled,
+.select:disabled,
+.swatch:disabled,
+.photo:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 @media (--bp-medium-down) {

@@ -296,6 +296,17 @@
     "saving": "Saving …",
     "saveError": "Couldn't save. Please try again.",
     "comingSoon": "Coming soon.",
+    "goLiveConfirm": {
+      "title": "Really set the event live?",
+      "text": "Please think this through — it can't be undone:",
+      "points": [
+        "You can set each event live only ONCE.",
+        "From going live you have exactly 48 hours to play the game.",
+        "After the 48 hours the event is permanently over and can't be started again."
+      ],
+      "confirm": "Yes, set it live now",
+      "cancel": "Cancel"
+    },
     "tabs": {
       "couple": "The couple",
       "details": "Key facts",

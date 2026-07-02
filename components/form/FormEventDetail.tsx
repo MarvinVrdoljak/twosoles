@@ -4,6 +4,7 @@ import {useState} from 'react'
 import {useTranslations} from 'next-intl'
 import {ArrowLeft} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
+import {CommonModal} from '@/components/common/CommonModal'
 import {ItemEventGuide} from '@/components/items/ItemEventGuide'
 import {ItemEventOverview} from '@/components/items/ItemEventOverview'
 import {Link, useRouter} from '@/i18n/navigation'
@@ -84,6 +85,7 @@ export function FormEventDetail({
   const [notice, setNotice] = useState<string | null>(null)
   const [pin, setPin] = useState(event.host_pin)
   const [startedAt, setStartedAt] = useState(event.started_at)
+  const [goLiveConfirmOpen, setGoLiveConfirmOpen] = useState(false)
 
   const [draft, setDraft] = useState<EventDraft>(() => ({
     name1: event.person1_name,
@@ -101,7 +103,6 @@ export function FormEventDetail({
     questions: (event.questions ?? []).map((q, index) => ({
       id: `q-${index}`,
       text: q.text,
-      custom: Boolean(q.custom),
     })),
     packageIndex: Math.max(0, PACKAGE_KEYS.indexOf(event.package as (typeof PACKAGE_KEYS)[number])),
   }))
@@ -109,6 +110,8 @@ export function FormEventDetail({
   const update = (patch: Partial<EventDraft>) => setDraft((current) => ({...current, ...patch}))
 
   const status = deriveStatus({started_at: startedAt, event_date: event.event_date})
+  // Ended events are archived — the edit tabs become read-only (no saving).
+  const readOnly = status === 'ended'
 
   const stub = () => setNotice(t('comingSoon'))
 
@@ -135,7 +138,7 @@ export function FormEventDetail({
           title: draft.title.trim(),
           event_date: draft.date || null,
           game_language: draft.language,
-          questions: draft.questions.map((q) => ({text: q.text, custom: q.custom})),
+          questions: draft.questions.map((q) => ({text: q.text})),
           package: PACKAGE_KEYS[draft.packageIndex],
         })
         .eq('id', event.id)
@@ -161,12 +164,19 @@ export function FormEventDetail({
         .is('started_at', null)
       if (error) throw error
       setStartedAt(startedIso)
+      setGoLiveConfirmOpen(false)
       router.refresh()
     } catch {
       setNotice(t('saveError'))
     } finally {
       setGoingLive(false)
     }
+  }
+
+  // Both go-live buttons open a confirmation first (one-time, 48h window).
+  const requestGoLive = () => {
+    setNotice(null)
+    setGoLiveConfirmOpen(true)
   }
 
   const remove = async () => {
@@ -223,7 +233,7 @@ export function FormEventDetail({
           status={status}
           guestUrl={guestUrl}
           goingLive={goingLive}
-          onGoLive={goLive}
+          onGoLive={requestGoLive}
           onStub={stub}
         />
 
@@ -257,7 +267,8 @@ export function FormEventDetail({
               update={update}
               title={t('coupleTitle')}
               subtitle={t('coupleSubtitle')}
-              footer={saveButton}
+              footer={readOnly ? undefined : saveButton}
+              readOnly={readOnly}
             />
           ) : null}
           {tab === 'details' ? (
@@ -266,7 +277,8 @@ export function FormEventDetail({
               update={update}
               title={t('detailsTitle')}
               subtitle={t('detailsSubtitle')}
-              footer={saveButton}
+              footer={readOnly ? undefined : saveButton}
+              readOnly={readOnly}
             />
           ) : null}
           {tab === 'questions' ? (
@@ -275,7 +287,8 @@ export function FormEventDetail({
               update={update}
               title={t('questionsTitle')}
               subtitle={t('questionsSubtitle')}
-              footer={saveButton}
+              footer={readOnly ? undefined : saveButton}
+              readOnly={readOnly}
             />
           ) : null}
           {tab === 'guide' ? <ItemEventGuide onStub={stub} /> : null}
@@ -286,7 +299,7 @@ export function FormEventDetail({
               packageIndex={draft.packageIndex}
               goingLive={goingLive}
               deleting={deleting}
-              onGoLive={goLive}
+              onGoLive={requestGoLive}
               onRegeneratePin={regeneratePin}
               onDelete={remove}
               onUpgrade={stub}
@@ -294,6 +307,36 @@ export function FormEventDetail({
           ) : null}
         </div>
       </div>
+
+      <CommonModal
+        open={goLiveConfirmOpen}
+        onClose={() => setGoLiveConfirmOpen(false)}
+        title={t('goLiveConfirm.title')}
+        closeLabel={t('goLiveConfirm.cancel')}
+        footer={
+          <>
+            <CommonButton
+              variant="secondary"
+              size="md"
+              onClick={() => setGoLiveConfirmOpen(false)}
+            >
+              {t('goLiveConfirm.cancel')}
+            </CommonButton>
+            <CommonButton variant="primary" size="md" onClick={goLive} disabled={goingLive}>
+              {goingLive ? t('saving') : t('goLiveConfirm.confirm')}
+            </CommonButton>
+          </>
+        }
+      >
+        <div className={styles.goLive}>
+          <p className={styles.goLiveText}>{t('goLiveConfirm.text')}</p>
+          <ul className={styles.goLivePoints}>
+            {(t.raw('goLiveConfirm.points') as string[]).map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        </div>
+      </CommonModal>
     </div>
   )
 }
