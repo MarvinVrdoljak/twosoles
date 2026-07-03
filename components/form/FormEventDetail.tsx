@@ -190,7 +190,7 @@ export function FormEventDetail({
       setDeleting(false)
       return
     }
-    router.push('/host')
+    router.push('/dashboard')
   }
 
   const regeneratePin = async () => {
@@ -218,7 +218,7 @@ export function FormEventDetail({
 
   return (
     <div className={styles.root}>
-      <Link href="/host" className={styles.back}>
+      <Link href="/dashboard" className={styles.back}>
         <ArrowLeft size={16} aria-hidden="true" />
         {t('back')}
       </Link>
@@ -233,6 +233,7 @@ export function FormEventDetail({
           questions={tDash('cardQuestions', {count: draft.questions.length})}
           status={status}
           guestUrl={guestUrl}
+          eventId={event.id}
           goingLive={goingLive}
           onGoLive={requestGoLive}
           onStub={stub}
@@ -292,7 +293,7 @@ export function FormEventDetail({
               readOnly={readOnly}
             />
           ) : null}
-          {tab === 'guide' ? <ItemEventGuide onStub={stub} /> : null}
+          {tab === 'guide' ? <ItemEventGuide eventId={event.id} onStub={stub} /> : null}
           {tab === 'settings' ? (
             <FormEventSettings
               status={status}

@@ -32,7 +32,14 @@ export function FormRegister() {
     const supabase = createClient()
     const {error: authError} = await supabase.auth.signInWithOtp({
       email,
-      options: {shouldCreateUser: true, data: {name, locale}},
+      options: {
+        shouldCreateUser: true,
+        data: {name, locale},
+        // Drives the language of the magic-link email and where the link lands
+        // (see supabase/templates/magic_link.html). Uses the locale of the page
+        // the user is actually on right now, not stored metadata.
+        emailRedirectTo: `${window.location.origin}/${locale}`,
+      },
     })
 
     if (authError) {

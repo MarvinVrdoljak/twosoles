@@ -57,7 +57,7 @@ export function GlobalUserMenu() {
       </button>
 
       <div className={`${styles.menu} ${open ? styles.menuOpen : ''}`} role="menu">
-        <Link href="/host/account" className={styles.item} role="menuitem" onClick={() => setOpen(false)}>
+        <Link href="/dashboard/account" className={styles.item} role="menuitem" onClick={() => setOpen(false)}>
           <User size={16} aria-hidden="true" />
           {t('account')}
         </Link>

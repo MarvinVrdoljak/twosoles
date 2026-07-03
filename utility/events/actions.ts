@@ -86,5 +86,5 @@ export async function seedDummyEventsAction() {
     },
   ])
 
-  revalidatePath('/[locale]/host', 'page')
+  revalidatePath('/[locale]/dashboard', 'page')
 }

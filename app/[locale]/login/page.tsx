@@ -17,7 +17,7 @@ export default async function LoginPage({params, searchParams}: LoginPageProps) 
 
   // Already signed in → no reason to show login.
   if (await getUser()) {
-    redirect(getPathname({href: '/host', locale}))
+    redirect(getPathname({href: '/dashboard', locale}))
   }
 
   const {error} = await searchParams

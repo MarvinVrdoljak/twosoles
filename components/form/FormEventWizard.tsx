@@ -118,7 +118,7 @@ export function FormEventWizard({userId}: FormEventWizardProps) {
         await supabase.from('events').update(patch).eq('id', eventId)
       }
 
-      router.push('/host')
+      router.push('/dashboard')
     } catch {
       setNotice(t('summary.createError'))
       setCreating(false)

@@ -28,18 +28,20 @@ export function ItemPrice({
         <p className="eyebrow eyebrowSmall">{tagline}</p>
       </div>
 
-      <p className={styles.price}>
-        <span className={styles.amount}>{price}</span>
-        {period ? <span className={styles.period}>{period}</span> : null}
-      </p>
+      <div className={styles.body}>
+        <p className={styles.price}>
+          <span className={styles.amount}>{price}</span>
+          {period ? <span className={styles.period}>{period}</span> : null}
+        </p>
 
-      <p className={styles.capacity}>
-        {capacityPrefix} <strong className={styles.capacityCount}>{capacity}</strong>
-      </p>
+        <p className={styles.capacity}>
+          {capacityPrefix} <strong className={styles.capacityCount}>{capacity}</strong>
+        </p>
 
-      <CommonButton href="/register" variant="primary" size="md" fullWidth>
-        {ctaLabel}
-      </CommonButton>
+        <CommonButton href="/register" variant="primary" size="md" fullWidth>
+          {ctaLabel}
+        </CommonButton>
+      </div>
     </li>
   )
 }

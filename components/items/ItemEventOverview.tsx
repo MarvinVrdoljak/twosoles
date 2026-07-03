@@ -3,6 +3,7 @@
 import {useTranslations} from 'next-intl'
 import {Calendar, Download, ListChecks, PartyPopper, Play, QrCode, Users} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
+import {Link} from '@/i18n/navigation'
 import type {EventStatus} from '@/utility/events/status'
 import styles from './ItemEventOverview.module.css'
 
@@ -12,12 +13,13 @@ type ItemEventOverviewProps = {
   occasion: string
   date: string
   guests: string
-  questions: string
   status: EventStatus
   guestUrl: string
+  eventId: string
   goingLive: boolean
   onGoLive: () => void
   onStub: () => void
+  questions: string
 }
 
 export function ItemEventOverview({
@@ -29,6 +31,7 @@ export function ItemEventOverview({
   questions,
   status,
   guestUrl,
+  eventId,
   goingLive,
   onGoLive,
   onStub,
@@ -89,7 +92,14 @@ export function ItemEventOverview({
         </span>
         <span className={styles.guestText}>
           <span className={styles.guestLabel}>{t('guestLink')}</span>
-          <span className={styles.guestUrl}>{guestUrl}</span>
+          <Link
+            href={`/guest/${eventId}`}
+            className={styles.guestUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {guestUrl}
+          </Link>
         </span>
       </div>
 
@@ -107,7 +117,7 @@ export function ItemEventOverview({
         ) : null}
 
         {status === 'draft' || status === 'live' ? (
-          <CommonButton variant="primary" size="md" fullWidth onClick={onStub}>
+          <CommonButton variant="primary" size="md" fullWidth href={`/host/${eventId}`}>
             <Play size={18} aria-hidden="true" />
             {status === 'live' ? t('startGame') : t('testGame')}
           </CommonButton>

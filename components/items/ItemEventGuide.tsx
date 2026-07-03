@@ -3,12 +3,18 @@
 import {useTranslations} from 'next-intl'
 import {ArrowUpRight, Download} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
+import {Link} from '@/i18n/navigation'
 import styles from './../form/FormEventDetail.module.css'
 
 type Step = {title: string; text: string}
 
-// Static "how to play" tab. Openable views + PDF are placeholders for now.
-export function ItemEventGuide({onStub}: {onStub: () => void}) {
+// Route segment per view, in the SAME order as the `guide.views` translation
+// array (Leinwand → Gäste-Handy → Host-Steuerung).
+const VIEW_PATHS = ['display', 'guest', 'host'] as const
+
+// Static "how to play" tab. The three view links open the live game views; the
+// PDF download is still a placeholder.
+export function ItemEventGuide({eventId, onStub}: {eventId: string; onStub: () => void}) {
   const t = useTranslations('eventDetail')
   const needs = t.raw('guide.needs') as string[]
   const steps = t.raw('guide.steps') as Step[]
@@ -59,10 +65,13 @@ export function ItemEventGuide({onStub}: {onStub: () => void}) {
                   <span className={styles.viewTitle}>{view.title}</span>
                   <span className={styles.viewText}>{view.text}</span>
                 </span>
-                <button type="button" className={styles.viewOpen} onClick={onStub}>
+                <Link
+                  href={`/${VIEW_PATHS[index]}/${eventId}`}
+                  className={styles.viewOpen}
+                >
                   <ArrowUpRight size={16} aria-hidden="true" />
                   {t('guide.open')}
-                </button>
+                </Link>
               </span>
             </div>
           ))}

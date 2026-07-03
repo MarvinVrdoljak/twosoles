@@ -1,7 +1,7 @@
 'use client'
 
 import {useState} from 'react'
-import {useTranslations} from 'next-intl'
+import {useLocale, useTranslations} from 'next-intl'
 import {CommonButton} from '@/components/common/CommonButton'
 import {FormAuthSent} from '@/components/form/FormAuthSent'
 import {FormDivider} from '@/components/form/FormDivider'
@@ -15,6 +15,7 @@ type Status = 'idle' | 'pending' | 'sent' | 'error'
 // Passwordless login: sends a magic link to an existing account.
 export function FormLogin() {
   const t = useTranslations('auth')
+  const locale = useLocale()
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState<string | null>(null)
@@ -27,7 +28,14 @@ export function FormLogin() {
     const supabase = createClient()
     const {error: authError} = await supabase.auth.signInWithOtp({
       email,
-      options: {shouldCreateUser: false},
+      options: {
+        shouldCreateUser: false,
+        // Language of the magic-link email + where the link lands is derived
+        // from this URL's locale (see supabase/templates/magic_link.html), so a
+        // login email always matches the page the user is on — `data.locale` is
+        // ignored for existing users, which is why we route locale through here.
+        emailRedirectTo: `${window.location.origin}/${locale}`,
+      },
     })
 
     if (authError) {

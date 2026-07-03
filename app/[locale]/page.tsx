@@ -25,7 +25,7 @@ export default async function Home({params}: HomeProps) {
   setRequestLocale(locale)
 
   if (await getUser()) {
-    redirect(getPathname({href: '/host', locale}))
+    redirect(getPathname({href: '/dashboard', locale}))
   }
 
   return (

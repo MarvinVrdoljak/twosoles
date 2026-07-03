@@ -1,0 +1,51 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: var(--space-6, 1.5rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 0.75rem);
+  max-width: 32rem;
+  width: 100%;
+  text-align: center;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-muted, #6b7280);
+}
+
+.title {
+  font-size: var(--font-size-h2, 2.5rem);
+}
+
+.hint {
+  color: var(--color-muted, #6b7280);
+}
+
+.meta {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-muted, #6b7280);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2, 0.5rem);
+  margin-top: var(--space-4, 1rem);
+}
+
+.link {
+  font-weight: 600;
+}
+
+.linkMuted {
+  color: var(--color-muted, #6b7280);
+}

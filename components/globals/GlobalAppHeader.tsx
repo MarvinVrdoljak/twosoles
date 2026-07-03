@@ -16,18 +16,18 @@ export async function GlobalAppHeader({active}: GlobalAppHeaderProps) {
   return (
     <header className={styles.root}>
       <div className={styles.left}>
-        <Link href="/host" className={styles.logo}>
+        <Link href="/dashboard" className={styles.logo}>
           TwoSoles
         </Link>
         <nav className={styles.nav} aria-label={t('navLabel')}>
           <Link
-            href="/host"
+            href="/dashboard"
             className={`${styles.navLink} ${active === 'events' ? styles.active : ''}`}
           >
             {t('navEvents')}
           </Link>
           <Link
-            href="/host/account"
+            href="/dashboard/account"
             className={`${styles.navLink} ${active === 'account' ? styles.active : ''}`}
           >
             {t('navAccount')}

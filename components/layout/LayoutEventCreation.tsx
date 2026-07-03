@@ -44,7 +44,7 @@ export function LayoutEventCreation({
     <div className={styles.root}>
       <aside className={styles.sidebar}>
         <div className={styles.sidebarTop}>
-          <Link href="/host" className={styles.logo}>
+          <Link href="/dashboard" className={styles.logo}>
             TwoSoles
           </Link>
 
@@ -85,7 +85,7 @@ export function LayoutEventCreation({
           </ol>
         </div>
 
-        <Link href="/host" className={styles.cancel}>
+        <Link href="/dashboard" className={styles.cancel}>
           <ArrowLeft className={styles.cancelIcon} size={16} aria-hidden="true" />
           {t('cancel')}
         </Link>

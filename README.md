@@ -42,9 +42,13 @@ Weitere Skripte: `npm run supabase:stop`, `npm run supabase:status`,
 - **Login:** `/login` bzw. `/en/login` – nur E-Mail, schickt einen Magic Link an
   bestehende Konten. Unbekannte E-Mails werden hier **nicht** angelegt.
 - **Routen-Gating:** Eingeloggte User werden von `/`, `/login`, `/register` auf
-  **`/host`** geleitet (der eingeloggte Bereich). `/host` ohne Session → `/login`.
+  **`/dashboard`** geleitet (der eingeloggte Bereich). `/dashboard` ohne Session → `/login`.
   Die Home `/` ist nur für ausgeloggte Besucher. Gating sitzt in den jeweiligen
   Server Components (`getUser()` aus `utility/supabase/user.ts`).
+- **Spiel-Ansichten (Platzhalter):** Pro Event gibt es drei Top-Level-Routen –
+  `/host/[id]` (Host-Steuerung), `/display/[id]` (Leinwand/Beamer) und
+  `/guest/[id]` (Gäste-Handy). Aktuell nur leere Platzhalter (`LayoutGameStub`),
+  verlinkt aus der Event-Detailseite (`/dashboard/events/[id]`) – Spiel-Logik folgt.
 - **Logout:** Server-Action (`utility/auth/actions.ts`) – meldet server-seitig ab
   und leitet auf `/login`.
 - Der Link in der E-Mail zeigt auf `/auth/confirm?token_hash=…&type=…`. Die Route

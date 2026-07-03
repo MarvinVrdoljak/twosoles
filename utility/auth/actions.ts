@@ -29,5 +29,5 @@ export async function updateProfileAction(name: string) {
   }
 
   const locale = await getLocale()
-  redirect(getPathname({href: '/host/account', locale}))
+  redirect(getPathname({href: '/dashboard/account', locale}))
 }

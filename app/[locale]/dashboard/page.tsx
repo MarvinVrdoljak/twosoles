@@ -77,7 +77,7 @@ export default async function HostPage({params}: HostPageProps) {
             return (
               <ItemEventCard
                 key={event.id}
-                href={`/host/events/${event.id}`}
+                href={`/dashboard/events/${event.id}`}
                 occasion={occasion}
                 couple={`${event.person1_name} & ${event.person2_name}`}
                 date={
@@ -93,7 +93,7 @@ export default async function HostPage({params}: HostPageProps) {
           })}
 
           <ItemAddEventCard
-            href="/host/create"
+            href="/dashboard/create"
             title={t('addEventTitle')}
             subtitle={t('addEventSubtitle')}
           />

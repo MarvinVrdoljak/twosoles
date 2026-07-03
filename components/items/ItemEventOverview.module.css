@@ -158,11 +158,19 @@
 }
 
 .guestUrl {
+  display: block;
   overflow: hidden;
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: color var(--transition-fast, 0.15s ease);
+}
+
+.guestUrl:hover {
+  color: var(--color-primary);
 }
 
 .actions {

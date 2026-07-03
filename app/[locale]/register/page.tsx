@@ -16,7 +16,7 @@ export default async function RegisterPage({params}: RegisterPageProps) {
 
   // Already signed in → straight to the host area.
   if (await getUser()) {
-    redirect(getPathname({href: '/host', locale}))
+    redirect(getPathname({href: '/dashboard', locale}))
   }
 
   const t = await getTranslations('auth')
