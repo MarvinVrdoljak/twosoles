@@ -760,5 +760,16 @@
     "testimonialRole": "Groom's brother",
     "legalNote": "By signing up you agree to our <agb>Terms</agb> & <privacy>Privacy Policy</privacy>.",
     "errorGeneric": "Something went wrong. Please try again."
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "This page wandered off",
+    "body": "The page you're looking for doesn't exist – or no longer does. Maybe there's a typo, or the link is out of date.",
+    "homeCta": "Back to home",
+    "dashboardCta": "Go to dashboard",
+    "loginCta": "Log in",
+    "accountCta": "Account",
+    "helpText": "Think something went wrong here?",
+    "helpLink": "Contact us"
   }
 }

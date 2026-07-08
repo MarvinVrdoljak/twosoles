@@ -760,5 +760,16 @@
     "testimonialRole": "Bruder des Bräutigams",
     "legalNote": "Mit der Anmeldung stimmst du unseren <agb>AGB</agb> & dem <privacy>Datenschutz</privacy> zu.",
     "errorGeneric": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+  },
+  "notFound": {
+    "eyebrow": "Fehler 404",
+    "title": "Diese Seite hat sich verlaufen",
+    "body": "Die Seite, die du suchst, gibt es nicht – oder nicht mehr. Vielleicht hat sich ein Tippfehler eingeschlichen oder der Link ist veraltet.",
+    "homeCta": "Zur Startseite",
+    "dashboardCta": "Zum Dashboard",
+    "loginCta": "Login",
+    "accountCta": "Konto",
+    "helpText": "Glaubst du, hier ist etwas schiefgelaufen?",
+    "helpLink": "Schreib uns"
   }
 }

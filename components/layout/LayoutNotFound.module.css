@@ -1,0 +1,125 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 220px);
+  padding-block: var(--block-spacing-md);
+  padding-inline: var(--side-gap);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-16);
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+/* Big display "404" with a soft radial glow behind it. */
+.code {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  margin-block: var(--spacing-8);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(96px, 22vw, 200px);
+  line-height: 1;
+  color: var(--color-primary);
+}
+
+.code::before {
+  content: '';
+  position: absolute;
+  inset: -20% -10%;
+  z-index: -1;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--color-primary) 22%, transparent),
+    transparent
+  );
+}
+
+/* The two overlapping hearts standing in for the zeros. */
+.hearts {
+  position: relative;
+  display: inline-flex;
+  width: 0.82em;
+  height: 0.82em;
+}
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.58em;
+  height: 0.58em;
+  fill: var(--color-primary);
+  stroke: none;
+  transform: translate(-68%, -50%) rotate(-14deg);
+}
+
+.heartBack {
+  fill: var(--color-primary-light);
+  transform: translate(-32%, -44%) rotate(14deg);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-h1-small);
+  line-height: var(--line-height-heading);
+  color: var(--color-text);
+}
+
+.body {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-base);
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-12);
+  margin-top: var(--spacing-8);
+}
+
+.help {
+  margin: 0;
+  margin-top: var(--spacing-8);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.helpLink {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.helpLink:hover {
+  color: var(--color-primary-hover);
+}
+
+@media (--bp-medium-up) {
+  .actions {
+    flex-wrap: nowrap;
+  }
+}
