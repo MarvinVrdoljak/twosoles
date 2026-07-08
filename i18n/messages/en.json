@@ -495,6 +495,7 @@
       "cancel": "Cancel"
     },
     "tabs": {
+      "overview": "Overview",
       "couple": "The couple",
       "details": "Key facts",
       "questions": "Questions",
@@ -530,70 +531,72 @@
       "deleteConfirm": "Really delete this event? This cannot be undone."
     },
     "guide": {
-      "title": "How you play TwoSoles",
-      "intro": "The shoe game, live with the whole room. Plan around 20–30 minutes for 10–15 questions. Here's the full flow — to read along or as a PDF for the day itself.",
+      "title": "How to play TwoSoles",
+      "intro": "The shoe game, live with the whole room. Plan around 20 to 25 minutes for 10 to 15 questions. Here's the whole flow to read along or download as a PDF.",
+      "ideaTitle": "The idea",
+      "idea": "Every question is a “Who's more likely to?”. There are always exactly two answers to choose from, person 1 or person 2. Everyone in the room taps one of the two on their phone. The couple answers by raising a shoe. The big question at the end of each round: did the audience read the couple right?",
       "needsTitle": "What you need",
       "needs": [
-        "A projector (incl. screen) or large display for the projector view.",
-        "A device for the projector view (connected to the projector/display): laptop or tablet, min. 1024px recommended.",
-        "A second device for the host controls: laptop, tablet or phone (with an internet connection).",
-        "Internet for the projector/host device. A phone hotspot is enough.",
-        "Two chairs and a pair of shoes each (classic: one own + one partner shoe).",
-        "Your question set from the “Questions” tab.",
-        "Optional: a microphone for hosting."
-      ],
-      "stepsTitle": "The flow in 6 steps",
-      "steps": [
-        {
-          "title": "Set-up",
-          "text": "The couple sits back to back on two chairs — each person holds one of their own and one of their partner's shoes. The projector shows the projector view, your phone or laptop the host controls."
-        },
-        {
-          "title": "Guests join",
-          "text": "A QR code appears on the projector. Guests scan it with their phone camera and land right on the voting page — no app, no login."
-        },
-        {
-          "title": "Ask a question",
-          "text": "You open the next question in the host controls. It appears large on the projector, guests tap one of the two people on their phone."
-        },
-        {
-          "title": "Close the vote",
-          "text": "Once enough votes are in, you close the vote. Now the couple raises their own answer as a shoe — before the audience result is shown."
-        },
-        {
-          "title": "The reveal",
-          "text": "You press “Reveal”. Countdown, then the bar reveals how the room voted. The big question: was the majority right?"
-        },
-        {
-          "title": "Keep going",
-          "text": "Next question — and so on through your whole set. At the end the projector shows the finale."
-        }
+        "A large screen so everyone in the room can see the projector view. That can be a projector with a screen, a big TV or a monitor.",
+        "A device you connect to the screen. We recommend a laptop or tablet at least 1024px wide.",
+        "A second device for the host controls, which you use to run the game. Laptop, tablet or phone.",
+        "An internet connection for the device on the screen and the host device. Guests need internet too. Mobile data is usually enough.",
+        "Two chairs and a pair of shoes from each of the two. In the end each person holds one of their own shoes and one of the other person's.",
+        "Optionally a microphone for hosting."
       ],
       "viewsTitle": "The 3 views",
+      "viewsIntro": "Before you start, it's worth a look at the three views the game runs across.",
       "views": [
         {
-          "title": "Projector",
-          "text": "On the projector for everyone. Shows the question, countdown and the reveal."
-        },
-        {
-          "title": "Guest phone",
-          "text": "One question, two buttons. Opens via QR code."
+          "title": "Projector view",
+          "text": "Runs on the screen and is visible to everyone. It shows the welcome screen and the current question."
         },
         {
           "title": "Host controls",
-          "text": "Your device. You set the pace and the reveals."
+          "text": "Your device, which you use to run the game. Here you open questions, close the vote, reveal, and find your question set and a few settings."
+        },
+        {
+          "title": "Guest view",
+          "text": "The game view for guests, which opens on their phone via QR code. It shows the current question and the two answers to choose from."
         }
       ],
-      "open": "Open",
+      "setupTitle": "Setup",
+      "setup": [
+        "Connect the first device to the screen and open the <display>projector view</display> on it. It's best to use your browser's fullscreen mode. On a second device, ideally a smartphone, you open the <host>host controls</host>.",
+        "Finally, make sure the game is reset so it starts from the beginning. You do this in the settings of the <host>host controls</host>. After that the screen sits on the welcome screen and you're ready to go.",
+        "Set up two chairs back to back, ideally in front of or next to the screen. That way the couple sits back to back and can't see each other. Make sure both the couple and the screen are clearly visible to everyone in the room. The couple takes their seats, and each person is handed one of their own shoes and one of the other person's."
+      ],
+      "roundTitle": "How a round works",
+      "round": [
+        {
+          "title": "Guests connect.",
+          "text": "A QR code appears on the screen for everyone to see. Guests scan it with their phone camera and land right on the voting page, with no app and no login. Tip: you can also place the QR codes on the tables. Grab the printable PDF <download>here</download>."
+        },
+        {
+          "title": "Ask a question.",
+          "text": "You open the first question in the <host>host controls</host>. It appears large on the screen, and guests tap person 1 or person 2 on their phone. In the host controls you see live how many votes are already in."
+        },
+        {
+          "title": "Close the vote.",
+          "text": "Once enough votes are in, you close the vote. The screen now shows “Closed. The reveal is coming.”, but the result stays hidden. This is exactly when the couple raises their shoes. Each person raises the shoe of whoever they're voting for. Their own shoe means “me”, the other person's shoe means “you”. Both decide independently and are welcome to disagree. Because the audience result is still hidden, no one can be swayed."
+        },
+        {
+          "title": "The reveal.",
+          "text": "You press “Reveal”. After a short countdown, the bar on the screen shows how the room voted. Now you compare: does the audience majority match what the couple showed with their shoes?"
+        },
+        {
+          "title": "Keep going.",
+          "text": "With “Next question” you work through your questions."
+        }
+      ],
       "tipsTitle": "Tips for the big moment",
       "tips": [
-        "10–15 questions is ideal — enough tension without dragging.",
-        "Insider questions get the loudest laughs. Mix classics with what you know about the couple.",
-        "No wedding Wi-Fi needed — guests vote over their mobile data. Only the projector device needs to be online.",
-        "Keep the projector/host device plugged in and check the internet connection beforehand — nothing runs without it.",
-        "Wait to close the vote until enough guests have voted (you see the vote count live in the controls).",
-        "Have the couple raise their shoes first, then reveal — that's the moment of suspense.",
-        "Do a quick test run beforehand so everything's set on the day."
+        "10 to 15 questions is ideal. Enough tension without dragging.",
+        "Insider questions bring the loudest laughs. Mix classics with your personal couple knowledge.",
+        "Keep both devices plugged in so nothing dies mid-game.",
+        "Wait to close until enough guests have voted. You see the vote count live in the controls.",
+        "Have the couple raise their shoes first, then reveal. That's the moment of suspense.",
+        "Do a short dry run beforehand so everything's dialed in on the day."
       ],
       "download": "Download guide",
       "downloadHint": "Got everything? Print the guide for the big day."

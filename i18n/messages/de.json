@@ -495,6 +495,7 @@
       "cancel": "Abbrechen"
     },
     "tabs": {
+      "overview": "Übersicht",
       "couple": "Das Paar",
       "details": "Eckdaten",
       "questions": "Fragen",
@@ -530,70 +531,72 @@
       "deleteConfirm": "Dieses Event wirklich löschen? Das kann nicht rückgängig gemacht werden."
     },
     "guide": {
-      "title": "So spielt ihr TwoSoles",
-      "intro": "Das Schuh-Spiel, live mit dem ganzen Saal. Plane rund 20–30 Minuten für 10–15 Fragen. Hier ist der ganze Ablauf — zum Mitlesen oder als PDF für den Tag selbst.",
-      "needsTitle": "Was wird benötigt",
+      "title": "So spielt man TwoSoles",
+      "intro": "Das Schuh-Spiel, live mit dem ganzen Saal. Plane rund 20 bis 25 Minuten für 10 bis 15 Fragen. Hier ist der ganze Ablauf zum Mitlesen oder als PDF zum Download.",
+      "ideaTitle": "Die Idee",
+      "idea": "Bei jeder Frage geht es um „Wer würde eher?“. Zur Wahl stehen immer genau zwei Antworten, Person 1 oder Person 2. Alle im Saal tippen auf ihrem Handy auf eine der beiden. Das Paar selbst antwortet, indem es einen Schuh hochhebt. Die große Frage am Ende jeder Runde lautet: Hat das Publikum das Paar richtig eingeschätzt?",
+      "needsTitle": "Was du brauchst",
       "needs": [
-        "Ein Beamer (inkl. Leinwand) oder großer Bildschirm für die Leinwand-Ansicht.",
-        "Ein Gerät für die Leinwand-Ansicht (an Beamer/Bildschirm angeschlossen): Laptop oder Tablet, empfohlen min. 1024px.",
-        "Ein zweites Gerät für die Host-Steuerung: Laptop, Tablet oder Handy (mit Internetverbindung).",
-        "Internet für das Beamer-/Host-Gerät. Ein Handy-Hotspot genügt.",
-        "Zwei Stühle und je ein Paar Schuhe der beiden (klassisch: ein eigener + ein Partner-Schuh).",
-        "Euer Fragen-Set aus dem Tab „Fragen“.",
-        "Optional: ein Mikrofon für die Moderation."
-      ],
-      "stepsTitle": "Der Ablauf in 6 Schritten",
-      "steps": [
-        {
-          "title": "Aufstellung",
-          "text": "Das Paar sitzt mit dem Rücken zueinander auf zwei Stühlen — jede Person hält einen eigenen und einen Schuh des Partners. Der Beamer zeigt die Leinwand-Ansicht, dein Handy oder Laptop die Host-Steuerung."
-        },
-        {
-          "title": "Gäste holen sich rein",
-          "text": "Auf der Leinwand erscheint ein QR-Code. Die Gäste scannen ihn mit der Handykamera und landen direkt auf der Abstimmseite — keine App, kein Login."
-        },
-        {
-          "title": "Frage stellen",
-          "text": "Du öffnest in der Host-Steuerung die nächste Frage. Sie erscheint groß auf der Leinwand, die Gäste tippen auf ihrem Handy auf eine der beiden Personen."
-        },
-        {
-          "title": "Abstimmung schließen",
-          "text": "Sind genug Stimmen da, schließt du die Abstimmung. Jetzt heben die beiden ihre eigene Antwort als Schuh hoch — bevor das Publikumsergebnis sichtbar wird."
-        },
-        {
-          "title": "Der Reveal",
-          "text": "Du drückst „Auflösen“. Countdown, dann enthüllt der Balken, wie der Saal abgestimmt hat. Die große Frage: Lag die Mehrheit richtig?"
-        },
-        {
-          "title": "Weiter geht's",
-          "text": "Nächste Frage — und so durch euer ganzes Set. Am Ende zeigt die Leinwand den Abschluss."
-        }
+        "Einen großen Bildschirm, auf dem alle im Saal die Leinwand-Ansicht sehen. Das kann ein Beamer mit Leinwand sein, ein großer Fernseher oder ein Monitor.",
+        "Ein Gerät, das du an die Leinwand anschließt. Empfohlen ist ein Laptop oder Tablet mit mindestens 1024px Breite.",
+        "Ein zweites Gerät für die Host-Steuerung, mit dem du das Spiel führst. Laptop, Tablet oder Handy.",
+        "Eine Internetverbindung für das Gerät an der Leinwand und das Host-Gerät. Auch die Gäste brauchen Internet. In der Regel reicht mobiles Datennetz.",
+        "Zwei Stühle und je ein Paar Schuhe der beiden. Jede Person hält am Ende einen eigenen Schuh und einen Schuh der anderen Person.",
+        "Optional ein Mikrofon für die Moderation."
       ],
       "viewsTitle": "Die 3 Ansichten",
+      "viewsIntro": "Bevor es losgeht, lohnt sich ein Blick auf die drei Ansichten, zwischen denen das Spiel läuft.",
       "views": [
         {
-          "title": "Leinwand",
-          "text": "Am Beamer für alle. Zeigt Frage, Countdown und den Reveal."
-        },
-        {
-          "title": "Gäste-Handy",
-          "text": "Eine Frage, zwei Buttons. Öffnet sich per QR-Code."
+          "title": "Leinwand-Ansicht",
+          "text": "Läuft auf der Leinwand und ist für alle sichtbar. Sie zeigt den Willkommens-Screen und die aktuelle Frage."
         },
         {
           "title": "Host-Steuerung",
-          "text": "Dein Gerät. Du gibst Tempo und Reveals vor."
+          "text": "Dein Gerät, mit dem du das Spiel führst. Hier eröffnest du Fragen, schließt die Abstimmung, löst auf und findest dein Fragen-Set sowie einige Einstellungen."
+        },
+        {
+          "title": "Gäste-Ansicht",
+          "text": "Die Spielansicht für die Gäste, die sich per QR-Code auf dem Handy öffnet. Sie zeigt die aktuelle Frage und die zwei Antworten zur Auswahl."
         }
       ],
-      "open": "Öffnen",
+      "setupTitle": "Aufbau",
+      "setup": [
+        "Verbinde das erste Gerät mit der Leinwand und öffne darauf die <display>Leinwand-Ansicht</display>. Am besten nutzt du den Vollbildmodus des Browsers. Auf einem zweiten Gerät, idealerweise einem Smartphone, öffnest du die <host>Host-Steuerung</host>.",
+        "Stell zum Schluss sicher, dass das Spiel zurückgesetzt ist, damit es von vorne startet. Das erledigst du in den Einstellungen der <host>Host-Steuerung</host>. Danach steht die Leinwand auf dem Willkommens-Screen, und du bist startklar.",
+        "Stell zwei Stühle mit dem Rücken zueinander auf, am besten vor oder neben der Leinwand. So sitzt das Paar Rücken an Rücken und sieht sich gegenseitig nicht. Achte darauf, dass sowohl das Paar als auch die Leinwand für alle im Saal gut sichtbar sind. Das Paar nimmt Platz, und jede Person bekommt einen eigenen Schuh und einen Schuh der anderen Person in die Hand."
+      ],
+      "roundTitle": "So läuft eine Runde",
+      "round": [
+        {
+          "title": "Gäste verbinden sich.",
+          "text": "Auf der Leinwand erscheint ein QR-Code, den alle im Saal sehen. Die Gäste scannen ihn mit der Handykamera und landen direkt auf der Abstimmseite, ganz ohne App und ohne Login. Tipp: Du kannst die QR-Codes auch auf den Tischen verteilen. Die passende PDF zum Ausdrucken gibt es <download>hier</download>."
+        },
+        {
+          "title": "Frage stellen.",
+          "text": "Du eröffnest in der <host>Host-Steuerung</host> die erste Frage. Sie erscheint groß auf der Leinwand, und die Gäste tippen auf ihrem Handy auf Person 1 oder Person 2. In der Host-Steuerung siehst du live, wie viele Stimmen schon da sind."
+        },
+        {
+          "title": "Abstimmung schließen.",
+          "text": "Sind genug Stimmen da, schließt du die Abstimmung. Die Leinwand zeigt jetzt „Geschlossen. Gleich wird aufgelöst.“, das Ergebnis bleibt aber noch verborgen. Genau jetzt hebt das Paar die Schuhe. Jede Person hebt den Schuh derjenigen, für die sie stimmt. Der eigene Schuh bedeutet „Ich“, der Schuh der anderen Person bedeutet „Du“. Beide entscheiden unabhängig voneinander und dürfen sich ruhig widersprechen. Weil das Publikumsergebnis noch verdeckt ist, lässt sich hier niemand beeinflussen."
+        },
+        {
+          "title": "Der Reveal.",
+          "text": "Du drückst „Auflösen“. Nach einem kurzen Countdown zeigt der Balken auf der Leinwand, wie der Saal abgestimmt hat. Jetzt vergleichst du: Passt die Mehrheit des Publikums zu dem, was das Paar mit den Schuhen gezeigt hat?"
+        },
+        {
+          "title": "Weiter geht's.",
+          "text": "Mit „Nächste Frage“ geht es durch deine Fragen."
+        }
+      ],
       "tipsTitle": "Tipps für den großen Moment",
       "tips": [
-        "10–15 Fragen sind ideal — genug Spannung, ohne dass es zäh wird.",
-        "Insider-Fragen bringen die lautesten Lacher. Mischt Klassiker mit eurem Paar-Wissen.",
-        "Kein Hochzeits-WLAN nötig — die Gäste voten über ihr Mobilfunknetz. Nur das Beamer-Gerät sollte online sein.",
-        "Lass das Beamer-/Host-Gerät am Strom und prüfe vorher die Internetverbindung — ohne sie läuft nichts.",
-        "Warte mit dem Schließen, bis genug Gäste abgestimmt haben (die Stimmenzahl siehst du live in der Steuerung).",
-        "Erst das Paar die Schuhe heben lassen, dann auflösen — das ist der Spannungsmoment.",
-        "Macht vorher einen kurzen Probelauf, damit am Tag alles sitzt."
+        "10 bis 15 Fragen sind ideal. Genug Spannung, ohne dass es zäh wird.",
+        "Insider-Fragen bringen die lautesten Lacher. Mische Klassiker mit deinem persönlichen Paar-Wissen.",
+        "Lass beide Geräte am Strom, damit unterwegs nichts ausgeht.",
+        "Warte mit dem Schließen, bis genug Gäste abgestimmt haben. Die Stimmenzahl siehst du live in der Steuerung.",
+        "Erst das Paar die Schuhe heben lassen, dann auflösen. Das ist der Spannungsmoment.",
+        "Mach vorher einen kurzen Probelauf, damit am Tag alles sitzt."
       ],
       "download": "Download Anleitung",
       "downloadHint": "Alles dabei? Druck dir die Anleitung für den Tag aus."

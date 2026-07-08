@@ -3,12 +3,13 @@
 import {useEffect, useState} from 'react'
 import {createTranslator, useLocale, useTranslations} from 'next-intl'
 import {
-  ArrowUpRight,
   Calendar,
   Check,
   Copy,
+  ExternalLink,
   FileDown,
   ListChecks,
+  Loader2,
   PartyPopper,
   Play,
   Users,
@@ -206,37 +207,48 @@ export function ItemEventOverview({
             <span className={styles.qr}>
               <GameQr value={absolute(card.href)} />
             </span>
-            <span className={styles.guestText}>
+            <div className={styles.guestText}>
               <span className={styles.guestLabel}>{card.label}</span>
               <div className={styles.cardActions}>
                 <Link
                   href={card.href}
-                  className={styles.cardLink}
+                  className={styles.cardAction}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title={t('openView')}
+                  aria-label={t('openView')}
                 >
-                  <ArrowUpRight size={14} aria-hidden="true" />
-                  {t('openView')}
+                  <ExternalLink size={16} aria-hidden="true" />
                 </Link>
-                <button type="button" className={styles.cardLink} onClick={() => handleCopy(card)}>
+                <button
+                  type="button"
+                  className={`${styles.cardAction} ${copied === card.key ? styles.cardActionDone : ''}`}
+                  onClick={() => handleCopy(card)}
+                  title={copied === card.key ? t('copied') : t('copyLink')}
+                  aria-label={copied === card.key ? t('copied') : t('copyLink')}
+                >
                   {copied === card.key ? (
-                    <Check size={14} aria-hidden="true" />
+                    <Check size={16} aria-hidden="true" />
                   ) : (
-                    <Copy size={14} aria-hidden="true" />
+                    <Copy size={16} aria-hidden="true" />
                   )}
-                  {copied === card.key ? t('copied') : t('copyLink')}
                 </button>
                 <button
                   type="button"
-                  className={styles.cardLink}
+                  className={styles.cardAction}
                   onClick={() => handleDownload(card)}
                   disabled={pdfBusy !== null}
+                  title={pdfBusy === card.key ? t('pdf.generating') : t('pdf.download')}
+                  aria-label={pdfBusy === card.key ? t('pdf.generating') : t('pdf.download')}
                 >
-                  <FileDown size={14} aria-hidden="true" />
-                  {pdfBusy === card.key ? t('pdf.generating') : t('pdf.download')}
+                  {pdfBusy === card.key ? (
+                    <Loader2 size={16} className={styles.spin} aria-hidden="true" />
+                  ) : (
+                    <FileDown size={16} aria-hidden="true" />
+                  )}
                 </button>
               </div>
-            </span>
+            </div>
           </div>
         ))}
       </div>

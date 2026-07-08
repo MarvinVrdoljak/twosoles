@@ -1,13 +1,14 @@
 'use client'
 
-import {useEffect, useState} from 'react'
+import {useEffect, useState, type ReactNode} from 'react'
 import {createTranslator, useLocale, useTranslations} from 'next-intl'
-import {ArrowUpRight, Download} from 'lucide-react'
+import {Download, ExternalLink} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
 import {GameQr} from '@/components/game/GameQr'
 import {Link, getPathname} from '@/i18n/navigation'
 import {routing} from '@/i18n/routing'
 import type {Locale} from '@/i18n/routing'
+import {downloadEventPdf} from '@/utility/pdf/eventPdf'
 import {downloadGuidePdf} from '@/utility/pdf/guidePdf'
 import styles from './../form/FormEventDetail.module.css'
 
@@ -26,9 +27,15 @@ type LooseTranslator = ((key: string) => string) & {
   raw: (key: string) => unknown
 }
 
-// Route segment per view, in the SAME order as the `guide.views` translation
-// array (Leinwand → Gäste-Handy → Host-Steuerung).
-const VIEW_PATHS = ['display', 'guest', 'host'] as const
+// The three game views, in the SAME order as the `guide.views` translation
+// array (Leinwand-Ansicht → Host-Steuerung → Gäste-Ansicht). The key doubles as
+// the route segment: /display, /host, /guest.
+const VIEW_KEYS = ['display', 'host', 'guest'] as const
+type ViewKey = (typeof VIEW_KEYS)[number]
+
+// Strip the inline link tags (<display>, <host>, <download>, …) so the printed
+// booklet shows clean plain text.
+const stripTags = (text: string) => text.replace(/<[^>]+>/g, '')
 
 type ItemEventGuideProps = {
   eventId: string
@@ -36,26 +43,76 @@ type ItemEventGuideProps = {
   gameLanguage: string
 }
 
-// Static "how to play" tab. The three view cards show a QR code and open the
-// live game views; the download button renders the whole guide as a PDF.
+// Static "how to play" tab. Screen names link to the live views in a new tab;
+// the download button renders the whole guide as a PDF.
 export function ItemEventGuide({eventId, couple, gameLanguage}: ItemEventGuideProps) {
   const t = useTranslations('eventDetail')
   const locale = useLocale() as Locale
   const needs = t.raw('guide.needs') as string[]
-  const steps = t.raw('guide.steps') as Step[]
   const views = t.raw('guide.views') as Step[]
+  const setup = t.raw('guide.setup') as string[]
+  const round = t.raw('guide.round') as Step[]
   const tips = t.raw('guide.tips') as string[]
 
   // Absolute URLs are only known on the client — the QR codes must be
   // scannable, so build them from the live origin after mount.
   const [origin, setOrigin] = useState('')
   const [pdfBusy, setPdfBusy] = useState(false)
+  const [guestPdfBusy, setGuestPdfBusy] = useState(false)
   useEffect(() => {
     setOrigin(window.location.origin)
   }, [])
   const absolute = (href: string) => (origin ? `${origin}${getPathname({href, locale})}` : '')
 
-  const viewHref = (index: number) => `/${VIEW_PATHS[index]}/${eventId}`
+  const viewPath = (key: ViewKey) => `/${key}/${eventId}`
+
+  // next-intl can't infer rich-text tags on an array-index message path, so
+  // build a loosely-typed rich translator for the inline links.
+  const tRich = t.rich as unknown as (
+    key: string,
+    values: Record<string, (chunks: ReactNode) => ReactNode>,
+  ) => ReactNode
+
+  // The table-QR download mirrors the guest-link PDF in ItemEventOverview: the
+  // scannable poster that sends guests straight to the voting page.
+  const handleGuestPdf = async () => {
+    const url = absolute(viewPath('guest'))
+    if (!url) return
+    setGuestPdfBusy(true)
+    try {
+      // Render the PDF in the event's game language, not the dashboard locale.
+      const lang = (routing.locales as readonly string[]).includes(gameLanguage)
+        ? (gameLanguage as Locale)
+        : locale
+      const messages = (await MESSAGES[lang]()).default
+      const pdf = createTranslator({
+        locale: lang,
+        messages,
+        namespace: 'eventDetail.pdf',
+      }) as unknown as LooseTranslator
+      const detail = createTranslator({
+        locale: lang,
+        messages,
+        namespace: 'eventDetail',
+      }) as unknown as LooseTranslator
+      const game = createTranslator({
+        locale: lang,
+        messages,
+        namespace: 'game.display',
+      }) as unknown as LooseTranslator
+
+      await downloadEventPdf({
+        eyebrow: game('eyebrowQuestion'),
+        heading: couple,
+        intro: pdf('guestIntro'),
+        instruction: pdf('scanHint'),
+        url,
+        fileName: `TwoSoles – ${couple} – ${detail('guestLink')}.pdf`,
+      })
+    } finally {
+      setGuestPdfBusy(false)
+    }
+  }
 
   const handleDownload = async () => {
     setPdfBusy(true)
@@ -73,7 +130,7 @@ export function ItemEventGuide({eventId, couple, gameLanguage}: ItemEventGuidePr
 
       const guideViews = (g.raw('views') as Step[]).map((view, index) => ({
         ...view,
-        url: absolute(viewHref(index)),
+        url: absolute(viewPath(VIEW_KEYS[index])),
       }))
 
       await downloadGuidePdf({
@@ -81,18 +138,51 @@ export function ItemEventGuide({eventId, couple, gameLanguage}: ItemEventGuidePr
         eyebrow: couple,
         title: g('title'),
         intro: g('intro'),
+        ideaTitle: g('ideaTitle'),
+        idea: g('idea'),
         needsTitle: g('needsTitle'),
         needs: g.raw('needs') as string[],
-        stepsTitle: g('stepsTitle'),
-        steps: g.raw('steps') as Step[],
         viewsTitle: g('viewsTitle'),
+        viewsIntro: g('viewsIntro'),
         views: guideViews,
+        setupTitle: g('setupTitle'),
+        setup: (g.raw('setup') as string[]).map(stripTags),
+        roundTitle: g('roundTitle'),
+        round: (g.raw('round') as Step[]).map((step) => ({...step, text: stripTags(step.text)})),
         tipsTitle: g('tipsTitle'),
         tips: g.raw('tips') as string[],
       })
     } finally {
       setPdfBusy(false)
     }
+  }
+
+  // Inline link tags shared by every rich guide string: the three screens open
+  // in a new tab, and "hier" triggers the table-QR PDF download.
+  const viewLink = (key: ViewKey) => (chunks: ReactNode) => (
+    <Link
+      href={viewPath(key)}
+      className={styles.inlineLink}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {chunks}
+    </Link>
+  )
+  const richTags: Record<string, (chunks: ReactNode) => ReactNode> = {
+    display: viewLink('display'),
+    host: viewLink('host'),
+    guest: viewLink('guest'),
+    download: (chunks) => (
+      <button
+        type="button"
+        className={styles.inlineLink}
+        onClick={handleGuestPdf}
+        disabled={guestPdfBusy}
+      >
+        {chunks}
+      </button>
+    ),
   }
 
   return (
@@ -105,6 +195,11 @@ export function ItemEventGuide({eventId, couple, gameLanguage}: ItemEventGuidePr
       <hr className={styles.divider} />
 
       <section className={styles.guideSection}>
+        <h3 className={styles.guideHeading}>{t('guide.ideaTitle')}</h3>
+        <p className={styles.guideText}>{t('guide.idea')}</p>
+      </section>
+
+      <section className={styles.guideSection}>
         <h3 className={styles.guideHeading}>{t('guide.needsTitle')}</h3>
         <ul className={styles.bullets}>
           {needs.map((need) => (
@@ -114,22 +209,8 @@ export function ItemEventGuide({eventId, couple, gameLanguage}: ItemEventGuidePr
       </section>
 
       <section className={styles.guideSection}>
-        <h3 className={styles.guideHeading}>{t('guide.stepsTitle')}</h3>
-        <ol className={styles.steps}>
-          {steps.map((step, index) => (
-            <li key={step.title} className={styles.step}>
-              <span className={styles.stepNumber}>{index + 1}</span>
-              <span className={styles.stepBody}>
-                <span className={styles.stepTitle}>{step.title}</span>
-                <span className={styles.stepText}>{step.text}</span>
-              </span>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section className={styles.guideSection}>
         <h3 className={styles.guideHeading}>{t('guide.viewsTitle')}</h3>
+        <p className={styles.guideText}>{t('guide.viewsIntro')}</p>
         <div className={styles.views}>
           {views.map((view, index) => (
             <div key={view.title} className={styles.view}>
@@ -139,17 +220,48 @@ export function ItemEventGuide({eventId, couple, gameLanguage}: ItemEventGuidePr
                   <span className={styles.viewTitle}>{view.title}</span>
                   <span className={styles.viewText}>{view.text}</span>
                 </span>
-                <Link href={viewHref(index)} className={styles.viewOpen}>
-                  <ArrowUpRight size={16} aria-hidden="true" />
-                  {t('guide.open')}
-                </Link>
+                <CommonButton
+                  href={viewPath(VIEW_KEYS[index])}
+                  variant="secondary"
+                  size="sm"
+                  target="_blank"
+                >
+                  <ExternalLink size={16} aria-hidden="true" />
+                  {t('openView')}
+                </CommonButton>
               </span>
               <span className={styles.viewQr}>
-                <GameQr value={absolute(viewHref(index))} />
+                <GameQr value={absolute(viewPath(VIEW_KEYS[index]))} />
               </span>
             </div>
           ))}
         </div>
+      </section>
+
+      <section className={styles.guideSection}>
+        <h3 className={styles.guideHeading}>{t('guide.setupTitle')}</h3>
+        {setup.map((_, index) => (
+          <p key={index} className={styles.guideText}>
+            {tRich(`guide.setup.${index}`, richTags)}
+          </p>
+        ))}
+      </section>
+
+      <section className={styles.guideSection}>
+        <h3 className={styles.guideHeading}>{t('guide.roundTitle')}</h3>
+        <ol className={styles.steps}>
+          {round.map((step, index) => (
+            <li key={step.title} className={styles.step}>
+              <span className={styles.stepNumber}>{index + 1}</span>
+              <span className={styles.stepBody}>
+                <span className={styles.stepTitle}>{step.title}</span>
+                <span className={styles.stepText}>
+                  {tRich(`guide.round.${index}.text`, richTags)}
+                </span>
+              </span>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className={styles.guideSection}>

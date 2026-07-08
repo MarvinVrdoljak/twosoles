@@ -1,6 +1,6 @@
 'use client'
 
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {useTranslations} from 'next-intl'
 import {ArrowLeft} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
@@ -47,7 +47,7 @@ type FormEventDetailProps = {
   userId: string
 }
 
-type Tab = 'couple' | 'details' | 'questions' | 'guide' | 'settings'
+type Tab = 'overview' | 'couple' | 'details' | 'questions' | 'guide' | 'settings'
 
 async function uploadPhoto(
   supabase: ReturnType<typeof createClient>,
@@ -87,6 +87,19 @@ export function FormEventDetail({
   const [startedAt, setStartedAt] = useState(event.started_at)
   const [goLiveConfirmOpen, setGoLiveConfirmOpen] = useState(false)
   const [deviceChoiceOpen, setDeviceChoiceOpen] = useState(false)
+
+  // The overview lives in the sidebar on desktop, but on mobile it becomes the
+  // first tab. Default to it on mobile and fall back to a content tab once the
+  // viewport grows past the sidebar breakpoint (matches the CSS layout switch).
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 1024px)')
+    if (!desktop.matches) setTab('overview')
+    const onChange = () => {
+      if (desktop.matches) setTab((current) => (current === 'overview' ? 'couple' : current))
+    }
+    desktop.addEventListener('change', onChange)
+    return () => desktop.removeEventListener('change', onChange)
+  }, [])
 
   const [draft, setDraft] = useState<EventDraft>(() => ({
     name1: event.person1_name,
@@ -208,7 +221,8 @@ export function FormEventDetail({
     </div>
   )
 
-  const tabs: {key: Tab; label: string}[] = [
+  const tabs: {key: Tab; label: string; mobileOnly?: boolean}[] = [
+    {key: 'overview', label: t('tabs.overview'), mobileOnly: true},
     {key: 'couple', label: t('tabs.couple')},
     {key: 'details', label: t('tabs.details')},
     {key: 'questions', label: t('tabs.questions')},
@@ -224,42 +238,44 @@ export function FormEventDetail({
       </Link>
 
       <div className={styles.layout}>
-        <ItemEventOverview
-          name1={draft.name1}
-          name2={draft.name2}
-          occasion={occasionLabel}
-          gameLanguage={draft.language}
-          date={dateText}
-          guests={guests}
-          questions={tDash('cardQuestions', {count: draft.questions.length})}
-          status={status}
-          eventId={event.id}
-          goingLive={goingLive}
-          onGoLive={requestGoLive}
-          onPlay={() => {
-            setNotice(null)
-            setDeviceChoiceOpen(true)
-          }}
-        />
+        <div className={`${styles.overview} ${tab === 'overview' ? styles.overviewActive : ''}`}>
+          <ItemEventOverview
+            name1={draft.name1}
+            name2={draft.name2}
+            occasion={occasionLabel}
+            gameLanguage={draft.language}
+            date={dateText}
+            guests={guests}
+            questions={tDash('cardQuestions', {count: draft.questions.length})}
+            status={status}
+            eventId={event.id}
+            goingLive={goingLive}
+            onGoLive={requestGoLive}
+            onPlay={() => {
+              setNotice(null)
+              setDeviceChoiceOpen(true)
+            }}
+          />
+        </div>
+
+        <nav className={styles.tabs} aria-label={t('tabs.settings')}>
+          {tabs.map((item) => (
+            <button
+              key={item.key}
+              type="button"
+              className={`${styles.tab} ${item.mobileOnly ? styles.tabMobile : ''} ${tab === item.key ? styles.tabActive : ''}`}
+              onClick={() => {
+                setTab(item.key)
+                setNotice(null)
+              }}
+              aria-current={tab === item.key ? 'page' : undefined}
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
 
         <div className={styles.content}>
-          <nav className={styles.tabs} aria-label={t('tabs.settings')}>
-            {tabs.map((item) => (
-              <button
-                key={item.key}
-                type="button"
-                className={`${styles.tab} ${tab === item.key ? styles.tabActive : ''}`}
-                onClick={() => {
-                  setTab(item.key)
-                  setNotice(null)
-                }}
-                aria-current={tab === item.key ? 'page' : undefined}
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
-
           {notice ? (
             <p className={styles.notice} role="status">
               {notice}

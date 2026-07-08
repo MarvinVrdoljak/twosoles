@@ -7,6 +7,8 @@ import {GameQr} from './GameQr'
 import {useGameChannel} from '@/utility/game/useGameChannel'
 import type {GameTheme} from '@/utility/game/types'
 import styles from './DisplayGame.module.css'
+import Leaf03 from '@/public/images/leaf_03.svg'
+import Leaf01 from '@/public/images/leaf_01.svg'
 
 type Person = {name: string; color: string; photo: string | null}
 
@@ -59,8 +61,8 @@ export function DisplayGame({
 
   return (
     <div className={styles.root} data-theme={state.theme}>
-      <span className={styles.leafTop} aria-hidden="true" />
-      <span className={styles.leafBottom} aria-hidden="true" />
+      <Leaf01 className={styles.leafTop} aria-hidden="true" />
+      <Leaf03 className={styles.leafBottom} aria-hidden="true" />
 
       <p className={styles.couple}>{coupleName}</p>
 

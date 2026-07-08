@@ -25,12 +25,29 @@
 .layout {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-32);
+  grid-template-areas:
+    'tabs'
+    'body';
+  column-gap: var(--spacing-32);
+  row-gap: var(--spacing-24);
   align-items: start;
+}
+
+/* Overview: a tab body on mobile (shares the "body" cell, shown only when the
+   overview tab is active), a permanent sidebar on desktop. */
+.overview {
+  grid-area: body;
+  display: none;
+  min-width: 0;
+}
+
+.overviewActive {
+  display: block;
 }
 
 .content {
   display: flex;
+  grid-area: body;
   flex-direction: column;
   gap: var(--spacing-24);
   min-width: 0;
@@ -39,22 +56,36 @@
 /* ---- Tabs ---- */
 .tabs {
   display: flex;
-  flex-wrap: wrap;
+  grid-area: tabs;
+  flex-wrap: nowrap;
   gap: var(--spacing-24);
+  overflow-x: auto;
   border-bottom: 1px solid var(--color-border);
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .tab {
+  flex-shrink: 0;
   padding-bottom: var(--spacing-12);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
   color: var(--color-text-muted);
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
   cursor: pointer;
   transition: color 0.15s ease;
+}
+
+/* The overview tab only makes sense while the overview isn't in the sidebar. */
+.tabMobile {
+  display: block;
 }
 
 .tab:hover {
@@ -117,7 +148,7 @@
 }
 
 .goLivePoints li::before {
-  content: "•";
+  content: '•';
   position: absolute;
   left: 0;
   color: var(--color-primary);
@@ -294,6 +325,13 @@
   color: var(--color-text-muted);
 }
 
+.guideText {
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+}
+
 .divider {
   width: 100%;
   height: 0;
@@ -369,6 +407,27 @@
   font-size: var(--font-size-sm);
   line-height: var(--line-height-base);
   color: var(--color-text-muted);
+}
+
+.inlineLink {
+  padding: 0;
+  font: inherit;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.15s ease;
+}
+
+.inlineLink:hover:not(:disabled) {
+  color: var(--color-text);
+}
+
+.inlineLink:disabled {
+  cursor: default;
+  opacity: 0.6;
 }
 
 .views {
@@ -465,6 +524,20 @@
 @media (--bp-large-up) {
   .layout {
     grid-template-columns: 340px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'overview tabs'
+      'overview body';
+  }
+
+  /* Overview returns to the sidebar and is always visible; its tab is dropped. */
+  .overview {
+    grid-area: overview;
+    display: block;
+  }
+
+  .tabMobile {
+    display: none;
   }
 }
 

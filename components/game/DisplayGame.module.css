@@ -18,26 +18,25 @@
 .leafBottom {
   position: absolute;
   z-index: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
-  opacity: 0.5;
+  color: var(--color-border);
+  display: block;
   pointer-events: none;
 }
 
 .leafTop {
-  top: -40px;
-  left: -40px;
-  width: 260px;
-  height: 320px;
-  background-image: url('/images/dash-leaf-1.svg');
+  top: -60px;
+  left: 0px;
+  width: clamp(150px, 8.216rem + 4.76vw, 260px);
+  height: auto;
+  transform: rotate(-155deg);
 }
 
 .leafBottom {
-  right: -60px;
-  bottom: -60px;
-  width: 360px;
-  height: 420px;
-  background-image: url('/images/dash-leaf-2.svg');
+  right: -50px;
+  bottom: -80px;
+  width: clamp(250px, 12.5rem + 8.57vw, 360px);
+  height: auto;
+  transform: scaleX(-1) rotate(-30deg);
 }
 
 [data-theme='dark'].root {
