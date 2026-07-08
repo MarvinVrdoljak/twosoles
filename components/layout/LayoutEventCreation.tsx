@@ -6,6 +6,8 @@ import {ArrowLeft} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
 import {Link} from '@/i18n/navigation'
 import styles from './LayoutEventCreation.module.css'
+import Leaf03 from '@/public/images/leaf_03.svg'
+import Leaf02 from '@/public/images/leaf_02.svg'
 
 type StepMeta = {title: string; subtitle: string}
 
@@ -92,6 +94,7 @@ export function LayoutEventCreation({
       </aside>
 
       <div className={styles.content}>
+        <Leaf03 className={styles.leafLeft} aria-hidden="true" />
         <div className={styles.scroll}>
           <div className={styles.inner}>
             <header className={styles.head}>

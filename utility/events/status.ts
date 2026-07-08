@@ -1,4 +1,15 @@
+import type {CommonBadgeVariant} from '@/components/common/CommonBadge'
+
 export type EventStatus = 'draft' | 'live' | 'ended' | 'expired'
+
+// Shared mapping from event status to badge colour, so every status badge looks
+// the same across the app. The dot pulses only while live (status === 'live').
+export const STATUS_BADGE_VARIANT: Record<EventStatus, CommonBadgeVariant> = {
+  draft: 'primary',
+  live: 'success',
+  ended: 'neutral',
+  expired: 'danger',
+}
 
 const LIVE_WINDOW_MS = 48 * 60 * 60 * 1000
 

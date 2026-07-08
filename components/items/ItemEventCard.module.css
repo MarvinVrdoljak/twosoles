@@ -29,45 +29,6 @@
   color: var(--color-primary);
 }
 
-.badge {
-  display: inline-flex;
-  flex-shrink: 0;
-  gap: var(--spacing-4);
-  align-items: center;
-  padding: 2px var(--spacing-8);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  text-transform: uppercase;
-  border-radius: var(--radius-full);
-}
-
-.badgeDot {
-  width: 5px;
-  height: 5px;
-  border-radius: var(--radius-full);
-  background: currentcolor;
-}
-
-.badgeDraft {
-  color: var(--color-primary);
-  background: var(--color-primary-light);
-}
-
-.badgeLive {
-  color: var(--color-success);
-  background: var(--color-success-light);
-}
-
-.badgeEnded {
-  color: var(--color-text-muted);
-  background: var(--color-border);
-}
-
-.badgeExpired {
-  color: var(--color-danger);
-  background: color-mix(in srgb, var(--color-danger) 15%, var(--color-surface-variant));
-}
-
 .couple {
   margin: 0;
   font-size: var(--font-size-h3);

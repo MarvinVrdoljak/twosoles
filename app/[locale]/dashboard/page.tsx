@@ -1,5 +1,7 @@
 import {getTranslations, setRequestLocale} from 'next-intl/server'
 import {redirect} from 'next/navigation'
+import {Plus} from 'lucide-react'
+import {CommonButton} from '@/components/common/CommonButton'
 import {CommonPageHeader} from '@/components/common/CommonPageHeader'
 import {ItemAddEventCard} from '@/components/items/ItemAddEventCard'
 import {ItemDevSeed} from '@/components/items/ItemDevSeed'
@@ -60,7 +62,21 @@ export default async function HostPage({params}: HostPageProps) {
   return (
     <LayoutDashboard active="events">
       <div className={styles.root}>
-        <CommonPageHeader title={t('eventsTitle')} subtitle={t('eventsSubtitle')} />
+        <CommonPageHeader
+          title={t('eventsTitle')}
+          subtitle={t('eventsSubtitle')}
+          action={
+            <CommonButton
+              href="/dashboard/create"
+              variant="primary"
+              size="sm"
+              iconOnly
+              aria-label={t('addEventTitle')}
+            >
+              <Plus size={15} aria-hidden="true" />
+            </CommonButton>
+          }
+        />
 
         {process.env.NODE_ENV === 'development' ? (
           <div className={styles.devBar}>
@@ -78,6 +94,7 @@ export default async function HostPage({params}: HostPageProps) {
               <ItemEventCard
                 key={event.id}
                 href={`/dashboard/events/${event.id}`}
+                eventId={event.id}
                 occasion={occasion}
                 couple={`${event.person1_name} & ${event.person2_name}`}
                 date={

@@ -219,42 +219,114 @@
     "imprint": {
       "title": "Impressum",
       "sections": [
-        {"heading": "Angaben gemäß § 5 DDG", "body": "[Name des Anbieters / Firmenname]\n[Straße und Hausnummer]\n[PLZ und Ort]\n[Land]"},
-        {"heading": "Vertreten durch", "body": "[Name der vertretungsberechtigten Person(en)]"},
-        {"heading": "Kontakt", "body": "Telefon: [Telefonnummer]\nE-Mail: [E-Mail-Adresse]"},
-        {"heading": "Umsatzsteuer-ID", "body": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:\n[USt-IdNr., sofern vorhanden]"},
-        {"heading": "Redaktionell verantwortlich", "body": "[Name und Anschrift der verantwortlichen Person]"},
-        {"heading": "Haftung für Inhalte", "body": "Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen."},
-        {"heading": "Haftung für Links", "body": "Unser Angebot enthält gegebenenfalls Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich."},
-        {"heading": "Urheberrecht", "body": "Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet."}
+        {
+          "heading": "Angaben gemäß § 5 DDG",
+          "body": "[Name des Anbieters / Firmenname]\n[Straße und Hausnummer]\n[PLZ und Ort]\n[Land]"
+        },
+        {
+          "heading": "Vertreten durch",
+          "body": "[Name der vertretungsberechtigten Person(en)]"
+        },
+        {
+          "heading": "Kontakt",
+          "body": "Telefon: [Telefonnummer]\nE-Mail: [E-Mail-Adresse]"
+        },
+        {
+          "heading": "Umsatzsteuer-ID",
+          "body": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:\n[USt-IdNr., sofern vorhanden]"
+        },
+        {
+          "heading": "Redaktionell verantwortlich",
+          "body": "[Name und Anschrift der verantwortlichen Person]"
+        },
+        {
+          "heading": "Haftung für Inhalte",
+          "body": "Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen."
+        },
+        {
+          "heading": "Haftung für Links",
+          "body": "Unser Angebot enthält gegebenenfalls Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich."
+        },
+        {
+          "heading": "Urheberrecht",
+          "body": "Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet."
+        }
       ]
     },
     "privacy": {
       "title": "Datenschutzerklärung",
       "intro": "Der Schutz deiner personenbezogenen Daten ist uns wichtig. Nachfolgend informieren wir dich darüber, welche Daten wir bei der Nutzung von TwoSoles verarbeiten und wozu.",
       "sections": [
-        {"heading": "Verantwortlicher", "body": "Verantwortlich für die Datenverarbeitung ist:\n[Name / Firmenname]\n[Anschrift]\nE-Mail: [E-Mail-Adresse]"},
-        {"heading": "Welche Daten wir verarbeiten", "body": "Kontodaten: E-Mail-Adresse und Name, die du bei der Registrierung angibst.\nEvent- und Spieldaten: die von dir angelegten Fragen sowie die anonym abgegebenen Stimmen deiner Gäste.\nTechnische Daten: Server-Logdaten wie IP-Adresse sowie Datum und Uhrzeit des Zugriffs, die aus technischen Gründen verarbeitet werden."},
-        {"heading": "Zwecke und Rechtsgrundlagen", "body": "Wir verarbeiten deine Daten zur Bereitstellung des Dienstes und zur Erfüllung unseres Vertrags mit dir (Art. 6 Abs. 1 lit. b DSGVO), zur Gewährleistung eines sicheren Betriebs auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) sowie – soweit erforderlich – auf Grundlage deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)."},
-        {"heading": "Eingesetzte Dienste", "body": "Hosting: [Vercel Inc., USA].\nAuthentifizierung und Datenbank: [Supabase].\nZahlungsabwicklung: [Stripe]. Bei einer kostenpflichtigen Buchung werden die zur Zahlung erforderlichen Daten an den Zahlungsdienstleister übermittelt. Mit allen Dienstleistern bestehen, soweit erforderlich, Verträge zur Auftragsverarbeitung."},
-        {"heading": "Cookies", "body": "Wir verwenden ausschließlich technisch notwendige Cookies, etwa zur Speicherung deiner Anmeldung und deiner Sprachauswahl. Diese sind für den Betrieb erforderlich und bedürfen keiner Einwilligung."},
-        {"heading": "Speicherdauer", "body": "Wir speichern deine Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen dies vorsehen. Anschließend werden die Daten gelöscht."},
-        {"heading": "Deine Rechte", "body": "Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten sowie auf Datenübertragbarkeit und Widerspruch. Zudem steht dir ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu."},
-        {"heading": "Kontakt zum Datenschutz", "body": "Bei Fragen zum Datenschutz erreichst du uns unter: [E-Mail-Adresse]."}
+        {
+          "heading": "Verantwortlicher",
+          "body": "Verantwortlich für die Datenverarbeitung ist:\n[Name / Firmenname]\n[Anschrift]\nE-Mail: [E-Mail-Adresse]"
+        },
+        {
+          "heading": "Welche Daten wir verarbeiten",
+          "body": "Kontodaten: E-Mail-Adresse und Name, die du bei der Registrierung angibst.\nEvent- und Spieldaten: die von dir angelegten Fragen sowie die anonym abgegebenen Stimmen deiner Gäste.\nTechnische Daten: Server-Logdaten wie IP-Adresse sowie Datum und Uhrzeit des Zugriffs, die aus technischen Gründen verarbeitet werden."
+        },
+        {
+          "heading": "Zwecke und Rechtsgrundlagen",
+          "body": "Wir verarbeiten deine Daten zur Bereitstellung des Dienstes und zur Erfüllung unseres Vertrags mit dir (Art. 6 Abs. 1 lit. b DSGVO), zur Gewährleistung eines sicheren Betriebs auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) sowie – soweit erforderlich – auf Grundlage deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)."
+        },
+        {
+          "heading": "Eingesetzte Dienste",
+          "body": "Hosting: [Vercel Inc., USA].\nAuthentifizierung und Datenbank: [Supabase].\nZahlungsabwicklung: [Stripe]. Bei einer kostenpflichtigen Buchung werden die zur Zahlung erforderlichen Daten an den Zahlungsdienstleister übermittelt. Mit allen Dienstleistern bestehen, soweit erforderlich, Verträge zur Auftragsverarbeitung."
+        },
+        {
+          "heading": "Cookies",
+          "body": "Wir verwenden ausschließlich technisch notwendige Cookies, etwa zur Speicherung deiner Anmeldung und deiner Sprachauswahl. Diese sind für den Betrieb erforderlich und bedürfen keiner Einwilligung."
+        },
+        {
+          "heading": "Speicherdauer",
+          "body": "Wir speichern deine Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen dies vorsehen. Anschließend werden die Daten gelöscht."
+        },
+        {
+          "heading": "Deine Rechte",
+          "body": "Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten sowie auf Datenübertragbarkeit und Widerspruch. Zudem steht dir ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu."
+        },
+        {
+          "heading": "Kontakt zum Datenschutz",
+          "body": "Bei Fragen zum Datenschutz erreichst du uns unter: [E-Mail-Adresse]."
+        }
       ]
     },
     "terms": {
       "title": "Allgemeine Geschäftsbedingungen",
       "intro": "Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Nutzung des Dienstes TwoSoles.",
       "sections": [
-        {"heading": "§ 1 Geltungsbereich", "body": "Diese AGB gelten für die Nutzung der über TwoSoles bereitgestellten Online-Dienste durch Verbraucher und Unternehmer. Abweichende Bedingungen des Nutzers werden nicht anerkannt, es sei denn, ihrer Geltung wird ausdrücklich zugestimmt."},
-        {"heading": "§ 2 Leistungsbeschreibung", "body": "TwoSoles ist eine digitale Version des Hochzeits-Schuhspiels. Der Anbieter stellt eine Anwendung bereit, mit der Gäste per QR-Code live abstimmen und mit der die Ergebnisse präsentiert werden können. Der konkrete Funktionsumfang richtet sich nach der gewählten Paketgröße."},
-        {"heading": "§ 3 Registrierung und Vertragsschluss", "body": "Zur Nutzung ist ein Konto erforderlich. Die Anmeldung erfolgt passwortlos über einen per E-Mail zugesandten Anmeldelink. Der Vertrag über ein kostenpflichtiges Paket kommt mit der Bestätigung der Buchung zustande."},
-        {"heading": "§ 4 Preise und Zahlung", "body": "Die Nutzung erfolgt als einmalige Zahlung pro Event; der Preis richtet sich nach der gebuchten Gästekapazität. Kleine Veranstaltungen sind kostenlos. Die Zahlung wird über unseren Zahlungsdienstleister abgewickelt. Alle Preise verstehen sich inklusive der gesetzlichen Umsatzsteuer."},
-        {"heading": "§ 5 Widerrufsrecht", "body": "Verbrauchern steht grundsätzlich ein gesetzliches Widerrufsrecht zu. Bei digitalen Inhalten kann dieses vorzeitig erlöschen, wenn die Ausführung mit ausdrücklicher Zustimmung des Verbrauchers vor Ablauf der Widerrufsfrist begonnen hat. [Widerrufsbelehrung ergänzen.]"},
-        {"heading": "§ 6 Verfügbarkeit", "body": "Der Anbieter bemüht sich um eine möglichst unterbrechungsfreie Verfügbarkeit des Dienstes, schuldet diese aber nicht ununterbrochen. Wartungsarbeiten, technische Störungen oder höhere Gewalt können zu Einschränkungen führen."},
-        {"heading": "§ 7 Haftung", "body": "Der Anbieter haftet unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie nach dem Produkthaftungsgesetz. Bei einfacher Fahrlässigkeit haftet der Anbieter nur bei Verletzung einer wesentlichen Vertragspflicht und begrenzt auf den vertragstypischen, vorhersehbaren Schaden."},
-        {"heading": "§ 8 Schlussbestimmungen", "body": "Es gilt das Recht der Bundesrepublik Deutschland. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt."}
+        {
+          "heading": "§ 1 Geltungsbereich",
+          "body": "Diese AGB gelten für die Nutzung der über TwoSoles bereitgestellten Online-Dienste durch Verbraucher und Unternehmer. Abweichende Bedingungen des Nutzers werden nicht anerkannt, es sei denn, ihrer Geltung wird ausdrücklich zugestimmt."
+        },
+        {
+          "heading": "§ 2 Leistungsbeschreibung",
+          "body": "TwoSoles ist eine digitale Version des Hochzeits-Schuhspiels. Der Anbieter stellt eine Anwendung bereit, mit der Gäste per QR-Code live abstimmen und mit der die Ergebnisse präsentiert werden können. Der konkrete Funktionsumfang richtet sich nach der gewählten Paketgröße."
+        },
+        {
+          "heading": "§ 3 Registrierung und Vertragsschluss",
+          "body": "Zur Nutzung ist ein Konto erforderlich. Die Anmeldung erfolgt passwortlos über einen per E-Mail zugesandten Anmeldelink. Der Vertrag über ein kostenpflichtiges Paket kommt mit der Bestätigung der Buchung zustande."
+        },
+        {
+          "heading": "§ 4 Preise und Zahlung",
+          "body": "Die Nutzung erfolgt als einmalige Zahlung pro Event; der Preis richtet sich nach der gebuchten Gästekapazität. Kleine Veranstaltungen sind kostenlos. Die Zahlung wird über unseren Zahlungsdienstleister abgewickelt. Alle Preise verstehen sich inklusive der gesetzlichen Umsatzsteuer."
+        },
+        {
+          "heading": "§ 5 Widerrufsrecht",
+          "body": "Verbrauchern steht grundsätzlich ein gesetzliches Widerrufsrecht zu. Bei digitalen Inhalten kann dieses vorzeitig erlöschen, wenn die Ausführung mit ausdrücklicher Zustimmung des Verbrauchers vor Ablauf der Widerrufsfrist begonnen hat. [Widerrufsbelehrung ergänzen.]"
+        },
+        {
+          "heading": "§ 6 Verfügbarkeit",
+          "body": "Der Anbieter bemüht sich um eine möglichst unterbrechungsfreie Verfügbarkeit des Dienstes, schuldet diese aber nicht ununterbrochen. Wartungsarbeiten, technische Störungen oder höhere Gewalt können zu Einschränkungen führen."
+        },
+        {
+          "heading": "§ 7 Haftung",
+          "body": "Der Anbieter haftet unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie nach dem Produkthaftungsgesetz. Bei einfacher Fahrlässigkeit haftet der Anbieter nur bei Verletzung einer wesentlichen Vertragspflicht und begrenzt auf den vertragstypischen, vorhersehbaren Schaden."
+        },
+        {
+          "heading": "§ 8 Schlussbestimmungen",
+          "body": "Es gilt das Recht der Bundesrepublik Deutschland. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt."
+        }
       ]
     }
   },
@@ -264,11 +336,26 @@
     "next": "Weiter",
     "stepOf": "Schritt {current} von {total}",
     "steps": [
-      {"title": "Das Paar", "subtitle": "Name, Fotos & Farben"},
-      {"title": "Eckdaten", "subtitle": "Titel, Datum, Sprache"},
-      {"title": "Fragen", "subtitle": "Dein Frage-Set"},
-      {"title": "Gäste", "subtitle": "Größe & Paket"},
-      {"title": "Übersicht", "subtitle": "Sichern & los"}
+      {
+        "title": "Das Paar",
+        "subtitle": "Name, Fotos & Farben"
+      },
+      {
+        "title": "Eckdaten",
+        "subtitle": "Titel, Datum, Sprache"
+      },
+      {
+        "title": "Fragen",
+        "subtitle": "Dein Frage-Set"
+      },
+      {
+        "title": "Gäste",
+        "subtitle": "Größe & Paket"
+      },
+      {
+        "title": "Übersicht",
+        "subtitle": "Sichern & los"
+      }
     ],
     "couple": {
       "title": "Wer wird auf die Probe gestellt?",
@@ -285,12 +372,30 @@
       "occasionLabel": "Anlass",
       "occasionPlaceholder": "Hochzeit",
       "occasions": [
-        {"value": "wedding", "label": "Hochzeit"},
-        {"value": "engagement", "label": "Verlobung"},
-        {"value": "civil", "label": "Standesamt"},
-        {"value": "prewedding", "label": "Polterabend"},
-        {"value": "anniversary", "label": "Jubiläum"},
-        {"value": "other", "label": "Sonstiges"}
+        {
+          "value": "wedding",
+          "label": "Hochzeit"
+        },
+        {
+          "value": "engagement",
+          "label": "Verlobung"
+        },
+        {
+          "value": "civil",
+          "label": "Standesamt"
+        },
+        {
+          "value": "prewedding",
+          "label": "Polterabend"
+        },
+        {
+          "value": "anniversary",
+          "label": "Jubiläum"
+        },
+        {
+          "value": "other",
+          "label": "Sonstiges"
+        }
       ],
       "titleLabel": "Event-Titel",
       "titlePlaceholder": "Sophie & Jonas – Hochzeit",
@@ -347,13 +452,37 @@
   "eventDetail": {
     "back": "Zur Event-Übersicht",
     "guestLink": "Gäste Link",
-    "downloadQr": "Download QR-Code-PDF",
+    "displayLink": "Display-Ansicht",
+    "hostLink": "Host-Steuerung",
+    "openView": "Ansicht öffnen",
+    "copyLink": "Link kopieren",
+    "copied": "Kopiert",
     "testGame": "Spiel testen",
     "startGame": "Spiel starten",
     "save": "Speichern",
     "saving": "Speichern …",
     "saveError": "Konnte nicht gespeichert werden. Bitte versuch es erneut.",
     "comingSoon": "Kommt bald.",
+    "pdf": {
+      "download": "PDF herunterladen",
+      "generating": "Wird erstellt …",
+      "scanHint": "Scanne den QR-Code mit deiner Handykamera – ganz ohne App und ohne Anmeldung.",
+      "openHint": "Diese Adresse im Browser öffnen:",
+      "guestIntro": "Das klassische Schuhspiel, live mit dem ganzen Saal – stimm bei jeder Frage mit ab und finde heraus, wie gut sich die zwei wirklich kennen.",
+      "displayEyebrow": "Für den Beamer",
+      "displayIntro": "Öffne diese Seite auf dem Gerät, das mit dem Beamer oder Bildschirm verbunden ist – sie zeigt die Live-Ansicht für alle Gäste.",
+      "hostEyebrow": "Für die Moderation",
+      "hostIntro": "Öffne diese Seite auf deinem eigenen Gerät (Handy, Tablet oder Laptop), um das Spiel zu steuern."
+    },
+    "deviceChoice": {
+      "title": "Wofür nutzt du dieses Gerät?",
+      "text": "Der Beamer zeigt Fragen und Ergebnisse für alle Gäste, mit deinem Handy steuerst du das Spiel. Wähle, was dieses Gerät übernehmen soll – es öffnet sich in einem neuen Tab.",
+      "display": "Display / Beamer",
+      "displayDesc": "Die große Leinwand für alle Gäste – zeigt QR-Code, Fragen und Ergebnisse.",
+      "host": "Host-Steuerung",
+      "hostDesc": "Dein Gerät zum Starten, Weiterschalten und Auflösen. Mit PIN geschützt.",
+      "cancel": "Abbrechen"
+    },
     "goLiveConfirm": {
       "title": "Event wirklich live schalten?",
       "text": "Bitte gut überlegen — das lässt sich nicht rückgängig machen:",
@@ -415,18 +544,45 @@
       ],
       "stepsTitle": "Der Ablauf in 6 Schritten",
       "steps": [
-        {"title": "Aufstellung", "text": "Das Paar sitzt mit dem Rücken zueinander auf zwei Stühlen — jede Person hält einen eigenen und einen Schuh des Partners. Der Beamer zeigt die Leinwand-Ansicht, dein Handy oder Laptop die Host-Steuerung."},
-        {"title": "Gäste holen sich rein", "text": "Auf der Leinwand erscheint ein QR-Code. Die Gäste scannen ihn mit der Handykamera und landen direkt auf der Abstimmseite — keine App, kein Login."},
-        {"title": "Frage stellen", "text": "Du öffnest in der Host-Steuerung die nächste Frage. Sie erscheint groß auf der Leinwand, die Gäste tippen auf ihrem Handy auf eine der beiden Personen."},
-        {"title": "Abstimmung schließen", "text": "Sind genug Stimmen da, schließt du die Abstimmung. Jetzt heben die beiden ihre eigene Antwort als Schuh hoch — bevor das Publikumsergebnis sichtbar wird."},
-        {"title": "Der Reveal", "text": "Du drückst „Auflösen“. Countdown, dann enthüllt der Balken, wie der Saal abgestimmt hat. Die große Frage: Lag die Mehrheit richtig?"},
-        {"title": "Weiter geht's", "text": "Nächste Frage — und so durch euer ganzes Set. Am Ende zeigt die Leinwand den Abschluss."}
+        {
+          "title": "Aufstellung",
+          "text": "Das Paar sitzt mit dem Rücken zueinander auf zwei Stühlen — jede Person hält einen eigenen und einen Schuh des Partners. Der Beamer zeigt die Leinwand-Ansicht, dein Handy oder Laptop die Host-Steuerung."
+        },
+        {
+          "title": "Gäste holen sich rein",
+          "text": "Auf der Leinwand erscheint ein QR-Code. Die Gäste scannen ihn mit der Handykamera und landen direkt auf der Abstimmseite — keine App, kein Login."
+        },
+        {
+          "title": "Frage stellen",
+          "text": "Du öffnest in der Host-Steuerung die nächste Frage. Sie erscheint groß auf der Leinwand, die Gäste tippen auf ihrem Handy auf eine der beiden Personen."
+        },
+        {
+          "title": "Abstimmung schließen",
+          "text": "Sind genug Stimmen da, schließt du die Abstimmung. Jetzt heben die beiden ihre eigene Antwort als Schuh hoch — bevor das Publikumsergebnis sichtbar wird."
+        },
+        {
+          "title": "Der Reveal",
+          "text": "Du drückst „Auflösen“. Countdown, dann enthüllt der Balken, wie der Saal abgestimmt hat. Die große Frage: Lag die Mehrheit richtig?"
+        },
+        {
+          "title": "Weiter geht's",
+          "text": "Nächste Frage — und so durch euer ganzes Set. Am Ende zeigt die Leinwand den Abschluss."
+        }
       ],
       "viewsTitle": "Die 3 Ansichten",
       "views": [
-        {"title": "Leinwand", "text": "Am Beamer für alle. Zeigt Frage, Countdown und den Reveal."},
-        {"title": "Gäste-Handy", "text": "Eine Frage, zwei Buttons. Öffnet sich per QR-Code."},
-        {"title": "Host-Steuerung", "text": "Dein Gerät. Du gibst Tempo und Reveals vor."}
+        {
+          "title": "Leinwand",
+          "text": "Am Beamer für alle. Zeigt Frage, Countdown und den Reveal."
+        },
+        {
+          "title": "Gäste-Handy",
+          "text": "Eine Frage, zwei Buttons. Öffnet sich per QR-Code."
+        },
+        {
+          "title": "Host-Steuerung",
+          "text": "Dein Gerät. Du gibst Tempo und Reveals vor."
+        }
       ],
       "open": "Öffnen",
       "tipsTitle": "Tipps für den großen Moment",
@@ -441,6 +597,86 @@
       ],
       "download": "Download Anleitung",
       "downloadHint": "Alles dabei? Druck dir die Anleitung für den Tag aus."
+    }
+  },
+  "game": {
+    "display": {
+      "eyebrowQuestion": "Wer würde eher?",
+      "resultEyebrow": "Das Ergebnis",
+      "lobbyCta": "Scanne den Code und stimme mit ab!",
+      "guestsConnected": "{count} Gäste verbunden",
+      "votes": "{count} Stimmen",
+      "closed": "Geschlossen. Gleich wird aufgelöst …",
+      "finishedTitle": "Danke fürs Mitspielen!",
+      "finishedText": "Das war TwoSoles — bis zum nächsten Mal!",
+      "countdownIntro": "Und das Ergebnis lautet …",
+      "live": "Live",
+      "votesWord": "Stimmen"
+    },
+    "guest": {
+      "questionOf": "Frage {current} von {total}",
+      "lobbyTitle": "Gleich geht's los",
+      "lobbyText": "Warte kurz — das Spiel startet gleich.",
+      "tapHint": "Tippe auf deine Antwort",
+      "votedFor": "Du hast für {name} gestimmt",
+      "waitingResult": "Warte auf das Ergebnis …",
+      "closed": "Abstimmung geschlossen",
+      "resultEyebrow": "Das Ergebnis",
+      "correct": "Du lagst richtig!",
+      "wrong": "Knapp daneben!",
+      "finishedTitle": "Danke fürs Mitspielen!",
+      "finishedText": "Das war TwoSoles 💜",
+      "lookAtScreen": "Schau auf die Leinwand!",
+      "nextComing": "Die nächste Frage kommt gleich.",
+      "votingEnded": "Abstimmung beendet",
+      "resultSoon": "Das Ergebnis wird gleich enthüllt …"
+    },
+    "host": {
+      "panel": "HostPanel",
+      "questionOf": "Frage {current}/{total}",
+      "guests": "{count} Gäste",
+      "votesTotal": "{count} Stimmen insgesamt",
+      "votesLabel": "Stimmen",
+      "votingClosed": "Abstimmung geschlossen",
+      "statusLive": "Abstimmung läuft",
+      "statusRevealing": "Wird aufgelöst …",
+      "statusRevealed": "Ergebnis sichtbar",
+      "start": "Spiel starten",
+      "closeVoting": "Abstimmung schließen",
+      "reveal": "Auflösen",
+      "next": "Nächste Frage",
+      "finish": "Spiel beenden",
+      "backToLobby": "Zurück zur Lobby",
+      "backToPrevious": "Zurück zur letzten Frage",
+      "reopenVoting": "Abstimmung öffnen",
+      "undoReveal": "Auflösung zurücknehmen",
+      "backToResult": "Zurück zum Ergebnis",
+      "questionsTitle": "Fragen",
+      "settingsTitle": "Einstellungen",
+      "appearance": "Darstellung",
+      "light": "Hell",
+      "dark": "Dunkel",
+      "backToPanel": "Zurück",
+      "lobbyTitle": "Bereit?",
+      "lobbyText": "Sobald du startest, sehen die Gäste auf ihren Handys die erste Frage.",
+      "finishedTitle": "Spiel beendet",
+      "finishedText": "Alle Fragen gespielt. Die Ergebnisse bleiben gespeichert.",
+      "actionsTitle": "Aktionen",
+      "editEvent": "Event bearbeiten",
+      "openGuest": "Gäste-Ansicht öffnen",
+      "openDisplay": "Leinwand öffnen",
+      "resetPoll": "Umfrage zurücksetzen",
+      "resetConfirmTitle": "Bist du dir sicher?",
+      "resetConfirmText": "Das setzt die Umfrage komplett zurück: Alle Stimmen und gespeicherten Ergebnisse gehen verloren und das Spiel startet wieder in der Lobby.",
+      "resetCancel": "Abbrechen",
+      "resetConfirm": "Zurücksetzen",
+      "close": "Schließen",
+      "pinTitle": "Host-Zugang",
+      "pinHint": "Gib die 4-stellige Host-PIN ein, um die Steuerung zu öffnen. Du findest sie in den Event-Einstellungen.",
+      "pinLabel": "Host-PIN",
+      "pinSubmit": "Steuerung öffnen",
+      "pinChecking": "Wird geprüft …",
+      "pinError": "Falsche PIN. Bitte versuch es erneut."
     }
   },
   "home": {
@@ -473,7 +709,7 @@
     "cardGuests": "Bis {capacity} · «{name}»",
     "cardQuestions": "{count} Fragen ausgewählt",
     "cardManage": "Event verwalten",
-    "cardControl": "Spiel steuern",
+    "cardControl": "Spiel öffnen",
     "cardSummary": "Zusammenfassung"
   },
   "account": {

@@ -219,42 +219,114 @@
     "imprint": {
       "title": "Imprint",
       "sections": [
-        {"heading": "Provider information", "body": "[Provider / company name]\n[Street and number]\n[Postal code and city]\n[Country]"},
-        {"heading": "Represented by", "body": "[Name of the authorised representative(s)]"},
-        {"heading": "Contact", "body": "Phone: [phone number]\nEmail: [email address]"},
-        {"heading": "VAT ID", "body": "VAT identification number:\n[VAT ID, if applicable]"},
-        {"heading": "Responsible for content", "body": "[Name and address of the responsible person]"},
-        {"heading": "Liability for content", "body": "As a service provider, we are responsible for our own content on these pages in accordance with general law. However, we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity."},
-        {"heading": "Liability for links", "body": "Our offer may contain links to external third-party websites over whose content we have no influence. The respective provider or operator of the linked pages is always responsible for their content."},
-        {"heading": "Copyright", "body": "The content and works created by the site operator on these pages are subject to copyright law. Contributions by third parties are marked as such."}
+        {
+          "heading": "Provider information",
+          "body": "[Provider / company name]\n[Street and number]\n[Postal code and city]\n[Country]"
+        },
+        {
+          "heading": "Represented by",
+          "body": "[Name of the authorised representative(s)]"
+        },
+        {
+          "heading": "Contact",
+          "body": "Phone: [phone number]\nEmail: [email address]"
+        },
+        {
+          "heading": "VAT ID",
+          "body": "VAT identification number:\n[VAT ID, if applicable]"
+        },
+        {
+          "heading": "Responsible for content",
+          "body": "[Name and address of the responsible person]"
+        },
+        {
+          "heading": "Liability for content",
+          "body": "As a service provider, we are responsible for our own content on these pages in accordance with general law. However, we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity."
+        },
+        {
+          "heading": "Liability for links",
+          "body": "Our offer may contain links to external third-party websites over whose content we have no influence. The respective provider or operator of the linked pages is always responsible for their content."
+        },
+        {
+          "heading": "Copyright",
+          "body": "The content and works created by the site operator on these pages are subject to copyright law. Contributions by third parties are marked as such."
+        }
       ]
     },
     "privacy": {
       "title": "Privacy Policy",
       "intro": "Protecting your personal data matters to us. Below we explain which data we process when you use TwoSoles, and why.",
       "sections": [
-        {"heading": "Controller", "body": "The controller responsible for data processing is:\n[Name / company name]\n[Address]\nEmail: [email address]"},
-        {"heading": "What data we process", "body": "Account data: the email address and name you provide when registering.\nEvent and game data: the questions you create and the anonymous votes cast by your guests.\nTechnical data: server log data such as IP address and the date and time of access, processed for technical reasons."},
-        {"heading": "Purposes and legal bases", "body": "We process your data to provide the service and to perform our contract with you (Art. 6(1)(b) GDPR), to ensure secure operation based on our legitimate interest (Art. 6(1)(f) GDPR) and, where required, based on your consent (Art. 6(1)(a) GDPR)."},
-        {"heading": "Services we use", "body": "Hosting: [Vercel Inc., USA].\nAuthentication and database: [Supabase].\nPayment processing: [Stripe]. For paid bookings, the data required for payment is transmitted to the payment provider. Where required, data processing agreements are in place with all providers."},
-        {"heading": "Cookies", "body": "We only use technically necessary cookies, for example to store your login and your language choice. These are required for operation and do not require consent."},
-        {"heading": "Retention period", "body": "We store your data only for as long as necessary for the stated purposes or as required by statutory retention periods. Afterwards the data is deleted."},
-        {"heading": "Your rights", "body": "You have the right to access, rectification, erasure and restriction of processing of your data, as well as to data portability and objection. You also have the right to lodge a complaint with a data protection supervisory authority."},
-        {"heading": "Data protection contact", "body": "If you have any questions about data protection, you can reach us at: [email address]."}
+        {
+          "heading": "Controller",
+          "body": "The controller responsible for data processing is:\n[Name / company name]\n[Address]\nEmail: [email address]"
+        },
+        {
+          "heading": "What data we process",
+          "body": "Account data: the email address and name you provide when registering.\nEvent and game data: the questions you create and the anonymous votes cast by your guests.\nTechnical data: server log data such as IP address and the date and time of access, processed for technical reasons."
+        },
+        {
+          "heading": "Purposes and legal bases",
+          "body": "We process your data to provide the service and to perform our contract with you (Art. 6(1)(b) GDPR), to ensure secure operation based on our legitimate interest (Art. 6(1)(f) GDPR) and, where required, based on your consent (Art. 6(1)(a) GDPR)."
+        },
+        {
+          "heading": "Services we use",
+          "body": "Hosting: [Vercel Inc., USA].\nAuthentication and database: [Supabase].\nPayment processing: [Stripe]. For paid bookings, the data required for payment is transmitted to the payment provider. Where required, data processing agreements are in place with all providers."
+        },
+        {
+          "heading": "Cookies",
+          "body": "We only use technically necessary cookies, for example to store your login and your language choice. These are required for operation and do not require consent."
+        },
+        {
+          "heading": "Retention period",
+          "body": "We store your data only for as long as necessary for the stated purposes or as required by statutory retention periods. Afterwards the data is deleted."
+        },
+        {
+          "heading": "Your rights",
+          "body": "You have the right to access, rectification, erasure and restriction of processing of your data, as well as to data portability and objection. You also have the right to lodge a complaint with a data protection supervisory authority."
+        },
+        {
+          "heading": "Data protection contact",
+          "body": "If you have any questions about data protection, you can reach us at: [email address]."
+        }
       ]
     },
     "terms": {
       "title": "Terms & Conditions",
       "intro": "These Terms & Conditions govern the use of the TwoSoles service.",
       "sections": [
-        {"heading": "1. Scope", "body": "These terms apply to the use of the online services provided via TwoSoles by consumers and businesses. Conflicting terms of the user are not accepted unless their validity is expressly agreed."},
-        {"heading": "2. Description of services", "body": "TwoSoles is a digital version of the wedding shoe game. The provider offers an application that lets guests vote live via QR code and presents the results. The specific scope of features depends on the chosen package size."},
-        {"heading": "3. Registration and conclusion of contract", "body": "An account is required to use the service. Sign-in is passwordless via a login link sent by email. A contract for a paid package is concluded upon confirmation of the booking."},
-        {"heading": "4. Prices and payment", "body": "Use is charged as a one-off payment per event; the price depends on the booked guest capacity. Small events are free. Payment is handled by our payment provider. All prices include statutory VAT."},
-        {"heading": "5. Right of withdrawal", "body": "Consumers generally have a statutory right of withdrawal. For digital content, this right may expire early if performance begins, with the consumer's express consent, before the withdrawal period ends. [Add withdrawal instructions.]"},
-        {"heading": "6. Availability", "body": "The provider strives to keep the service available with as little interruption as possible but does not owe uninterrupted availability. Maintenance, technical faults or force majeure may lead to restrictions."},
-        {"heading": "7. Liability", "body": "The provider is liable without limitation in cases of intent and gross negligence and under applicable product liability law. In the case of slight negligence, the provider is only liable for the breach of an essential contractual obligation and limited to the foreseeable damage typical for the contract."},
-        {"heading": "8. Final provisions", "body": "The law of the Federal Republic of Germany applies. Should individual provisions of these terms be invalid, the validity of the remaining provisions remains unaffected."}
+        {
+          "heading": "1. Scope",
+          "body": "These terms apply to the use of the online services provided via TwoSoles by consumers and businesses. Conflicting terms of the user are not accepted unless their validity is expressly agreed."
+        },
+        {
+          "heading": "2. Description of services",
+          "body": "TwoSoles is a digital version of the wedding shoe game. The provider offers an application that lets guests vote live via QR code and presents the results. The specific scope of features depends on the chosen package size."
+        },
+        {
+          "heading": "3. Registration and conclusion of contract",
+          "body": "An account is required to use the service. Sign-in is passwordless via a login link sent by email. A contract for a paid package is concluded upon confirmation of the booking."
+        },
+        {
+          "heading": "4. Prices and payment",
+          "body": "Use is charged as a one-off payment per event; the price depends on the booked guest capacity. Small events are free. Payment is handled by our payment provider. All prices include statutory VAT."
+        },
+        {
+          "heading": "5. Right of withdrawal",
+          "body": "Consumers generally have a statutory right of withdrawal. For digital content, this right may expire early if performance begins, with the consumer's express consent, before the withdrawal period ends. [Add withdrawal instructions.]"
+        },
+        {
+          "heading": "6. Availability",
+          "body": "The provider strives to keep the service available with as little interruption as possible but does not owe uninterrupted availability. Maintenance, technical faults or force majeure may lead to restrictions."
+        },
+        {
+          "heading": "7. Liability",
+          "body": "The provider is liable without limitation in cases of intent and gross negligence and under applicable product liability law. In the case of slight negligence, the provider is only liable for the breach of an essential contractual obligation and limited to the foreseeable damage typical for the contract."
+        },
+        {
+          "heading": "8. Final provisions",
+          "body": "The law of the Federal Republic of Germany applies. Should individual provisions of these terms be invalid, the validity of the remaining provisions remains unaffected."
+        }
       ]
     }
   },
@@ -264,11 +336,26 @@
     "next": "Next",
     "stepOf": "Step {current} of {total}",
     "steps": [
-      {"title": "The couple", "subtitle": "Names, photos & colours"},
-      {"title": "Key facts", "subtitle": "Title, date, language"},
-      {"title": "Questions", "subtitle": "Your question set"},
-      {"title": "Guests", "subtitle": "Size & package"},
-      {"title": "Overview", "subtitle": "Save & go"}
+      {
+        "title": "The couple",
+        "subtitle": "Names, photos & colours"
+      },
+      {
+        "title": "Key facts",
+        "subtitle": "Title, date, language"
+      },
+      {
+        "title": "Questions",
+        "subtitle": "Your question set"
+      },
+      {
+        "title": "Guests",
+        "subtitle": "Size & package"
+      },
+      {
+        "title": "Overview",
+        "subtitle": "Save & go"
+      }
     ],
     "couple": {
       "title": "Who's being put to the test?",
@@ -285,12 +372,30 @@
       "occasionLabel": "Occasion",
       "occasionPlaceholder": "Wedding",
       "occasions": [
-        {"value": "wedding", "label": "Wedding"},
-        {"value": "engagement", "label": "Engagement"},
-        {"value": "civil", "label": "Civil ceremony"},
-        {"value": "prewedding", "label": "Pre-wedding party"},
-        {"value": "anniversary", "label": "Anniversary"},
-        {"value": "other", "label": "Other"}
+        {
+          "value": "wedding",
+          "label": "Wedding"
+        },
+        {
+          "value": "engagement",
+          "label": "Engagement"
+        },
+        {
+          "value": "civil",
+          "label": "Civil ceremony"
+        },
+        {
+          "value": "prewedding",
+          "label": "Pre-wedding party"
+        },
+        {
+          "value": "anniversary",
+          "label": "Anniversary"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
       ],
       "titleLabel": "Event title",
       "titlePlaceholder": "Sophie & Jonas – Wedding",
@@ -336,7 +441,7 @@
       "packageValue": "«{name}» (up to {capacity})",
       "notSet": "—",
       "freeTitle": "Secure it for free first",
-      "freeText": "You can also create the event for free in the «Kleine Runde» package (max. 10 players) first. You can upgrade to your preferred package any time later.",
+      "freeText": "You can also create the event for free in the «Small circle» package (max. 10 players) first. You can upgrade to your preferred package any time later.",
       "freeButton": "Create event for free",
       "creatingFree": "Creating …",
       "createError": "The event couldn't be created. Please try again.",
@@ -347,13 +452,37 @@
   "eventDetail": {
     "back": "Back to events",
     "guestLink": "Guest link",
-    "downloadQr": "Download QR code PDF",
+    "displayLink": "Display view",
+    "hostLink": "Host controls",
+    "openView": "Open view",
+    "copyLink": "Copy link",
+    "copied": "Copied",
     "testGame": "Test the game",
     "startGame": "Start the game",
     "save": "Save",
     "saving": "Saving …",
     "saveError": "Couldn't save. Please try again.",
     "comingSoon": "Coming soon.",
+    "pdf": {
+      "download": "Download PDF",
+      "generating": "Creating …",
+      "scanHint": "Scan the QR code with your phone camera — no app, no sign-up.",
+      "openHint": "Open this address in your browser:",
+      "guestIntro": "The classic shoe game, live with the whole room — vote on every question and find out how well the couple really knows each other.",
+      "displayEyebrow": "For the projector",
+      "displayIntro": "Open this page on the device connected to the projector or screen — it shows the live view for all your guests.",
+      "hostEyebrow": "For the host",
+      "hostIntro": "Open this page on your own device (phone, tablet or laptop) to steer the game."
+    },
+    "deviceChoice": {
+      "title": "What will you use this device for?",
+      "text": "The projector shows the questions and results to all your guests, while your phone controls the game. Pick what this device should be — it opens in a new tab.",
+      "display": "Display / projector",
+      "displayDesc": "The big screen for all guests — shows the QR code, questions and results.",
+      "host": "Host controls",
+      "hostDesc": "Your device to start, advance and reveal the game. PIN-protected.",
+      "cancel": "Cancel"
+    },
     "goLiveConfirm": {
       "title": "Really set the event live?",
       "text": "Please think this through — it can't be undone:",
@@ -415,18 +544,45 @@
       ],
       "stepsTitle": "The flow in 6 steps",
       "steps": [
-        {"title": "Set-up", "text": "The couple sits back to back on two chairs — each person holds one of their own and one of their partner's shoes. The projector shows the projector view, your phone or laptop the host controls."},
-        {"title": "Guests join", "text": "A QR code appears on the projector. Guests scan it with their phone camera and land right on the voting page — no app, no login."},
-        {"title": "Ask a question", "text": "You open the next question in the host controls. It appears large on the projector, guests tap one of the two people on their phone."},
-        {"title": "Close the vote", "text": "Once enough votes are in, you close the vote. Now the couple raises their own answer as a shoe — before the audience result is shown."},
-        {"title": "The reveal", "text": "You press “Reveal”. Countdown, then the bar reveals how the room voted. The big question: was the majority right?"},
-        {"title": "Keep going", "text": "Next question — and so on through your whole set. At the end the projector shows the finale."}
+        {
+          "title": "Set-up",
+          "text": "The couple sits back to back on two chairs — each person holds one of their own and one of their partner's shoes. The projector shows the projector view, your phone or laptop the host controls."
+        },
+        {
+          "title": "Guests join",
+          "text": "A QR code appears on the projector. Guests scan it with their phone camera and land right on the voting page — no app, no login."
+        },
+        {
+          "title": "Ask a question",
+          "text": "You open the next question in the host controls. It appears large on the projector, guests tap one of the two people on their phone."
+        },
+        {
+          "title": "Close the vote",
+          "text": "Once enough votes are in, you close the vote. Now the couple raises their own answer as a shoe — before the audience result is shown."
+        },
+        {
+          "title": "The reveal",
+          "text": "You press “Reveal”. Countdown, then the bar reveals how the room voted. The big question: was the majority right?"
+        },
+        {
+          "title": "Keep going",
+          "text": "Next question — and so on through your whole set. At the end the projector shows the finale."
+        }
       ],
       "viewsTitle": "The 3 views",
       "views": [
-        {"title": "Projector", "text": "On the projector for everyone. Shows the question, countdown and the reveal."},
-        {"title": "Guest phone", "text": "One question, two buttons. Opens via QR code."},
-        {"title": "Host controls", "text": "Your device. You set the pace and the reveals."}
+        {
+          "title": "Projector",
+          "text": "On the projector for everyone. Shows the question, countdown and the reveal."
+        },
+        {
+          "title": "Guest phone",
+          "text": "One question, two buttons. Opens via QR code."
+        },
+        {
+          "title": "Host controls",
+          "text": "Your device. You set the pace and the reveals."
+        }
       ],
       "open": "Open",
       "tipsTitle": "Tips for the big moment",
@@ -441,6 +597,86 @@
       ],
       "download": "Download guide",
       "downloadHint": "Got everything? Print the guide for the big day."
+    }
+  },
+  "game": {
+    "display": {
+      "eyebrowQuestion": "Who is more likely?",
+      "resultEyebrow": "The result",
+      "lobbyCta": "Scan the code and vote along!",
+      "guestsConnected": "{count} guests connected",
+      "votes": "{count} votes",
+      "closed": "Closed. The result is coming up …",
+      "finishedTitle": "Thanks for playing!",
+      "finishedText": "That was TwoSoles — see you next time!",
+      "countdownIntro": "And the result is …",
+      "live": "Live",
+      "votesWord": "votes"
+    },
+    "guest": {
+      "questionOf": "Question {current} of {total}",
+      "lobbyTitle": "About to begin",
+      "lobbyText": "Hang tight — the game is about to start.",
+      "tapHint": "Tap your answer",
+      "votedFor": "You voted for {name}",
+      "waitingResult": "Waiting for the result …",
+      "closed": "Voting closed",
+      "resultEyebrow": "The result",
+      "correct": "You got it right!",
+      "wrong": "So close!",
+      "finishedTitle": "Thanks for playing!",
+      "finishedText": "That was TwoSoles 💜",
+      "lookAtScreen": "Look at the screen!",
+      "nextComing": "The next question is coming up.",
+      "votingEnded": "Voting ended",
+      "resultSoon": "The result will be revealed shortly …"
+    },
+    "host": {
+      "panel": "HostPanel",
+      "questionOf": "Question {current}/{total}",
+      "guests": "{count} guests",
+      "votesTotal": "{count} votes total",
+      "votesLabel": "votes",
+      "votingClosed": "Voting closed",
+      "statusLive": "Voting live",
+      "statusRevealing": "Revealing …",
+      "statusRevealed": "Result revealed",
+      "start": "Start the game",
+      "closeVoting": "Close voting",
+      "reveal": "Reveal",
+      "next": "Next question",
+      "finish": "Finish game",
+      "backToLobby": "Back to lobby",
+      "backToPrevious": "Back to previous question",
+      "reopenVoting": "Reopen voting",
+      "undoReveal": "Undo reveal",
+      "backToResult": "Back to result",
+      "questionsTitle": "Questions",
+      "settingsTitle": "Settings",
+      "appearance": "Appearance",
+      "light": "Light",
+      "dark": "Dark",
+      "backToPanel": "Back",
+      "lobbyTitle": "Ready?",
+      "lobbyText": "Once you start, guests see the first question on their phones.",
+      "finishedTitle": "Game over",
+      "finishedText": "All questions played. The results stay saved.",
+      "actionsTitle": "Actions",
+      "editEvent": "Edit event",
+      "openGuest": "Open guest view",
+      "openDisplay": "Open the screen",
+      "resetPoll": "Reset the game",
+      "resetConfirmTitle": "Are you sure?",
+      "resetConfirmText": "This fully resets the game: all votes and saved results are lost and the game starts over in the lobby.",
+      "resetCancel": "Cancel",
+      "resetConfirm": "Reset",
+      "close": "Close",
+      "pinTitle": "Host access",
+      "pinHint": "Enter the 4-digit host PIN to open the control panel. You'll find it in the event settings.",
+      "pinLabel": "Host PIN",
+      "pinSubmit": "Open control panel",
+      "pinChecking": "Checking …",
+      "pinError": "Wrong PIN. Please try again."
     }
   },
   "home": {
@@ -473,7 +709,7 @@
     "cardGuests": "Up to {capacity} · «{name}»",
     "cardQuestions": "{count} questions selected",
     "cardManage": "Manage event",
-    "cardControl": "Control game",
+    "cardControl": "Open game",
     "cardSummary": "Summary"
   },
   "account": {

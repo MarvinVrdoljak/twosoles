@@ -11,9 +11,15 @@
   --color-text-muted: #6b7280;
   --color-on-primary: #fff;
   --color-white: #fff;
+
+  /* Theme-fixed ink (stays dark in both themes) — e.g. QR code on white. */
+  --color-ink: #1f2937;
   --color-border: #e7dfd2;
   --color-surface: #faf7f2;
   --color-surface-variant: #fff;
+
+  /* Warm beige used for pills/chips (guest count, LIVE tag, status pills). */
+  --color-chip: #e7dfd2;
   --color-background: var(--color-surface);
   --color-danger: #cd3a3d;
   --color-success: #5f8f5f;
@@ -42,6 +48,7 @@
   --font-weight-heading: 600;
   --line-height-base: 1.5;
   --line-height-heading: 1.1;
+  --transition-fast: 0.15s ease;
 
   /* Spacing (Figma measurement scale) */
   --spacing-4: 4px;
@@ -75,6 +82,26 @@
   --block-spacing-sm: 40px;
   --block-spacing-md: 68px;
   --block-spacing-lg: 80px;
+}
+
+/* Dark theme for the live game views (display / guest). Toggled by the host and
+   applied via a data-theme="dark" wrapper, so only the game screens flip. */
+[data-theme='dark'] {
+  --color-primary: #cf9494;
+  --color-primary-hover: #dba7a7;
+  --color-primary-light: #4a3a44;
+  --color-text: #f6f3ee;
+  --color-text-muted: #a7adbd;
+  --color-on-primary: #1a2030;
+  --color-white: #fff;
+  --color-border: #39415a;
+  --color-surface: #232b40;
+  --color-surface-variant: #2b3450;
+  --color-chip: #2b3450;
+  --color-background: #1a2030;
+  --color-success: #8fce8f;
+  --color-success-light: #2f4a35;
+  --color-placeholder: #6b7488;
 }
 
 @media (--bp-medium-up) {

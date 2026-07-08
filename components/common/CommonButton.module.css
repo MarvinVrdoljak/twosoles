@@ -67,3 +67,22 @@
 .fullWidth {
   width: 100%;
 }
+
+/* Square, circular icon-only button. Overrides the size paddings so the icon
+   sits centred in a perfect circle. */
+.iconOnly {
+  aspect-ratio: 1;
+  padding: 0;
+}
+
+.iconOnly.sm {
+  width: 26px;
+}
+
+.iconOnly.md {
+  width: 40px;
+}
+
+.iconOnly.lg {
+  width: 48px;
+}

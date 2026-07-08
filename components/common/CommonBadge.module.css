@@ -1,0 +1,63 @@
+.badge {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: var(--spacing-4);
+  align-items: center;
+  padding: 2px var(--spacing-8);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  background: currentcolor;
+  border-radius: var(--radius-full);
+}
+
+/* Opt-in "live" heartbeat on the dot. The keyframes MUST live in this module:
+   Turbopack scopes animation names per CSS module, so a keyframe defined
+   elsewhere (e.g. a global stylesheet) is never matched. */
+.dotPulse {
+  animation: dotPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dotPulse {
+    animation: none;
+  }
+}
+
+.primary {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.success {
+  color: var(--color-success);
+  background: var(--color-success-light);
+}
+
+.neutral {
+  color: var(--color-text-muted);
+  background: var(--color-border);
+}
+
+.danger {
+  color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 15%, var(--color-surface-variant));
+}

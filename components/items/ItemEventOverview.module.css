@@ -37,45 +37,6 @@
   margin-left: -14px;
 }
 
-.badge {
-  display: inline-flex;
-  flex-shrink: 0;
-  gap: var(--spacing-4);
-  align-items: center;
-  padding: 2px var(--spacing-8);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  text-transform: uppercase;
-  border-radius: var(--radius-full);
-}
-
-.badgeDot {
-  width: 5px;
-  height: 5px;
-  border-radius: var(--radius-full);
-  background: currentcolor;
-}
-
-.badgeDraft {
-  color: var(--color-primary);
-  background: var(--color-primary-light);
-}
-
-.badgeLive {
-  color: var(--color-success);
-  background: var(--color-success-light);
-}
-
-.badgeEnded {
-  color: var(--color-text-muted);
-  background: var(--color-border);
-}
-
-.badgeExpired {
-  color: var(--color-danger);
-  background: color-mix(in srgb, var(--color-danger) 15%, var(--color-surface-variant));
-}
-
 .headline {
   display: flex;
   flex-direction: column;
@@ -121,6 +82,12 @@
   color: var(--color-text-muted);
 }
 
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
 .guest {
   display: flex;
   gap: var(--spacing-12);
@@ -136,18 +103,25 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: 85px;
+  height: 85px;
+  padding: var(--spacing-8);
   color: var(--color-text);
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
+
+  span {
+    width: 100% !important;
+    height: 100% !important;
+  }
 }
 
 .guestText {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2, 2px);
+  gap: var(--spacing-8);
+  align-items: flex-start;
   min-width: 0;
 }
 
@@ -157,20 +131,37 @@
   color: var(--color-primary);
 }
 
-.guestUrl {
-  display: block;
-  overflow: hidden;
+.cardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4) var(--spacing-16);
+  align-items: center;
+}
+
+.cardLink {
+  display: inline-flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  padding: 0;
+  font-family: inherit;
   font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-body);
+  line-height: 1.2;
   color: var(--color-text-muted);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
   transition: color var(--transition-fast, 0.15s ease);
 }
 
-.guestUrl:hover {
+.cardLink:hover:not(:disabled) {
   color: var(--color-primary);
+}
+
+.cardLink:disabled {
+  cursor: default;
+  opacity: 0.6;
 }
 
 .actions {

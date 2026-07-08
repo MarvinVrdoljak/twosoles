@@ -4,6 +4,8 @@ import {ArrowLeft} from 'lucide-react'
 import {CommonImage} from '@/components/common/CommonImage'
 import {Link} from '@/i18n/navigation'
 import styles from './LayoutAuth.module.css'
+import Leaf03 from '@/public/images/leaf_03.svg'
+import Leaf02 from '@/public/images/leaf_02.svg'
 
 type LayoutAuthProps = {
   eyebrow: string
@@ -53,6 +55,8 @@ export async function LayoutAuth({
       </aside>
 
       <main className={styles.content}>
+        <Leaf03 className={styles.leafLeft} aria-hidden="true" />
+        <Leaf02 className={styles.leafRight} aria-hidden="true" />
         <div className={styles.inner}>
           <div className={styles.top}>
             <Link href="/" className={styles.logoMobile}>

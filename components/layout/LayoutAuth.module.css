@@ -9,6 +9,32 @@
   }
 }
 
+.leafLeft,
+.leafRight {
+  color: var(--color-border);
+  display: block;
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.leafLeft {
+  bottom: -40px;
+  left: -40px;
+  width: clamp(175px, 7.287rem + 8.57vw, 240px);
+  height: auto;
+  transform: rotate(-30deg);
+}
+
+.leafRight {
+  right: -30px;
+  top: -40px;
+  width: clamp(125px, 5.477rem + 3.17vw, 133px);
+  height: auto;
+  transform: rotate(200deg);
+  z-index: 2;
+}
+
 /* ── Image side (desktop only) ─────────────────────────────── */
 .media {
   display: none;

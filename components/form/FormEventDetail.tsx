@@ -5,6 +5,7 @@ import {useTranslations} from 'next-intl'
 import {ArrowLeft} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonModal} from '@/components/common/CommonModal'
+import {DeviceChoiceModal} from '@/components/game/DeviceChoiceModal'
 import {ItemEventGuide} from '@/components/items/ItemEventGuide'
 import {ItemEventOverview} from '@/components/items/ItemEventOverview'
 import {Link, useRouter} from '@/i18n/navigation'
@@ -40,7 +41,6 @@ type FormEventDetailProps = {
   event: EventData
   photo1Url: string | null
   photo2Url: string | null
-  guestUrl: string
   occasionLabel: string
   guests: string
   dateText: string
@@ -69,7 +69,6 @@ export function FormEventDetail({
   event,
   photo1Url,
   photo2Url,
-  guestUrl,
   occasionLabel,
   guests,
   dateText,
@@ -87,6 +86,7 @@ export function FormEventDetail({
   const [pin, setPin] = useState(event.host_pin)
   const [startedAt, setStartedAt] = useState(event.started_at)
   const [goLiveConfirmOpen, setGoLiveConfirmOpen] = useState(false)
+  const [deviceChoiceOpen, setDeviceChoiceOpen] = useState(false)
 
   const [draft, setDraft] = useState<EventDraft>(() => ({
     name1: event.person1_name,
@@ -228,15 +228,18 @@ export function FormEventDetail({
           name1={draft.name1}
           name2={draft.name2}
           occasion={occasionLabel}
+          gameLanguage={draft.language}
           date={dateText}
           guests={guests}
           questions={tDash('cardQuestions', {count: draft.questions.length})}
           status={status}
-          guestUrl={guestUrl}
           eventId={event.id}
           goingLive={goingLive}
           onGoLive={requestGoLive}
-          onStub={stub}
+          onPlay={() => {
+            setNotice(null)
+            setDeviceChoiceOpen(true)
+          }}
         />
 
         <div className={styles.content}>
@@ -293,7 +296,13 @@ export function FormEventDetail({
               readOnly={readOnly}
             />
           ) : null}
-          {tab === 'guide' ? <ItemEventGuide eventId={event.id} onStub={stub} /> : null}
+          {tab === 'guide' ? (
+            <ItemEventGuide
+              eventId={event.id}
+              couple={`${draft.name1 || '?'} & ${draft.name2 || '?'}`}
+              gameLanguage={draft.language}
+            />
+          ) : null}
           {tab === 'settings' ? (
             <FormEventSettings
               status={status}
@@ -339,6 +348,12 @@ export function FormEventDetail({
           </ul>
         </div>
       </CommonModal>
+
+      <DeviceChoiceModal
+        eventId={event.id}
+        open={deviceChoiceOpen}
+        onClose={() => setDeviceChoiceOpen(false)}
+      />
     </div>
   )
 }

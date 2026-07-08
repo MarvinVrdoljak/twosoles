@@ -56,7 +56,6 @@ export default async function EventDetailPage({params}: EventDetailPageProps) {
     ? dateFormat.format(new Date(`${event.event_date}T00:00:00`))
     : '—'
   const guests = t('cardGuests', {capacity: tier?.capacity ?? '', name: tier?.name ?? ''})
-  const guestUrl = `twosoles.app/${String(event.id).slice(0, 4)}`
 
   return (
     <LayoutDashboard active="events">
@@ -64,7 +63,6 @@ export default async function EventDetailPage({params}: EventDetailPageProps) {
         event={event}
         photo1Url={photo1Url}
         photo2Url={photo2Url}
-        guestUrl={guestUrl}
         occasionLabel={occasionLabel}
         guests={guests}
         dateText={dateText}

@@ -3,6 +3,7 @@
 import React, {useEffect} from 'react'
 import {createPortal} from 'react-dom'
 import {X} from 'lucide-react'
+import {CommonButton} from './CommonButton'
 import styles from './CommonModal.module.css'
 
 type CommonModalProps = {
@@ -46,9 +47,15 @@ export function CommonModal({open, onClose, title, closeLabel, children, footer}
       >
         <div className={styles.header}>
           <h2 className={styles.title}>{title}</h2>
-          <button type="button" className={styles.close} onClick={onClose} aria-label={closeLabel}>
+          <CommonButton
+            variant="secondary"
+            size="md"
+            iconOnly
+            onClick={onClose}
+            aria-label={closeLabel}
+          >
             <X size={20} aria-hidden="true" />
-          </button>
+          </CommonButton>
         </div>
         <div className={styles.body}>{children}</div>
         {footer ? <div className={styles.footer}>{footer}</div> : null}

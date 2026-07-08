@@ -69,6 +69,7 @@ export function FormEventWizard({userId}: FormEventWizardProps) {
   const update = (patch: Partial<EventDraft>) => setDraft((current) => ({...current, ...patch}))
 
   const isLast = step === TOTAL_STEPS
+  const isFree = draft.packageIndex === 0
 
   // Required-field gating: names on step 1, title + date on step 2, at least
   // one question on step 3.
@@ -127,7 +128,11 @@ export function FormEventWizard({userId}: FormEventWizardProps) {
 
   const goNext = () => {
     if (isLast) {
-      // Paid path awaits Stripe; free creation happens via the summary CTA.
+      // Free package creates the event straight away; the paid path awaits Stripe.
+      if (isFree) {
+        void createEvent(PACKAGE_KEYS[0])
+        return
+      }
       setNotice(t('summary.stubNotice'))
       return
     }
@@ -164,7 +169,15 @@ export function FormEventWizard({userId}: FormEventWizardProps) {
       onBack={goBack}
       onNext={goNext}
       onStepClick={goToStep}
-      nextLabel={isLast ? t('summary.submit') : t('next')}
+      nextLabel={
+        isLast
+          ? isFree
+            ? creating
+              ? t('summary.creatingFree')
+              : t('summary.freeButton')
+            : t('summary.submit')
+          : t('next')
+      }
       nextDisabled={!stepValid || creating}
     >
       {step === 1 ? <FormEventCouple draft={draft} update={update} /> : null}
@@ -176,6 +189,7 @@ export function FormEventWizard({userId}: FormEventWizardProps) {
           draft={draft}
           notice={notice}
           creating={creating}
+          showFreeCard={!isFree}
           onFree={() => createEvent(PACKAGE_KEYS[0])}
         />
       ) : null}

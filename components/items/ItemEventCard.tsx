@@ -1,11 +1,15 @@
 import {getTranslations} from 'next-intl/server'
-import {Calendar, ListChecks, Play, Users} from 'lucide-react'
+import {Calendar, ListChecks, Users} from 'lucide-react'
+import {CommonBadge} from '@/components/common/CommonBadge'
 import {CommonButton} from '@/components/common/CommonButton'
+import {ItemEventControl} from '@/components/items/ItemEventControl'
 import type {EventStatus} from '@/utility/events/status'
+import {STATUS_BADGE_VARIANT} from '@/utility/events/status'
 import styles from './ItemEventCard.module.css'
 
 type ItemEventCardProps = {
   href: string
+  eventId: string
   occasion: string
   couple: string
   date: string
@@ -14,10 +18,10 @@ type ItemEventCardProps = {
   status: EventStatus
 }
 
-// Event summary card on the dashboard. Actions are placeholders until the
-// per-event pages exist. Status is derived by the caller.
+// Event summary card on the dashboard. Status is derived by the caller.
 export async function ItemEventCard({
   href,
+  eventId,
   occasion,
   couple,
   date,
@@ -34,22 +38,14 @@ export async function ItemEventCard({
     expired: t('statusExpired'),
   }[status]
 
-  const badgeClass = {
-    draft: styles.badgeDraft,
-    live: styles.badgeLive,
-    ended: styles.badgeEnded,
-    expired: styles.badgeExpired,
-  }[status]
-
   return (
     <article className={styles.root}>
       <div className={styles.head}>
         <div className={styles.topRow}>
           <span className={styles.occasion}>{occasion}</span>
-          <span className={`${styles.badge} ${badgeClass}`}>
-            <span className={styles.badgeDot} aria-hidden="true" />
+          <CommonBadge variant={STATUS_BADGE_VARIANT[status]} pulse={status === 'live'}>
             {statusLabel}
-          </span>
+          </CommonBadge>
         </div>
         <h2 className={styles.couple}>{couple}</h2>
       </div>
@@ -72,10 +68,7 @@ export async function ItemEventCard({
       <div className={styles.actions}>
         {status === 'live' ? (
           <>
-            <CommonButton href={href} variant="primary" size="md" fullWidth>
-              <Play size={18} aria-hidden="true" />
-              {t('cardControl')}
-            </CommonButton>
+            <ItemEventControl eventId={eventId} />
             <CommonButton href={href} variant="secondary" size="md" fullWidth>
               {t('cardManage')}
             </CommonButton>

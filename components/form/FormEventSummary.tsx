@@ -10,13 +10,15 @@ type Props = {
   draft: EventDraft
   notice: string | null
   creating: boolean
+  // Hidden when the free package is already selected — the main CTA creates it.
+  showFreeCard: boolean
   onFree: () => void
 }
 
 type Occasion = {value: string; label: string}
 type Tier = {name: string; capacity: string}
 
-export function FormEventSummary({draft, notice, creating, onFree}: Props) {
+export function FormEventSummary({draft, notice, creating, showFreeCard, onFree}: Props) {
   const t = useTranslations('eventWizard')
   const tNav = useTranslations('nav')
   const locale = useLocale()
@@ -61,15 +63,17 @@ export function FormEventSummary({draft, notice, creating, onFree}: Props) {
         </dl>
       </div>
 
-      <div className={styles.stepCard}>
-        <div className={styles.freeBlock}>
-          <h2 className={styles.freeTitle}>{t('summary.freeTitle')}</h2>
-          <p className={styles.freeText}>{t('summary.freeText')}</p>
-          <CommonButton variant="secondary" size="md" onClick={onFree} disabled={creating}>
-            {creating ? t('summary.creatingFree') : t('summary.freeButton')}
-          </CommonButton>
+      {showFreeCard ? (
+        <div className={styles.stepCard}>
+          <div className={styles.freeBlock}>
+            <h2 className={styles.freeTitle}>{t('summary.freeTitle')}</h2>
+            <p className={styles.freeText}>{t('summary.freeText')}</p>
+            <CommonButton variant="secondary" size="md" onClick={onFree} disabled={creating}>
+              {creating ? t('summary.creatingFree') : t('summary.freeButton')}
+            </CommonButton>
+          </div>
         </div>
-      </div>
+      ) : null}
 
       {notice ? (
         <p className={styles.notice} role="status">

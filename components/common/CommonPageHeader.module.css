@@ -5,6 +5,12 @@
   max-width: 620px;
 }
 
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
 .title {
   margin: 0;
   font-size: var(--font-size-h1-small);

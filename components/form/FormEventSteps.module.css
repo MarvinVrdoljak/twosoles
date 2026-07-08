@@ -315,7 +315,6 @@
 }
 
 .catalogItem:hover {
-  background: var(--color-surface-variant);
   border-color: var(--color-primary);
 }
 

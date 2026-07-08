@@ -1,0 +1,294 @@
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: var(--spacing-32) var(--side-gap) var(--spacing-40);
+  overflow: hidden;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
+}
+
+.leafTop,
+.leafBottom {
+  position: absolute;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.leafTop {
+  top: -40px;
+  left: -40px;
+  width: 260px;
+  height: 320px;
+  background-image: url('/images/dash-leaf-1.svg');
+}
+
+.leafBottom {
+  right: -60px;
+  bottom: -60px;
+  width: 360px;
+  height: 420px;
+  background-image: url('/images/dash-leaf-2.svg');
+}
+
+[data-theme='dark'].root {
+  --leaf-opacity: 0.12;
+}
+
+[data-theme='dark'] .leafTop,
+[data-theme='dark'] .leafBottom {
+  opacity: 0.12;
+}
+
+.couple {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.coupleBig {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-semibold);
+  font-size: clamp(48px, 6vw, 88px);
+  font-style: italic;
+  line-height: 1.05;
+}
+
+.question {
+  max-width: 16em;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-semibold);
+  font-size: clamp(30px, 4vw, 56px);
+  line-height: 1.1;
+}
+
+.qr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-24);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 12px 40px rgb(31 41 55 / 8%);
+}
+
+.lobbyCta {
+  margin: 0;
+  font-size: var(--font-size-lg);
+}
+
+/* "23 · Stimmen / ● LIVE" pill shown while a question is open. */
+.livePill {
+  display: inline-flex;
+  gap: var(--spacing-12);
+  align-items: center;
+  padding: var(--spacing-12) var(--spacing-24);
+  background: var(--color-chip);
+  border-radius: var(--radius-full);
+}
+
+.liveNum {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-h3);
+  line-height: 1;
+}
+
+.liveMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+}
+
+.liveWord {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.liveTag {
+  display: inline-flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-success);
+}
+
+.guestPill {
+  display: inline-flex;
+  gap: var(--spacing-8);
+  align-items: center;
+  padding: var(--spacing-8) var(--spacing-16);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background: var(--color-chip);
+  border-radius: var(--radius-full);
+}
+
+.guestDot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-success);
+  border-radius: var(--radius-full);
+  /* Live heartbeat. Keyframes are local: Turbopack scopes animation names per
+     CSS module, so a global keyframe would never match. */
+  animation: dotPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guestDot {
+    animation: none;
+  }
+}
+
+.closedNote {
+  max-width: 20em;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-semibold);
+  font-style: italic;
+  font-size: var(--font-size-h3);
+  line-height: 1.1;
+  text-align: center;
+  color: var(--color-primary);
+}
+
+.countdownIntro {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-semibold);
+  font-size: clamp(20px, 2.4vw, 32px);
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+.countdown {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(120px, 22vw, 260px);
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.bars {
+  display: flex;
+  gap: clamp(24px, 6vw, 96px);
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+}
+
+.barCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  align-items: center;
+  width: clamp(120px, 18vw, 200px);
+}
+
+.pct {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-semibold);
+  font-size: clamp(32px, 4vw, 56px);
+}
+
+.barTrack {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: clamp(140px, 24vh, 240px);
+}
+
+.bar {
+  width: 100%;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.avatar {
+  z-index: 1;
+  width: 64px;
+  height: 64px;
+  margin-top: -32px;
+  margin-bottom: var(--spacing-4);
+  background-color: var(--color-surface);
+  background-position: center;
+  background-size: cover;
+  border: 3px solid var(--color-background);
+  border-radius: var(--radius-full);
+}
+
+.personName {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+}
+
+.personVotes {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
