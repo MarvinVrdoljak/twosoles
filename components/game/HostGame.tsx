@@ -28,6 +28,8 @@ type HostGameProps = {
   person2: {name: string; color: string}
   questions: string[]
   initialTheme?: GameTheme
+  // Max guests for the event's package — drives the "full" warning.
+  capacity: number
 }
 
 export function HostGame({
@@ -36,9 +38,15 @@ export function HostGame({
   person2,
   questions,
   initialTheme = 'light',
+  capacity,
 }: HostGameProps) {
   const t = useTranslations('game')
-  const {state, setState, guestCount} = useGameChannel(eventId, 'host', initialTheme)
+  const {state, setState, guestCount, atCapacity} = useGameChannel(
+    eventId,
+    'host',
+    initialTheme,
+    capacity,
+  )
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [confirmResetOpen, setConfirmResetOpen] = useState(false)
 
@@ -47,7 +55,10 @@ export function HostGame({
 
   const persons = [person1, person2]
   const total = state.votes[0] + state.votes[1]
-  const shownGuests = guestCount
+  // Never show more players than the package allows; the surplus see the "full" screen.
+  const shownGuests = Math.min(guestCount, capacity)
+  // How many guests are currently locked out (present but past the cap).
+  const waiting = Math.max(0, guestCount - capacity)
   const isLast = state.questionIndex >= questions.length - 1
 
   const advance = () => {
@@ -229,6 +240,14 @@ export function HostGame({
         </div>
       ) : (
         <div className={styles.content}>
+          {atCapacity ? (
+            <div className={styles.capacityWarning} role="status">
+              <span>{t('host.capacityReached', {capacity})}</span>
+              {waiting > 0 ? (
+                <span className={styles.capacityWaiting}>{t('host.capacityWaiting', {count: waiting})}</span>
+              ) : null}
+            </div>
+          ) : null}
           {!inRound ? (
             <section className={styles.card}>
               <h1 className={styles.h1}>

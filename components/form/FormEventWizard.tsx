@@ -5,6 +5,7 @@ import {useLocale, useTranslations} from 'next-intl'
 import {LayoutEventCreation} from '@/components/layout/LayoutEventCreation'
 import {useRouter} from '@/i18n/navigation'
 import {createClient} from '@/utility/supabase/client'
+import {createCheckoutSessionAction} from '@/utility/stripe/actions'
 import {FormEventCouple} from './FormEventCouple'
 import {FormEventDetails} from './FormEventDetails'
 import {FormEventQuestions} from './FormEventQuestions'
@@ -82,8 +83,10 @@ export function FormEventWizard({userId}: FormEventWizardProps) {
           ? draft.questions.length > 0
           : true
 
-  // Persist the event, then upload any photos and store their paths.
-  const createEvent = async (pkg: string) => {
+  // Persist the event as a free-tier row, upload any photos, and return its id.
+  // The event always starts on `free`; a paid package is only unlocked once
+  // Stripe confirms the payment via webhook. Returns null on failure.
+  const createEvent = async (): Promise<string | null> => {
     setCreating(true)
     setNotice(null)
     try {
@@ -101,7 +104,7 @@ export function FormEventWizard({userId}: FormEventWizardProps) {
           event_date: draft.date || null,
           game_language: draft.language,
           questions: draft.questions.map((q) => ({text: q.text})),
-          package: pkg,
+          package: PACKAGE_KEYS[0],
         })
         .select('id')
         .single()
@@ -119,21 +122,43 @@ export function FormEventWizard({userId}: FormEventWizardProps) {
         await supabase.from('events').update(patch).eq('id', eventId)
       }
 
-      router.push('/dashboard')
+      return eventId
     } catch {
       setNotice(t('summary.createError'))
+      setCreating(false)
+      return null
+    }
+  }
+
+  // Create the event for free and go to the dashboard.
+  const createFreeAndGo = async () => {
+    const eventId = await createEvent()
+    if (eventId) router.push('/dashboard')
+  }
+
+  // Main CTA on the summary step. Free → dashboard; paid → create as free, then
+  // hand off to Stripe Checkout (the webhook lifts it onto the paid package).
+  const finish = async () => {
+    const eventId = await createEvent()
+    if (!eventId) return
+
+    if (isFree) {
+      router.push('/dashboard')
+      return
+    }
+
+    const result = await createCheckoutSessionAction(eventId, PACKAGE_KEYS[draft.packageIndex])
+    if ('url' in result) {
+      window.location.href = result.url
+    } else {
+      setNotice(t('summary.checkoutError'))
       setCreating(false)
     }
   }
 
   const goNext = () => {
     if (isLast) {
-      // Free package creates the event straight away; the paid path awaits Stripe.
-      if (isFree) {
-        void createEvent(PACKAGE_KEYS[0])
-        return
-      }
-      setNotice(t('summary.stubNotice'))
+      void finish()
       return
     }
     setNotice(null)
@@ -190,7 +215,7 @@ export function FormEventWizard({userId}: FormEventWizardProps) {
           notice={notice}
           creating={creating}
           showFreeCard={!isFree}
-          onFree={() => createEvent(PACKAGE_KEYS[0])}
+          onFree={createFreeAndGo}
         />
       ) : null}
     </LayoutEventCreation>

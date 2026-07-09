@@ -446,7 +446,7 @@
       "creatingFree": "Creating …",
       "createError": "The event couldn't be created. Please try again.",
       "submit": "Create event & pay",
-      "stubNotice": "Payment isn't connected yet (Stripe to follow). Use \"Create event for free\" for the Small circle plan."
+      "checkoutError": "Couldn't start the payment. Please try again."
     }
   },
   "eventDetail": {
@@ -463,6 +463,11 @@
     "saving": "Saving …",
     "saveError": "Couldn't save. Please try again.",
     "comingSoon": "Coming soon.",
+    "checkoutConfirming": "Confirming your payment …",
+    "checkoutSuccess": "Payment successful — your package is unlocked.",
+    "checkoutPending": "Your payment came through and is being processed. If the package doesn't show right away, refresh the page in a moment.",
+    "checkoutCanceled": "Payment canceled. Your event stays on its current package.",
+    "checkoutError": "Couldn't start the payment. Please try again.",
     "pdf": {
       "download": "Download PDF",
       "generating": "Creating …",
@@ -632,12 +637,16 @@
       "lookAtScreen": "Look at the screen!",
       "nextComing": "The next question is coming up.",
       "votingEnded": "Voting ended",
-      "resultSoon": "The result will be revealed shortly …"
+      "resultSoon": "The result will be revealed shortly …",
+      "fullTitle": "The game is full",
+      "fullText": "This game already has its maximum of {capacity} players. If someone leaves, you'll be able to join automatically."
     },
     "host": {
       "panel": "HostPanel",
       "questionOf": "Question {current}/{total}",
       "guests": "{count} guests",
+      "capacityReached": "Maximum of {capacity} players reached — no more guests can join.",
+      "capacityWaiting": "{count, plural, one {# guest can't join right now} other {# guests can't join right now}}",
       "votesTotal": "{count} votes total",
       "votesLabel": "votes",
       "votingClosed": "Voting closed",

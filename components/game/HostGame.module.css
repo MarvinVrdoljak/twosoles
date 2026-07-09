@@ -47,6 +47,25 @@
   padding: var(--spacing-24) var(--spacing-20) var(--spacing-32);
 }
 
+.capacityWarning {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding: var(--spacing-12) var(--spacing-16);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-base);
+  color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 12%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, var(--color-danger) 35%, transparent);
+  border-radius: var(--radius-xl);
+}
+
+.capacityWaiting {
+  font-weight: var(--font-weight-body);
+  opacity: 0.85;
+}
+
 .h1 {
   margin: 0;
   font-size: var(--font-size-h3);

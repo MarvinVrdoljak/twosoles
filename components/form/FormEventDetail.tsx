@@ -10,6 +10,7 @@ import {ItemEventGuide} from '@/components/items/ItemEventGuide'
 import {ItemEventOverview} from '@/components/items/ItemEventOverview'
 import {Link, useRouter} from '@/i18n/navigation'
 import {deriveStatus} from '@/utility/events/status'
+import {confirmCheckoutAction, createCheckoutSessionAction} from '@/utility/stripe/actions'
 import {createClient} from '@/utility/supabase/client'
 import {FormEventCouple} from './FormEventCouple'
 import {FormEventDetails} from './FormEventDetails'
@@ -87,6 +88,7 @@ export function FormEventDetail({
   const [startedAt, setStartedAt] = useState(event.started_at)
   const [goLiveConfirmOpen, setGoLiveConfirmOpen] = useState(false)
   const [deviceChoiceOpen, setDeviceChoiceOpen] = useState(false)
+  const [upgrading, setUpgrading] = useState(false)
 
   // The overview lives in the sidebar on desktop, but on mobile it becomes the
   // first tab. Default to it on mobile and fall back to a content tab once the
@@ -99,6 +101,33 @@ export function FormEventDetail({
     }
     desktop.addEventListener('change', onChange)
     return () => desktop.removeEventListener('change', onChange)
+  }, [])
+
+  // Returning from Stripe Checkout: confirm the payment right here (rather than
+  // waiting for the async webhook) so the package unlocks on screen immediately.
+  // The query params are stripped so a manual refresh doesn't re-run this.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const checkout = params.get('checkout')
+    const sessionId = params.get('session_id')
+    if (checkout) {
+      window.history.replaceState(null, '', window.location.pathname)
+    }
+    if (checkout === 'success' && sessionId) {
+      setNotice(t('checkoutConfirming'))
+      void confirmCheckoutAction(sessionId).then((result) => {
+        if (result.ok) {
+          setNotice(t('checkoutSuccess'))
+          update({packageIndex: PACKAGE_KEYS.indexOf(result.package)})
+          router.refresh()
+        } else {
+          setNotice(t('checkoutPending'))
+        }
+      })
+    } else if (checkout === 'canceled') {
+      setNotice(t('checkoutCanceled'))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const [draft, setDraft] = useState<EventDraft>(() => ({
@@ -127,7 +156,19 @@ export function FormEventDetail({
   // Ended events are archived — the edit tabs become read-only (no saving).
   const readOnly = status === 'ended'
 
-  const stub = () => setNotice(t('comingSoon'))
+  // Upgrade to a higher package: hand off to Stripe Checkout for the price
+  // difference. The event stays on its current package until the webhook confirms.
+  const upgrade = async (targetIndex: number) => {
+    setNotice(null)
+    setUpgrading(true)
+    const result = await createCheckoutSessionAction(event.id, PACKAGE_KEYS[targetIndex])
+    if ('url' in result) {
+      window.location.href = result.url
+    } else {
+      setNotice(t('checkoutError'))
+      setUpgrading(false)
+    }
+  }
 
   const save = async () => {
     setSaving(true)
@@ -329,7 +370,8 @@ export function FormEventDetail({
               onGoLive={requestGoLive}
               onRegeneratePin={regeneratePin}
               onDelete={remove}
-              onUpgrade={stub}
+              onUpgrade={upgrade}
+              upgrading={upgrading}
             />
           ) : null}
         </div>

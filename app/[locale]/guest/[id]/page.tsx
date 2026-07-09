@@ -2,6 +2,7 @@ import {setRequestLocale} from 'next-intl/server'
 import {notFound} from 'next/navigation'
 import {GuestGame} from '@/components/game/GuestGame'
 import type {Locale} from '@/i18n/routing'
+import {guestCapacity} from '@/utility/game/capacity'
 import {createClient} from '@/utility/supabase/server'
 
 type GuestGamePageProps = {
@@ -22,7 +23,7 @@ export default async function GuestGamePage({params}: GuestGamePageProps) {
   const supabase = await createClient()
   const {data: event} = await supabase
     .from('public_events')
-    .select('person1_name, person2_name, person1_color, person2_color, questions')
+    .select('person1_name, person2_name, person1_color, person2_color, questions, package')
     .eq('id', id)
     .maybeSingle()
 
@@ -39,6 +40,7 @@ export default async function GuestGamePage({params}: GuestGamePageProps) {
       person1={{name: event.person1_name, color: event.person1_color ?? '#a67070'}}
       person2={{name: event.person2_name, color: event.person2_color ?? '#1f2937'}}
       questions={questions}
+      capacity={guestCapacity(event.package)}
     />
   )
 }

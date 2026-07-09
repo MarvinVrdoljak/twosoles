@@ -446,7 +446,7 @@
       "creatingFree": "Wird angelegt …",
       "createError": "Das Event konnte nicht angelegt werden. Bitte versuch es erneut.",
       "submit": "Event erstellen & bezahlen",
-      "stubNotice": "Die Bezahlung ist noch nicht angebunden (Stripe folgt). Nutze «Event kostenlos anlegen» für den Small-Circle-Plan."
+      "checkoutError": "Die Bezahlung konnte nicht gestartet werden. Bitte versuch es erneut."
     }
   },
   "eventDetail": {
@@ -463,6 +463,11 @@
     "saving": "Speichern …",
     "saveError": "Konnte nicht gespeichert werden. Bitte versuch es erneut.",
     "comingSoon": "Kommt bald.",
+    "checkoutConfirming": "Zahlung wird bestätigt …",
+    "checkoutSuccess": "Zahlung erfolgreich – dein Paket ist freigeschaltet.",
+    "checkoutPending": "Deine Zahlung ist eingegangen und wird verarbeitet. Falls das Paket nicht sofort erscheint, lade die Seite in einem Moment neu.",
+    "checkoutCanceled": "Zahlung abgebrochen. Dein Event bleibt im aktuellen Paket.",
+    "checkoutError": "Die Bezahlung konnte nicht gestartet werden. Bitte versuch es erneut.",
     "pdf": {
       "download": "PDF herunterladen",
       "generating": "Wird erstellt …",
@@ -632,12 +637,16 @@
       "lookAtScreen": "Schau auf die Leinwand!",
       "nextComing": "Die nächste Frage kommt gleich.",
       "votingEnded": "Abstimmung beendet",
-      "resultSoon": "Das Ergebnis wird gleich enthüllt …"
+      "resultSoon": "Das Ergebnis wird gleich enthüllt …",
+      "fullTitle": "Das Spiel ist voll",
+      "fullText": "Dieses Spiel hat bereits die maximale Anzahl von {capacity} Spielern erreicht. Wird ein Platz frei, kannst du automatisch beitreten."
     },
     "host": {
       "panel": "HostPanel",
       "questionOf": "Frage {current}/{total}",
       "guests": "{count} Gäste",
+      "capacityReached": "Maximale Spielerzahl von {capacity} erreicht — es können keine weiteren Gäste beitreten.",
+      "capacityWaiting": "{count, plural, one {# Gast kommt gerade nicht rein} other {# Gäste kommen gerade nicht rein}}",
       "votesTotal": "{count} Stimmen insgesamt",
       "votesLabel": "Stimmen",
       "votingClosed": "Abstimmung geschlossen",

@@ -17,6 +17,8 @@ type GuestGameProps = {
   person2: Person
   questions: string[]
   initialTheme?: GameTheme
+  // Max guests for the event's package; guests past it see the "full" screen.
+  capacity: number
 }
 
 const fade = {
@@ -35,9 +37,10 @@ export function GuestGame({
   person2,
   questions,
   initialTheme = 'light',
+  capacity,
 }: GuestGameProps) {
   const t = useTranslations('game')
-  const {state, sendVote} = useGameChannel(eventId, 'guest', initialTheme)
+  const {state, sendVote, overCapacity} = useGameChannel(eventId, 'guest', initialTheme, capacity)
   const [voted, setVoted] = useState<0 | 1 | null>(null)
 
   useEffect(() => {
@@ -92,6 +95,22 @@ export function GuestGame({
       <div key="status" className={styles.status}>
         <span className={styles.statusPill}>{pill}</span>
         <p className={styles.statusHint}>{hint}</p>
+      </div>
+    )
+  }
+
+  // Joined past the package's guest limit — no seat, so show a full-room notice
+  // instead of the game (a seat may free up if an earlier guest leaves).
+  if (overCapacity) {
+    return (
+      <div className={styles.root} data-theme={state.theme}>
+        <div className={styles.stage}>
+          <div className={styles.center}>
+            <p className={styles.eyebrow}>{coupleName}</p>
+            <h1 className={styles.big}>{t('guest.fullTitle')}</h1>
+            <p className={styles.note}>{t('guest.fullText', {capacity})}</p>
+          </div>
+        </div>
       </div>
     )
   }

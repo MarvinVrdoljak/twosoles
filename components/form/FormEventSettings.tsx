@@ -17,7 +17,8 @@ type FormEventSettingsProps = {
   onGoLive: () => void
   onRegeneratePin: () => void
   onDelete: () => void
-  onUpgrade: () => void
+  onUpgrade: (targetIndex: number) => void
+  upgrading: boolean
 }
 
 export function FormEventSettings({
@@ -30,6 +31,7 @@ export function FormEventSettings({
   onRegeneratePin,
   onDelete,
   onUpgrade,
+  upgrading,
 }: FormEventSettingsProps) {
   const t = useTranslations('eventDetail')
   const tiers = useTranslations('pricing').raw('tiers') as Tier[]
@@ -97,7 +99,12 @@ export function FormEventSettings({
                 ) : lower ? (
                   <span className={styles.pkgDowngrade}>{t('settings.packageDowngrade')}</span>
                 ) : (
-                  <CommonButton variant="primary" size="sm" onClick={onUpgrade}>
+                  <CommonButton
+                    variant="primary"
+                    size="sm"
+                    onClick={() => onUpgrade(index)}
+                    disabled={upgrading}
+                  >
                     {t('settings.packageUpgrade')}
                   </CommonButton>
                 )}

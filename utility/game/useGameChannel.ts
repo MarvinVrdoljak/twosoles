@@ -8,7 +8,7 @@ import type {GameState, GameTheme} from './types'
 
 type Role = 'host' | 'display' | 'guest'
 
-type PresenceMeta = {role: Role}
+type PresenceMeta = {role: Role; joinedAt: number}
 
 // Shared live-game channel over Supabase Realtime. The host is the authority:
 // it holds + broadcasts the GameState; display + guests subscribe. Guests send
@@ -17,19 +17,31 @@ type PresenceMeta = {role: Role}
 // Works offline too: if the channel never connects (e.g. local backend down),
 // `state` stays local and `setState` still updates the local view — so each
 // screen renders and the dev stepper can drive it without a backend.
-export function useGameChannel(eventId: string, role: Role, initialTheme: GameTheme = 'light') {
+export function useGameChannel(
+  eventId: string,
+  role: Role,
+  initialTheme: GameTheme = 'light',
+  capacity: number = Infinity,
+) {
   const [state, setLocalState] = useState<GameState>({...INITIAL_GAME_STATE, theme: initialTheme})
   const [guestCount, setGuestCount] = useState(0)
   const [connected, setConnected] = useState(false)
+  // Guests only: true when this guest joined past the package's capacity.
+  const [overCapacity, setOverCapacity] = useState(false)
 
   const channelRef = useRef<RealtimeChannel | null>(null)
   const stateRef = useRef(state)
   stateRef.current = state
 
+  // Stable identity + join time for this device, so the capacity ranking is
+  // deterministic and this guest can locate itself in the presence list.
+  const presenceKeyRef = useRef(`${role}-${Math.random().toString(36).slice(2)}`)
+  const joinedAtRef = useRef(Date.now())
+
   useEffect(() => {
     const supabase = createClient()
     const channel = supabase.channel(`game:${eventId}`, {
-      config: {presence: {key: `${role}-${Math.random().toString(36).slice(2)}`}},
+      config: {presence: {key: presenceKeyRef.current}},
     })
 
     // Subscribers apply the host's broadcast state.
@@ -59,14 +71,26 @@ export function useGameChannel(eventId: string, role: Role, initialTheme: GameTh
     }
 
     channel.on('presence', {event: 'sync'}, () => {
-      const entries = Object.values(channel.presenceState<PresenceMeta>()).flat()
-      setGuestCount(entries.filter((entry) => entry.role === 'guest').length)
+      // Order all present guests by join time (tie-break by presence key) so
+      // every client agrees on who holds the first `capacity` seats. When an
+      // admitted guest leaves, everyone re-ranks and a waiting guest is promoted.
+      const guests = Object.entries(channel.presenceState<PresenceMeta>())
+        .map(([key, metas]) => ({key, joinedAt: metas[0]?.joinedAt ?? 0, role: metas[0]?.role}))
+        .filter((entry) => entry.role === 'guest')
+        .sort((a, b) => a.joinedAt - b.joinedAt || a.key.localeCompare(b.key))
+
+      setGuestCount(guests.length)
+
+      if (role === 'guest') {
+        const myRank = guests.findIndex((entry) => entry.key === presenceKeyRef.current)
+        setOverCapacity(myRank >= capacity)
+      }
     })
 
     channel.subscribe((status) => {
       if (status !== 'SUBSCRIBED') return
       setConnected(true)
-      void channel.track({role})
+      void channel.track({role, joinedAt: joinedAtRef.current})
       if (role === 'host') {
         channel.send({type: 'broadcast', event: 'state', payload: stateRef.current})
       } else {
@@ -79,7 +103,7 @@ export function useGameChannel(eventId: string, role: Role, initialTheme: GameTh
       void supabase.removeChannel(channel)
       channelRef.current = null
     }
-  }, [eventId, role])
+  }, [eventId, role, capacity])
 
   // Host: update + broadcast. Subscribers (dev stepper): update local view only.
   const setState = useCallback(
@@ -99,5 +123,9 @@ export function useGameChannel(eventId: string, role: Role, initialTheme: GameTh
     channelRef.current?.send({type: 'broadcast', event: 'vote', payload: {option}})
   }, [])
 
-  return {state, setState, sendVote, guestCount, connected}
+  // Host-relevant: the game is full once as many (or more) guests are present as
+  // the package allows.
+  const atCapacity = guestCount >= capacity
+
+  return {state, setState, sendVote, guestCount, connected, overCapacity, atCapacity, capacity}
 }
