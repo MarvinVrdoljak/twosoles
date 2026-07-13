@@ -151,6 +151,7 @@ function Person({
           type="text"
           value={name}
           placeholder={placeholder}
+          aria-label={placeholder}
           required
           disabled={readOnly}
           onChange={(event) => onName(event.target.value)}

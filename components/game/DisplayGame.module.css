@@ -25,8 +25,8 @@
 
 .leafTop {
   top: -60px;
-  left: 0px;
-  width: clamp(150px, 8.216rem + 4.76vw, 260px);
+  left: 0;
+  width: clamp(150px, 131.456px + 4.76vw, 260px);
   height: auto;
   transform: rotate(-155deg);
 }
@@ -34,7 +34,7 @@
 .leafBottom {
   right: -50px;
   bottom: -80px;
-  width: clamp(250px, 12.5rem + 8.57vw, 360px);
+  width: clamp(250px, 200px + 8.57vw, 360px);
   height: auto;
   transform: scaleX(-1) rotate(-30deg);
 }
@@ -180,17 +180,19 @@
   height: 8px;
   background: var(--color-success);
   border-radius: var(--radius-full);
+
   /* Live heartbeat. Keyframes are local: Turbopack scopes animation names per
      CSS module, so a global keyframe would never match. */
-  animation: dotPulse 1.6s ease-in-out infinite;
+  animation: dot-pulse 1.6s ease-in-out infinite;
 }
 
-@keyframes dotPulse {
+@keyframes dot-pulse {
   0%,
   100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.4;
     transform: scale(0.85);

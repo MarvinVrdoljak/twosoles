@@ -1,4 +1,4 @@
 @layer base, components, utilities;
 
-@import './base/index.css';
-@import './components/index.css';
+@import url('./base/index.css');
+@import url('./components/index.css');

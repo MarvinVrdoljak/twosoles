@@ -3,4 +3,4 @@
    (e.g. styles applied to rich-text / server-rendered markup).
    Prefer CSS Modules for actual React components.
    ============================================================ */
-@import './eyebrow.css';
+@import url('./eyebrow.css');

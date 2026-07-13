@@ -1,8 +1,7 @@
 import {getTranslations, setRequestLocale} from 'next-intl/server'
 import {redirect} from 'next/navigation'
-import {Trash2} from 'lucide-react'
-import {CommonButton} from '@/components/common/CommonButton'
 import {CommonPageHeader} from '@/components/common/CommonPageHeader'
+import {FormDeleteAccount} from '@/components/form/FormDeleteAccount'
 import {FormProfile} from '@/components/form/FormProfile'
 import {ItemBill} from '@/components/items/ItemBill'
 import {LayoutDashboard} from '@/components/layout/LayoutDashboard'
@@ -143,12 +142,7 @@ export default async function AccountPage({params}: AccountPageProps) {
               <h2 className={styles.deleteTitle}>{t('deleteTitle')}</h2>
               <p className={styles.deleteText}>{t('deleteText')}</p>
             </div>
-            <div className={styles.deleteActions}>
-              <CommonButton type="button" variant="danger" size="md">
-                <Trash2 size={20} aria-hidden="true" />
-                {t('deleteButton')}
-              </CommonButton>
-            </div>
+            <FormDeleteAccount />
           </section>
         </div>
       </div>

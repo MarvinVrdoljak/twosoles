@@ -409,6 +409,7 @@
       "catalogEmpty": "All catalogue questions are already in your set.",
       "apply": "Apply",
       "remove": "Remove question",
+      "editLabel": "Edit question",
       "customBadge": "Custom question",
       "empty": "No questions yet. Write your own, roll 15 from the catalogue or pick from it.",
       "close": "Close",
@@ -736,7 +737,13 @@
     "billUpgradeMeta": "{date} · Upgrade to «{package}»",
     "deleteTitle": "Delete account",
     "deleteText": "Permanent and irreversible. Deleting removes all events, results and invoices. This step cannot be undone.",
-    "deleteButton": "Delete account"
+    "deleteButton": "Delete account",
+    "deleteConfirmTitle": "Delete account?",
+    "deleteConfirmText": "Your account and all events, results and invoices will be permanently deleted. This action cannot be undone.",
+    "deleteConfirm": "Delete permanently",
+    "deleteCancel": "Cancel",
+    "deleting": "Deleting …",
+    "deleteError": "Could not delete your account. Please try again."
   },
   "auth": {
     "loginTitle": "Sign in",

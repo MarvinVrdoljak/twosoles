@@ -78,7 +78,7 @@
 .leafLeft {
   left: -20px;
   bottom: -60px;
-  width: clamp(150px, 8.216rem + 4.76vw, 200px);
+  width: clamp(150px, 131.456px + 4.76vw, 200px);
   height: auto;
   transform: rotate(-24deg);
 }
@@ -86,7 +86,7 @@
 .leafRight {
   right: -30px;
   top: -20px;
-  width: clamp(150px, 7.287rem + 8.57vw, 240px);
+  width: clamp(150px, 116.592px + 8.57vw, 240px);
   height: auto;
   transform: rotate(180deg);
   z-index: 2;
@@ -96,7 +96,7 @@
   z-index: 2;
   left: -40px;
   bottom: -80px;
-  width: clamp(120px, 6.341rem + 4.76vw, 170px);
+  width: clamp(120px, 101.456px + 4.76vw, 170px);
   height: auto;
   transform: rotate(-24deg);
 }

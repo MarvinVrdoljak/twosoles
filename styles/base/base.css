@@ -17,7 +17,7 @@
     line-height: var(--line-height-base);
     color: var(--color-text);
     background: var(--color-background);
-    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     margin: 0;
   }
@@ -66,22 +66,27 @@
     margin: 0 0 20px;
     font-size: var(--font-size-h1);
   }
+
   h2 {
     margin: 0 0 20px;
     font-size: var(--font-size-h2);
   }
+
   h3 {
     margin: 0 0 12px;
     font-size: var(--font-size-h3);
   }
+
   h4 {
     margin: 0 0 12px;
     font-size: var(--font-size-h4);
   }
+
   h5 {
     margin: 0 0 12px;
     font-size: var(--font-size-h5);
   }
+
   h6 {
     margin: 0 0 12px;
     font-size: var(--font-size-h6);
@@ -113,10 +118,12 @@
   details {
     outline: none;
   }
+
   details > summary {
     list-style: none;
     outline: none;
   }
+
   details > summary::marker,
   details > summary::-webkit-details-marker {
     display: none;

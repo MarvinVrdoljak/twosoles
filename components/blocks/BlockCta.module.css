@@ -35,7 +35,7 @@
   }
 
   @media (--bp-large-up) {
-    padding: var(--spacing-100) var(--spacing-64);
+    padding: var(--spacing-128) var(--spacing-64);
   }
 }
 

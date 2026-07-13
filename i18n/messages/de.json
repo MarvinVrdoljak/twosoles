@@ -409,6 +409,7 @@
       "catalogEmpty": "Alle Katalog-Fragen sind schon in deinem Set.",
       "apply": "Übernehmen",
       "remove": "Frage entfernen",
+      "editLabel": "Frage bearbeiten",
       "customBadge": "Eigene Frage",
       "empty": "Noch keine Fragen. Schreib eigene, würfle 15 aus dem Katalog oder wähle aus dem Fragenkatalog.",
       "close": "Schließen",
@@ -736,7 +737,13 @@
     "billUpgradeMeta": "{date} · Upgrade auf «{package}»",
     "deleteTitle": "Konto löschen",
     "deleteText": "Dauerhaft und unwiderruflich. Beim Löschen werden alle Events, Ergebnisse und Rechnungen entfernt. Dieser Schritt kann nicht rückgängig gemacht werden.",
-    "deleteButton": "Konto löschen"
+    "deleteButton": "Konto löschen",
+    "deleteConfirmTitle": "Konto wirklich löschen?",
+    "deleteConfirmText": "Dein Konto und alle Events, Ergebnisse und Rechnungen werden endgültig gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "deleteConfirm": "Endgültig löschen",
+    "deleteCancel": "Abbrechen",
+    "deleting": "Wird gelöscht …",
+    "deleteError": "Konto konnte nicht gelöscht werden. Bitte versuche es erneut."
   },
   "auth": {
     "loginTitle": "Anmelden",

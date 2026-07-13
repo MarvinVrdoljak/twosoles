@@ -1,6 +1,6 @@
 'use client'
 
-import {useState} from 'react'
+import {useRef, useState} from 'react'
 import {useLocale, useTranslations} from 'next-intl'
 import {LayoutEventCreation} from '@/components/layout/LayoutEventCreation'
 import {useRouter} from '@/i18n/navigation'
@@ -52,6 +52,11 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
   const [notice, setNotice] = useState<string | null>(null)
   const [creating, setCreating] = useState(false)
 
+  // Remembers the row we already inserted, so a failure *after* the insert
+  // (photo upload or Stripe hand-off) is retried against the same event instead
+  // of creating a duplicate on every attempt.
+  const createdEventIdRef = useRef<string | null>(null)
+
   const [draft, setDraft] = useState<EventDraft>(() => ({
     name1: '',
     name2: '',
@@ -73,8 +78,8 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
   const isLast = step === TOTAL_STEPS
   const isFree = draft.packageIndex === 0
 
-  // Required-field gating: names on step 1, title + date on step 2, at least
-  // one question on step 3.
+  // Required-field gating: names on step 1, date on step 2, at least one
+  // question on step 3.
   const stepValid =
     step === 1
       ? draft.name1.trim() !== '' && draft.name2.trim() !== ''
@@ -92,25 +97,30 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
     setNotice(null)
     try {
       const supabase = createClient()
-      const {data, error} = await supabase
-        .from('events')
-        .insert({
-          user_id: userId,
-          person1_name: draft.name1.trim(),
-          person2_name: draft.name2.trim(),
-          person1_color: draft.color1,
-          person2_color: draft.color2,
-          occasion: draft.occasion,
-          event_date: draft.date || null,
-          game_language: draft.language,
-          questions: draft.questions.map((q) => ({text: q.text})),
-          package: PACKAGE_KEYS[0],
-        })
-        .select('id')
-        .single()
-      if (error) throw error
+      // Insert once; on a later retry reuse the existing row.
+      let eventId = createdEventIdRef.current
+      if (!eventId) {
+        const {data, error} = await supabase
+          .from('events')
+          .insert({
+            user_id: userId,
+            person1_name: draft.name1.trim(),
+            person2_name: draft.name2.trim(),
+            person1_color: draft.color1,
+            person2_color: draft.color2,
+            occasion: draft.occasion,
+            event_date: draft.date || null,
+            game_language: draft.language,
+            questions: draft.questions.map((q) => ({text: q.text})),
+            package: PACKAGE_KEYS[0],
+          })
+          .select('id')
+          .single()
+        if (error) throw error
+        eventId = (data as {id: string}).id
+        createdEventIdRef.current = eventId
+      }
 
-      const eventId = (data as {id: string}).id
       const patch: {person1_photo?: string; person2_photo?: string} = {}
       if (draft.photo1File) {
         patch.person1_photo = await uploadPhoto(supabase, userId, eventId, 1, draft.photo1File)

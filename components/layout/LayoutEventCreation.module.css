@@ -142,15 +142,12 @@
   color: var(--color-border);
   display: block;
   position: absolute;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.leafLeft {
   top: -40px;
   left: -40px;
-  width: clamp(150px, 8.216rem + 4.76vw, 200px);
+  z-index: 0;
+  width: clamp(150px, 131.456px + 4.76vw, 200px);
   height: auto;
+  pointer-events: none;
   transform: scaleY(-1);
 }
 
@@ -220,7 +217,7 @@
   justify-content: space-between;
   padding: var(--spacing-16) var(--side-gap);
   background: color-mix(in srgb, var(--color-surface) 70%, transparent);
-  backdrop-filter: blur(0.625rem);
+  backdrop-filter: blur(10px);
   border-top: 1px solid var(--color-border);
 }
 

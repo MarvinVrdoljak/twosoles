@@ -58,8 +58,3 @@
   color: var(--color-text-muted);
   line-height: 1.5;
 }
-
-/* Keeps the danger button at its intrinsic width (the card stretches children). */
-.deleteActions {
-  display: flex;
-}

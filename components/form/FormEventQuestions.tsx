@@ -124,6 +124,7 @@ export function FormEventQuestions({draft, update, title, subtitle, footer, read
             type="text"
             value={input}
             placeholder={t('questions.addPlaceholder')}
+            aria-label={t('questions.addPlaceholder')}
             onChange={(event) => setInput(event.target.value)}
             onKeyDown={(event) => {
               if (event.key === 'Enter') {
@@ -187,6 +188,7 @@ export function FormEventQuestions({draft, update, title, subtitle, footer, read
                   className={styles.qEditInput}
                   type="text"
                   value={question.text}
+                  aria-label={t('questions.editLabel')}
                   autoFocus
                   onChange={(event) => editText(question.id, event.target.value)}
                   onBlur={() => setEditingId(null)}
@@ -198,20 +200,13 @@ export function FormEventQuestions({draft, update, title, subtitle, footer, read
                   }}
                 />
               ) : (
-                <span
+                <button
+                  type="button"
                   className={styles.qTextButton}
-                  role="button"
-                  tabIndex={0}
                   onClick={() => setEditingId(question.id)}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                      event.preventDefault()
-                      setEditingId(question.id)
-                    }
-                  }}
                 >
                   {question.text}
-                </span>
+                </button>
               )}
 
               {readOnly ? null : (

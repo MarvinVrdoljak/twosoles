@@ -21,15 +21,16 @@
    Turbopack scopes animation names per CSS module, so a keyframe defined
    elsewhere (e.g. a global stylesheet) is never matched. */
 .dotPulse {
-  animation: dotPulse 1.6s ease-in-out infinite;
+  animation: dot-pulse 1.6s ease-in-out infinite;
 }
 
-@keyframes dotPulse {
+@keyframes dot-pulse {
   0%,
   100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.4;
     transform: scale(0.85);

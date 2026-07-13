@@ -155,15 +155,15 @@
     border-color var(--transition-fast, 0.15s ease);
 }
 
+.cardAction:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
 .cardAction:hover:not(:disabled) {
   color: var(--color-primary);
   background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
   border-color: color-mix(in srgb, var(--color-primary) 40%, var(--color-border));
-}
-
-.cardAction:disabled {
-  cursor: default;
-  opacity: 0.6;
 }
 
 .cardActionDone {
