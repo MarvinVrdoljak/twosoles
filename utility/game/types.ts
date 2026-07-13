@@ -24,3 +24,11 @@ export const INITIAL_GAME_STATE: GameState = {
   votes: [0, 0],
   results: {},
 }
+
+// Countdown pacing, shared so the display sequence and the host's auto-advance
+// stay in step. Each digit (3, 2, 1) animates in, holds for the beat below, then
+// the next appears. The host reveals after COUNTDOWN_REVEAL_MS — sized to cover
+// the display's appear + three digit cycles + a final hold on "1", so the last
+// digit is never cut off.
+export const COUNTDOWN_DIGIT_HOLD_MS = 800
+export const COUNTDOWN_REVEAL_MS = 4400

@@ -225,6 +225,13 @@
   color: var(--color-primary);
 }
 
+.countdownStage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(120px, 22vw, 260px);
+}
+
 .countdown {
   display: block;
   font-family: var(--font-heading);

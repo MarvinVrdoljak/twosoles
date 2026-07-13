@@ -22,7 +22,7 @@ import {CommonModal} from '@/components/common/CommonModal'
 import {useToast} from '@/components/common/CommonToast'
 import {saveGameStateAction} from '@/utility/game/actions'
 import {useGameChannel} from '@/utility/game/useGameChannel'
-import type {GameState, GameTheme} from '@/utility/game/types'
+import {COUNTDOWN_REVEAL_MS, type GameState, type GameTheme} from '@/utility/game/types'
 import styles from './HostGame.module.css'
 
 type HostGameProps = {
@@ -113,7 +113,7 @@ export function HostGame({
           ? {...s, phase: 'reveal', results: {...s.results, [s.questionIndex]: s.votes}}
           : s,
       )
-    }, 3200)
+    }, COUNTDOWN_REVEAL_MS)
     return () => clearTimeout(id)
   }, [state.phase, setState])
 

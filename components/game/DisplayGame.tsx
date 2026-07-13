@@ -1,11 +1,11 @@
 'use client'
 
-import {useEffect, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {useTranslations} from 'next-intl'
 import {AnimatePresence, motion} from 'motion/react'
 import {GameQr} from './GameQr'
 import {useGameChannel} from '@/utility/game/useGameChannel'
-import type {GameTheme} from '@/utility/game/types'
+import {COUNTDOWN_DIGIT_HOLD_MS, type GameTheme} from '@/utility/game/types'
 import styles from './DisplayGame.module.css'
 import Leaf03 from '@/public/images/leaf_03.svg'
 import Leaf01 from '@/public/images/leaf_01.svg'
@@ -32,6 +32,14 @@ const fade = {
   transition: {duration: 0.5, ease: 'easeOut'},
 } as const
 
+// Countdown digit pop. Named variants so `onAnimationComplete` can tell an
+// entering digit ("shown") from the previous one exiting ("gone").
+const countdownDigit = {
+  hidden: {scale: 0.5, opacity: 0},
+  shown: {scale: 1, opacity: 1},
+  gone: {scale: 1.5, opacity: 0},
+} as const
+
 export function DisplayGame({
   eventId,
   coupleName,
@@ -55,14 +63,29 @@ export function DisplayGame({
   const pct = (index: 0 | 1) =>
     totalVotes === 0 ? 50 : Math.round((state.votes[index] / totalVotes) * 100)
 
-  // Countdown ticker for the countdown phase.
-  const [count, setCount] = useState(3)
+  // Countdown sequence. `count` is null until the container's appear animation
+  // finishes; then 3 animates in. Each digit reports when it has finished
+  // animating in (see `onAnimationComplete` below), we hold for a fixed beat, and
+  // only then step down — so 3, 2 and 1 each get exactly the same on-screen time.
+  // The host advances to the reveal on its own timer (COUNTDOWN_REVEAL_MS).
+  const [count, setCount] = useState<number | null>(null)
+  const holdTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  // Re-arm on every phase change; drop any pending hold.
   useEffect(() => {
-    if (state.phase !== 'countdown') return
-    setCount(3)
-    const id = setInterval(() => setCount((c) => (c > 1 ? c - 1 : c)), 1000)
-    return () => clearInterval(id)
+    setCount(null)
+    return () => {
+      if (holdTimer.current) clearTimeout(holdTimer.current)
+    }
   }, [state.phase])
+
+  // A digit has finished animating in: hold, then reveal the next one.
+  const holdThenNext = () => {
+    if (holdTimer.current) clearTimeout(holdTimer.current)
+    holdTimer.current = setTimeout(() => {
+      setCount((c) => (c && c > 1 ? c - 1 : c))
+    }, COUNTDOWN_DIGIT_HOLD_MS)
+  }
 
   return (
     <div className={styles.root} data-theme={state.theme}>
@@ -110,18 +133,36 @@ export function DisplayGame({
           ) : null}
 
           {state.phase === 'countdown' ? (
-            <motion.div key="countdown" className={styles.center} {...fade}>
+            <motion.div
+              key="countdown"
+              className={styles.center}
+              {...fade}
+              // Appear animation done → kick off the sequence with "3".
+              onAnimationComplete={() => setCount((c) => (c === null ? 3 : c))}
+            >
               <p className={styles.countdownIntro}>{t('display.countdownIntro')}</p>
-              <motion.span
-                key={count}
-                className={styles.countdown}
-                initial={{scale: 0.4, opacity: 0}}
-                animate={{scale: 1, opacity: 1}}
-                exit={{scale: 1.6, opacity: 0}}
-                transition={{duration: 0.5, ease: 'easeOut'}}
-              >
-                {count}
-              </motion.span>
+              <div className={styles.countdownStage}>
+                <AnimatePresence mode="popLayout">
+                  {count !== null ? (
+                    <motion.span
+                      key={count}
+                      className={styles.countdown}
+                      variants={countdownDigit}
+                      initial="hidden"
+                      animate="shown"
+                      exit="gone"
+                      transition={{duration: 0.3, ease: 'easeOut'}}
+                      // Fire only when the digit finished entering (not on the
+                      // previous digit's exit), then hold before stepping down.
+                      onAnimationComplete={(def) => {
+                        if (def === 'shown' && count > 1) holdThenNext()
+                      }}
+                    >
+                      {count}
+                    </motion.span>
+                  ) : null}
+                </AnimatePresence>
+              </div>
             </motion.div>
           ) : null}
 
