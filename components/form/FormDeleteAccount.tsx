@@ -5,6 +5,7 @@ import {useTranslations} from 'next-intl'
 import {Trash2} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonModal} from '@/components/common/CommonModal'
+import {useToast} from '@/components/common/CommonToast'
 import {deleteAccountAction} from '@/utility/auth/actions'
 import styles from './FormDeleteAccount.module.css'
 
@@ -13,21 +14,19 @@ import styles from './FormDeleteAccount.module.css'
 // here, which we surface inline.
 export function FormDeleteAccount() {
   const t = useTranslations('account')
+  const {toast} = useToast()
   const [open, setOpen] = useState(false)
-  const [error, setError] = useState<string | null>(null)
   const [pending, startTransition] = useTransition()
 
   const close = () => {
     if (pending) return
     setOpen(false)
-    setError(null)
   }
 
   const confirm = () => {
-    setError(null)
     startTransition(async () => {
       const result = await deleteAccountAction()
-      if (result?.error) setError(t('deleteError'))
+      if (result?.error) toast(t('deleteError'))
     })
   }
 
@@ -48,11 +47,6 @@ export function FormDeleteAccount() {
       >
         <div className={styles.confirm}>
           <p className={styles.text}>{t('deleteConfirmText')}</p>
-          {error ? (
-            <p className={styles.error} role="alert">
-              {error}
-            </p>
-          ) : null}
           <div className={styles.confirmActions}>
             <CommonButton variant="secondary" size="md" onClick={close} disabled={pending}>
               {t('deleteCancel')}

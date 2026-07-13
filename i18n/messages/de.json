@@ -1,7 +1,9 @@
 {
   "general": {
     "home": "Startseite",
-    "loading": "Laden …"
+    "loading": "Laden …",
+    "notifications": "Benachrichtigungen",
+    "dismiss": "Schließen"
   },
   "nav": {
     "ariaPrimary": "Hauptnavigation",
@@ -154,6 +156,7 @@
   },
   "contact": {
     "metaTitle": "Kontakt",
+    "metaDescription": "Fragen zu eurem Event, technische Hilfe oder ein besonderes Format? Schreib dem TwoSoles-Team — wir antworten in der Regel innerhalb von 24 Stunden, persönlich.",
     "eyebrow": "Kontakt",
     "title": "Schreib uns – wir sind für dich da",
     "subtitle": "Ob Frage zu eurem Event, ein technisches Problem oder eine besondere Idee: Wir helfen dir persönlich weiter.",
@@ -215,6 +218,8 @@
     "placeholderNote": "Hinweis: Dies ist eine unverbindliche Vorlage mit Platzhaltern. Ersetze alle in eckigen Klammern markierten Angaben durch deine eigenen Daten und lass die Texte vor der Veröffentlichung rechtlich prüfen.",
     "imprint": {
       "title": "Impressum",
+      "metaTitle": "Impressum",
+      "metaDescription": "Anbieterkennzeichnung und rechtliche Angaben zu TwoSoles.",
       "sections": [
         {
           "heading": "Angaben gemäß § 5 DDG",
@@ -252,6 +257,8 @@
     },
     "privacy": {
       "title": "Datenschutzerklärung",
+      "metaTitle": "Datenschutzerklärung",
+      "metaDescription": "Wie TwoSoles personenbezogene Daten verarbeitet — transparent erklärt, welche Daten wir erheben und wozu.",
       "intro": "Der Schutz deiner personenbezogenen Daten ist uns wichtig. Nachfolgend informieren wir dich darüber, welche Daten wir bei der Nutzung von TwoSoles verarbeiten und wozu.",
       "sections": [
         {
@@ -290,6 +297,8 @@
     },
     "terms": {
       "title": "Allgemeine Geschäftsbedingungen",
+      "metaTitle": "AGB",
+      "metaDescription": "Die Allgemeinen Geschäftsbedingungen für die Nutzung des TwoSoles-Dienstes.",
       "intro": "Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Nutzung des Dienstes TwoSoles.",
       "sections": [
         {
@@ -395,7 +404,13 @@
         }
       ],
       "dateLabel": "Datum der Feier",
-      "languageLabel": "Spiel-Sprache"
+      "languageLabel": "Spiel-Sprache",
+      "themeLabel": "Farbschema",
+      "themeHint": "Legt das Standard-Erscheinungsbild der Spiel-Bildschirme fest (Leinwand, Gäste-Handys und Host). Hell passt zu Feiern bei Tageslicht, Dunkel zu abendlichen Locations. Der Host kann es während des Spiels jederzeit umschalten.",
+      "themeOptions": {
+        "light": "Hell",
+        "dark": "Dunkel"
+      }
     },
     "questions": {
       "title": "Die Fragen für den großen Moment",
@@ -529,7 +544,19 @@
       "deleteTitle": "Event löschen",
       "deleteText": "Dauerhaft und unwiderruflich. Alle Fragen, Ergebnisse und der QR-Code werden entfernt. Dieser Schritt kann nicht rückgängig gemacht werden. Ausgaben werden nicht zurück erstattet.",
       "deleteButton": "Event löschen",
-      "deleteConfirm": "Dieses Event wirklich löschen? Das kann nicht rückgängig gemacht werden."
+      "deleteConfirm": "Dieses Event wirklich löschen? Das kann nicht rückgängig gemacht werden.",
+      "pinRegenerated": "Neue Host-PIN erstellt.",
+      "resetGame": {
+        "cardTitle": "Spiel zurücksetzen",
+        "cardText": "Setzt den gespeicherten Spielverlauf zurück – die aktuellen Stimmen und Ergebnisse – sodass die nächste Host-Sitzung wieder in der Lobby startet. Deine Fragen und Einstellungen bleiben unberührt.",
+        "button": "Spiel zurücksetzen",
+        "title": "Spiel wirklich zurücksetzen?",
+        "text": "Alle gespeicherten Stimmen und Ergebnisse gehen verloren und das Spiel startet wieder in der Lobby. Das kann nicht rückgängig gemacht werden.",
+        "confirm": "Zurücksetzen",
+        "cancel": "Abbrechen",
+        "success": "Das Spiel wurde zurückgesetzt.",
+        "error": "Das Spiel konnte nicht zurückgesetzt werden. Bitte versuche es erneut."
+      }
     },
     "guide": {
       "title": "So spielt man TwoSoles",
@@ -564,7 +591,7 @@
       "setupTitle": "Aufbau",
       "setup": [
         "Verbinde das erste Gerät mit der Leinwand und öffne darauf die <display>Leinwand-Ansicht</display>. Am besten nutzt du den Vollbildmodus des Browsers. Auf einem zweiten Gerät, idealerweise einem Smartphone, öffnest du die <host>Host-Steuerung</host>.",
-        "Stell zum Schluss sicher, dass das Spiel zurückgesetzt ist, damit es von vorne startet. Das erledigst du in den Einstellungen der <host>Host-Steuerung</host>. Danach steht die Leinwand auf dem Willkommens-Screen, und du bist startklar.",
+        "Stell zum Schluss sicher, dass das Spiel zurückgesetzt ist, damit es von vorne startet. Das erledigst du in den <settings>Einstellungen</settings> dieses Events oder im <host>Host-Panel</host>. Danach steht die Leinwand auf dem Willkommens-Screen, und du bist startklar.",
         "Stell zwei Stühle mit dem Rücken zueinander auf, am besten vor oder neben der Leinwand. So sitzt das Paar Rücken an Rücken und sieht sich gegenseitig nicht. Achte darauf, dass sowohl das Paar als auch die Leinwand für alle im Saal gut sichtbar sind. Das Paar nimmt Platz, und jede Person bekommt einen eigenen Schuh und einen Schuh der anderen Person in die Hand."
       ],
       "roundTitle": "So läuft eine Runde",
@@ -601,7 +628,8 @@
       ],
       "download": "Download Anleitung",
       "downloadHint": "Alles dabei? Druck dir die Anleitung für den Tag aus."
-    }
+    },
+    "saveSuccess": "Änderungen gespeichert."
   },
   "game": {
     "display": {
@@ -686,11 +714,15 @@
       "pinLabel": "Host-PIN",
       "pinSubmit": "Steuerung öffnen",
       "pinChecking": "Wird geprüft …",
-      "pinError": "Falsche PIN. Bitte versuch es erneut."
+      "pinError": "Falsche PIN. Bitte versuch es erneut.",
+      "resetSuccess": "Spiel zurückgesetzt – alle Bildschirme sind zurück in der Lobby.",
+      "resetError": "Lokal zurückgesetzt, aber du scheinst offline zu sein – Leinwand und Gäste wurden möglicherweise nicht aktualisiert."
     }
   },
   "home": {
     "title": "TwoSoles",
+    "metaTitle": "TwoSoles · Das digitale Hochzeits-Schuhspiel",
+    "metaDescription": "Das Wedding Shoe Game live mit allen Gästen: Der ganze Saal stimmt per Handy ab, der Beamer enthüllt das Ergebnis. Ohne App, ohne Login — in fünf Minuten startklar.",
     "intro": "Das digitale Hochzeits-Schuhspiel.",
     "goToLogin": "Anmelden",
     "goToRegister": "Konto erstellen"

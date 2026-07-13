@@ -1,5 +1,6 @@
 import {getTranslations, setRequestLocale} from 'next-intl/server'
 import {redirect} from 'next/navigation'
+import {AuthNoticeToast} from '@/components/form/AuthNoticeToast'
 import {FormLogin} from '@/components/form/FormLogin'
 import {LayoutAuth} from '@/components/layout/LayoutAuth'
 import {getPathname} from '@/i18n/navigation'
@@ -10,6 +11,9 @@ type LoginPageProps = {
   params: Promise<{locale: Locale}>
   searchParams: Promise<{error?: string}>
 }
+
+// Auth entry point — no SEO value, keep it out of the index.
+export const metadata = {robots: {index: false, follow: false}}
 
 export default async function LoginPage({params, searchParams}: LoginPageProps) {
   const {locale} = await params
@@ -31,9 +35,9 @@ export default async function LoginPage({params, searchParams}: LoginPageProps) 
       eyebrow={t('loginTitle')}
       title={t('loginHeading')}
       subtitle={t('loginSubtitle')}
-      error={errorMessage}
       toggle={{text: t('noAccount'), linkLabel: t('toRegister'), href: '/register'}}
     >
+      {errorMessage ? <AuthNoticeToast message={errorMessage} /> : null}
       <FormLogin />
     </LayoutAuth>
   )

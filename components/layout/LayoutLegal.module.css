@@ -33,7 +33,6 @@
   margin: 0;
   padding: var(--spacing-16) var(--spacing-20);
   font-size: var(--font-size-sm);
-  line-height: var(--line-height-base);
   color: var(--color-text);
   background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface-variant));
   border: 1px solid color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
@@ -43,7 +42,6 @@
 .intro {
   margin: 0;
   font-size: var(--font-size-lg);
-  line-height: var(--line-height-base);
 }
 
 .section {
@@ -60,6 +58,5 @@
 .body {
   margin: 0;
   white-space: pre-line;
-  line-height: var(--line-height-base);
   color: var(--color-text);
 }

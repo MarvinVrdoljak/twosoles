@@ -51,7 +51,6 @@
 .hint {
   margin: var(--spacing-12) 0 var(--spacing-20);
   font-size: var(--font-size-sm);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 

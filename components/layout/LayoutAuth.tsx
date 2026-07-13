@@ -11,7 +11,6 @@ type LayoutAuthProps = {
   eyebrow: string
   title: string
   subtitle: string
-  error?: string
   toggle: {text: string; linkLabel: string; href: string}
   children: React.ReactNode
 }
@@ -22,7 +21,6 @@ export async function LayoutAuth({
   eyebrow,
   title,
   subtitle,
-  error,
   toggle,
   children,
 }: LayoutAuthProps) {
@@ -74,12 +72,6 @@ export async function LayoutAuth({
               <h1 className={styles.title}>{title}</h1>
               <p className={styles.subtitle}>{subtitle}</p>
             </div>
-
-            {error ? (
-              <p className={styles.error} role="alert">
-                {error}
-              </p>
-            ) : null}
 
             {children}
 

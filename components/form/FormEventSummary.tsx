@@ -8,7 +8,6 @@ import styles from './FormEventSteps.module.css'
 
 type Props = {
   draft: EventDraft
-  notice: string | null
   creating: boolean
   // Hidden when the free package is already selected — the main CTA creates it.
   showFreeCard: boolean
@@ -18,7 +17,7 @@ type Props = {
 type Occasion = {value: string; label: string}
 type Tier = {name: string; capacity: string}
 
-export function FormEventSummary({draft, notice, creating, showFreeCard, onFree}: Props) {
+export function FormEventSummary({draft, creating, showFreeCard, onFree}: Props) {
   const t = useTranslations('eventWizard')
   const tNav = useTranslations('nav')
   const locale = useLocale()
@@ -73,12 +72,6 @@ export function FormEventSummary({draft, notice, creating, showFreeCard, onFree}
             </CommonButton>
           </div>
         </div>
-      ) : null}
-
-      {notice ? (
-        <p className={styles.notice} role="status">
-          {notice}
-        </p>
       ) : null}
     </div>
   )

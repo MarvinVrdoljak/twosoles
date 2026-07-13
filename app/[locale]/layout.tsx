@@ -1,18 +1,41 @@
 import '@/styles/globals.css'
 
 import React from 'react'
-import type {Metadata} from 'next'
+import type {Metadata, Viewport} from 'next'
 import {Analytics} from '@vercel/analytics/next'
+import {SpeedInsights} from '@vercel/speed-insights/next'
 import {notFound} from 'next/navigation'
 import {NextIntlClientProvider, hasLocale} from 'next-intl'
 import {setRequestLocale} from 'next-intl/server'
 import {Fraunces, Nunito} from 'next/font/google'
+import {ToastProvider} from '@/components/common/CommonToast'
 import {routing} from '@/i18n/routing'
+import {getBaseUrl} from '@/utility/seo'
 
-// Site-wide defaults. Page-level `generateMetadata` overrides the title via the
-// `%s` template; favicons + manifest live in /public/favicon.
+// Site-wide defaults. Page-level `generateMetadata` overrides title/description
+// via the `%s` template and adds canonical + hreflang; favicons + manifest live
+// in /public/favicon. `metadataBase` makes every relative OG/canonical URL absolute.
 export const metadata: Metadata = {
-  title: {default: 'TwoSoles', template: '%s · TwoSoles'},
+  metadataBase: new URL(getBaseUrl()),
+  title: {default: 'TwoSoles · Das digitale Hochzeits-Schuhspiel', template: '%s · TwoSoles'},
+  description:
+    'TwoSoles ist das digitale Wedding Shoe Game: Der ganze Saal stimmt per Handy ab, der Beamer enthüllt das Ergebnis. Ohne App, ohne Login — in fünf Minuten startklar.',
+  applicationName: 'TwoSoles',
+  robots: {index: true, follow: true},
+  formatDetection: {telephone: false, email: false, address: false},
+  openGraph: {
+    type: 'website',
+    siteName: 'TwoSoles',
+    title: 'TwoSoles · Das digitale Hochzeits-Schuhspiel',
+    description:
+      'Das Wedding Shoe Game — live mit allen Gästen. Ohne App, ohne Login, in fünf Minuten startklar.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TwoSoles · Das digitale Hochzeits-Schuhspiel',
+    description:
+      'Das Wedding Shoe Game — live mit allen Gästen. Ohne App, ohne Login, in fünf Minuten startklar.',
+  },
   icons: {
     icon: [
       {url: '/favicon/favicon.ico', sizes: 'any'},
@@ -23,6 +46,14 @@ export const metadata: Metadata = {
     apple: [{url: '/favicon/apple-touch-icon.png', sizes: '180x180'}],
   },
   manifest: '/favicon/site.webmanifest',
+}
+
+// The public site always renders in the light brand theme (only the live game
+// screens flip to dark), so a single theme-color for the mobile browser chrome.
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#faf7f2',
 }
 
 // Self-hosted Google fonts exposed as CSS variables consumed by tokens.css.
@@ -64,8 +95,11 @@ export default async function LocaleLayout({children, params}: LocaleLayoutProps
   return (
     <html lang={locale} className={`${nunito.variable} ${fraunces.variable}`}>
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <ToastProvider>{children}</ToastProvider>
+        </NextIntlClientProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

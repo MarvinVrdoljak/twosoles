@@ -27,7 +27,6 @@
 .subtitle {
   margin: 0;
   font-size: var(--font-size-lg);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 
@@ -57,7 +56,6 @@
 .infoLead {
   margin: 0;
   color: var(--color-text-muted);
-  line-height: var(--line-height-base);
 }
 
 .cards {
@@ -105,7 +103,6 @@
 .cardText {
   margin: 0;
   font-size: var(--font-size-sm);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 

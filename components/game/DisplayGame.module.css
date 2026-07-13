@@ -169,7 +169,6 @@
   padding: var(--spacing-8) var(--spacing-16);
   font-family: var(--font-heading);
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-base);
   color: var(--color-text);
   background: var(--color-chip);
   border-radius: var(--radius-full);

@@ -4,6 +4,7 @@ import {useState, useTransition} from 'react'
 import {useTranslations} from 'next-intl'
 import {MailCheck} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
+import {useToast} from '@/components/common/CommonToast'
 import {CommonSelect, type SelectOption} from '@/components/common/CommonSelect'
 import {FormField} from '@/components/form/FormField'
 import {Link} from '@/i18n/navigation'
@@ -41,10 +42,10 @@ type FormContactProps = {
 
 export function FormContact({accessKey}: FormContactProps) {
   const t = useTranslations('contact.form')
+  const {toast} = useToast()
   const [subject, setSubject] = useState<SubjectKey | ''>('')
   const [fields, setFields] = useState<Fields>(EMPTY)
   const [botcheck, setBotcheck] = useState('')
-  const [error, setError] = useState<string | null>(null)
   const [sent, setSent] = useState(false)
   const [pending, startTransition] = useTransition()
 
@@ -58,14 +59,13 @@ export function FormContact({accessKey}: FormContactProps) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    setError(null)
 
     if (!subject) {
-      setError(t('errors.subject'))
+      toast(t('errors.subject'))
       return
     }
     if (!accessKey) {
-      setError(t('errors.failed'))
+      toast(t('errors.failed'))
       return
     }
 
@@ -100,9 +100,9 @@ export function FormContact({accessKey}: FormContactProps) {
           setSent(true)
           return
         }
-        setError(t('errors.failed'))
+        toast(t('errors.failed'))
       } catch {
-        setError(t('errors.failed'))
+        toast(t('errors.failed'))
       }
     })
   }
@@ -210,12 +210,6 @@ export function FormContact({accessKey}: FormContactProps) {
         value={botcheck}
         onChange={(event) => setBotcheck(event.target.value)}
       />
-
-      {error ? (
-        <p className={styles.error} role="alert">
-          {error}
-        </p>
-      ) : null}
 
       <CommonButton type="submit" variant="primary" size="lg" fullWidth disabled={pending}>
         {pending ? t('sending') : t('submit')}

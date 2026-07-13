@@ -2,9 +2,10 @@
 
 import type {ReactNode} from 'react'
 import {useTranslations} from 'next-intl'
-import {ChevronDown} from 'lucide-react'
+import {ChevronDown, Info} from 'lucide-react'
 import {FormField} from '@/components/form/FormField'
 import {routing} from '@/i18n/routing'
+import type {GameTheme} from '@/utility/game/types'
 import {maxEventISODate, todayISODate} from './eventDraft'
 import type {EventDraft} from './eventDraft'
 import styles from './FormEventSteps.module.css'
@@ -24,6 +25,7 @@ type Option = {value: string; label: string}
 function SelectField({
   id,
   label,
+  hint,
   value,
   options,
   onChange,
@@ -31,6 +33,8 @@ function SelectField({
 }: {
   id: string
   label: string
+  // Optional explainer shown in a hover/focus tooltip next to the label.
+  hint?: string
   value: string
   options: Option[]
   onChange: (value: string) => void
@@ -40,6 +44,16 @@ function SelectField({
     <div className={styles.field}>
       <label htmlFor={id} className={styles.fieldLabel}>
         {label}
+        {hint ? (
+          <span className={styles.infoWrap}>
+            <button type="button" className={styles.info} aria-label={hint}>
+              <Info size={15} aria-hidden="true" />
+            </button>
+            <span className={styles.tooltip} role="tooltip">
+              {hint}
+            </span>
+          </span>
+        ) : null}
       </label>
       <div className={styles.selectWrap}>
         <select
@@ -73,6 +87,11 @@ export function FormEventDetails({draft, update, title, subtitle, footer, readOn
   const languageOptions = routing.locales.map((code) => ({
     value: code,
     label: tNav(`languageNames.${code}`),
+  }))
+
+  const themeOptions: Option[] = (['light', 'dark'] as GameTheme[]).map((value) => ({
+    value,
+    label: t(`details.themeOptions.${value}`),
   }))
 
   return (
@@ -112,6 +131,16 @@ export function FormEventDetails({draft, update, title, subtitle, footer, readOn
           value={draft.language}
           options={languageOptions}
           onChange={(value) => update({language: value})}
+          disabled={readOnly}
+        />
+
+        <SelectField
+          id="event-theme"
+          label={t('details.themeLabel')}
+          hint={t('details.themeHint')}
+          value={draft.theme}
+          options={themeOptions}
+          onChange={(value) => update({theme: value as GameTheme})}
           disabled={readOnly}
         />
       </div>

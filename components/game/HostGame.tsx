@@ -19,6 +19,7 @@ import {Link} from '@/i18n/navigation'
 import {CommonBadge} from '@/components/common/CommonBadge'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonModal} from '@/components/common/CommonModal'
+import {useToast} from '@/components/common/CommonToast'
 import {saveGameStateAction} from '@/utility/game/actions'
 import {useGameChannel} from '@/utility/game/useGameChannel'
 import type {GameState, GameTheme} from '@/utility/game/types'
@@ -46,7 +47,8 @@ export function HostGame({
   initialState = null,
 }: HostGameProps) {
   const t = useTranslations('game')
-  const {state, setState, guestCount, atCapacity} = useGameChannel(
+  const {toast} = useToast()
+  const {state, setState, guestCount, atCapacity, connected} = useGameChannel(
     eventId,
     'host',
     initialState?.theme ?? initialTheme,
@@ -56,8 +58,16 @@ export function HostGame({
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [confirmResetOpen, setConfirmResetOpen] = useState(false)
 
-  const resetPoll = () =>
+  const resetPoll = () => {
     setState((s) => ({...s, phase: 'lobby', questionIndex: 0, votes: [0, 0], results: {}}))
+    // The reset only reaches the display + guests when the channel is live; if
+    // it isn't connected, warn that they may not have reset with the host.
+    if (connected) {
+      toast(t('host.resetSuccess'), 'success')
+    } else {
+      toast(t('host.resetError'), 'error')
+    }
+  }
 
   const persons = [person1, person2]
   const total = state.votes[0] + state.votes[1]

@@ -24,7 +24,7 @@ export default async function DisplayGamePage({params}: DisplayGamePageProps) {
   const {data: event} = await supabase
     .from('public_events')
     .select(
-      'person1_name, person2_name, person1_color, person2_color, person1_photo, person2_photo, questions, package',
+      'person1_name, person2_name, person1_color, person2_color, person1_photo, person2_photo, questions, package, game_theme',
     )
     .eq('id', id)
     .maybeSingle()
@@ -64,6 +64,7 @@ export default async function DisplayGamePage({params}: DisplayGamePageProps) {
       person2={{name: event.person2_name, color: event.person2_color ?? '#1f2937', photo: photo2}}
       questions={questions}
       guestUrl={`${base}/guest/${id}`}
+      initialTheme={event.game_theme === 'dark' ? 'dark' : 'light'}
       capacity={guestCapacity(event.package)}
     />
   )

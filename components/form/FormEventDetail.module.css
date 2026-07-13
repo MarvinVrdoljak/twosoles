@@ -96,35 +96,6 @@
   border-bottom-color: var(--color-primary);
 }
 
-.notice {
-  margin: 0;
-  padding: var(--spacing-12) var(--spacing-16);
-  font-size: var(--font-size-sm);
-  color: var(--color-text);
-  border: 1px solid transparent;
-  border-radius: var(--radius-md);
-}
-
-/* Neutral info (confirming, canceled, pending) — brand tint. */
-.noticeInfo {
-  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface-variant));
-  border-color: color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
-}
-
-/* Success — green. */
-.noticeSuccess {
-  color: var(--color-success);
-  background: color-mix(in srgb, var(--color-success) 12%, var(--color-surface));
-  border-color: color-mix(in srgb, var(--color-success) 35%, transparent);
-}
-
-/* Failure — red. */
-.noticeError {
-  color: var(--color-danger);
-  background: color-mix(in srgb, var(--color-danger) 12%, var(--color-surface));
-  border-color: color-mix(in srgb, var(--color-danger) 35%, transparent);
-}
-
 .saveRow {
   display: flex;
   justify-content: flex-end;
@@ -139,8 +110,6 @@
 
 .goLiveText {
   margin: 0;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
   color: var(--color-text);
 }
 
@@ -151,7 +120,6 @@
   margin: 0;
   padding: var(--spacing-16) var(--spacing-20);
   font-size: var(--font-size-sm);
-  line-height: var(--line-height-base);
   list-style: none;
   background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface-variant));
   border: 1px solid color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
@@ -205,15 +173,11 @@
 
 .cardText {
   margin: 0;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 
 .cardTextLive {
   margin: 0;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
   color: color-mix(in srgb, var(--color-success) 80%, var(--color-text));
 }
 
@@ -295,7 +259,6 @@
 .pkgName {
   font-family: var(--font-heading);
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-base);
   color: var(--color-text);
 }
 
@@ -337,16 +300,12 @@
 
 .guideIntro {
   margin: 0;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 
 .guideText {
   margin: 0;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  color: var(--color-text);
+  color: var(--color-text-muted);
 }
 
 .divider {
@@ -368,8 +327,6 @@
   gap: var(--spacing-8);
   margin: 0;
   padding-left: var(--spacing-20);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 
@@ -400,7 +357,6 @@
   width: 32px;
   height: 32px;
   font-family: var(--font-heading);
-  font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--color-on-primary);
   background: var(--color-primary);
@@ -416,13 +372,10 @@
 .stepTitle {
   font-family: var(--font-heading);
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-base);
   color: var(--color-text);
 }
 
 .stepText {
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 
@@ -482,13 +435,10 @@
 .viewTitle {
   font-family: var(--font-heading);
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-base);
   color: var(--color-text);
 }
 
 .viewText {
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 
@@ -534,7 +484,6 @@
 
 .guideDownloadHint {
   margin: 0;
-  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
 }
 

@@ -41,11 +41,14 @@ type ItemEventGuideProps = {
   eventId: string
   couple: string
   gameLanguage: string
+  // Jumps to this event's Settings tab (where the game reset lives). Same-page
+  // tab switch, so it's a callback rather than a link.
+  onOpenSettings: () => void
 }
 
 // Static "how to play" tab. Screen names link to the live views in a new tab;
 // the download button renders the whole guide as a PDF.
-export function ItemEventGuide({eventId, couple, gameLanguage}: ItemEventGuideProps) {
+export function ItemEventGuide({eventId, couple, gameLanguage, onOpenSettings}: ItemEventGuideProps) {
   const t = useTranslations('eventDetail')
   const locale = useLocale() as Locale
   const needs = t.raw('guide.needs') as string[]
@@ -173,6 +176,12 @@ export function ItemEventGuide({eventId, couple, gameLanguage}: ItemEventGuidePr
     display: viewLink('display'),
     host: viewLink('host'),
     guest: viewLink('guest'),
+    // Jumps to this event's Settings tab, where the game can be reset.
+    settings: (chunks) => (
+      <button type="button" className={styles.inlineLink} onClick={onOpenSettings}>
+        {chunks}
+      </button>
+    ),
     download: (chunks) => (
       <button
         type="button"

@@ -6,6 +6,7 @@ import {useSearchParams} from 'next/navigation'
 import {ArrowLeft} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonModal} from '@/components/common/CommonModal'
+import {useToast} from '@/components/common/CommonToast'
 import {DeviceChoiceModal} from '@/components/game/DeviceChoiceModal'
 import {ItemEventGuide} from '@/components/items/ItemEventGuide'
 import {ItemEventOverview} from '@/components/items/ItemEventOverview'
@@ -17,6 +18,7 @@ import {FormEventCouple} from './FormEventCouple'
 import {FormEventDetails} from './FormEventDetails'
 import {FormEventQuestions} from './FormEventQuestions'
 import {FormEventSettings} from './FormEventSettings'
+import type {GameTheme} from '@/utility/game/types'
 import {isEventDateInRange, PACKAGE_KEYS} from './eventDraft'
 import type {EventDraft} from './eventDraft'
 import styles from './FormEventDetail.module.css'
@@ -32,6 +34,7 @@ type EventData = {
   occasion: string
   event_date: string | null
   game_language: string
+  game_theme: string
   questions: {text: string; custom?: boolean}[]
   package: string
   started_at: string | null
@@ -93,6 +96,7 @@ export function FormEventDetail({
   const tDash = useTranslations('dashboard')
   const router = useRouter()
   const searchParams = useSearchParams()
+  const {toast} = useToast()
 
   // A valid `?tab=` deep-link wins over the default; otherwise fall back to the
   // content default (the mobile/desktop effect below still adjusts on mount).
@@ -100,19 +104,16 @@ export function FormEventDetail({
   const [saving, setSaving] = useState(false)
   const [goingLive, setGoingLive] = useState(false)
   const [deleting, setDeleting] = useState(false)
-  const [notice, setNotice] = useState<{
-    text: string
-    type: 'success' | 'error' | 'info'
-  } | null>(null)
   const [pin, setPin] = useState(event.host_pin)
   const [startedAt, setStartedAt] = useState(event.started_at)
   const [goLiveConfirmOpen, setGoLiveConfirmOpen] = useState(false)
   const [deviceChoiceOpen, setDeviceChoiceOpen] = useState(false)
   const [upgrading, setUpgrading] = useState(false)
+  const [resetGameOpen, setResetGameOpen] = useState(false)
+  const [resettingGame, setResettingGame] = useState(false)
 
   // Most notices are errors; success + info pass their type explicitly.
-  const notify = (text: string, type: 'success' | 'error' | 'info' = 'error') =>
-    setNotice({text, type})
+  const notify = (text: string, type: 'success' | 'error' | 'info' = 'error') => toast(text, type)
 
   // The overview lives in the sidebar on desktop, but on mobile it becomes the
   // first tab. Default to it on mobile and fall back to a content tab once the
@@ -168,14 +169,6 @@ export function FormEventDetail({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // A success notice is a one-off confirmation — clear it after a few seconds so
-  // it doesn't linger on the page.
-  useEffect(() => {
-    if (notice?.type !== 'success') return
-    const id = window.setTimeout(() => setNotice(null), 6000)
-    return () => window.clearTimeout(id)
-  }, [notice])
-
   const [draft, setDraft] = useState<EventDraft>(() => ({
     name1: event.person1_name,
     name2: event.person2_name,
@@ -188,6 +181,7 @@ export function FormEventDetail({
     occasion: event.occasion,
     date: event.event_date ?? '',
     language: event.game_language,
+    theme: (event.game_theme as GameTheme) ?? 'light',
     questions: (event.questions ?? []).map((q, index) => ({
       id: `q-${index}`,
       text: q.text,
@@ -204,7 +198,6 @@ export function FormEventDetail({
   // Upgrade to a higher package: hand off to Stripe Checkout for the price
   // difference. The event stays on its current package until the webhook confirms.
   const upgrade = async (targetIndex: number) => {
-    setNotice(null)
     setUpgrading(true)
     const result = await createCheckoutSessionAction(event.id, PACKAGE_KEYS[targetIndex])
     if ('url' in result) {
@@ -224,7 +217,6 @@ export function FormEventDetail({
       return
     }
     setSaving(true)
-    setNotice(null)
     try {
       const supabase = createClient()
       let photo1 = event.person1_photo
@@ -244,6 +236,7 @@ export function FormEventDetail({
           occasion: draft.occasion,
           event_date: draft.date || null,
           game_language: draft.language,
+          game_theme: draft.theme,
           questions: draft.questions.map((q) => ({text: q.text})),
           // NOTE: `package` is deliberately NOT saved here. It's owned solely by
           // the Stripe purchase/upgrade flow (webhook + success confirm); writing
@@ -252,6 +245,7 @@ export function FormEventDetail({
         })
         .eq('id', event.id)
       if (error) throw error
+      notify(t('saveSuccess'), 'success')
       router.refresh()
     } catch {
       notify(t('saveError'))
@@ -262,7 +256,6 @@ export function FormEventDetail({
 
   const goLive = async () => {
     setGoingLive(true)
-    setNotice(null)
     try {
       const supabase = createClient()
       const startedIso = new Date().toISOString()
@@ -284,7 +277,6 @@ export function FormEventDetail({
 
   // Both go-live buttons open a confirmation first (one-time, 48h window).
   const requestGoLive = () => {
-    setNotice(null)
     setGoLiveConfirmOpen(true)
   }
 
@@ -305,7 +297,28 @@ export function FormEventDetail({
     const next = String(Math.floor(Math.random() * 10000)).padStart(4, '0')
     const supabase = createClient()
     const {error} = await supabase.from('events').update({host_pin: next}).eq('id', event.id)
-    if (!error) setPin(next)
+    if (error) {
+      notify(t('saveError'))
+      return
+    }
+    setPin(next)
+    notify(t('settings.pinRegenerated'), 'success')
+  }
+
+  // Clear the persisted game snapshot so the next host session starts fresh in
+  // the lobby (owner-scoped via RLS, same as the other edits here). Any live
+  // screens keep running until the host resets or restarts.
+  const resetGame = async () => {
+    setResettingGame(true)
+    const supabase = createClient()
+    const {error} = await supabase.from('events').update({game_state: null}).eq('id', event.id)
+    setResettingGame(false)
+    setResetGameOpen(false)
+    if (error) {
+      notify(t('settings.resetGame.error'))
+      return
+    }
+    notify(t('settings.resetGame.success'), 'success')
   }
 
   const saveButton = (
@@ -319,7 +332,6 @@ export function FormEventDetail({
   // Switch tabs and anchor the choice in the URL so it's shareable/deep-linkable.
   const goToTab = (key: Tab) => {
     setTab(key)
-    setNotice(null)
     router.replace(`/dashboard/events/${event.id}?tab=${key}`, {scroll: false})
   }
 
@@ -353,10 +365,7 @@ export function FormEventDetail({
             eventId={event.id}
             goingLive={goingLive}
             onGoLive={requestGoLive}
-            onPlay={() => {
-              setNotice(null)
-              setDeviceChoiceOpen(true)
-            }}
+            onPlay={() => setDeviceChoiceOpen(true)}
           />
         </div>
 
@@ -375,21 +384,6 @@ export function FormEventDetail({
         </nav>
 
         <div className={styles.content}>
-          {notice ? (
-            <p
-              className={`${styles.notice} ${
-                notice.type === 'success'
-                  ? styles.noticeSuccess
-                  : notice.type === 'error'
-                    ? styles.noticeError
-                    : styles.noticeInfo
-              }`}
-              role={notice.type === 'error' ? 'alert' : 'status'}
-            >
-              {notice.text}
-            </p>
-          ) : null}
-
           {tab === 'couple' ? (
             <FormEventCouple
               draft={draft}
@@ -425,6 +419,7 @@ export function FormEventDetail({
               eventId={event.id}
               couple={`${draft.name1 || '?'} & ${draft.name2 || '?'}`}
               gameLanguage={draft.language}
+              onOpenSettings={() => goToTab('settings')}
             />
           ) : null}
           {tab === 'settings' ? (
@@ -440,6 +435,7 @@ export function FormEventDetail({
               onEditDate={() => goToTab('details')}
               onUpgrade={upgrade}
               upgrading={upgrading}
+              onResetGame={() => setResetGameOpen(true)}
               priceCents={priceCents}
               currency={currency}
             />
@@ -482,6 +478,35 @@ export function FormEventDetail({
         open={deviceChoiceOpen}
         onClose={() => setDeviceChoiceOpen(false)}
       />
+
+      <CommonModal
+        open={resetGameOpen}
+        onClose={() => setResetGameOpen(false)}
+        title={t('settings.resetGame.title')}
+        closeLabel={t('settings.resetGame.cancel')}
+        footer={
+          <>
+            <CommonButton
+              variant="secondary"
+              size="md"
+              onClick={() => setResetGameOpen(false)}
+              disabled={resettingGame}
+            >
+              {t('settings.resetGame.cancel')}
+            </CommonButton>
+            <CommonButton
+              variant="danger"
+              size="md"
+              onClick={resetGame}
+              disabled={resettingGame}
+            >
+              {resettingGame ? t('saving') : t('settings.resetGame.confirm')}
+            </CommonButton>
+          </>
+        }
+      >
+        <p className={styles.goLiveText}>{t('settings.resetGame.text')}</p>
+      </CommonModal>
     </div>
   )
 }

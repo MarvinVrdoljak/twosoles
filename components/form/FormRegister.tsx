@@ -3,6 +3,7 @@
 import {useState} from 'react'
 import {useLocale, useTranslations} from 'next-intl'
 import {CommonButton} from '@/components/common/CommonButton'
+import {useToast} from '@/components/common/CommonToast'
 import {FormAuthSent} from '@/components/form/FormAuthSent'
 import {FormDivider} from '@/components/form/FormDivider'
 import {FormField} from '@/components/form/FormField'
@@ -19,15 +20,14 @@ type Status = 'idle' | 'pending' | 'sent' | 'error'
 export function FormRegister() {
   const t = useTranslations('auth')
   const locale = useLocale()
+  const {toast} = useToast()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<Status>('idle')
-  const [error, setError] = useState<string | null>(null)
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setStatus('pending')
-    setError(null)
 
     const supabase = createClient()
     const {error: authError} = await supabase.auth.signInWithOtp({
@@ -43,8 +43,8 @@ export function FormRegister() {
     })
 
     if (authError) {
-      setStatus('error')
-      setError(authError.message)
+      setStatus('idle')
+      toast(authError.message)
       return
     }
 
@@ -78,12 +78,6 @@ export function FormRegister() {
           value={email}
           onChange={setEmail}
         />
-
-        {error ? (
-          <p className={styles.error} role="alert">
-            {error}
-          </p>
-        ) : null}
 
         <CommonButton type="submit" variant="primary" size="md" fullWidth disabled={status === 'pending'}>
           {status === 'pending' ? t('pending') : t('sendRegisterLink')}

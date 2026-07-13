@@ -3,6 +3,7 @@
 import {useState, useTransition} from 'react'
 import {useTranslations} from 'next-intl'
 import {CommonButton} from '@/components/common/CommonButton'
+import {useToast} from '@/components/common/CommonToast'
 import {FormField} from '@/components/form/FormField'
 import {updateProfileAction} from '@/utility/auth/actions'
 import styles from './FormProfile.module.css'
@@ -16,19 +17,18 @@ type FormProfileProps = {
 // login). Saving runs a server action so the SSR session stays intact.
 export function FormProfile({initialName, email}: FormProfileProps) {
   const t = useTranslations('account')
+  const {toast} = useToast()
 
   const [name, setName] = useState(initialName)
-  const [error, setError] = useState<string | null>(null)
   const [pending, startTransition] = useTransition()
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    setError(null)
     startTransition(async () => {
       const result = await updateProfileAction(name)
       // On success the action redirects; a returned value means it failed.
       if (result?.error) {
-        setError(result.error)
+        toast(result.error)
       }
     })
   }
@@ -58,12 +58,6 @@ export function FormProfile({initialName, email}: FormProfileProps) {
           hint={t('emailHint')}
         />
       </div>
-
-      {error ? (
-        <p className={styles.error} role="alert">
-          {error}
-        </p>
-      ) : null}
 
       <CommonButton type="submit" variant="primary" size="md" disabled={pending}>
         {pending ? t('saving') : t('save')}

@@ -54,7 +54,6 @@
   padding: var(--spacing-12) var(--spacing-16);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-base);
   color: var(--color-danger);
   background: color-mix(in srgb, var(--color-danger) 12%, var(--color-surface));
   border: 1px solid color-mix(in srgb, var(--color-danger) 35%, transparent);
@@ -73,15 +72,11 @@
 
 .muted {
   margin: var(--spacing-8) 0 0;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 
 .confirmText {
   margin: 0;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 
@@ -329,7 +324,6 @@
   align-items: center;
   width: 100%;
   padding: var(--spacing-16) var(--spacing-20);
-  font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text);
   text-align: left;
@@ -402,7 +396,6 @@
   padding: var(--spacing-8) var(--spacing-12);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-body);
-  line-height: var(--line-height-base);
   color: var(--color-background);
   background: var(--color-text);
   border-radius: var(--radius-md);

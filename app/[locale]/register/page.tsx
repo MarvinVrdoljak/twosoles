@@ -10,6 +10,9 @@ type RegisterPageProps = {
   params: Promise<{locale: Locale}>
 }
 
+// Auth entry point — no SEO value, keep it out of the index.
+export const metadata = {robots: {index: false, follow: false}}
+
 export default async function RegisterPage({params}: RegisterPageProps) {
   const {locale} = await params
   setRequestLocale(locale)

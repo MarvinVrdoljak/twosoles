@@ -1,3 +1,5 @@
+import type {GameTheme} from '@/utility/game/types'
+
 // Shared shape for the event-creation wizard. Held in the wizard's client state
 // and passed down to each step. Nothing is persisted yet — saving + payment
 // (Supabase + Stripe) are wired up later.
@@ -19,6 +21,9 @@ export type EventDraft = {
   occasion: string
   date: string
   language: string
+  // Default colour scheme for the game screens (light or dark). The host can
+  // still flip it live; this is the event's starting theme.
+  theme: GameTheme
   questions: EventQuestion[]
   packageIndex: number
 }

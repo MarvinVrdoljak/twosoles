@@ -28,7 +28,7 @@ export default async function HostGamePage({params}: HostGamePageProps) {
   const supabase = await createClient()
   const {data: event} = await supabase
     .from('public_events')
-    .select('person1_name, person2_name, person1_color, person2_color, questions, package')
+    .select('person1_name, person2_name, person1_color, person2_color, questions, package, game_theme')
     .eq('id', id)
     .maybeSingle()
 
@@ -62,6 +62,7 @@ export default async function HostGamePage({params}: HostGamePageProps) {
       person1={{name: event.person1_name, color: event.person1_color ?? '#a67070'}}
       person2={{name: event.person2_name, color: event.person2_color ?? '#1f2937'}}
       questions={questions}
+      initialTheme={event.game_theme === 'dark' ? 'dark' : 'light'}
       capacity={guestCapacity(event.package)}
       initialState={initialState}
     />

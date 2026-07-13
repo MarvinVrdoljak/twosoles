@@ -88,7 +88,6 @@
   flex-shrink: 0;
   font-family: var(--font-heading);
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-base);
   color: var(--color-primary-light);
   background: var(--color-on-primary);
   border-radius: var(--radius-full);
@@ -112,7 +111,6 @@
 .stepTitle {
   font-family: var(--font-heading);
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-base);
   line-height: 1.1;
 }
 
@@ -203,8 +201,6 @@
 
 .subtitle {
   margin: 0;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 

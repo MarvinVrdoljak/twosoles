@@ -26,8 +26,6 @@
 
 .cardSubtitle {
   margin: 0;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 
@@ -183,9 +181,59 @@
 }
 
 .fieldLabel {
+  display: inline-flex;
+  gap: var(--spacing-8);
+  align-items: center;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text);
+}
+
+/* Info tooltip next to a field label (e.g. the game theme explainer). */
+.infoWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.info {
+  display: inline-flex;
+  padding: 0;
+  color: var(--color-text-muted);
+  cursor: help;
+  background: none;
+  border: none;
+}
+
+.info:hover,
+.info:focus-visible {
+  color: var(--color-text);
+}
+
+/* Small hover/focus tooltip, anchored to the icon's left so it extends right
+   and never runs off a narrow phone screen. Shown on hover and on focus (so a
+   tap on the icon reveals it on touch devices). */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + var(--spacing-8));
+  left: 0;
+  z-index: 5;
+  width: max-content;
+  max-width: 240px;
+  padding: var(--spacing-8) var(--spacing-12);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-body);
+  color: var(--color-background);
+  background: var(--color-text);
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 18%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+}
+
+.infoWrap:hover .tooltip,
+.infoWrap:focus-within .tooltip {
+  opacity: 1;
 }
 
 .selectWrap {
@@ -372,7 +420,6 @@
 .qText {
   flex: 1 0 0;
   min-width: 0;
-  font-size: var(--font-size-base);
   color: var(--color-text);
 }
 
@@ -560,19 +607,7 @@
 
 .freeText {
   margin: 0;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
-}
-
-.notice {
-  margin: 0;
-  padding: var(--spacing-12) var(--spacing-16);
-  font-size: var(--font-size-sm);
-  color: var(--color-text);
-  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface-variant));
-  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
-  border-radius: var(--radius-md);
 }
 
 /* ---------- Modals: catalogue + random confirm ---------- */
@@ -584,8 +619,6 @@
 
 .confirmText {
   margin: 0;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
   color: var(--color-text-muted);
 }
 

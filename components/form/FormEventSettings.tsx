@@ -1,7 +1,7 @@
 'use client'
 
 import {useLocale, useTranslations} from 'next-intl'
-import {RotateCw, Trash2} from 'lucide-react'
+import {RotateCcw, RotateCw, Trash2} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
 import type {EventStatus} from '@/utility/events/status'
 import {formatPrice} from '@/utility/stripe/format'
@@ -22,6 +22,8 @@ type FormEventSettingsProps = {
   onEditDate: () => void
   onUpgrade: (targetIndex: number) => void
   upgrading: boolean
+  // Opens the confirm dialog for wiping the saved game progress.
+  onResetGame: () => void
   // Raw Stripe amounts in minor units, index-aligned with the tier list (free =
   // 0); the upgrade difference to the current package is formatted from these.
   priceCents: number[]
@@ -40,6 +42,7 @@ export function FormEventSettings({
   onEditDate,
   onUpgrade,
   upgrading,
+  onResetGame,
   priceCents,
   currency,
 }: FormEventSettingsProps) {
@@ -144,6 +147,18 @@ export function FormEventSettings({
             )
           })}
         </ul>
+      </section>
+
+      {/* Reset game */}
+      <section className={styles.card}>
+        <h2 className={styles.cardTitle}>{t('settings.resetGame.cardTitle')}</h2>
+        <p className={styles.cardText}>{t('settings.resetGame.cardText')}</p>
+        <div>
+          <CommonButton variant="secondary" size="md" onClick={onResetGame}>
+            <RotateCcw size={18} aria-hidden="true" />
+            {t('settings.resetGame.button')}
+          </CommonButton>
+        </div>
       </section>
 
       {/* Delete */}

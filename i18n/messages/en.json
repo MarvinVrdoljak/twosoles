@@ -1,7 +1,9 @@
 {
   "general": {
     "home": "Home",
-    "loading": "Loading …"
+    "loading": "Loading …",
+    "notifications": "Notifications",
+    "dismiss": "Dismiss"
   },
   "nav": {
     "ariaPrimary": "Primary navigation",
@@ -154,6 +156,7 @@
   },
   "contact": {
     "metaTitle": "Contact",
+    "metaDescription": "Questions about your event, technical help or a special format? Message the TwoSoles team — we usually reply within 24 hours, personally.",
     "eyebrow": "Contact",
     "title": "Write to us – we're here for you",
     "subtitle": "Whether it's a question about your event, a technical issue or a special idea: we'll help you personally.",
@@ -215,6 +218,8 @@
     "placeholderNote": "Note: this is a non-binding template with placeholders. Replace everything marked in square brackets with your own details and have the texts reviewed by a lawyer before publishing.",
     "imprint": {
       "title": "Imprint",
+      "metaTitle": "Imprint",
+      "metaDescription": "Provider identification and legal information about TwoSoles.",
       "sections": [
         {
           "heading": "Provider information",
@@ -252,6 +257,8 @@
     },
     "privacy": {
       "title": "Privacy Policy",
+      "metaTitle": "Privacy Policy",
+      "metaDescription": "How TwoSoles processes personal data — a transparent overview of what we collect and why.",
       "intro": "Protecting your personal data matters to us. Below we explain which data we process when you use TwoSoles, and why.",
       "sections": [
         {
@@ -290,6 +297,8 @@
     },
     "terms": {
       "title": "Terms & Conditions",
+      "metaTitle": "Terms & Conditions",
+      "metaDescription": "The terms and conditions governing the use of the TwoSoles service.",
       "intro": "These Terms & Conditions govern the use of the TwoSoles service.",
       "sections": [
         {
@@ -395,7 +404,13 @@
         }
       ],
       "dateLabel": "Date of the celebration",
-      "languageLabel": "Game language"
+      "languageLabel": "Game language",
+      "themeLabel": "Colour scheme",
+      "themeHint": "Sets the default look of the game screens (projector, guest phones and host). Light suits daytime celebrations, dark suits evening venues. The host can switch it any time during the game.",
+      "themeOptions": {
+        "light": "Light",
+        "dark": "Dark"
+      }
     },
     "questions": {
       "title": "The questions for the big moment",
@@ -529,7 +544,19 @@
       "deleteTitle": "Delete event",
       "deleteText": "Permanent and irreversible. All questions, results and the QR code are removed. This step cannot be undone. Payments are not refunded.",
       "deleteButton": "Delete event",
-      "deleteConfirm": "Really delete this event? This cannot be undone."
+      "deleteConfirm": "Really delete this event? This cannot be undone.",
+      "pinRegenerated": "New host PIN generated.",
+      "resetGame": {
+        "cardTitle": "Reset game",
+        "cardText": "Clears the saved game progress — the current votes and results — so the next host session starts over in the lobby. Your questions and settings stay untouched.",
+        "button": "Reset game",
+        "title": "Reset the game?",
+        "text": "All saved votes and results are lost and the game starts over in the lobby. This cannot be undone.",
+        "confirm": "Reset",
+        "cancel": "Cancel",
+        "success": "The game has been reset.",
+        "error": "The game could not be reset. Please try again."
+      }
     },
     "guide": {
       "title": "How to play TwoSoles",
@@ -564,7 +591,7 @@
       "setupTitle": "Setup",
       "setup": [
         "Connect the first device to the screen and open the <display>projector view</display> on it. It's best to use your browser's fullscreen mode. On a second device, ideally a smartphone, you open the <host>host controls</host>.",
-        "Finally, make sure the game is reset so it starts from the beginning. You do this in the settings of the <host>host controls</host>. After that the screen sits on the welcome screen and you're ready to go.",
+        "Finally, make sure the game is reset so it starts from the beginning. You do this in this event's <settings>settings</settings> or in the <host>host panel</host>. After that the screen sits on the welcome screen and you're ready to go.",
         "Set up two chairs back to back, ideally in front of or next to the screen. That way the couple sits back to back and can't see each other. Make sure both the couple and the screen are clearly visible to everyone in the room. The couple takes their seats, and each person is handed one of their own shoes and one of the other person's."
       ],
       "roundTitle": "How a round works",
@@ -601,7 +628,8 @@
       ],
       "download": "Download guide",
       "downloadHint": "Got everything? Print the guide for the big day."
-    }
+    },
+    "saveSuccess": "Changes saved."
   },
   "game": {
     "display": {
@@ -686,11 +714,15 @@
       "pinLabel": "Host PIN",
       "pinSubmit": "Open control panel",
       "pinChecking": "Checking …",
-      "pinError": "Wrong PIN. Please try again."
+      "pinError": "Wrong PIN. Please try again.",
+      "resetSuccess": "Game reset — all screens are back in the lobby.",
+      "resetError": "Reset locally, but you appear to be offline — the projector and guests may not have updated."
     }
   },
   "home": {
     "title": "TwoSoles",
+    "metaTitle": "TwoSoles · The digital wedding shoe game",
+    "metaDescription": "The wedding shoe game live with every guest: the whole room votes on their phone and the projector reveals the result. No app, no login — ready in five minutes.",
     "intro": "The digital wedding shoe game.",
     "goToLogin": "Sign in",
     "goToRegister": "Create account"

@@ -2,6 +2,7 @@
 
 import {useRef, useState} from 'react'
 import {useLocale, useTranslations} from 'next-intl'
+import {useToast} from '@/components/common/CommonToast'
 import {LayoutEventCreation} from '@/components/layout/LayoutEventCreation'
 import {useRouter} from '@/i18n/navigation'
 import {createClient} from '@/utility/supabase/client'
@@ -47,9 +48,9 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
   const t = useTranslations('eventWizard')
   const locale = useLocale()
   const router = useRouter()
+  const {toast} = useToast()
 
   const [step, setStep] = useState(1)
-  const [notice, setNotice] = useState<string | null>(null)
   const [creating, setCreating] = useState(false)
 
   // Remembers the row we already inserted, so a failure *after* the insert
@@ -69,6 +70,7 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
     occasion: 'wedding',
     date: todayISODate(),
     language: locale,
+    theme: 'light',
     questions: [],
     packageIndex: 2,
   }))
@@ -94,7 +96,6 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
   // Stripe confirms the payment via webhook. Returns null on failure.
   const createEvent = async (): Promise<string | null> => {
     setCreating(true)
-    setNotice(null)
     try {
       const supabase = createClient()
       // Insert once; on a later retry reuse the existing row.
@@ -111,6 +112,7 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
             occasion: draft.occasion,
             event_date: draft.date || null,
             game_language: draft.language,
+            game_theme: draft.theme,
             questions: draft.questions.map((q) => ({text: q.text})),
             package: PACKAGE_KEYS[0],
           })
@@ -134,7 +136,7 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
 
       return eventId
     } catch {
-      setNotice(t('summary.createError'))
+      toast(t('summary.createError'))
       setCreating(false)
       return null
     }
@@ -161,7 +163,7 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
     if ('url' in result) {
       window.location.href = result.url
     } else {
-      setNotice(t('summary.checkoutError'))
+      toast(t('summary.checkoutError'))
       setCreating(false)
     }
   }
@@ -171,19 +173,16 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
       void finish()
       return
     }
-    setNotice(null)
     setStep((current) => Math.min(TOTAL_STEPS, current + 1))
   }
 
   const goBack = () => {
-    setNotice(null)
     setStep((current) => Math.max(1, current - 1))
   }
 
   // Sidebar navigation: jump back to an already-completed step (never forward).
   const goToStep = (target: number) => {
     if (target >= step) return
-    setNotice(null)
     setStep(target)
   }
 
@@ -222,7 +221,6 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
       {step === 5 ? (
         <FormEventSummary
           draft={draft}
-          notice={notice}
           creating={creating}
           showFreeCard={!isFree}
           onFree={createFreeAndGo}
