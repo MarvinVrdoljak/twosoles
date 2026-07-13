@@ -1,20 +1,23 @@
-import {getTranslations} from 'next-intl/server'
+import {getLocale, getTranslations} from 'next-intl/server'
 import {ItemPrice} from '@/components/items/ItemPrice'
+import {getTierPriceDisplays} from '@/utility/stripe/prices'
 import styles from './BlockPricing.module.css'
 
 type PriceTier = {
   name: string
   tagline: string
-  price: string
   capacity: string
   free?: boolean
 }
 
 // "Wie viele Gäste kommen?" — capacity-based one-off pricing tiers.
-// In-page anchor target for the nav ("Preise").
+// In-page anchor target for the nav ("Preise"). Prices are read live from
+// Stripe (never hardcoded); the free tier shows the localized `freePrice`.
 export async function BlockPricing() {
   const t = await getTranslations('pricing')
+  const locale = await getLocale()
   const tiers = t.raw('tiers') as PriceTier[]
+  const prices = await getTierPriceDisplays(locale, t('freePrice'))
 
   return (
     <section id="pricing" className={styles.root} aria-labelledby="pricing-title">
@@ -29,12 +32,12 @@ export async function BlockPricing() {
       </div>
 
       <ul className={styles.grid}>
-        {tiers.map((tier) => (
+        {tiers.map((tier, index) => (
           <ItemPrice
             key={tier.name}
             name={tier.name}
             tagline={tier.tagline}
-            price={tier.price}
+            price={prices[index]}
             period={tier.free ? undefined : t('perEvent')}
             capacityPrefix={t('capacityPrefix')}
             capacity={tier.capacity}

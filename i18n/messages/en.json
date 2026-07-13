@@ -68,30 +68,27 @@
     "capacityPrefix": "Up to",
     "perEvent": "/ event",
     "cta": "Start for free",
+    "freePrice": "Free",
     "tiers": [
       {
         "name": "Small circle",
         "tagline": "Pre-wedding party, closest friends",
-        "price": "Free",
         "free": true,
         "capacity": "10 guests"
       },
       {
         "name": "Intimate",
         "tagline": "The small city wedding",
-        "price": "€29",
         "capacity": "50 guests"
       },
       {
         "name": "Classic",
         "tagline": "The whole room votes",
-        "price": "€49",
         "capacity": "100 guests"
       },
       {
         "name": "Big celebration",
         "tagline": "Three generations, one room",
-        "price": "€79",
         "capacity": "300 guests"
       }
     ]

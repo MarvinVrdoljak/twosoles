@@ -46,6 +46,8 @@ type FormEventDetailProps = {
   guests: string
   dateText: string
   userId: string
+  // Display prices from Stripe, index-aligned with the tier list.
+  prices: string[]
 }
 
 type Tab = 'overview' | 'couple' | 'details' | 'questions' | 'guide' | 'settings'
@@ -74,6 +76,7 @@ export function FormEventDetail({
   guests,
   dateText,
   userId,
+  prices,
 }: FormEventDetailProps) {
   const t = useTranslations('eventDetail')
   const tDash = useTranslations('dashboard')
@@ -405,6 +408,7 @@ export function FormEventDetail({
               onDelete={remove}
               onUpgrade={upgrade}
               upgrading={upgrading}
+              prices={prices}
             />
           ) : null}
         </div>

@@ -1,8 +1,9 @@
-import {setRequestLocale} from 'next-intl/server'
+import {getTranslations, setRequestLocale} from 'next-intl/server'
 import {redirect} from 'next/navigation'
 import {FormEventWizard} from '@/components/form/FormEventWizard'
 import {getPathname} from '@/i18n/navigation'
 import type {Locale} from '@/i18n/routing'
+import {getTierPriceDisplays} from '@/utility/stripe/prices'
 import {getUser} from '@/utility/supabase/user'
 
 type CreateEventPageProps = {
@@ -19,5 +20,8 @@ export default async function CreateEventPage({params}: CreateEventPageProps) {
     redirect(getPathname({href: '/login', locale}))
   }
 
-  return <FormEventWizard userId={user.id} />
+  const tPricing = await getTranslations('pricing')
+  const prices = await getTierPriceDisplays(locale, tPricing('freePrice'))
+
+  return <FormEventWizard userId={user.id} prices={prices} />
 }

@@ -6,7 +6,7 @@ import {CommonButton} from '@/components/common/CommonButton'
 import type {EventStatus} from '@/utility/events/status'
 import styles from './FormEventDetail.module.css'
 
-type Tier = {name: string; price: string; capacity: string; tagline: string; free?: boolean}
+type Tier = {name: string; capacity: string; tagline: string; free?: boolean}
 
 type FormEventSettingsProps = {
   status: EventStatus
@@ -19,6 +19,8 @@ type FormEventSettingsProps = {
   onDelete: () => void
   onUpgrade: (targetIndex: number) => void
   upgrading: boolean
+  // Display prices from Stripe, index-aligned with the tier list.
+  prices: string[]
 }
 
 export function FormEventSettings({
@@ -32,6 +34,7 @@ export function FormEventSettings({
   onDelete,
   onUpgrade,
   upgrading,
+  prices,
 }: FormEventSettingsProps) {
   const t = useTranslations('eventDetail')
   const tiers = useTranslations('pricing').raw('tiers') as Tier[]
@@ -88,7 +91,7 @@ export function FormEventSettings({
                 <span className={styles.pkgInfo}>
                   <span className={styles.pkgName}>
                     {tier.name}
-                    {!current && !lower ? <span className={styles.pkgPrice}> • {tier.price}</span> : null}
+                    {!current && !lower ? <span className={styles.pkgPrice}> • {prices[index]}</span> : null}
                   </span>
                   <span className={styles.pkgMeta}>
                     {tier.capacity} · {tier.tagline}

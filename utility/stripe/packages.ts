@@ -1,25 +1,15 @@
-// Canonical, server-trusted pricing for the paid event packages. The display
-// strings live in i18n (`pricing.tiers`); these are the amounts we actually
-// charge — never trust a price coming from the client.
+// Identity + ordering for the event packages. Prices are NOT kept here: they
+// live solely in Stripe and are read via `./prices`. Display strings (tier
+// names/taglines) live in i18n (`pricing.tiers`); the amounts we charge come
+// from each Stripe Product's default price. B2C prices are tax-INCLUSIVE (the
+// advertised price already contains VAT); Managed Payments remits the tax.
 //
 // Order matches PACKAGE_KEYS / pricing.tiers: free(0) small(1) medium(2) large(3).
-// Amounts are in cents, EUR. B2C prices are tax-INCLUSIVE (the €29 already
-// contains VAT); Managed Payments works out and remits the tax portion.
 
 export type PaidPackage = 'small' | 'medium' | 'large'
 
 export const PACKAGE_ORDER = ['free', 'small', 'medium', 'large'] as const
 export type PackageKey = (typeof PACKAGE_ORDER)[number]
-
-export const CURRENCY = 'eur'
-
-// Full one-time price of each package, in cents.
-export const PACKAGE_PRICE_CENTS: Record<PackageKey, number> = {
-  free: 0,
-  small: 2900,
-  medium: 4900,
-  large: 7900,
-}
 
 export function packageRank(pkg: string): number {
   const index = PACKAGE_ORDER.indexOf(pkg as PackageKey)
@@ -46,14 +36,4 @@ export function productIdFor(pkg: PaidPackage): string {
     throw new Error(`Missing environment variable: ${key}`)
   }
   return value
-}
-
-// Amount to charge when moving from `current` to `target`: the difference in
-// full price (a fresh purchase counts as an upgrade from `free`). Returns null
-// when the target is not a strict, paid upgrade.
-export function upgradeAmountCents(current: string, target: string): number | null {
-  if (!isPaidPackage(target)) return null
-  if (packageRank(target) <= packageRank(current)) return null
-  const amount = PACKAGE_PRICE_CENTS[target] - PACKAGE_PRICE_CENTS[current as PackageKey]
-  return amount > 0 ? amount : null
 }

@@ -5,13 +5,8 @@ import {createClient} from '@/utility/supabase/server'
 import {getUser} from '@/utility/supabase/user'
 import {getStripe} from './server'
 import {fulfillCheckoutSession} from './fulfill'
-import {
-  CURRENCY,
-  isPaidPackage,
-  productIdFor,
-  upgradeAmountCents,
-  type PaidPackage,
-} from './packages'
+import {getPaidPackagePrices} from './prices'
+import {isPaidPackage, packageRank, productIdFor, type PaidPackage} from './packages'
 
 type CheckoutResult = {url: string} | {error: 'auth' | 'notfound' | 'invalid' | 'stripe'}
 
@@ -53,8 +48,16 @@ export async function createCheckoutSessionAction(
   if (!event) return {error: 'notfound'}
 
   const current = event.package as string
-  const amount = upgradeAmountCents(current, target)
-  if (amount === null) return {error: 'invalid'}
+  // Only ever a strict upgrade to a higher tier.
+  if (packageRank(target) <= packageRank(current)) return {error: 'invalid'}
+
+  // Prices come straight from Stripe. Charge the difference to the target tier
+  // (a fresh purchase counts as an upgrade from free = 0).
+  const prices = await getPaidPackagePrices()
+  const currentCents = isPaidPackage(current) ? prices[current].amountCents : 0
+  const {amountCents: targetCents, currency} = prices[target]
+  const amount = targetCents - currentCents
+  if (amount <= 0) return {error: 'invalid'}
 
   const base = await origin()
 
@@ -68,7 +71,7 @@ export async function createCheckoutSessionAction(
         {
           quantity: 1,
           price_data: {
-            currency: CURRENCY,
+            currency,
             product: productIdFor(target),
             unit_amount: amount,
             // B2C: the advertised price already includes VAT.

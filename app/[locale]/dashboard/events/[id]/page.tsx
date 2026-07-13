@@ -4,6 +4,7 @@ import {FormEventDetail} from '@/components/form/FormEventDetail'
 import {LayoutDashboard} from '@/components/layout/LayoutDashboard'
 import {getPathname} from '@/i18n/navigation'
 import type {Locale} from '@/i18n/routing'
+import {getTierPriceDisplays} from '@/utility/stripe/prices'
 import {createClient} from '@/utility/supabase/server'
 import {getUser} from '@/utility/supabase/user'
 
@@ -56,6 +57,7 @@ export default async function EventDetailPage({params}: EventDetailPageProps) {
     ? dateFormat.format(new Date(`${event.event_date}T00:00:00`))
     : '—'
   const guests = t('cardGuests', {capacity: tier?.capacity ?? '', name: tier?.name ?? ''})
+  const prices = await getTierPriceDisplays(locale, tPricing('freePrice'))
 
   return (
     <LayoutDashboard active="events">
@@ -67,6 +69,7 @@ export default async function EventDetailPage({params}: EventDetailPageProps) {
         guests={guests}
         dateText={dateText}
         userId={user.id}
+        prices={prices}
       />
     </LayoutDashboard>
   )

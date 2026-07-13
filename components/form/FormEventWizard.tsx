@@ -18,6 +18,8 @@ const TOTAL_STEPS = 5
 
 type FormEventWizardProps = {
   userId: string
+  // Display prices from Stripe, index-aligned with the tier list.
+  prices: string[]
 }
 
 // Upload one couple photo to the private bucket under "<user>/<event>/…" and
@@ -41,7 +43,7 @@ async function uploadPhoto(
 // Client-side, multi-step event-creation wizard. Holds the whole draft in local
 // state and swaps the step card. "Create for free" persists to Supabase on the
 // free package; the paid path still awaits Stripe.
-export function FormEventWizard({userId}: FormEventWizardProps) {
+export function FormEventWizard({userId, prices}: FormEventWizardProps) {
   const t = useTranslations('eventWizard')
   const locale = useLocale()
   const router = useRouter()
@@ -208,7 +210,7 @@ export function FormEventWizard({userId}: FormEventWizardProps) {
       {step === 1 ? <FormEventCouple draft={draft} update={update} /> : null}
       {step === 2 ? <FormEventDetails draft={draft} update={update} /> : null}
       {step === 3 ? <FormEventQuestions draft={draft} update={update} /> : null}
-      {step === 4 ? <FormEventPackage draft={draft} update={update} /> : null}
+      {step === 4 ? <FormEventPackage draft={draft} update={update} prices={prices} /> : null}
       {step === 5 ? (
         <FormEventSummary
           draft={draft}

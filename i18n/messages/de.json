@@ -68,30 +68,27 @@
     "capacityPrefix": "Bis zu",
     "perEvent": "/ Event",
     "cta": "Kostenlos starten",
+    "freePrice": "Gratis",
     "tiers": [
       {
         "name": "Kleine Runde",
         "tagline": "Polterabend im engsten Kreis",
-        "price": "Gratis",
         "free": true,
         "capacity": "10 Gäste"
       },
       {
         "name": "Intim",
         "tagline": "Die kleine Stadthochzeit",
-        "price": "29 €",
         "capacity": "50 Gäste"
       },
       {
         "name": "Klassisch",
         "tagline": "Der ganze Saal stimmt ab",
-        "price": "49 €",
         "capacity": "100 Gäste"
       },
       {
         "name": "Große Feier",
         "tagline": "Drei Generationen, ein Saal",
-        "price": "79 €",
         "capacity": "300 Gäste"
       }
     ]
