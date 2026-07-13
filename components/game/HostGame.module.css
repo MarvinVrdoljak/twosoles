@@ -92,11 +92,6 @@
   border-radius: var(--radius-xl);
 }
 
-.cardTitle {
-  margin: 0 0 var(--spacing-16);
-  font-size: var(--font-size-h4);
-}
-
 .qHead {
   display: flex;
   gap: var(--spacing-8);
@@ -296,53 +291,36 @@
   color: var(--color-text-muted);
 }
 
-.themeSwitch {
-  position: relative;
-  display: flex;
-  padding: var(--spacing-4);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
+/* --- Settings view (grouped cards with section labels) --- */
+.settingsView {
+  gap: var(--spacing-24);
 }
 
-.themeThumb {
-  position: absolute;
-  top: var(--spacing-4);
-  bottom: var(--spacing-4);
-  left: var(--spacing-4);
-  z-index: 0;
-  width: calc(50% - var(--spacing-4));
-  background: var(--color-primary);
-  border-radius: var(--radius-full);
-  transition: transform 0.25s ease;
+.settingsTitle {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
 }
 
-.themeSeg {
-  z-index: 1;
-  display: flex;
-  flex: 1;
-  gap: var(--spacing-8);
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-12);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-muted);
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  border-radius: var(--radius-full);
-  transition: color var(--transition-fast);
-}
-
-.themeSegActive {
-  color: var(--color-on-primary);
-}
-
-.rowList {
+.group {
   display: flex;
   flex-direction: column;
-  margin: 0 calc(-1 * var(--spacing-20));
+  gap: var(--spacing-8);
+}
+
+.sectionLabel {
+  margin: 0 var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+}
+
+.groupCard {
+  overflow: hidden;
+  background: var(--color-surface-variant);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
 }
 
 .row {
@@ -355,6 +333,7 @@
   font-weight: var(--font-weight-semibold);
   color: var(--color-text);
   text-align: left;
+  text-decoration: none;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -365,24 +344,20 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-.row:hover {
-  background: var(--color-surface);
-}
-
 .rowIcon {
   display: flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 24px;
   color: var(--color-primary);
-  background: var(--color-chip);
-  border-radius: var(--radius-md);
 }
 
 .rowLabel {
+  display: flex;
   flex: 1;
+  gap: var(--spacing-8);
+  align-items: center;
 }
 
 .rowTrail {
@@ -390,13 +365,99 @@
   color: var(--color-text-muted);
 }
 
-.rowDanger {
-  color: var(--color-danger);
+/* Appearance card must let the info tooltip escape its rounded bounds. */
+.groupCardTip {
+  overflow: visible;
 }
 
-.rowDanger .rowIcon {
-  color: var(--color-danger);
-  background: color-mix(in srgb, var(--color-danger) 12%, transparent);
+.infoWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.info {
+  display: inline-flex;
+  padding: 0;
+  color: var(--color-text-muted);
+  cursor: help;
+  background: none;
+  border: none;
+}
+
+.info:hover,
+.info:focus-visible {
+  color: var(--color-text);
+}
+
+/* Small hover/focus tooltip. Anchored to the icon's left so it extends right
+   and never runs off a narrow phone screen. Shown on hover and on focus (so a
+   tap on the icon reveals it on touch devices). */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + var(--spacing-8));
+  left: 0;
+  z-index: 5;
+  width: max-content;
+  max-width: 240px;
+  padding: var(--spacing-8) var(--spacing-12);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-base);
+  color: var(--color-background);
+  background: var(--color-text);
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 18%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+}
+
+.infoWrap:hover .tooltip,
+.infoWrap:focus-within .tooltip {
+  opacity: 1;
+}
+
+/* Small light/dark switch on the Appearance row. The whole row is the
+   role="switch" button; this is the presentational track + sliding thumb. */
+.themeToggle {
+  position: relative;
+  flex-shrink: 0;
+  width: 52px;
+  height: 28px;
+  padding: 0;
+  cursor: pointer;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.themeToggleOn {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.themeThumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  color: var(--color-primary);
+  background: var(--color-surface-variant);
+  border-radius: var(--radius-full);
+  transition: transform 0.25s ease;
+}
+
+.themeToggleOn .themeThumb {
+  color: rgb(255 255 255);
+  background: var(--color-surface);
+  transform: translateX(24px);
 }
 
 .back {

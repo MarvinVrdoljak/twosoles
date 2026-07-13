@@ -22,8 +22,13 @@ export function useGameChannel(
   role: Role,
   initialTheme: GameTheme = 'light',
   capacity: number = Infinity,
+  // Host only: the last state restored from the DB, so a reload resumes the
+  // game (phase/votes/results) instead of resetting everyone to the lobby.
+  initialState: GameState | null = null,
 ) {
-  const [state, setLocalState] = useState<GameState>({...INITIAL_GAME_STATE, theme: initialTheme})
+  const [state, setLocalState] = useState<GameState>(
+    initialState ?? {...INITIAL_GAME_STATE, theme: initialTheme},
+  )
   const [guestCount, setGuestCount] = useState(0)
   const [connected, setConnected] = useState(false)
   // Guests only: true when this guest joined past the package's capacity.
@@ -32,6 +37,11 @@ export function useGameChannel(
   const channelRef = useRef<RealtimeChannel | null>(null)
   const stateRef = useRef(state)
   stateRef.current = state
+
+  // Sending on a channel before it's SUBSCRIBED is silently dropped, so track
+  // readiness and hold any votes cast in that window to flush on connect.
+  const subscribedRef = useRef(false)
+  const pendingVotesRef = useRef<(0 | 1)[]>([])
 
   // Stable identity + join time for this device, so the capacity ranking is
   // deterministic and this guest can locate itself in the presence list.
@@ -89,6 +99,7 @@ export function useGameChannel(
 
     channel.subscribe((status) => {
       if (status !== 'SUBSCRIBED') return
+      subscribedRef.current = true
       setConnected(true)
       void channel.track({role, joinedAt: joinedAtRef.current})
       if (role === 'host') {
@@ -96,10 +107,17 @@ export function useGameChannel(
       } else {
         channel.send({type: 'broadcast', event: 'sync', payload: {}})
       }
+      // Flush any votes cast before the channel was ready.
+      const pending = pendingVotesRef.current
+      pendingVotesRef.current = []
+      for (const option of pending) {
+        channel.send({type: 'broadcast', event: 'vote', payload: {option}})
+      }
     })
 
     channelRef.current = channel
     return () => {
+      subscribedRef.current = false
       void supabase.removeChannel(channel)
       channelRef.current = null
     }
@@ -120,7 +138,13 @@ export function useGameChannel(
   )
 
   const sendVote = useCallback((option: 0 | 1) => {
-    channelRef.current?.send({type: 'broadcast', event: 'vote', payload: {option}})
+    // Before the channel is ready, queue the vote so it isn't silently dropped;
+    // the subscribe handler flushes the queue on connect.
+    if (subscribedRef.current) {
+      channelRef.current?.send({type: 'broadcast', event: 'vote', payload: {option}})
+    } else {
+      pendingVotesRef.current.push(option)
+    }
   }, [])
 
   // Host-relevant: the game is full once as many (or more) guests are present as

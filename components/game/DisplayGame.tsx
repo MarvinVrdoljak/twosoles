@@ -20,6 +20,8 @@ type DisplayGameProps = {
   questions: string[]
   guestUrl: string
   initialTheme?: GameTheme
+  // Max guests for the event's package — cap the shown count to match the host.
+  capacity?: number
 }
 
 // Soft transition preset reused across phases.
@@ -38,10 +40,13 @@ export function DisplayGame({
   questions,
   guestUrl,
   initialTheme = 'light',
+  capacity = Infinity,
 }: DisplayGameProps) {
   const t = useTranslations('game')
   const {state, guestCount} = useGameChannel(eventId, 'display', initialTheme)
-  const shownGuests = guestCount
+  // Never show more than the package allows; the surplus are on the waiting
+  // list (and see the "full" screen), so they shouldn't inflate the beamer count.
+  const shownGuests = Math.min(guestCount, capacity)
 
   const qrValue = /^https?:\/\//.test(guestUrl) ? guestUrl : `https://${guestUrl}`
 
@@ -150,9 +155,11 @@ export function DisplayGame({
                         style={{backgroundImage: `url(${person.photo})`}}
                       />
                     ) : null}
-                    <span className={styles.personName}>{person.name}</span>
-                    <span className={styles.personVotes}>
-                      {t('display.votes', {count: state.votes[index]})}
+                    <span className={styles.person}>
+                      <span className={styles.personName}>{person.name}</span>
+                      <span className={styles.personVotes}>
+                        {t('display.votes', {count: state.votes[index]})}
+                      </span>
                     </span>
                   </div>
                 ))}

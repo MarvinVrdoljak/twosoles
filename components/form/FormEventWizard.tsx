@@ -11,7 +11,7 @@ import {FormEventDetails} from './FormEventDetails'
 import {FormEventQuestions} from './FormEventQuestions'
 import {FormEventPackage} from './FormEventPackage'
 import {FormEventSummary} from './FormEventSummary'
-import {PACKAGE_KEYS, PERSON_COLORS, todayISODate} from './eventDraft'
+import {isEventDateInRange, PACKAGE_KEYS, PERSON_COLORS, todayISODate} from './eventDraft'
 import type {EventDraft} from './eventDraft'
 
 const TOTAL_STEPS = 5
@@ -84,7 +84,7 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
     step === 1
       ? draft.name1.trim() !== '' && draft.name2.trim() !== ''
       : step === 2
-        ? draft.date !== ''
+        ? draft.date !== '' && isEventDateInRange(draft.date)
         : step === 3
           ? draft.questions.length > 0
           : true

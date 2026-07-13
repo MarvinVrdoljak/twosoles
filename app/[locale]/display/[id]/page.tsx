@@ -1,7 +1,9 @@
+import {headers} from 'next/headers'
 import {setRequestLocale} from 'next-intl/server'
 import {notFound} from 'next/navigation'
 import {DisplayGame} from '@/components/game/DisplayGame'
 import type {Locale} from '@/i18n/routing'
+import {guestCapacity} from '@/utility/game/capacity'
 import {createClient} from '@/utility/supabase/server'
 
 type DisplayGamePageProps = {
@@ -22,7 +24,7 @@ export default async function DisplayGamePage({params}: DisplayGamePageProps) {
   const {data: event} = await supabase
     .from('public_events')
     .select(
-      'person1_name, person2_name, person1_color, person2_color, person1_photo, person2_photo, questions',
+      'person1_name, person2_name, person1_color, person2_color, person1_photo, person2_photo, questions, package',
     )
     .eq('id', id)
     .maybeSingle()
@@ -43,6 +45,17 @@ export default async function DisplayGamePage({params}: DisplayGamePageProps) {
     ? (event.questions as {text: string}[]).map((q) => q.text)
     : []
 
+  // The QR must encode the REAL guest route. Derive the absolute origin from the
+  // request (works on localhost:3001, previews and prod) and point at
+  // /guest/<full id> — a truncated id or missing /guest/ segment would 404, and
+  // the QR is the only way guests join.
+  const h = await headers()
+  const host = h.get('x-forwarded-host') ?? h.get('host')
+  const proto = h.get('x-forwarded-proto') ?? (host?.startsWith('localhost') ? 'http' : 'https')
+  const base = host
+    ? `${proto}://${host}`
+    : (process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3001')
+
   return (
     <DisplayGame
       eventId={id}
@@ -50,7 +63,8 @@ export default async function DisplayGamePage({params}: DisplayGamePageProps) {
       person1={{name: event.person1_name, color: event.person1_color ?? '#a67070', photo: photo1}}
       person2={{name: event.person2_name, color: event.person2_color ?? '#1f2937', photo: photo2}}
       questions={questions}
-      guestUrl={`twosoles.app/${String(id).slice(0, 4)}`}
+      guestUrl={`${base}/guest/${id}`}
+      capacity={guestCapacity(event.package)}
     />
   )
 }

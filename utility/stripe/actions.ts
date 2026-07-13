@@ -3,6 +3,7 @@
 import {headers} from 'next/headers'
 import {createClient} from '@/utility/supabase/server'
 import {getUser} from '@/utility/supabase/user'
+import {deriveStatus} from '@/utility/events/status'
 import {getStripe} from './server'
 import {fulfillCheckoutSession} from './fulfill'
 import {getPaidPackagePrices} from './prices'
@@ -42,10 +43,15 @@ export async function createCheckoutSessionAction(
   const supabase = await createClient()
   const {data: event} = await supabase
     .from('events')
-    .select('id, package')
+    .select('id, package, started_at, event_date')
     .eq('id', eventId)
     .maybeSingle()
   if (!event) return {error: 'notfound'}
+
+  // A finished or expired event can't be upgraded — the game is over, so paying
+  // would buy nothing. Block it server-side (the UI hides the buttons too).
+  const status = deriveStatus({started_at: event.started_at, event_date: event.event_date})
+  if (status === 'ended' || status === 'expired') return {error: 'invalid'}
 
   const current = event.package as string
   // Only ever a strict upgrade to a higher tier.
@@ -113,8 +119,8 @@ export async function confirmCheckoutAction(sessionId: string): Promise<ConfirmR
     const target = session.metadata?.target_package
     if (!target || !isPaidPackage(target)) return {ok: false}
 
-    const applied = await fulfillCheckoutSession(session)
-    if (!applied) return {ok: false}
+    const result = await fulfillCheckoutSession(session)
+    if (result !== 'ok') return {ok: false}
     return {ok: true, package: target}
   } catch {
     return {ok: false}

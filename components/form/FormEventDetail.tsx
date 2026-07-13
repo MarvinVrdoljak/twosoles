@@ -17,7 +17,7 @@ import {FormEventCouple} from './FormEventCouple'
 import {FormEventDetails} from './FormEventDetails'
 import {FormEventQuestions} from './FormEventQuestions'
 import {FormEventSettings} from './FormEventSettings'
-import {PACKAGE_KEYS} from './eventDraft'
+import {isEventDateInRange, PACKAGE_KEYS} from './eventDraft'
 import type {EventDraft} from './eventDraft'
 import styles from './FormEventDetail.module.css'
 
@@ -46,8 +46,10 @@ type FormEventDetailProps = {
   guests: string
   dateText: string
   userId: string
-  // Display prices from Stripe, index-aligned with the tier list.
-  prices: string[]
+  // Raw Stripe amounts in minor units, index-aligned with the tier list (free =
+  // 0). The settings tab formats the upgrade difference from these.
+  priceCents: number[]
+  currency: string
 }
 
 type Tab = 'overview' | 'couple' | 'details' | 'questions' | 'guide' | 'settings'
@@ -84,7 +86,8 @@ export function FormEventDetail({
   guests,
   dateText,
   userId,
-  prices,
+  priceCents,
+  currency,
 }: FormEventDetailProps) {
   const t = useTranslations('eventDetail')
   const tDash = useTranslations('dashboard')
@@ -146,15 +149,19 @@ export function FormEventDetail({
 
     if (checkout === 'success' && sessionId) {
       notify(t('checkoutConfirming'), 'info')
-      void confirmCheckoutAction(sessionId).then((result) => {
-        if (result.ok) {
-          notify(t('checkoutSuccess'), 'success')
-          update({packageIndex: PACKAGE_KEYS.indexOf(result.package)})
-          router.refresh()
-        } else {
-          notify(t('checkoutPending'), 'info')
-        }
-      })
+      void confirmCheckoutAction(sessionId)
+        .then((result) => {
+          if (result.ok) {
+            notify(t('checkoutSuccess'), 'success')
+            update({packageIndex: PACKAGE_KEYS.indexOf(result.package)})
+            router.refresh()
+          } else {
+            notify(t('checkoutPending'), 'info')
+          }
+        })
+        // The action swallows its own errors, but a transport-level failure
+        // could still reject — don't leave the "confirming…" notice hanging.
+        .catch(() => notify(t('checkoutPending'), 'info'))
     } else if (checkout === 'canceled') {
       notify(t('checkoutCanceled'), 'info')
     }
@@ -209,6 +216,13 @@ export function FormEventDetail({
   }
 
   const save = async () => {
+    // The date input's min/max only limit the picker — a manually typed past (or
+    // far-future) date slips through, so re-check the range before persisting.
+    if (draft.date && !isEventDateInRange(draft.date)) {
+      setTab('details')
+      notify(t('dateInvalid'))
+      return
+    }
     setSaving(true)
     setNotice(null)
     try {
@@ -302,6 +316,13 @@ export function FormEventDetail({
     </div>
   )
 
+  // Switch tabs and anchor the choice in the URL so it's shareable/deep-linkable.
+  const goToTab = (key: Tab) => {
+    setTab(key)
+    setNotice(null)
+    router.replace(`/dashboard/events/${event.id}?tab=${key}`, {scroll: false})
+  }
+
   const tabs: {key: Tab; label: string; mobileOnly?: boolean}[] = [
     {key: 'overview', label: t('tabs.overview'), mobileOnly: true},
     {key: 'couple', label: t('tabs.couple')},
@@ -345,12 +366,7 @@ export function FormEventDetail({
               key={item.key}
               type="button"
               className={`${styles.tab} ${item.mobileOnly ? styles.tabMobile : ''} ${tab === item.key ? styles.tabActive : ''}`}
-              onClick={() => {
-                setTab(item.key)
-                setNotice(null)
-                // Anchor the active tab in the URL so it's shareable/deep-linkable.
-                router.replace(`/dashboard/events/${event.id}?tab=${item.key}`, {scroll: false})
-              }}
+              onClick={() => goToTab(item.key)}
               aria-current={tab === item.key ? 'page' : undefined}
             >
               {item.label}
@@ -421,9 +437,11 @@ export function FormEventDetail({
               onGoLive={requestGoLive}
               onRegeneratePin={regeneratePin}
               onDelete={remove}
+              onEditDate={() => goToTab('details')}
               onUpgrade={upgrade}
               upgrading={upgrading}
-              prices={prices}
+              priceCents={priceCents}
+              currency={currency}
             />
           ) : null}
         </div>

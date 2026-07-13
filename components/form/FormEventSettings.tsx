@@ -1,9 +1,10 @@
 'use client'
 
-import {useTranslations} from 'next-intl'
+import {useLocale, useTranslations} from 'next-intl'
 import {RotateCw, Trash2} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
 import type {EventStatus} from '@/utility/events/status'
+import {formatPrice} from '@/utility/stripe/format'
 import styles from './FormEventDetail.module.css'
 
 type Tier = {name: string; capacity: string; tagline: string; free?: boolean}
@@ -17,10 +18,14 @@ type FormEventSettingsProps = {
   onGoLive: () => void
   onRegeneratePin: () => void
   onDelete: () => void
+  // Jumps to the Eckdaten/Key-facts tab so an expired event can pick a new date.
+  onEditDate: () => void
   onUpgrade: (targetIndex: number) => void
   upgrading: boolean
-  // Display prices from Stripe, index-aligned with the tier list.
-  prices: string[]
+  // Raw Stripe amounts in minor units, index-aligned with the tier list (free =
+  // 0); the upgrade difference to the current package is formatted from these.
+  priceCents: number[]
+  currency: string
 }
 
 export function FormEventSettings({
@@ -32,12 +37,19 @@ export function FormEventSettings({
   onGoLive,
   onRegeneratePin,
   onDelete,
+  onEditDate,
   onUpgrade,
   upgrading,
-  prices,
+  priceCents,
+  currency,
 }: FormEventSettingsProps) {
   const t = useTranslations('eventDetail')
+  const locale = useLocale()
   const tiers = useTranslations('pricing').raw('tiers') as Tier[]
+
+  // A finished/expired event can't be upgraded (the server blocks it too), so
+  // hide the upgrade buttons rather than let them 404 into a checkout error.
+  const canUpgrade = status !== 'ended' && status !== 'expired'
 
   return (
     <div className={styles.settings}>
@@ -60,7 +72,13 @@ export function FormEventSettings({
               ? t('settings.statusLiveText')
               : status === 'ended'
                 ? t('settings.statusEndedText')
-                : t('settings.statusExpiredText')}
+                : t.rich('settings.statusExpiredText', {
+                    link: (chunks) => (
+                      <button type="button" className={styles.inlineLink} onClick={onEditDate}>
+                        {chunks}
+                      </button>
+                    ),
+                  })}
           </p>
         )}
       </section>
@@ -70,7 +88,13 @@ export function FormEventSettings({
         <h2 className={styles.cardTitle}>{t('settings.pinTitle')}</h2>
         <p className={styles.cardText}>{t('settings.pinText')}</p>
         <div className={styles.pinRow}>
-          <span className={styles.pin}>{pin.split('').join(' ')}</span>
+          <span className={styles.pin}>
+            {pin.split('').map((digit, index) => (
+              <span key={index} className={styles.pinDigit}>
+                {digit}
+              </span>
+            ))}
+          </span>
           <button type="button" className={styles.pinRegenerate} onClick={onRegeneratePin}>
             <RotateCw size={16} aria-hidden="true" />
             {t('settings.pinRegenerate')}
@@ -85,13 +109,20 @@ export function FormEventSettings({
         <ul className={styles.packages}>
           {tiers.map((tier, index) => {
             const current = index === packageIndex
-            const lower = index < packageIndex
+            // Tiers below the current package can't be downgraded to, so we hide
+            // them entirely rather than show a dead "downgrade not possible" row.
+            if (index < packageIndex) return null
             return (
               <li key={tier.name} className={`${styles.pkgRow} ${current ? styles.pkgCurrent : ''}`}>
                 <span className={styles.pkgInfo}>
                   <span className={styles.pkgName}>
                     {tier.name}
-                    {!current && !lower ? <span className={styles.pkgPrice}> • {prices[index]}</span> : null}
+                    {!current ? (
+                      <span className={styles.pkgPrice}>
+                        {' '}
+                        • {formatPrice(priceCents[index] - priceCents[packageIndex], currency, locale)}
+                      </span>
+                    ) : null}
                   </span>
                   <span className={styles.pkgMeta}>
                     {tier.capacity} · {tier.tagline}
@@ -99,9 +130,7 @@ export function FormEventSettings({
                 </span>
                 {current ? (
                   <span className={styles.pkgCurrentTag}>{t('settings.packageCurrent')}</span>
-                ) : lower ? (
-                  <span className={styles.pkgDowngrade}>{t('settings.packageDowngrade')}</span>
-                ) : (
+                ) : canUpgrade ? (
                   <CommonButton
                     variant="primary"
                     size="sm"
@@ -110,7 +139,7 @@ export function FormEventSettings({
                   >
                     {t('settings.packageUpgrade')}
                   </CommonButton>
-                )}
+                ) : null}
               </li>
             )
           })}

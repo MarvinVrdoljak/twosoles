@@ -33,10 +33,27 @@ export async function POST(req: Request) {
     return NextResponse.json({error: 'invalid signature'}, {status: 400})
   }
 
-  if (event.type === 'checkout.session.completed') {
-    const applied = await fulfillCheckoutSession(event.data.object as Stripe.Checkout.Session)
-    if (!applied) {
-      console.error('[stripe/webhook] fulfilment did not apply', {eventId: event.id})
+  // `completed` covers instant (card-like) payments; `async_payment_succeeded`
+  // is the follow-up for delayed methods whose `completed` arrived unpaid.
+  if (
+    event.type === 'checkout.session.completed' ||
+    event.type === 'checkout.session.async_payment_succeeded'
+  ) {
+    const result = await fulfillCheckoutSession(event.data.object as Stripe.Checkout.Session)
+    // A transient failure (DB unreachable, etc.) must NOT be acked with 2xx, or
+    // Stripe drops it — and this webhook is the only safety net for buyers who
+    // never return to the success page. Returning 500 makes Stripe retry.
+    if (result === 'transient') {
+      console.error('[stripe/webhook] transient fulfilment failure, asking Stripe to retry', {
+        eventId: event.id,
+      })
+      return NextResponse.json({error: 'retry'}, {status: 500})
+    }
+    if (result === 'permanent') {
+      // Retrying can't help (bad metadata / unknown event); ack so Stripe stops.
+      console.error('[stripe/webhook] permanent fulfilment failure, not retrying', {
+        eventId: event.id,
+      })
     }
   }
 

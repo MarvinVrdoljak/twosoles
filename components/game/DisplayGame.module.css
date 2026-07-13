@@ -283,13 +283,20 @@
   border-radius: var(--radius-full);
 }
 
+.person {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  align-items: center;
+}
+
 .personName {
   font-family: var(--font-heading);
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-lg);
+  font-size: clamp(18px, 15.18px + 0.751vw, 26px);
 }
 
 .personVotes {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-lg);
   color: var(--color-text-muted);
 }

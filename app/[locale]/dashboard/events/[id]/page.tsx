@@ -4,7 +4,8 @@ import {FormEventDetail} from '@/components/form/FormEventDetail'
 import {LayoutDashboard} from '@/components/layout/LayoutDashboard'
 import {getPathname} from '@/i18n/navigation'
 import type {Locale} from '@/i18n/routing'
-import {getTierPriceDisplays} from '@/utility/stripe/prices'
+import {getPaidPackagePrices} from '@/utility/stripe/prices'
+import {PACKAGE_ORDER, isPaidPackage} from '@/utility/stripe/packages'
 import {createClient} from '@/utility/supabase/server'
 import {getUser} from '@/utility/supabase/user'
 
@@ -57,7 +58,12 @@ export default async function EventDetailPage({params}: EventDetailPageProps) {
     ? dateFormat.format(new Date(`${event.event_date}T00:00:00`))
     : '—'
   const guests = t('cardGuests', {capacity: tier?.capacity ?? '', name: tier?.name ?? ''})
-  const prices = await getTierPriceDisplays(locale, tPricing('freePrice'))
+
+  // Raw amounts (index-aligned with the tier list, free = 0) so the settings tab
+  // can show the UPGRADE difference to the current package, not the full price.
+  const paidPrices = await getPaidPackagePrices()
+  const priceCents = PACKAGE_ORDER.map((pkg) => (isPaidPackage(pkg) ? paidPrices[pkg].amountCents : 0))
+  const currency = paidPrices.small.currency
 
   return (
     <LayoutDashboard active="events">
@@ -69,7 +75,8 @@ export default async function EventDetailPage({params}: EventDetailPageProps) {
         guests={guests}
         dateText={dateText}
         userId={user.id}
-        prices={prices}
+        priceCents={priceCents}
+        currency={currency}
       />
     </LayoutDashboard>
   )

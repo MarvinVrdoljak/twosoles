@@ -13,6 +13,7 @@ type FormFieldProps = {
   hint?: string
   name?: string
   min?: string
+  max?: string
   // Render a multi-line <textarea> instead of an <input> (same styling).
   multiline?: boolean
   rows?: number
@@ -33,6 +34,7 @@ export function FormField({
   hint,
   name,
   min,
+  max,
   multiline,
   rows = 5,
 }: FormFieldProps) {
@@ -65,6 +67,7 @@ export function FormField({
           required={required}
           disabled={disabled}
           min={min}
+          max={max}
           className={styles.input}
           onChange={(event) => onChange(event.target.value)}
         />

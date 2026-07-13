@@ -1,11 +1,11 @@
 'use client'
 
-import {useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {useTranslations} from 'next-intl'
 import {
-  ArrowLeft,
+  ArrowUpRight,
   Check,
-  ExternalLink,
+  Info,
   Monitor,
   Moon,
   RotateCcw,
@@ -13,13 +13,15 @@ import {
   Smartphone,
   Sun,
   SquarePen,
+  X,
 } from 'lucide-react'
 import {Link} from '@/i18n/navigation'
 import {CommonBadge} from '@/components/common/CommonBadge'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonModal} from '@/components/common/CommonModal'
+import {saveGameStateAction} from '@/utility/game/actions'
 import {useGameChannel} from '@/utility/game/useGameChannel'
-import type {GameTheme} from '@/utility/game/types'
+import type {GameState, GameTheme} from '@/utility/game/types'
 import styles from './HostGame.module.css'
 
 type HostGameProps = {
@@ -30,6 +32,8 @@ type HostGameProps = {
   initialTheme?: GameTheme
   // Max guests for the event's package — drives the "full" warning.
   capacity: number
+  // Persisted snapshot to resume from after a reload (null = fresh lobby).
+  initialState?: GameState | null
 }
 
 export function HostGame({
@@ -39,13 +43,15 @@ export function HostGame({
   questions,
   initialTheme = 'light',
   capacity,
+  initialState = null,
 }: HostGameProps) {
   const t = useTranslations('game')
   const {state, setState, guestCount, atCapacity} = useGameChannel(
     eventId,
     'host',
-    initialTheme,
+    initialState?.theme ?? initialTheme,
     capacity,
+    initialState,
   )
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [confirmResetOpen, setConfirmResetOpen] = useState(false)
@@ -69,6 +75,10 @@ export function HostGame({
         case 'question':
           return {...s, phase: 'closed'}
         case 'closed':
+          // Kick off the dramatic 3-2-1 build-up on the display; the timer
+          // below auto-advances to the reveal (host can also skip it manually).
+          return {...s, phase: 'countdown'}
+        case 'countdown':
           // Reveal and persist this question's final tally for the overview.
           return {...s, phase: 'reveal', results: {...s.results, [s.questionIndex]: s.votes}}
         case 'reveal':
@@ -80,6 +90,35 @@ export function HostGame({
       }
     })
   }
+
+  // The countdown is a fixed build-up; once it's shown, auto-advance to the
+  // reveal (persisting the tally). Guarded so a manual "reveal" tap that already
+  // moved us on doesn't get double-advanced, and cleaned up if the host steps
+  // back. Only the host runs this component, so it stays the single authority.
+  useEffect(() => {
+    if (state.phase !== 'countdown') return
+    const id = setTimeout(() => {
+      setState((s) =>
+        s.phase === 'countdown'
+          ? {...s, phase: 'reveal', results: {...s.results, [s.questionIndex]: s.votes}}
+          : s,
+      )
+    }, 3200)
+    return () => clearTimeout(id)
+  }, [state.phase, setState])
+
+  // Persist the authoritative state so a host reload/disconnect resumes the game
+  // instead of resetting everyone. Debounced because votes change state rapidly.
+  const persistTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  useEffect(() => {
+    if (persistTimer.current) clearTimeout(persistTimer.current)
+    persistTimer.current = setTimeout(() => {
+      void saveGameStateAction(eventId, state)
+    }, 700)
+    return () => {
+      if (persistTimer.current) clearTimeout(persistTimer.current)
+    }
+  }, [eventId, state])
 
   const primaryLabel: Record<string, string> = {
     lobby: t('host.start'),
@@ -123,7 +162,8 @@ export function HostGame({
     lobby: '',
     question: state.questionIndex === 0 ? t('host.backToLobby') : t('host.backToPrevious'),
     closed: t('host.reopenVoting'),
-    countdown: t('host.reopenVoting'),
+    // Countdown is a transient 3-2-1 build-up that auto-advances — no back button.
+    countdown: '',
     reveal: t('host.undoReveal'),
     finished: t('host.backToResult'),
   }
@@ -149,7 +189,7 @@ export function HostGame({
           aria-label={t('host.settingsTitle')}
         >
           {settingsOpen ? (
-            <ArrowLeft size={20} aria-hidden="true" />
+            <X size={20} aria-hidden="true" />
           ) : (
             <Settings size={20} aria-hidden="true" />
           )}
@@ -157,45 +197,54 @@ export function HostGame({
       </header>
 
       {settingsOpen ? (
-        <div className={styles.content}>
-          <h1 className={styles.h1}>{t('host.settingsTitle')}</h1>
-          <section className={styles.card}>
-            <h2 className={styles.cardTitle}>{t('host.appearance')}</h2>
-            <div className={styles.themeSwitch} role="group" aria-label={t('host.appearance')}>
-              <span
-                className={styles.themeThumb}
-                style={{transform: state.theme === 'dark' ? 'translateX(100%)' : 'translateX(0)'}}
-                aria-hidden="true"
-              />
-              {(['light', 'dark'] as GameTheme[]).map((mode) => (
-                <button
-                  key={mode}
-                  type="button"
-                  className={`${styles.themeSeg} ${state.theme === mode ? styles.themeSegActive : ''}`}
-                  aria-pressed={state.theme === mode}
-                  onClick={() => setState((s) => ({...s, theme: mode}))}
-                >
-                  {mode === 'light' ? (
-                    <Sun size={16} aria-hidden="true" />
-                  ) : (
-                    <Moon size={16} aria-hidden="true" />
-                  )}
-                  {t(mode === 'light' ? 'host.light' : 'host.dark')}
-                </button>
-              ))}
-            </div>
-          </section>
+        <div className={`${styles.content} ${styles.settingsView}`}>
+          <h1 className={styles.settingsTitle}>{t('host.settingsTitle')}</h1>
 
-          <section className={styles.card}>
-            <h2 className={styles.cardTitle}>{t('host.actionsTitle')}</h2>
-            <div className={styles.rowList}>
-              <Link href={`/dashboard/events/${eventId}`} target="_blank" className={styles.row}>
+          {/* Appearance */}
+          <div className={styles.group}>
+            <p className={styles.sectionLabel}>{t('host.appearance')}</p>
+            <section className={`${styles.groupCard} ${styles.groupCardTip}`}>
+              <div className={styles.row}>
                 <span className={styles.rowIcon}>
-                  <SquarePen size={18} aria-hidden="true" />
+                  {state.theme === 'dark' ? (
+                    <Moon size={20} aria-hidden="true" />
+                  ) : (
+                    <Sun size={20} aria-hidden="true" />
+                  )}
                 </span>
-                <span className={styles.rowLabel}>{t('host.editEvent')}</span>
-                <ExternalLink size={16} className={styles.rowTrail} aria-hidden="true" />
-              </Link>
+                <span className={styles.rowLabel}>
+                  {t('host.themeLabel')}
+                  <span className={styles.infoWrap}>
+                    <button type="button" className={styles.info} aria-label={t('host.themeHint')}>
+                      <Info size={15} aria-hidden="true" />
+                    </button>
+                    <span className={styles.tooltip} role="tooltip">
+                      {t('host.themeHint')}
+                    </span>
+                  </span>
+                </span>
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={state.theme === 'dark'}
+                  aria-label={t('host.themeLabel')}
+                  className={`${styles.themeToggle} ${state.theme === 'dark' ? styles.themeToggleOn : ''}`}
+                  onClick={() =>
+                    setState((s) => ({...s, theme: s.theme === 'dark' ? 'light' : 'dark'}))
+                  }
+                >
+                  <span className={styles.themeThumb}>
+                    {state.theme === 'dark' ? <Moon size={13} /> : <Sun size={13} />}
+                  </span>
+                </button>
+              </div>
+            </section>
+          </div>
+
+          {/* Actions */}
+          <div className={styles.group}>
+            <p className={styles.sectionLabel}>{t('host.actionsTitle')}</p>
+            <section className={styles.groupCard}>
               <Link
                 href={`/display/${eventId}`}
                 target="_blank"
@@ -203,10 +252,10 @@ export function HostGame({
                 className={styles.row}
               >
                 <span className={styles.rowIcon}>
-                  <Monitor size={18} aria-hidden="true" />
+                  <Monitor size={20} aria-hidden="true" />
                 </span>
                 <span className={styles.rowLabel}>{t('host.openDisplay')}</span>
-                <ExternalLink size={16} className={styles.rowTrail} aria-hidden="true" />
+                <ArrowUpRight size={18} className={styles.rowTrail} aria-hidden="true" />
               </Link>
               <Link
                 href={`/guest/${eventId}`}
@@ -215,28 +264,28 @@ export function HostGame({
                 className={styles.row}
               >
                 <span className={styles.rowIcon}>
-                  <Smartphone size={18} aria-hidden="true" />
+                  <Smartphone size={20} aria-hidden="true" />
                 </span>
                 <span className={styles.rowLabel}>{t('host.openGuest')}</span>
-                <ExternalLink size={16} className={styles.rowTrail} aria-hidden="true" />
+                <ArrowUpRight size={18} className={styles.rowTrail} aria-hidden="true" />
               </Link>
-            </div>
-          </section>
-
-          <section className={styles.card}>
-            <div className={styles.rowList}>
-              <button
-                type="button"
-                className={`${styles.row} ${styles.rowDanger}`}
-                onClick={() => setConfirmResetOpen(true)}
-              >
+              <Link href={`/dashboard/events/${eventId}`} target="_blank" className={styles.row}>
                 <span className={styles.rowIcon}>
-                  <RotateCcw size={18} aria-hidden="true" />
+                  <SquarePen size={20} aria-hidden="true" />
                 </span>
-                <span className={styles.rowLabel}>{t('host.resetPoll')}</span>
-              </button>
-            </div>
-          </section>
+                <span className={styles.rowLabel}>{t('host.editEvent')}</span>
+                <ArrowUpRight size={18} className={styles.rowTrail} aria-hidden="true" />
+              </Link>
+            </section>
+          </div>
+
+          {/* Reset */}
+          <div className={styles.group}>
+            <CommonButton variant="danger" size="md" onClick={() => setConfirmResetOpen(true)}>
+              <RotateCcw size={18} aria-hidden="true" />
+              {t('host.resetPoll')}
+            </CommonButton>
+          </div>
         </div>
       ) : (
         <div className={styles.content}>

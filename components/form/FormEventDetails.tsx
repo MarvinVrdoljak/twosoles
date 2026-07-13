@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl'
 import {ChevronDown} from 'lucide-react'
 import {FormField} from '@/components/form/FormField'
 import {routing} from '@/i18n/routing'
-import {todayISODate} from './eventDraft'
+import {maxEventISODate, todayISODate} from './eventDraft'
 import type {EventDraft} from './eventDraft'
 import styles from './FormEventSteps.module.css'
 
@@ -101,6 +101,7 @@ export function FormEventDetails({draft, update, title, subtitle, footer, readOn
           value={draft.date}
           required
           min={todayISODate()}
+          max={maxEventISODate()}
           disabled={readOnly}
           onChange={(value) => update({date: value})}
         />

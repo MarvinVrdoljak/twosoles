@@ -36,6 +36,22 @@ export function todayISODate(): string {
   return `${now.getFullYear()}-${month}-${day}`
 }
 
+// Latest selectable celebration date as yyyy-mm-dd: 10 years from today. Keeps
+// the date picker within a sensible range.
+export function maxEventISODate(): string {
+  const now = new Date()
+  const month = String(now.getMonth() + 1).padStart(2, '0')
+  const day = String(now.getDate()).padStart(2, '0')
+  return `${now.getFullYear() + 10}-${month}-${day}`
+}
+
+// True when `date` (yyyy-mm-dd) sits within [today, today + 10 years]. The date
+// input's min/max only constrain the picker — manual typing bypasses them — so
+// this backs them up on save/step gating. ISO dates compare lexicographically.
+export function isEventDateInRange(date: string): boolean {
+  return date >= todayISODate() && date <= maxEventISODate()
+}
+
 // Preset button colours the couple can pick from a dropdown (step 1).
 export const PERSON_COLORS = [
   '#a67070',
