@@ -110,7 +110,8 @@ export async function confirmCheckoutAction(sessionId: string): Promise<ConfirmR
     const target = session.metadata?.target_package
     if (!target || !isPaidPackage(target)) return {ok: false}
 
-    await fulfillCheckoutSession(session)
+    const applied = await fulfillCheckoutSession(session)
+    if (!applied) return {ok: false}
     return {ok: true, package: target}
   } catch {
     return {ok: false}

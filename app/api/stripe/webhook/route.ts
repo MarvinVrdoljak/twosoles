@@ -34,7 +34,10 @@ export async function POST(req: Request) {
   }
 
   if (event.type === 'checkout.session.completed') {
-    await fulfillCheckoutSession(event.data.object as Stripe.Checkout.Session)
+    const applied = await fulfillCheckoutSession(event.data.object as Stripe.Checkout.Session)
+    if (!applied) {
+      console.error('[stripe/webhook] fulfilment did not apply', {eventId: event.id})
+    }
   }
 
   return NextResponse.json({received: true})

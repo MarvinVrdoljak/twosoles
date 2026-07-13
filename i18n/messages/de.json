@@ -734,7 +734,11 @@
     "save": "Speichern",
     "saving": "Speichern …",
     "billingTitle": "Abrechnungen",
-    "downloadPdf": "PDF",
+    "viewReceipt": "Beleg ansehen",
+    "noBills": "Noch keine Käufe.",
+    "billDeletedEvent": "Gelöschtes Event",
+    "billPurchaseMeta": "{date} · «{package}»",
+    "billUpgradeMeta": "{date} · Upgrade auf «{package}»",
     "deleteTitle": "Konto löschen",
     "deleteText": "Dauerhaft und unwiderruflich. Beim Löschen werden alle Events, Ergebnisse und Rechnungen entfernt. Dieser Schritt kann nicht rückgängig gemacht werden.",
     "deleteButton": "Konto löschen"

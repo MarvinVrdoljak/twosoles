@@ -83,12 +83,19 @@ export function FormEventDetail({
   const [saving, setSaving] = useState(false)
   const [goingLive, setGoingLive] = useState(false)
   const [deleting, setDeleting] = useState(false)
-  const [notice, setNotice] = useState<string | null>(null)
+  const [notice, setNotice] = useState<{
+    text: string
+    type: 'success' | 'error' | 'info'
+  } | null>(null)
   const [pin, setPin] = useState(event.host_pin)
   const [startedAt, setStartedAt] = useState(event.started_at)
   const [goLiveConfirmOpen, setGoLiveConfirmOpen] = useState(false)
   const [deviceChoiceOpen, setDeviceChoiceOpen] = useState(false)
   const [upgrading, setUpgrading] = useState(false)
+
+  // Most notices are errors; success + info pass their type explicitly.
+  const notify = (text: string, type: 'success' | 'error' | 'info' = 'error') =>
+    setNotice({text, type})
 
   // The overview lives in the sidebar on desktop, but on mobile it becomes the
   // first tab. Default to it on mobile and fall back to a content tab once the
@@ -105,30 +112,44 @@ export function FormEventDetail({
 
   // Returning from Stripe Checkout: confirm the payment right here (rather than
   // waiting for the async webhook) so the package unlocks on screen immediately.
-  // The query params are stripped so a manual refresh doesn't re-run this.
+  // This runs ONLY on the return from Stripe (the URL carries ?checkout=…); we
+  // strip those params through the Next router right away, so a reload or
+  // refresh never re-shows the confirmation.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const checkout = params.get('checkout')
     const sessionId = params.get('session_id')
-    if (checkout) {
-      window.history.replaceState(null, '', window.location.pathname)
-    }
+    if (!checkout) return
+
+    // Remove the checkout params via the router (not window.history) so they're
+    // gone from Next's history state too — window.history alone gets re-added on
+    // the next refresh.
+    router.replace(`/dashboard/events/${event.id}`)
+
     if (checkout === 'success' && sessionId) {
-      setNotice(t('checkoutConfirming'))
+      notify(t('checkoutConfirming'), 'info')
       void confirmCheckoutAction(sessionId).then((result) => {
         if (result.ok) {
-          setNotice(t('checkoutSuccess'))
+          notify(t('checkoutSuccess'), 'success')
           update({packageIndex: PACKAGE_KEYS.indexOf(result.package)})
           router.refresh()
         } else {
-          setNotice(t('checkoutPending'))
+          notify(t('checkoutPending'), 'info')
         }
       })
     } else if (checkout === 'canceled') {
-      setNotice(t('checkoutCanceled'))
+      notify(t('checkoutCanceled'), 'info')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  // A success notice is a one-off confirmation — clear it after a few seconds so
+  // it doesn't linger on the page.
+  useEffect(() => {
+    if (notice?.type !== 'success') return
+    const id = window.setTimeout(() => setNotice(null), 6000)
+    return () => window.clearTimeout(id)
+  }, [notice])
 
   const [draft, setDraft] = useState<EventDraft>(() => ({
     name1: event.person1_name,
@@ -165,7 +186,7 @@ export function FormEventDetail({
     if ('url' in result) {
       window.location.href = result.url
     } else {
-      setNotice(t('checkoutError'))
+      notify(t('checkoutError'))
       setUpgrading(false)
     }
   }
@@ -194,13 +215,16 @@ export function FormEventDetail({
           event_date: draft.date || null,
           game_language: draft.language,
           questions: draft.questions.map((q) => ({text: q.text})),
-          package: PACKAGE_KEYS[draft.packageIndex],
+          // NOTE: `package` is deliberately NOT saved here. It's owned solely by
+          // the Stripe purchase/upgrade flow (webhook + success confirm); writing
+          // it from the edit form would reset a paid event back to its stale
+          // draft value (e.g. free).
         })
         .eq('id', event.id)
       if (error) throw error
       router.refresh()
     } catch {
-      setNotice(t('saveError'))
+      notify(t('saveError'))
     } finally {
       setSaving(false)
     }
@@ -222,7 +246,7 @@ export function FormEventDetail({
       setGoLiveConfirmOpen(false)
       router.refresh()
     } catch {
-      setNotice(t('saveError'))
+      notify(t('saveError'))
     } finally {
       setGoingLive(false)
     }
@@ -240,7 +264,7 @@ export function FormEventDetail({
     const supabase = createClient()
     const {error} = await supabase.from('events').delete().eq('id', event.id)
     if (error) {
-      setNotice(t('saveError'))
+      notify(t('saveError'))
       setDeleting(false)
       return
     }
@@ -318,8 +342,17 @@ export function FormEventDetail({
 
         <div className={styles.content}>
           {notice ? (
-            <p className={styles.notice} role="status">
-              {notice}
+            <p
+              className={`${styles.notice} ${
+                notice.type === 'success'
+                  ? styles.noticeSuccess
+                  : notice.type === 'error'
+                    ? styles.noticeError
+                    : styles.noticeInfo
+              }`}
+              role={notice.type === 'error' ? 'alert' : 'status'}
+            >
+              {notice.text}
             </p>
           ) : null}
 

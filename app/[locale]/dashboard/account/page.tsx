@@ -8,6 +8,8 @@ import {ItemBill} from '@/components/items/ItemBill'
 import {LayoutDashboard} from '@/components/layout/LayoutDashboard'
 import {getPathname} from '@/i18n/navigation'
 import type {Locale} from '@/i18n/routing'
+import {getStripe} from '@/utility/stripe/server'
+import {createClient} from '@/utility/supabase/server'
 import {getUser} from '@/utility/supabase/user'
 import styles from './page.module.css'
 
@@ -15,12 +17,38 @@ type AccountPageProps = {
   params: Promise<{locale: Locale}>
 }
 
-// Static placeholder invoices — replaced with real Stripe data later.
-const STATIC_BILLS = [
-  {title: 'Hochzeit · Sophie & Jonas', meta: '03.05.2026 · «Klassisch»', price: '49,00 €'},
-  {title: 'Silberhochzeit · Sophie & Jonas', meta: '03.05.2026 · «Intim»', price: '29,00 €'},
-  {title: 'Polterabend · Max & Lisa', meta: '03.05.2026 · Upgrade zu «Große Feier»', price: '30,00 €'},
-]
+type Tier = {name: string}
+
+// target_package → pricing.tiers index (display names live in i18n).
+const PACKAGE_INDEX: Record<string, number> = {free: 0, small: 1, medium: 2, large: 3}
+
+type PaymentRow = {
+  id: string
+  event_id: string | null
+  target_package: string
+  previous_package: string | null
+  amount_total: number | null
+  currency: string | null
+  stripe_payment_intent: string | null
+  created_at: string
+  // Embedded via the FK; PostgREST returns a single object (or null).
+  events: {title: string} | {title: string}[] | null
+}
+
+// Best-effort Stripe-hosted receipt URL for a payment. Returns null on any
+// problem (no key, expired, MoR without a receipt) so the page still renders.
+async function receiptUrlFor(paymentIntentId: string | null): Promise<string | null> {
+  if (!paymentIntentId) return null
+  try {
+    const pi = await getStripe().paymentIntents.retrieve(paymentIntentId, {
+      expand: ['latest_charge'],
+    })
+    const charge = pi.latest_charge
+    return typeof charge === 'object' && charge ? (charge.receipt_url ?? null) : null
+  } catch {
+    return null
+  }
+}
 
 export default async function AccountPage({params}: AccountPageProps) {
   const {locale} = await params
@@ -32,10 +60,53 @@ export default async function AccountPage({params}: AccountPageProps) {
   }
 
   const t = await getTranslations('account')
+  const tiers = (await getTranslations('pricing')).raw('tiers') as Tier[]
 
   const rawName: unknown = user.user_metadata?.name
   const name = typeof rawName === 'string' ? rawName : ''
   const email = user.email ?? ''
+
+  // Real purchase history, RLS-scoped to the owner, newest first, with the
+  // event title embedded via the FK.
+  const supabase = await createClient()
+  const {data} = await supabase
+    .from('event_payments')
+    .select(
+      'id, event_id, target_package, previous_package, amount_total, currency, stripe_payment_intent, created_at, events(title)',
+    )
+    .eq('user_id', user.id)
+    .order('created_at', {ascending: false})
+  const payments = (data ?? []) as PaymentRow[]
+
+  // Receipt links are looked up in parallel; failures degrade to no button.
+  const receipts = await Promise.all(payments.map((p) => receiptUrlFor(p.stripe_payment_intent)))
+
+  const dateFormat = new Intl.DateTimeFormat(locale, {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  })
+  const money = (cents: number | null, currency: string | null) =>
+    new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: (currency ?? 'eur').toUpperCase(),
+    }).format((cents ?? 0) / 100)
+
+  const bills = payments.map((p, index) => {
+    const tierName = tiers[PACKAGE_INDEX[p.target_package] ?? 0]?.name ?? p.target_package
+    const isUpgrade = p.previous_package != null && p.previous_package !== 'free'
+    const date = dateFormat.format(new Date(p.created_at))
+    const event = Array.isArray(p.events) ? p.events[0] : p.events
+    return {
+      id: p.id,
+      title: event?.title ?? t('billDeletedEvent'),
+      meta: isUpgrade
+        ? t('billUpgradeMeta', {date, package: tierName})
+        : t('billPurchaseMeta', {date, package: tierName}),
+      price: money(p.amount_total, p.currency),
+      receiptUrl: receipts[index],
+    }
+  })
 
   return (
     <LayoutDashboard active="account">
@@ -49,17 +120,22 @@ export default async function AccountPage({params}: AccountPageProps) {
 
           <section className={styles.card}>
             <h2 className={styles.cardTitle}>{t('billingTitle')}</h2>
-            <div className={styles.bills}>
-              {STATIC_BILLS.map((bill, index) => (
-                <ItemBill
-                  key={index}
-                  title={bill.title}
-                  meta={bill.meta}
-                  price={bill.price}
-                  downloadLabel={t('downloadPdf')}
-                />
-              ))}
-            </div>
+            {bills.length > 0 ? (
+              <div className={styles.bills}>
+                {bills.map((bill) => (
+                  <ItemBill
+                    key={bill.id}
+                    title={bill.title}
+                    meta={bill.meta}
+                    price={bill.price}
+                    receiptLabel={t('viewReceipt')}
+                    receiptUrl={bill.receiptUrl}
+                  />
+                ))}
+              </div>
+            ) : (
+              <p className={styles.empty}>{t('noBills')}</p>
+            )}
           </section>
 
           <section className={styles.card}>

@@ -8,9 +8,11 @@ import {SUPABASE_URL} from './config'
 // bypasses RLS. Never import this into anything reachable by the browser.
 // Locally the value is the `SECRET_KEY` printed by `supabase status`.
 export function createServiceClient() {
-  const secretKey = process.env.SUPABASE_SECRET_KEY
+  // Accept either the new secret-key name or the legacy service-role name, so it
+  // works regardless of which the .env uses.
+  const secretKey = process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY
   if (!secretKey) {
-    throw new Error('Missing environment variable: SUPABASE_SECRET_KEY')
+    throw new Error('Missing environment variable: SUPABASE_SECRET_KEY (or SUPABASE_SERVICE_ROLE_KEY)')
   }
   return createClient(SUPABASE_URL, secretKey, {
     auth: {persistSession: false, autoRefreshToken: false},

@@ -734,7 +734,11 @@
     "save": "Save",
     "saving": "Saving …",
     "billingTitle": "Invoices",
-    "downloadPdf": "PDF",
+    "viewReceipt": "View receipt",
+    "noBills": "No purchases yet.",
+    "billDeletedEvent": "Deleted event",
+    "billPurchaseMeta": "{date} · «{package}»",
+    "billUpgradeMeta": "{date} · Upgrade to «{package}»",
     "deleteTitle": "Delete account",
     "deleteText": "Permanent and irreversible. Deleting removes all events, results and invoices. This step cannot be undone.",
     "deleteButton": "Delete account"

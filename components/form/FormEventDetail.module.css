@@ -102,9 +102,28 @@
   padding: var(--spacing-12) var(--spacing-16);
   font-size: var(--font-size-sm);
   color: var(--color-text);
-  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface-variant));
-  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
+  border: 1px solid transparent;
   border-radius: var(--radius-md);
+}
+
+/* Neutral info (confirming, canceled, pending) — brand tint. */
+.noticeInfo {
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface-variant));
+  border-color: color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
+}
+
+/* Success — green. */
+.noticeSuccess {
+  color: var(--color-success);
+  background: color-mix(in srgb, var(--color-success) 12%, var(--color-surface));
+  border-color: color-mix(in srgb, var(--color-success) 35%, transparent);
+}
+
+/* Failure — red. */
+.noticeError {
+  color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 12%, var(--color-surface));
+  border-color: color-mix(in srgb, var(--color-danger) 35%, transparent);
 }
 
 .saveRow {
