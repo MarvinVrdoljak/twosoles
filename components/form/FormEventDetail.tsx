@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from 'react'
 import {useTranslations} from 'next-intl'
+import {useSearchParams} from 'next/navigation'
 import {ArrowLeft} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonModal} from '@/components/common/CommonModal'
@@ -51,6 +52,14 @@ type FormEventDetailProps = {
 
 type Tab = 'overview' | 'couple' | 'details' | 'questions' | 'guide' | 'settings'
 
+// Valid values for the `?tab=` deep-link param — keeps the URL and the active
+// tab in sync so links can jump straight to e.g. Settings or the Guide.
+const TAB_KEYS: Tab[] = ['overview', 'couple', 'details', 'questions', 'guide', 'settings']
+
+function parseTab(value: string | null): Tab | null {
+  return value && (TAB_KEYS as string[]).includes(value) ? (value as Tab) : null
+}
+
 async function uploadPhoto(
   supabase: ReturnType<typeof createClient>,
   userId: string,
@@ -80,8 +89,11 @@ export function FormEventDetail({
   const t = useTranslations('eventDetail')
   const tDash = useTranslations('dashboard')
   const router = useRouter()
+  const searchParams = useSearchParams()
 
-  const [tab, setTab] = useState<Tab>('couple')
+  // A valid `?tab=` deep-link wins over the default; otherwise fall back to the
+  // content default (the mobile/desktop effect below still adjusts on mount).
+  const [tab, setTab] = useState<Tab>(() => parseTab(searchParams.get('tab')) ?? 'couple')
   const [saving, setSaving] = useState(false)
   const [goingLive, setGoingLive] = useState(false)
   const [deleting, setDeleting] = useState(false)
@@ -104,12 +116,14 @@ export function FormEventDetail({
   // viewport grows past the sidebar breakpoint (matches the CSS layout switch).
   useEffect(() => {
     const desktop = window.matchMedia('(min-width: 1024px)')
-    if (!desktop.matches) setTab('overview')
+    // Don't clobber an explicit deep-link (?tab=…) with the mobile default.
+    if (!desktop.matches && !parseTab(searchParams.get('tab'))) setTab('overview')
     const onChange = () => {
       if (desktop.matches) setTab((current) => (current === 'overview' ? 'couple' : current))
     }
     desktop.addEventListener('change', onChange)
     return () => desktop.removeEventListener('change', onChange)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Returning from Stripe Checkout: confirm the payment right here (rather than
@@ -125,8 +139,10 @@ export function FormEventDetail({
 
     // Remove the checkout params via the router (not window.history) so they're
     // gone from Next's history state too — window.history alone gets re-added on
-    // the next refresh.
-    router.replace(`/dashboard/events/${event.id}`)
+    // the next refresh. Land on the settings tab: that's where the upgrade lives,
+    // and it preserves the tab context after the Stripe round-trip.
+    router.replace(`/dashboard/events/${event.id}?tab=settings`)
+    setTab('settings')
 
     if (checkout === 'success' && sessionId) {
       notify(t('checkoutConfirming'), 'info')
@@ -332,6 +348,8 @@ export function FormEventDetail({
               onClick={() => {
                 setTab(item.key)
                 setNotice(null)
+                // Anchor the active tab in the URL so it's shareable/deep-linkable.
+                router.replace(`/dashboard/events/${event.id}?tab=${item.key}`, {scroll: false})
               }}
               aria-current={tab === item.key ? 'page' : undefined}
             >
