@@ -32,7 +32,7 @@ type PaymentRow = {
   stripe_payment_intent: string | null
   created_at: string
   // Embedded via the FK; PostgREST returns a single object (or null).
-  events: {title: string} | {title: string}[] | null
+  events: {person1_name: string; person2_name: string} | {person1_name: string; person2_name: string}[] | null
 }
 
 // Best-effort Stripe-hosted receipt URL for a payment. Returns null on any
@@ -72,7 +72,7 @@ export default async function AccountPage({params}: AccountPageProps) {
   const {data} = await supabase
     .from('event_payments')
     .select(
-      'id, event_id, target_package, previous_package, amount_total, currency, stripe_payment_intent, created_at, events(title)',
+      'id, event_id, target_package, previous_package, amount_total, currency, stripe_payment_intent, created_at, events(person1_name, person2_name)',
     )
     .eq('user_id', user.id)
     .order('created_at', {ascending: false})
@@ -99,7 +99,7 @@ export default async function AccountPage({params}: AccountPageProps) {
     const event = Array.isArray(p.events) ? p.events[0] : p.events
     return {
       id: p.id,
-      title: event?.title ?? t('billDeletedEvent'),
+      title: event ? `${event.person1_name} & ${event.person2_name}` : t('billDeletedEvent'),
       meta: isUpgrade
         ? t('billUpgradeMeta', {date, package: tierName})
         : t('billPurchaseMeta', {date, package: tierName}),

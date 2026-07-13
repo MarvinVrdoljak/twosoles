@@ -62,7 +62,6 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
     photo1File: null,
     photo2File: null,
     occasion: 'wedding',
-    title: '',
     date: todayISODate(),
     language: locale,
     questions: [],
@@ -80,7 +79,7 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
     step === 1
       ? draft.name1.trim() !== '' && draft.name2.trim() !== ''
       : step === 2
-        ? draft.title.trim() !== '' && draft.date !== ''
+        ? draft.date !== ''
         : step === 3
           ? draft.questions.length > 0
           : true
@@ -102,7 +101,6 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
           person1_color: draft.color1,
           person2_color: draft.color2,
           occasion: draft.occasion,
-          title: draft.title.trim(),
           event_date: draft.date || null,
           game_language: draft.language,
           questions: draft.questions.map((q) => ({text: q.text})),

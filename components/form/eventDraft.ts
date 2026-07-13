@@ -17,7 +17,6 @@ export type EventDraft = {
   photo1File: File | null
   photo2File: File | null
   occasion: string
-  title: string
   date: string
   language: string
   questions: EventQuestion[]

@@ -95,17 +95,6 @@ export function FormEventDetails({draft, update, title, subtitle, footer, readOn
         />
 
         <FormField
-          id="event-title"
-          label={t('details.titleLabel')}
-          type="text"
-          value={draft.title}
-          placeholder={t('details.titlePlaceholder')}
-          required
-          disabled={readOnly}
-          onChange={(value) => update({title: value})}
-        />
-
-        <FormField
           id="event-date"
           label={t('details.dateLabel')}
           type="date"

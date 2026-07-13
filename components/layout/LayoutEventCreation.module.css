@@ -57,10 +57,7 @@
 
 .stepButton:disabled {
   cursor: default;
-}
-
-.stepButton:not(:disabled):hover {
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .dotCol {

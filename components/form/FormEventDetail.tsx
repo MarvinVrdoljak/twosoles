@@ -29,7 +29,6 @@ type EventData = {
   person1_photo: string | null
   person2_photo: string | null
   occasion: string
-  title: string
   event_date: string | null
   game_language: string
   questions: {text: string; custom?: boolean}[]
@@ -164,7 +163,6 @@ export function FormEventDetail({
     photo1File: null,
     photo2File: null,
     occasion: event.occasion,
-    title: event.title,
     date: event.event_date ?? '',
     language: event.game_language,
     questions: (event.questions ?? []).map((q, index) => ({
@@ -214,7 +212,6 @@ export function FormEventDetail({
           person1_photo: photo1,
           person2_photo: photo2,
           occasion: draft.occasion,
-          title: draft.title.trim(),
           event_date: draft.date || null,
           game_language: draft.language,
           questions: draft.questions.map((q) => ({text: q.text})),
