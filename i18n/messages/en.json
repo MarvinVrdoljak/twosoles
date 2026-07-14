@@ -23,9 +23,9 @@
     }
   },
   "hero": {
-    "eyebrow": "The Wedding Shoe Game — live with all your guests",
+    "eyebrow": "The Wedding Shoe Game, live with all your guests",
     "headline": "Two shoes. One question. A room that <accent>holds its breath.</accent>",
-    "lead": "In the shoe game the couple answers by raising shoes. With TwoSoles the whole room votes first on their phones — and the projector reveals whether the majority really knows the couple.",
+    "lead": "In the shoe game the couple answers by raising shoes. With TwoSoles the whole room votes first on their phones. The projector reveals whether the majority really knows the couple.",
     "ctaPrimary": "Create your event for free",
     "ctaSecondary": "How it works",
     "imageAlt": "Wedding couple raising shoes during the shoe game"
@@ -46,17 +46,17 @@
       {
         "label": "5-minute setup",
         "title": "You set it up",
-        "description": "Enter the couple's names, pick questions or write your own, generate the QR code — done in five minutes, even on the wedding day itself."
+        "description": "Enter the couple's names, pick questions or write your own, generate the QR code. Done in five minutes, even on the wedding day itself."
       },
       {
         "label": "No app download",
         "title": "The audience votes",
-        "description": "Guests scan the QR code and vote anonymously on their own phones. No app, no login — from the godmother to the second cousin."
+        "description": "Guests scan the QR code and vote anonymously on their own phones. No app, no login."
       },
       {
         "label": "One button press",
         "title": "The reveal moment",
-        "description": "The couple raises their shoes, you press a button — and the projector reveals how the room voted. The „ohhhh“ comes all by itself."
+        "description": "The couple raises their shoes, you press a button, and the projector reveals how the room voted. The “ohhhh” comes all by itself."
       }
     ]
   },
@@ -105,7 +105,7 @@
         "role": "Maid of honour"
       },
       {
-        "quote": "“140 guests, zero tech problems. QR code on the projector, thirty seconds later everyone had voted. Even our grandma — and she got every question right.”",
+        "quote": "“140 guests, zero tech problems. QR code on the projector, thirty seconds later everyone had voted. Even our grandma, and she got every question right.”",
         "name": "Daniel R.",
         "role": "Groom's brother"
       },
@@ -123,7 +123,7 @@
     "items": [
       {
         "question": "Do guests need an app?",
-        "answer": "No. Guests scan the QR code and vote right in the browser — no install, no login."
+        "answer": "No. Guests scan the QR code and vote right in the browser. No install, no login."
       },
       {
         "question": "What if the venue's Wi-Fi is bad?",
@@ -131,11 +131,11 @@
       },
       {
         "question": "Can I add my own questions?",
-        "answer": "Yes. Pick from our templates or write as many of your own as you like — tailored to your couple."
+        "answer": "Yes. Pick from our templates or write as many of your own as you like, tailored to your couple."
       },
       {
         "question": "How far in advance do I need to book?",
-        "answer": "Not in advance at all. You can create your event in five minutes — even on the wedding day itself."
+        "answer": "Not in advance at all. You can create your event in five minutes, even on the wedding day itself."
       }
     ]
   },
@@ -156,24 +156,24 @@
   },
   "contact": {
     "metaTitle": "Contact",
-    "metaDescription": "Questions about your event, technical help or a special format? Message the TwoSoles team — we usually reply within 24 hours, personally.",
+    "metaDescription": "Questions about your event, technical help or a special format? Message the TwoSoles team. We usually reply within 24 hours, personally.",
     "eyebrow": "Contact",
-    "title": "Write to us – we're here for you",
+    "title": "Write to us, we're here for you",
     "subtitle": "Whether it's a question about your event, a technical issue or a special idea: we'll help you personally.",
     "info": {
       "title": "Prefer it direct?",
-      "lead": "You can reach us the classic way too — we read every message ourselves, no bot in between.",
+      "lead": "You can reach us the classic way too. We read every message ourselves, no bot in between.",
       "email": {
         "title": "Email",
         "value": "hallo@twosoles.app"
       },
       "response": {
         "title": "Response time",
-        "value": "Usually within 24 hours — weekends included."
+        "value": "Usually within 24 hours, weekends included."
       },
       "bigEvent": {
         "title": "Planning a big event?",
-        "value": "More than 300 guests or a special format? Write to us via the form — we'll find a solution."
+        "value": "More than 300 guests or a special format? Write to us via the form, we'll find a solution."
       }
     },
     "form": {
@@ -208,7 +208,7 @@
       },
       "success": {
         "title": "Message sent!",
-        "text": "Thanks for your message — we usually get back to you within 24 hours."
+        "text": "Thanks for your message! We usually get back to you within 24 hours."
       }
     }
   },
@@ -258,7 +258,7 @@
     "privacy": {
       "title": "Privacy Policy",
       "metaTitle": "Privacy Policy",
-      "metaDescription": "How TwoSoles processes personal data — a transparent overview of what we collect and why.",
+      "metaDescription": "How TwoSoles processes personal data: a transparent overview of what we collect and why.",
       "intro": "Protecting your personal data matters to us. Below we explain which data we process when you use TwoSoles, and why.",
       "sections": [
         {
@@ -450,7 +450,7 @@
       "questions": "Questions",
       "package": "Guests / package",
       "packageValue": "«{name}» (up to {capacity})",
-      "notSet": "—",
+      "notSet": "Not set",
       "freeTitle": "Secure it for free first",
       "freeText": "You can also create the event for free in the «Small circle» package (max. 10 players) first. You can upgrade to your preferred package any time later.",
       "freeButton": "Create event for free",
@@ -476,33 +476,33 @@
     "dateInvalid": "Please pick a date between today and 10 years from now.",
     "comingSoon": "Coming soon.",
     "checkoutConfirming": "Confirming your payment …",
-    "checkoutSuccess": "Payment successful — your package is unlocked.",
+    "checkoutSuccess": "Payment successful. Your package is unlocked.",
     "checkoutPending": "Your payment came through and is being processed. If the package doesn't show right away, refresh the page in a moment.",
     "checkoutCanceled": "Payment canceled. Your event stays on its current package.",
     "checkoutError": "Couldn't start the payment. Please try again.",
     "pdf": {
       "download": "Download PDF",
       "generating": "Creating …",
-      "scanHint": "Scan the QR code with your phone camera — no app, no sign-up.",
+      "scanHint": "Scan the QR code with your phone camera. No app, no sign-up.",
       "openHint": "Open this address in your browser:",
-      "guestIntro": "The classic shoe game, live with the whole room — vote on every question and find out how well the couple really knows each other.",
+      "guestIntro": "The classic shoe game, live with the whole room. Vote on every question and find out how well the couple really knows each other.",
       "displayEyebrow": "For the projector",
-      "displayIntro": "Open this page on the device connected to the projector or screen — it shows the live view for all your guests.",
+      "displayIntro": "Open this page on the device connected to the projector or screen. It shows the live view for all your guests.",
       "hostEyebrow": "For the host",
       "hostIntro": "Open this page on your own device (phone, tablet or laptop) to steer the game."
     },
     "deviceChoice": {
       "title": "What will you use this device for?",
-      "text": "The projector shows the questions and results to all your guests, while your phone controls the game. Pick what this device should be — it opens in a new tab.",
+      "text": "The projector shows the questions and results to all your guests, while your phone controls the game. Pick what this device should be. It opens in a new tab.",
       "display": "Display / projector",
-      "displayDesc": "The big screen for all guests — shows the QR code, questions and results.",
+      "displayDesc": "The big screen for all guests. Shows the QR code, questions and results.",
       "host": "Host controls",
       "hostDesc": "Your device to start, advance and reveal the game. PIN-protected.",
       "cancel": "Cancel"
     },
     "goLiveConfirm": {
       "title": "Really set the event live?",
-      "text": "Please think this through — it can't be undone:",
+      "text": "Please think this through. It can't be undone:",
       "points": [
         "You can set each event live only ONCE.",
         "From going live you have exactly 48 hours to play the game.",
@@ -524,7 +524,7 @@
     "detailsTitle": "The key facts of the celebration",
     "detailsSubtitle": "Title, date and language of your celebration.",
     "questionsTitle": "The questions for the big moment",
-    "questionsSubtitle": "Your question set — reorder, add and swap.",
+    "questionsSubtitle": "Your question set: reorder, add and swap.",
     "settings": {
       "statusTitle": "Status",
       "statusDraftText": "Once you activate the event you have 48 hours to play the game. During this time any number of guests can join. After that the event is closed and cannot be started again.",
@@ -548,7 +548,7 @@
       "pinRegenerated": "New host PIN generated.",
       "resetGame": {
         "cardTitle": "Reset game",
-        "cardText": "Clears the saved game progress — the current votes and results — so the next host session starts over in the lobby. Your questions and settings stay untouched.",
+        "cardText": "Clears the saved game progress, the current votes and results, so the next host session starts over in the lobby. Your questions and settings stay untouched.",
         "button": "Reset game",
         "title": "Reset the game?",
         "text": "All saved votes and results are lost and the game starts over in the lobby. This cannot be undone.",
@@ -640,7 +640,7 @@
       "votes": "{count} votes",
       "closed": "Closed. The result is coming up …",
       "finishedTitle": "Thanks for playing!",
-      "finishedText": "That was TwoSoles — see you next time!",
+      "finishedText": "That was TwoSoles. See you next time!",
       "countdownIntro": "And the result is …",
       "live": "Live",
       "votesWord": "votes"
@@ -648,7 +648,7 @@
     "guest": {
       "questionOf": "Question {current} of {total}",
       "lobbyTitle": "About to begin",
-      "lobbyText": "Hang tight — the game is about to start.",
+      "lobbyText": "Hang tight, the game is about to start.",
       "tapHint": "Tap your answer",
       "votedFor": "You voted for {name}",
       "waitingResult": "Waiting for the result …",
@@ -669,7 +669,7 @@
       "panel": "HostPanel",
       "questionOf": "Question {current}/{total}",
       "guests": "{count} guests",
-      "capacityReached": "Maximum of {capacity} players reached — no more guests can join.",
+      "capacityReached": "Maximum of {capacity} players reached. No more guests can join.",
       "capacityWaiting": "{count, plural, one {# guest can't join right now} other {# guests can't join right now}}",
       "votesTotal": "{count} votes total",
       "votesLabel": "votes",
@@ -691,7 +691,7 @@
       "settingsTitle": "Settings",
       "appearance": "Appearance",
       "themeLabel": "Theme",
-      "themeHint": "Sets the appearance (light or dark) and changes every screen at once — the display, the guests' phones and this panel.",
+      "themeHint": "Sets the appearance (light or dark) and changes every screen at once: the display, the guests' phones and this panel.",
       "light": "Light",
       "dark": "Dark",
       "backToPanel": "Back",
@@ -715,14 +715,14 @@
       "pinSubmit": "Open control panel",
       "pinChecking": "Checking …",
       "pinError": "Wrong PIN. Please try again.",
-      "resetSuccess": "Game reset — all screens are back in the lobby.",
-      "resetError": "Reset locally, but you appear to be offline — the projector and guests may not have updated."
+      "resetSuccess": "Game reset. All screens are back in the lobby.",
+      "resetError": "Reset locally, but you appear to be offline. The projector and guests may not have updated."
     }
   },
   "home": {
     "title": "TwoSoles",
     "metaTitle": "TwoSoles · The digital wedding shoe game",
-    "metaDescription": "The wedding shoe game live with every guest: the whole room votes on their phone and the projector reveals the result. No app, no login — ready in five minutes.",
+    "metaDescription": "The wedding shoe game live with every guest: the whole room votes on their phone and the projector reveals the result. No app, no login. Ready in five minutes.",
     "intro": "The digital wedding shoe game.",
     "goToLogin": "Sign in",
     "goToRegister": "Create account"
@@ -741,7 +741,7 @@
     "language": "Language",
     "logout": "Sign out",
     "eventsTitle": "Your events",
-    "eventsSubtitle": "All your games in one place — past and upcoming. Create a new event, manage your questions and share the guest code right from the dashboard.",
+    "eventsSubtitle": "All your games in one place, past and upcoming. Create a new event, manage your questions and share the guest code right from the dashboard.",
     "addEventTitle": "Create a new event",
     "addEventSubtitle": "Ready in 5 minutes",
     "statusDraft": "Draft",
@@ -813,7 +813,7 @@
   "notFound": {
     "eyebrow": "Error 404",
     "title": "This page wandered off",
-    "body": "The page you're looking for doesn't exist – or no longer does. Maybe there's a typo, or the link is out of date.",
+    "body": "The page you're looking for doesn't exist, or no longer does. Maybe there's a typo, or the link is out of date.",
     "homeCta": "Back to home",
     "dashboardCta": "Go to dashboard",
     "loginCta": "Log in",

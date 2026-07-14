@@ -23,9 +23,9 @@
     }
   },
   "hero": {
-    "eyebrow": "Das Wedding Shoe Game — live mit allen Gästen",
+    "eyebrow": "Das Wedding Shoe Game, live mit allen Gästen",
     "headline": "Zwei Schuhe. Eine Frage. Ein Saal, der die <accent>Luft anhält.</accent>",
-    "lead": "Beim Schuh-Spiel antwortet das Brautpaar mit hochgehaltenen Schuhen. Mit TwoSoles stimmt vorher der ganze Saal per Handy ab — und der Beamer enthüllt, ob die Mehrheit das Paar wirklich kennt.",
+    "lead": "Beim Schuh-Spiel antwortet das Brautpaar mit hochgehaltenen Schuhen. Mit TwoSoles stimmt vorher der ganze Saal per Handy ab. Der Beamer enthüllt, ob die Mehrheit das Paar wirklich kennt.",
     "ctaPrimary": "Event kostenlos erstellen",
     "ctaSecondary": "So funktioniert’s",
     "imageAlt": "Brautpaar beim Schuh-Spiel hält Schuhe in die Höhe"
@@ -46,17 +46,17 @@
       {
         "label": "5 Minuten Setup",
         "title": "Du richtest es ein",
-        "description": "Paarnamen eingeben, Fragen wählen oder eigene schreiben, QR-Code generieren — fertig in fünf Minuten, auch noch am Tag der Hochzeit."
+        "description": "Paarnamen eingeben, Fragen wählen oder eigene schreiben, QR-Code generieren. Fertig in fünf Minuten, auch noch am Tag der Hochzeit."
       },
       {
         "label": "Kein App-Download",
         "title": "Das Publikum stimmt ab",
-        "description": "Gäste scannen den QR-Code und voten anonym auf dem eigenen Handy. Keine App, kein Login — von der Patentante bis zum Großcousin."
+        "description": "Gäste scannen den QR-Code und voten anonym auf dem eigenen Handy. Keine App, kein Login."
       },
       {
         "label": "Ein Knopfdruck",
         "title": "Der Reveal-Moment",
-        "description": "Das Paar hebt die Schuhe, du drückst einen Button — und der Beamer enthüllt, wie der Saal abgestimmt hat. Das „Ohhhh“ kommt von allein."
+        "description": "Das Paar hebt die Schuhe, du drückst einen Button, und der Beamer enthüllt, wie der Saal abgestimmt hat. Das „Ohhhh“ kommt von allein."
       }
     ]
   },
@@ -105,7 +105,7 @@
         "role": "Trauzeugin"
       },
       {
-        "quote": "«140 Gäste, null Technik-Probleme. QR-Code auf den Beamer, dreißig Sekunden später hatten alle gevotet. Sogar unsere Oma — und die lag bei jeder Frage richtig.»",
+        "quote": "«140 Gäste, null Technik-Probleme. QR-Code auf den Beamer, dreißig Sekunden später hatten alle gevotet. Sogar unsere Oma, und die lag bei jeder Frage richtig.»",
         "name": "Daniel R.",
         "role": "Bruder des Bräutigams"
       },
@@ -123,7 +123,7 @@
     "items": [
       {
         "question": "Brauchen die Gäste eine App?",
-        "answer": "Nein. Die Gäste scannen den QR-Code und stimmen direkt im Browser ab — keine Installation, kein Login."
+        "answer": "Nein. Die Gäste scannen den QR-Code und stimmen direkt im Browser ab. Keine Installation, kein Login."
       },
       {
         "question": "Was, wenn das WLAN auf der Location schlecht ist?",
@@ -131,11 +131,11 @@
       },
       {
         "question": "Kann ich eigene Fragen hinzufügen?",
-        "answer": "Ja. Du wählst aus unseren Vorlagen oder schreibst beliebig viele eigene Fragen — passend zu eurem Paar."
+        "answer": "Ja. Du wählst aus unseren Vorlagen oder schreibst beliebig viele eigene Fragen, passend zu eurem Paar."
       },
       {
         "question": "Wie lange vor der Hochzeit muss ich buchen?",
-        "answer": "Gar nicht im Voraus. Du erstellst dein Event in fünf Minuten — auch noch am Tag der Hochzeit selbst."
+        "answer": "Gar nicht im Voraus. Du erstellst dein Event in fünf Minuten, auch noch am Tag der Hochzeit selbst."
       }
     ]
   },
@@ -156,24 +156,24 @@
   },
   "contact": {
     "metaTitle": "Kontakt",
-    "metaDescription": "Fragen zu eurem Event, technische Hilfe oder ein besonderes Format? Schreib dem TwoSoles-Team — wir antworten in der Regel innerhalb von 24 Stunden, persönlich.",
+    "metaDescription": "Fragen zu eurem Event, technische Hilfe oder ein besonderes Format? Schreib dem TwoSoles-Team. Wir antworten in der Regel innerhalb von 24 Stunden, persönlich.",
     "eyebrow": "Kontakt",
-    "title": "Schreib uns – wir sind für dich da",
+    "title": "Schreib uns, wir sind für dich da",
     "subtitle": "Ob Frage zu eurem Event, ein technisches Problem oder eine besondere Idee: Wir helfen dir persönlich weiter.",
     "info": {
       "title": "Lieber direkt?",
-      "lead": "Du erreichst uns auch klassisch — wir lesen jede Nachricht selbst, kein Bot dazwischen.",
+      "lead": "Du erreichst uns auch klassisch. Wir lesen jede Nachricht selbst, kein Bot dazwischen.",
       "email": {
         "title": "E-Mail",
         "value": "hallo@twosoles.app"
       },
       "response": {
         "title": "Antwortzeit",
-        "value": "In der Regel innerhalb von 24 Stunden — auch am Wochenende."
+        "value": "In der Regel innerhalb von 24 Stunden, auch am Wochenende."
       },
       "bigEvent": {
         "title": "Großes Event geplant?",
-        "value": "Über 300 Gäste oder ein besonderes Format? Schreib uns über das Formular — wir finden eine Lösung."
+        "value": "Über 300 Gäste oder ein besonderes Format? Schreib uns über das Formular, wir finden eine Lösung."
       }
     },
     "form": {
@@ -208,7 +208,7 @@
       },
       "success": {
         "title": "Nachricht gesendet!",
-        "text": "Danke für deine Nachricht — wir melden uns in der Regel innerhalb von 24 Stunden bei dir."
+        "text": "Danke für deine Nachricht! Wir melden uns in der Regel innerhalb von 24 Stunden bei dir."
       }
     }
   },
@@ -258,7 +258,7 @@
     "privacy": {
       "title": "Datenschutzerklärung",
       "metaTitle": "Datenschutzerklärung",
-      "metaDescription": "Wie TwoSoles personenbezogene Daten verarbeitet — transparent erklärt, welche Daten wir erheben und wozu.",
+      "metaDescription": "Wie TwoSoles personenbezogene Daten verarbeitet: transparent erklärt, welche Daten wir erheben und wozu.",
       "intro": "Der Schutz deiner personenbezogenen Daten ist uns wichtig. Nachfolgend informieren wir dich darüber, welche Daten wir bei der Nutzung von TwoSoles verarbeiten und wozu.",
       "sections": [
         {
@@ -271,7 +271,7 @@
         },
         {
           "heading": "Zwecke und Rechtsgrundlagen",
-          "body": "Wir verarbeiten deine Daten zur Bereitstellung des Dienstes und zur Erfüllung unseres Vertrags mit dir (Art. 6 Abs. 1 lit. b DSGVO), zur Gewährleistung eines sicheren Betriebs auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) sowie – soweit erforderlich – auf Grundlage deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)."
+          "body": "Wir verarbeiten deine Daten zur Bereitstellung des Dienstes und zur Erfüllung unseres Vertrags mit dir (Art. 6 Abs. 1 lit. b DSGVO), zur Gewährleistung eines sicheren Betriebs auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) sowie, soweit erforderlich, auf Grundlage deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)."
         },
         {
           "heading": "Eingesetzte Dienste",
@@ -450,7 +450,7 @@
       "questions": "Fragen",
       "package": "Gäste / Paket",
       "packageValue": "«{name}» (bis {capacity})",
-      "notSet": "—",
+      "notSet": "Nicht angegeben",
       "freeTitle": "Erstmal kostenlos sichern",
       "freeText": "Du kannst das Event auch erst einmal kostenlos im Paket «Kleine Runde» (max. 10 Spieler) anlegen. Du kannst später jederzeit auf dein gewünschtes Paket upgraden.",
       "freeButton": "Event kostenlos anlegen",
@@ -476,33 +476,33 @@
     "dateInvalid": "Bitte wähle ein Datum zwischen heute und in 10 Jahren.",
     "comingSoon": "Kommt bald.",
     "checkoutConfirming": "Zahlung wird bestätigt …",
-    "checkoutSuccess": "Zahlung erfolgreich – dein Paket ist freigeschaltet.",
+    "checkoutSuccess": "Zahlung erfolgreich. Dein Paket ist freigeschaltet.",
     "checkoutPending": "Deine Zahlung ist eingegangen und wird verarbeitet. Falls das Paket nicht sofort erscheint, lade die Seite in einem Moment neu.",
     "checkoutCanceled": "Zahlung abgebrochen. Dein Event bleibt im aktuellen Paket.",
     "checkoutError": "Die Bezahlung konnte nicht gestartet werden. Bitte versuch es erneut.",
     "pdf": {
       "download": "PDF herunterladen",
       "generating": "Wird erstellt …",
-      "scanHint": "Scanne den QR-Code mit deiner Handykamera – ganz ohne App und ohne Anmeldung.",
+      "scanHint": "Scanne den QR-Code mit deiner Handykamera, ganz ohne App und ohne Anmeldung.",
       "openHint": "Diese Adresse im Browser öffnen:",
-      "guestIntro": "Das klassische Schuhspiel, live mit dem ganzen Saal – stimm bei jeder Frage mit ab und finde heraus, wie gut sich die zwei wirklich kennen.",
+      "guestIntro": "Das klassische Schuhspiel, live mit dem ganzen Saal. Stimm bei jeder Frage mit ab und finde heraus, wie gut sich die zwei wirklich kennen.",
       "displayEyebrow": "Für den Beamer",
-      "displayIntro": "Öffne diese Seite auf dem Gerät, das mit dem Beamer oder Bildschirm verbunden ist – sie zeigt die Live-Ansicht für alle Gäste.",
+      "displayIntro": "Öffne diese Seite auf dem Gerät, das mit dem Beamer oder Bildschirm verbunden ist. Sie zeigt die Live-Ansicht für alle Gäste.",
       "hostEyebrow": "Für die Moderation",
       "hostIntro": "Öffne diese Seite auf deinem eigenen Gerät (Handy, Tablet oder Laptop), um das Spiel zu steuern."
     },
     "deviceChoice": {
       "title": "Wofür nutzt du dieses Gerät?",
-      "text": "Der Beamer zeigt Fragen und Ergebnisse für alle Gäste, mit deinem Handy steuerst du das Spiel. Wähle, was dieses Gerät übernehmen soll – es öffnet sich in einem neuen Tab.",
+      "text": "Der Beamer zeigt Fragen und Ergebnisse für alle Gäste, mit deinem Handy steuerst du das Spiel. Wähle, was dieses Gerät übernehmen soll. Es öffnet sich in einem neuen Tab.",
       "display": "Display / Beamer",
-      "displayDesc": "Die große Leinwand für alle Gäste – zeigt QR-Code, Fragen und Ergebnisse.",
+      "displayDesc": "Die große Leinwand für alle Gäste. Zeigt QR-Code, Fragen und Ergebnisse.",
       "host": "Host-Steuerung",
       "hostDesc": "Dein Gerät zum Starten, Weiterschalten und Auflösen. Mit PIN geschützt.",
       "cancel": "Abbrechen"
     },
     "goLiveConfirm": {
       "title": "Event wirklich live schalten?",
-      "text": "Bitte gut überlegen — das lässt sich nicht rückgängig machen:",
+      "text": "Bitte gut überlegen, das lässt sich nicht rückgängig machen:",
       "points": [
         "Du kannst jedes Event nur EIN EINZIGES Mal live schalten.",
         "Ab dem Live-Schalten hast du genau 48 Stunden Zeit, das Spiel zu spielen.",
@@ -524,7 +524,7 @@
     "detailsTitle": "Die Eckdaten der Feier",
     "detailsSubtitle": "Titel, Datum und Sprache eurer Feier.",
     "questionsTitle": "Die Fragen für den großen Moment",
-    "questionsSubtitle": "Dein Frage-Set — sortieren, ergänzen und austauschen.",
+    "questionsSubtitle": "Dein Frage-Set: sortieren, ergänzen und austauschen.",
     "settings": {
       "statusTitle": "Status",
       "statusDraftText": "Sobald du das Event aktivierst, hast du 48 Stunden Zeit, das Spiel zu spielen. In dieser Zeit können sich unbegrenzt viele Gäste verbinden. Nach Ablauf ist das Event abgeschlossen und kann nicht erneut gestartet werden.",
@@ -548,7 +548,7 @@
       "pinRegenerated": "Neue Host-PIN erstellt.",
       "resetGame": {
         "cardTitle": "Spiel zurücksetzen",
-        "cardText": "Setzt den gespeicherten Spielverlauf zurück – die aktuellen Stimmen und Ergebnisse – sodass die nächste Host-Sitzung wieder in der Lobby startet. Deine Fragen und Einstellungen bleiben unberührt.",
+        "cardText": "Setzt den gespeicherten Spielverlauf zurück, also die aktuellen Stimmen und Ergebnisse, sodass die nächste Host-Sitzung wieder in der Lobby startet. Deine Fragen und Einstellungen bleiben unberührt.",
         "button": "Spiel zurücksetzen",
         "title": "Spiel wirklich zurücksetzen?",
         "text": "Alle gespeicherten Stimmen und Ergebnisse gehen verloren und das Spiel startet wieder in der Lobby. Das kann nicht rückgängig gemacht werden.",
@@ -640,7 +640,7 @@
       "votes": "{count} Stimmen",
       "closed": "Geschlossen. Gleich wird aufgelöst …",
       "finishedTitle": "Danke fürs Mitspielen!",
-      "finishedText": "Das war TwoSoles — bis zum nächsten Mal!",
+      "finishedText": "Das war TwoSoles. Bis zum nächsten Mal!",
       "countdownIntro": "Und das Ergebnis lautet …",
       "live": "Live",
       "votesWord": "Stimmen"
@@ -648,7 +648,7 @@
     "guest": {
       "questionOf": "Frage {current} von {total}",
       "lobbyTitle": "Gleich geht's los",
-      "lobbyText": "Warte kurz — das Spiel startet gleich.",
+      "lobbyText": "Warte kurz, das Spiel startet gleich.",
       "tapHint": "Tippe auf deine Antwort",
       "votedFor": "Du hast für {name} gestimmt",
       "waitingResult": "Warte auf das Ergebnis …",
@@ -669,7 +669,7 @@
       "panel": "HostPanel",
       "questionOf": "Frage {current}/{total}",
       "guests": "{count} Gäste",
-      "capacityReached": "Maximale Spielerzahl von {capacity} erreicht — es können keine weiteren Gäste beitreten.",
+      "capacityReached": "Maximale Spielerzahl von {capacity} erreicht. Es können keine weiteren Gäste beitreten.",
       "capacityWaiting": "{count, plural, one {# Gast kommt gerade nicht rein} other {# Gäste kommen gerade nicht rein}}",
       "votesTotal": "{count} Stimmen insgesamt",
       "votesLabel": "Stimmen",
@@ -691,7 +691,7 @@
       "settingsTitle": "Einstellungen",
       "appearance": "Darstellung",
       "themeLabel": "Farbschema",
-      "themeHint": "Legt das Erscheinungsbild fest (hell oder dunkel) und ändert alle Ansichten gleichzeitig – die Leinwand, die Gäste-Handys und dieses Panel.",
+      "themeHint": "Legt das Erscheinungsbild fest (hell oder dunkel) und ändert alle Ansichten gleichzeitig: die Leinwand, die Gäste-Handys und dieses Panel.",
       "light": "Hell",
       "dark": "Dunkel",
       "backToPanel": "Zurück",
@@ -715,14 +715,14 @@
       "pinSubmit": "Steuerung öffnen",
       "pinChecking": "Wird geprüft …",
       "pinError": "Falsche PIN. Bitte versuch es erneut.",
-      "resetSuccess": "Spiel zurückgesetzt – alle Bildschirme sind zurück in der Lobby.",
-      "resetError": "Lokal zurückgesetzt, aber du scheinst offline zu sein – Leinwand und Gäste wurden möglicherweise nicht aktualisiert."
+      "resetSuccess": "Spiel zurückgesetzt. Alle Bildschirme sind zurück in der Lobby.",
+      "resetError": "Lokal zurückgesetzt, aber du scheinst offline zu sein. Leinwand und Gäste wurden möglicherweise nicht aktualisiert."
     }
   },
   "home": {
     "title": "TwoSoles",
     "metaTitle": "TwoSoles · Das digitale Hochzeits-Schuhspiel",
-    "metaDescription": "Das Wedding Shoe Game live mit allen Gästen: Der ganze Saal stimmt per Handy ab, der Beamer enthüllt das Ergebnis. Ohne App, ohne Login — in fünf Minuten startklar.",
+    "metaDescription": "Das Wedding Shoe Game live mit allen Gästen: Der ganze Saal stimmt per Handy ab, der Beamer enthüllt das Ergebnis. Ohne App, ohne Login, in fünf Minuten startklar.",
     "intro": "Das digitale Hochzeits-Schuhspiel.",
     "goToLogin": "Anmelden",
     "goToRegister": "Konto erstellen"
@@ -741,7 +741,7 @@
     "language": "Sprache",
     "logout": "Abmelden",
     "eventsTitle": "Deine Events",
-    "eventsSubtitle": "Hier findest du alle deine Spiele — vergangene und kommende. Erstelle ein neues Event, verwalte deine Fragen und teile den Gastcode direkt aus dem Dashboard.",
+    "eventsSubtitle": "Hier findest du alle deine Spiele, vergangene und kommende. Erstelle ein neues Event, verwalte deine Fragen und teile den Gastcode direkt aus dem Dashboard.",
     "addEventTitle": "Neues Event anlegen",
     "addEventSubtitle": "In 5 Minuten startklar",
     "statusDraft": "Entwurf",
@@ -813,7 +813,7 @@
   "notFound": {
     "eyebrow": "Fehler 404",
     "title": "Diese Seite hat sich verlaufen",
-    "body": "Die Seite, die du suchst, gibt es nicht – oder nicht mehr. Vielleicht hat sich ein Tippfehler eingeschlichen oder der Link ist veraltet.",
+    "body": "Die Seite, die du suchst, gibt es nicht, oder nicht mehr. Vielleicht hat sich ein Tippfehler eingeschlichen oder der Link ist veraltet.",
     "homeCta": "Zur Startseite",
     "dashboardCta": "Zum Dashboard",
     "loginCta": "Login",
