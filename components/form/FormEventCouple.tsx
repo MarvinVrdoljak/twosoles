@@ -2,7 +2,7 @@
 
 import React, {useEffect, useRef, useState} from 'react'
 import {useTranslations} from 'next-intl'
-import {ImagePlus, X} from 'lucide-react'
+import {ChevronDown, ImagePlus, Info, X} from 'lucide-react'
 import {PERSON_COLORS} from './eventDraft'
 import type {EventDraft} from './eventDraft'
 import styles from './FormEventSteps.module.css'
@@ -16,14 +16,20 @@ type Props = {
   readOnly?: boolean
 }
 
-function ColorPicker({
+// Labelled colour picker: a "Farbe" label with an info tooltip explaining what
+// the colour is for, plus a swatch button that opens the preset palette.
+function ColorField({
   color,
   label,
+  hint,
+  names,
   onSelect,
   disabled,
 }: {
   color: string
   label: string
+  hint: string
+  names: string[]
   onSelect: (value: string) => void
   disabled?: boolean
 }) {
@@ -40,38 +46,57 @@ function ColorPicker({
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
+  const activeName = names[PERSON_COLORS.indexOf(color)] ?? ''
+
   return (
-    <div className={styles.colorPicker} ref={ref}>
-      <button
-        type="button"
-        className={styles.swatch}
-        style={{background: color}}
-        onClick={() => setOpen((value) => !value)}
-        disabled={disabled}
-        aria-haspopup="menu"
-        aria-expanded={open}
-        aria-label={label}
-        title={label}
-      />
-      {open ? (
-        <div className={styles.colorMenu} role="menu">
-          {PERSON_COLORS.map((option) => (
-            <button
-              key={option}
-              type="button"
-              role="menuitemradio"
-              aria-checked={option === color}
-              className={`${styles.colorOption} ${option === color ? styles.colorOptionActive : ''}`}
-              style={{background: option}}
-              onClick={() => {
-                onSelect(option)
-                setOpen(false)
-              }}
-              aria-label={option}
-            />
-          ))}
-        </div>
-      ) : null}
+    <div className={styles.colorField}>
+      <span className={styles.fieldLabel}>
+        {label}
+        <span className={styles.infoWrap}>
+          <button type="button" className={styles.info} aria-label={hint}>
+            <Info size={15} aria-hidden="true" />
+          </button>
+          <span className={styles.tooltip} role="tooltip">
+            {hint}
+          </span>
+        </span>
+      </span>
+
+      <div className={styles.colorPicker} ref={ref}>
+        <button
+          type="button"
+          className={styles.swatch}
+          onClick={() => setOpen((value) => !value)}
+          disabled={disabled}
+          aria-haspopup="menu"
+          aria-expanded={open}
+          aria-label={`${label}: ${activeName}`}
+        >
+          <span className={styles.swatchDot} style={{background: color}} />
+          <span className={styles.swatchName}>{activeName}</span>
+          <ChevronDown className={styles.swatchChevron} size={18} aria-hidden="true" />
+        </button>
+        {open ? (
+          <div className={styles.colorMenu} role="menu">
+            {PERSON_COLORS.map((option, index) => (
+              <button
+                key={option}
+                type="button"
+                role="menuitemradio"
+                aria-checked={option === color}
+                className={`${styles.colorOption} ${option === color ? styles.colorOptionActive : ''}`}
+                onClick={() => {
+                  onSelect(option)
+                  setOpen(false)
+                }}
+              >
+                <span className={styles.swatchDot} style={{background: option}} />
+                <span>{names[index]}</span>
+              </button>
+            ))}
+          </div>
+        ) : null}
+      </div>
     </div>
   )
 }
@@ -83,6 +108,8 @@ type PersonProps = {
   placeholder: string
   photoLabel: string
   colorLabel: string
+  colorHint: string
+  colorNames: string[]
   removeLabel: string
   onName: (value: string) => void
   onColor: (value: string) => void
@@ -97,6 +124,8 @@ function Person({
   placeholder,
   photoLabel,
   colorLabel,
+  colorHint,
+  colorNames,
   removeLabel,
   onName,
   onColor,
@@ -156,14 +185,23 @@ function Person({
           disabled={readOnly}
           onChange={(event) => onName(event.target.value)}
         />
-        <ColorPicker color={color} label={colorLabel} onSelect={onColor} disabled={readOnly} />
       </div>
+
+      <ColorField
+        color={color}
+        label={colorLabel}
+        hint={colorHint}
+        names={colorNames}
+        onSelect={onColor}
+        disabled={readOnly}
+      />
     </div>
   )
 }
 
 export function FormEventCouple({draft, update, title, subtitle, footer, readOnly}: Props) {
   const t = useTranslations('eventWizard')
+  const colorNames = t.raw('couple.colorNames') as string[]
 
   return (
     <div className={styles.stepCard}>
@@ -182,6 +220,8 @@ export function FormEventCouple({draft, update, title, subtitle, footer, readOnl
           placeholder={t('couple.name1')}
           photoLabel={t('couple.photoLabel')}
           colorLabel={t('couple.colorLabel')}
+          colorHint={t('couple.colorHint')}
+          colorNames={colorNames}
           removeLabel={t('couple.removePhoto')}
           onName={(value) => update({name1: value})}
           onColor={(value) => update({color1: value})}
@@ -202,6 +242,8 @@ export function FormEventCouple({draft, update, title, subtitle, footer, readOnl
           placeholder={t('couple.name2')}
           photoLabel={t('couple.photoLabel')}
           colorLabel={t('couple.colorLabel')}
+          colorHint={t('couple.colorHint')}
+          colorNames={colorNames}
           removeLabel={t('couple.removePhoto')}
           onName={(value) => update({name2: value})}
           onColor={(value) => update({color2: value})}

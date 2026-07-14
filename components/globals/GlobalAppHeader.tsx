@@ -1,4 +1,5 @@
 import {getTranslations} from 'next-intl/server'
+import {CommonLogo} from '@/components/common/CommonLogo'
 import {GlobalUserMenu} from '@/components/globals/GlobalUserMenu'
 import {Link} from '@/i18n/navigation'
 import styles from './GlobalAppHeader.module.css'
@@ -17,7 +18,7 @@ export async function GlobalAppHeader({active}: GlobalAppHeaderProps) {
     <header className={styles.root}>
       <div className={styles.left}>
         <Link href="/dashboard" className={styles.logo}>
-          TwoSoles
+          <CommonLogo className={styles.logoImg} />
         </Link>
         <nav className={styles.nav} aria-label={t('navLabel')}>
           <Link

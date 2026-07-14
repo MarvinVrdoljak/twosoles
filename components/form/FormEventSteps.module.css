@@ -114,47 +114,90 @@
   color: var(--color-placeholder);
 }
 
+.colorField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  width: 100%;
+}
+
 .colorPicker {
   position: relative;
-  flex-shrink: 0;
+  width: 100%;
 }
 
 .swatch {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 100%;
+  height: 46px;
+  padding: 0 var(--spacing-16);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.swatchDot {
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  border: 2px solid var(--color-surface-variant);
+  width: 20px;
+  height: 20px;
   border-radius: var(--radius-full);
   box-shadow: 0 0 0 1px var(--color-border);
-  cursor: pointer;
+}
+
+.swatchName {
+  flex: 1 0 0;
+  text-align: left;
+}
+
+.swatchChevron {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
 }
 
 .colorMenu {
   position: absolute;
   top: calc(100% + var(--spacing-8));
   right: 0;
+  left: 0;
   z-index: 20;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
   padding: var(--spacing-8);
-  background: var(--color-surface-variant);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: 0 12px 24px color-mix(in srgb, var(--color-text) 12%, transparent);
 }
 
 .colorOption {
-  width: 28px;
-  height: 28px;
-  border: 2px solid var(--color-surface-variant);
-  border-radius: var(--radius-full);
-  box-shadow: 0 0 0 1px var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 100%;
+  padding: var(--spacing-8) var(--spacing-12);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
   cursor: pointer;
 }
 
 .colorOptionActive {
-  box-shadow: 0 0 0 2px var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+}
+
+.colorOption:hover {
+  background: color-mix(in srgb, var(--color-text) 6%, transparent);
 }
 
 .amp {

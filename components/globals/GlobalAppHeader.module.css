@@ -28,13 +28,20 @@
 }
 
 .logo {
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-weight: var(--font-weight-bold);
-  font-size: 28px;
+  display: inline-flex;
+  align-items: center;
   color: var(--color-primary);
   text-decoration: none;
-  white-space: nowrap;
+}
+
+.logoImg {
+  display: block;
+  width: 110px;
+  height: auto;
+
+  @media (--bp-medium-up) {
+    width: 130px;
+  }
 }
 
 .nav {

@@ -2,6 +2,7 @@ import React from 'react'
 import {getTranslations} from 'next-intl/server'
 import {ArrowLeft} from 'lucide-react'
 import {CommonImage} from '@/components/common/CommonImage'
+import {CommonLogo} from '@/components/common/CommonLogo'
 import {Link} from '@/i18n/navigation'
 import styles from './LayoutAuth.module.css'
 import Leaf03 from '@/public/images/leaf_03.svg'
@@ -40,7 +41,7 @@ export async function LayoutAuth({
         <div className={styles.overlay} />
         <div className={styles.mediaContent}>
           <Link href="/" className={styles.logoWhite}>
-            TwoSoles
+            <CommonLogo className={styles.logoSvg} />
           </Link>
           <figure className={styles.testimonial}>
             <blockquote className={styles.quote}>{t('testimonialQuote')}</blockquote>
@@ -58,7 +59,7 @@ export async function LayoutAuth({
         <div className={styles.inner}>
           <div className={styles.top}>
             <Link href="/" className={styles.logoMobile}>
-              TwoSoles
+              <CommonLogo className={styles.logoSvg} />
             </Link>
             <Link href="/" className={styles.back}>
               <ArrowLeft size={16} aria-hidden="true" />

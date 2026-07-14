@@ -33,10 +33,15 @@
   "ticker": {
     "ariaLabel": "Example questions from the game",
     "questions": [
+      "Who takes longer in the bathroom?",
+      "Who's more likely to forget the wedding anniversary?",
       "Who's more likely to give in during an argument?",
       "Who's more likely to stumble during the first dance?",
-      "Who takes longer in the bathroom?",
-      "Who's more likely to forget the wedding anniversary?"
+      "Who's more likely to snooze the alarm five times?",
+      "Who's more likely to laugh at their own joke?",
+      "Who's the bigger morning grump?",
+      "Who's more likely to let a secret slip?",
+      "Who's more likely to “forget” the dishes?"
     ]
   },
   "steps": {
@@ -600,7 +605,9 @@
       "name2": "Name person 2",
       "photoLabel": "Add photo (optional)",
       "removePhoto": "Remove photo",
-      "colorLabel": "Pick a colour"
+      "colorLabel": "Colour",
+      "colorHint": "This colour represents the person throughout the game: on the guests' voting buttons and in the result bar on the screen.",
+      "colorNames": ["Dusty rose", "Charcoal", "Terracotta", "Dusty blue", "Olive", "Mauve", "Lavender", "Teal"]
     },
     "details": {
       "title": "The key facts of the celebration",

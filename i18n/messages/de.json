@@ -33,10 +33,15 @@
   "ticker": {
     "ariaLabel": "Beispielfragen aus dem Spiel",
     "questions": [
+      "Wer braucht länger im Bad?",
+      "Wer würde eher den Hochzeitstag vergessen?",
       "Wer neigt dazu, bei einem Streit eher nachzugeben?",
       "Wer würde sich eher beim Hochzeitstanz vertanzen?",
-      "Wer braucht länger im Bad?",
-      "Wer würde eher den Hochzeitstag vergessen?"
+      "Wer würde eher morgens den Wecker fünfmal snoozen?",
+      "Wer würde eher über den eigenen Witz lachen?",
+      "Wer ist der größere Morgenmuffel?",
+      "Wer würde eher ein Geheimnis nicht geheim halten können?",
+      "Wer würde eher den Abwasch „vergessen“?"
     ]
   },
   "steps": {
@@ -600,7 +605,9 @@
       "name2": "Name Person 2",
       "photoLabel": "Foto hinzufügen (optional)",
       "removePhoto": "Foto entfernen",
-      "colorLabel": "Farbe wählen"
+      "colorLabel": "Farbe",
+      "colorHint": "Diese Farbe kennzeichnet die Person überall im Spiel: auf den Abstimm-Buttons der Gäste und im Ergebnis-Balken auf der Leinwand.",
+      "colorNames": ["Altrosa", "Anthrazit", "Terrakotta", "Rauchblau", "Olivgrün", "Mauve", "Lavendel", "Petrol"]
     },
     "details": {
       "title": "Die Eckdaten der Feier",

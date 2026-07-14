@@ -4,6 +4,7 @@ import {useState, type MouseEvent} from 'react'
 import {hasLocale, useLocale, useTranslations} from 'next-intl'
 import {Menu, X} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
+import {CommonLogo} from '@/components/common/CommonLogo'
 import {CommonSelect} from '@/components/common/CommonSelect'
 import {Link, usePathname, useRouter} from '@/i18n/navigation'
 import {routing} from '@/i18n/routing'
@@ -60,7 +61,7 @@ export function GlobalHeader() {
       <div className={styles.bar}>
         <div className={styles.left}>
           <Link href="/" className={styles.logo} onClick={() => setOpen(false)}>
-            TwoSoles
+            <CommonLogo className={styles.logoImg} />
           </Link>
 
           <nav className={styles.navDesktop} aria-label={t('ariaPrimary')}>

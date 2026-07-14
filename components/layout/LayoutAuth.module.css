@@ -69,12 +69,18 @@
 
 .logoWhite {
   align-self: flex-start;
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-weight: var(--font-weight-bold);
-  font-size: 28px;
   color: inherit;
   text-decoration: none;
+}
+
+.logoSvg {
+  display: block;
+  width: 110px;
+  height: auto;
+
+  @media (--bp-medium-up) {
+    width: 130px;
+  }
 }
 
 .testimonial {
@@ -143,10 +149,6 @@
 
 .logoMobile {
   align-self: flex-start;
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-weight: var(--font-weight-bold);
-  font-size: 28px;
   color: var(--color-primary);
   text-decoration: none;
 
