@@ -23,6 +23,7 @@ export async function LayoutLegal({page}: LayoutLegalProps) {
   const t = await getTranslations('legal')
   const sections = t.raw(`${page}.sections`) as LegalSection[]
   const hasIntro = t.has(`${page}.intro`)
+  const hasNote = t.has(`${page}.note`)
 
   // Show the chrome that matches the visitor's state: the app header (with the
   // account menu) when signed in, the marketing header otherwise — so a logged-in
@@ -41,7 +42,7 @@ export async function LayoutLegal({page}: LayoutLegalProps) {
             </p>
           </header>
 
-          <p className={styles.note}>{t('placeholderNote')}</p>
+          {hasNote ? <p className={styles.note}>{t(`${page}.note`)}</p> : null}
 
           {hasIntro ? <p className={styles.intro}>{t(`${page}.intro`)}</p> : null}
 

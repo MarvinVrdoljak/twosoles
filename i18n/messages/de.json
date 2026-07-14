@@ -410,123 +410,158 @@
   "legal": {
     "updatedLabel": "Stand",
     "updated": "Juli 2026",
-    "placeholderNote": "Hinweis: Dies ist eine unverbindliche Vorlage mit Platzhaltern. Ersetze alle in eckigen Klammern markierten Angaben durch deine eigenen Daten und lass die Texte vor der Veröffentlichung rechtlich prüfen.",
     "imprint": {
       "title": "Impressum",
       "metaTitle": "Impressum",
-      "metaDescription": "Anbieterkennzeichnung und rechtliche Angaben zu TwoSoles.",
+      "metaDescription": "Anbieter und Kontaktangaben zu TwoSoles.",
       "sections": [
         {
-          "heading": "Angaben gemäß § 5 DDG",
-          "body": "[Name des Anbieters / Firmenname]\n[Straße und Hausnummer]\n[PLZ und Ort]\n[Land]"
-        },
-        {
-          "heading": "Vertreten durch",
-          "body": "[Name der vertretungsberechtigten Person(en)]"
+          "heading": "Anbieter",
+          "body": "Diese Website und das Angebot TwoSoles werden betrieben von:\nMarvin Vrdoljak\nGrimselstrasse 30\n8048 Zürich\nSchweiz"
         },
         {
           "heading": "Kontakt",
-          "body": "Telefon: [Telefonnummer]\nE-Mail: [E-Mail-Adresse]"
+          "body": "E-Mail: hallo@twosoles.app"
         },
         {
-          "heading": "Umsatzsteuer-ID",
-          "body": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:\n[USt-IdNr., sofern vorhanden]"
+          "heading": "Rechtsform und Register",
+          "body": "TwoSoles wird als Einzelunternehmen von Marvin Vrdoljak geführt. Das Unternehmen ist nicht im Handelsregister eingetragen und nicht mehrwertsteuerpflichtig. Daher werden keine Unternehmens-Identifikationsnummer (UID) und keine Mehrwertsteuernummer ausgewiesen."
         },
         {
-          "heading": "Redaktionell verantwortlich",
-          "body": "[Name und Anschrift der verantwortlichen Person]"
+          "heading": "Zahlungsabwicklung",
+          "body": "Kostenpflichtige Buchungen werden über den Zahlungsdienstleister Stripe abgewickelt. Stripe tritt dabei als Merchant of Record auf, wickelt die Zahlung also als verantwortlicher Vertragspartner ab und übernimmt die Berechnung und Abführung allfälliger Steuern. Einzelheiten findest du in unserer Datenschutzerklärung und in den AGB."
         },
         {
           "heading": "Haftung für Inhalte",
-          "body": "Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen."
+          "body": "Die Inhalte dieser Website werden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen. Die Nutzung der Inhalte erfolgt auf eigene Verantwortung."
         },
         {
           "heading": "Haftung für Links",
-          "body": "Unser Angebot enthält gegebenenfalls Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich."
+          "body": "Unser Angebot enthält gegebenenfalls Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich."
         },
         {
           "heading": "Urheberrecht",
-          "body": "Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet."
+          "body": "Die auf dieser Website veröffentlichten Inhalte und Werke unterliegen dem schweizerischen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung des Anbieters."
         }
       ]
     },
     "privacy": {
       "title": "Datenschutzerklärung",
       "metaTitle": "Datenschutzerklärung",
-      "metaDescription": "Wie TwoSoles personenbezogene Daten verarbeitet: transparent erklärt, welche Daten wir erheben und wozu.",
-      "intro": "Der Schutz deiner personenbezogenen Daten ist uns wichtig. Nachfolgend informieren wir dich darüber, welche Daten wir bei der Nutzung von TwoSoles verarbeiten und wozu.",
+      "metaDescription": "Wie TwoSoles personenbezogene Daten verarbeitet: transparent erklärt, welche Daten wir erheben, wozu und mit welchen Diensten.",
+      "intro": "Der Schutz deiner personenbezogenen Daten ist uns wichtig. Nachfolgend erklären wir, welche Daten wir bei der Nutzung von TwoSoles verarbeiten, zu welchen Zwecken und auf welcher Grundlage. Grundlage ist das schweizerische Datenschutzgesetz (revDSG). Für Nutzerinnen und Nutzer in der EU und im EWR gilt zusätzlich die Datenschutz-Grundverordnung (DSGVO), die dir die weiter unten genannten Rechte gewährt.",
       "sections": [
         {
           "heading": "Verantwortlicher",
-          "body": "Verantwortlich für die Datenverarbeitung ist:\n[Name / Firmenname]\n[Anschrift]\nE-Mail: [E-Mail-Adresse]"
+          "body": "Verantwortlich für die Datenverarbeitung ist:\nMarvin Vrdoljak\nGrimselstrasse 30\n8048 Zürich\nSchweiz\nE-Mail: hallo@twosoles.app"
         },
         {
           "heading": "Welche Daten wir verarbeiten",
-          "body": "Kontodaten: E-Mail-Adresse und Name, die du bei der Registrierung angibst.\nEvent- und Spieldaten: die von dir angelegten Fragen sowie die anonym abgegebenen Stimmen deiner Gäste.\nTechnische Daten: Server-Logdaten wie IP-Adresse sowie Datum und Uhrzeit des Zugriffs, die aus technischen Gründen verarbeitet werden."
+          "body": "Kontodaten: die E-Mail-Adresse und der Name, die du bei der Registrierung angibst.\nEvent- und Spieldaten: die von dir angelegten Fragen, hochgeladene Fotos des Paares sowie die anonym abgegebenen Stimmen deiner Gäste. Es wird nicht gespeichert, welcher Gast wie abgestimmt hat.\nKontaktdaten: die Angaben, die du in unserem Kontaktformular machst (Name, E-Mail-Adresse, optional Hochzeitsdatum und Gästezahl sowie deine Nachricht).\nZahlungsdaten: bei einer kostenpflichtigen Buchung die zur Zahlung erforderlichen Daten, die direkt über unseren Zahlungsdienstleister verarbeitet werden. Wir erhalten keine vollständigen Zahlungsdaten.\nTechnische Daten: Server-Logdaten wie IP-Adresse, Datum und Uhrzeit des Zugriffs sowie Angaben zum verwendeten Browser, die aus technischen Gründen anfallen.\nNutzungsdaten: aggregierte, anonyme Statistiken zur Nutzung der Website (siehe Abschnitt zur Reichweitenmessung)."
         },
         {
           "heading": "Zwecke und Rechtsgrundlagen",
-          "body": "Wir verarbeiten deine Daten zur Bereitstellung des Dienstes und zur Erfüllung unseres Vertrags mit dir (Art. 6 Abs. 1 lit. b DSGVO), zur Gewährleistung eines sicheren Betriebs auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) sowie, soweit erforderlich, auf Grundlage deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)."
+          "body": "Wir verarbeiten deine Daten, um den Dienst bereitzustellen und unseren Vertrag mit dir zu erfüllen (Art. 6 Abs. 1 lit. b DSGVO), um einen sicheren und stabilen Betrieb sowie die Beantwortung von Anfragen auf Grundlage unseres berechtigten Interesses zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO) und, soweit erforderlich, auf Grundlage deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Nach schweizerischem Recht stützen wir die Verarbeitung auf die Vertragserfüllung, unser überwiegendes berechtigtes Interesse sowie, wo nötig, deine Einwilligung."
+        },
+        {
+          "heading": "Cookies und lokale Speicherung",
+          "body": "Wir verwenden ausschließlich technisch notwendige Cookies und vergleichbare Speichertechniken, etwa zur Speicherung deiner Anmeldung, deiner Sprachauswahl und des Host-Zugangs während eines Spiels. Diese sind für den Betrieb erforderlich und bedürfen keiner Einwilligung. Tracking- oder Werbe-Cookies setzen wir nicht ein."
+        },
+        {
+          "heading": "Reichweitenmessung",
+          "body": "Zur Verbesserung unseres Angebots nutzen wir Vercel Analytics und Vercel Speed Insights. Diese Dienste erfassen aggregierte, anonyme Informationen zur Nutzung und zur Ladeleistung der Website, etwa aufgerufene Seiten und technische Leistungswerte. Sie arbeiten ohne Cookies, erstellen keine geräteübergreifenden Profile und geben die Daten nicht zu Werbezwecken weiter."
         },
         {
           "heading": "Eingesetzte Dienste",
-          "body": "Hosting: [Vercel Inc., USA].\nAuthentifizierung und Datenbank: [Supabase].\nZahlungsabwicklung: [Stripe]. Bei einer kostenpflichtigen Buchung werden die zur Zahlung erforderlichen Daten an den Zahlungsdienstleister übermittelt. Mit allen Dienstleistern bestehen, soweit erforderlich, Verträge zur Auftragsverarbeitung."
+          "body": "Für den Betrieb setzen wir sorgfältig ausgewählte Dienstleister ein, die Daten in unserem Auftrag verarbeiten:\nHosting und Reichweitenmessung: Vercel Inc., USA.\nDatenbank, Authentifizierung, Echtzeit-Synchronisation und Foto-Speicher: Supabase, mit Serverstandort in der Europäischen Union (Frankfurt).\nAnmeldung mit Google (optional): Google Ireland Limited. Dieser Datenaustausch findet nur statt, wenn du dich für den Login mit Google entscheidest.\nZahlungsabwicklung: Stripe. Stripe tritt als Merchant of Record auf und verarbeitet die Zahlungsdaten eigenverantwortlich, einschließlich der Steuerabwicklung.\nKontaktformular: Web3Forms, das die über das Formular gesendeten Angaben verarbeitet und uns als E-Mail zustellt.\nMit den Dienstleistern bestehen, soweit erforderlich, Verträge zur Auftragsverarbeitung."
         },
         {
-          "heading": "Cookies",
-          "body": "Wir verwenden ausschließlich technisch notwendige Cookies, etwa zur Speicherung deiner Anmeldung und deiner Sprachauswahl. Diese sind für den Betrieb erforderlich und bedürfen keiner Einwilligung."
+          "heading": "Datenübermittlung ins Ausland",
+          "body": "Ein Teil der genannten Dienstleister verarbeitet Daten außerhalb der Schweiz, insbesondere in der Europäischen Union und in den USA. Erfolgt eine Übermittlung in ein Land ohne gleichwertiges Datenschutzniveau, sorgen wir für geeignete Garantien, etwa Standardvertragsklauseln, um deine Daten angemessen zu schützen."
         },
         {
           "heading": "Speicherdauer",
-          "body": "Wir speichern deine Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen dies vorsehen. Anschließend werden die Daten gelöscht."
+          "body": "Wir speichern deine Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen dies vorsehen. Kontodaten und Event-Daten werden gespeichert, solange dein Konto besteht. Löschst du dein Konto oder ein Event, werden die zugehörigen Daten entfernt. Anschließend werden die Daten gelöscht oder anonymisiert."
         },
         {
           "heading": "Deine Rechte",
-          "body": "Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten sowie auf Datenübertragbarkeit und Widerspruch. Zudem steht dir ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu."
+          "body": "Du hast das Recht auf Auskunft über die zu deiner Person bearbeiteten Daten sowie auf Berichtigung, Löschung und Einschränkung der Bearbeitung. Zudem stehen dir das Recht auf Datenübertragbarkeit und ein Widerspruchsrecht zu, und eine erteilte Einwilligung kannst du jederzeit mit Wirkung für die Zukunft widerrufen. Wende dich dazu einfach an die oben genannte Kontaktadresse. Du hast außerdem das Recht, dich bei einer Aufsichtsbehörde zu beschweren. In der Schweiz ist dies der Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (EDÖB), in der EU die für dich zuständige Datenschutzbehörde."
+        },
+        {
+          "heading": "Datensicherheit",
+          "body": "Wir treffen angemessene technische und organisatorische Maßnahmen, um deine Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen. Die Übertragung erfolgt verschlüsselt über gesicherte Verbindungen (HTTPS)."
+        },
+        {
+          "heading": "Automatisierte Entscheidungsfindung",
+          "body": "Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne der DSGVO findet nicht statt."
         },
         {
           "heading": "Kontakt zum Datenschutz",
-          "body": "Bei Fragen zum Datenschutz erreichst du uns unter: [E-Mail-Adresse]."
+          "body": "Bei Fragen zum Datenschutz oder zur Wahrnehmung deiner Rechte erreichst du uns unter: hallo@twosoles.app."
+        },
+        {
+          "heading": "Änderungen dieser Datenschutzerklärung",
+          "body": "Wir können diese Datenschutzerklärung anpassen, etwa bei Änderungen unseres Angebots oder der Rechtslage. Es gilt jeweils die auf dieser Seite veröffentlichte aktuelle Fassung."
         }
       ]
     },
     "terms": {
       "title": "Allgemeine Geschäftsbedingungen",
       "metaTitle": "AGB",
-      "metaDescription": "Die Allgemeinen Geschäftsbedingungen für die Nutzung des TwoSoles-Dienstes.",
-      "intro": "Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Nutzung des Dienstes TwoSoles.",
+      "metaDescription": "Die Allgemeinen Geschäftsbedingungen für die Nutzung von TwoSoles.",
+      "intro": "Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Nutzung des Dienstes TwoSoles, angeboten von Marvin Vrdoljak. Bitte lies sie aufmerksam durch.",
       "sections": [
         {
-          "heading": "§ 1 Geltungsbereich",
-          "body": "Diese AGB gelten für die Nutzung der über TwoSoles bereitgestellten Online-Dienste durch Verbraucher und Unternehmer. Abweichende Bedingungen des Nutzers werden nicht anerkannt, es sei denn, ihrer Geltung wird ausdrücklich zugestimmt."
+          "heading": "§ 1 Geltungsbereich und Anbieter",
+          "body": "Diese AGB gelten für die Nutzung des unter TwoSoles bereitgestellten Online-Dienstes. Anbieter ist Marvin Vrdoljak, Grimselstrasse 30, 8048 Zürich, Schweiz (nachfolgend „Anbieter“). Mit der Registrierung und der Nutzung des Dienstes erklärst du dich mit diesen AGB einverstanden. Abweichende Bedingungen erkennen wir nicht an, sofern wir ihnen nicht ausdrücklich zustimmen."
         },
         {
           "heading": "§ 2 Leistungsbeschreibung",
-          "body": "TwoSoles ist eine digitale Version des Hochzeits-Schuhspiels. Der Anbieter stellt eine Anwendung bereit, mit der Gäste per QR-Code live abstimmen und mit der die Ergebnisse präsentiert werden können. Der konkrete Funktionsumfang richtet sich nach der gewählten Paketgröße."
+          "body": "TwoSoles ist eine digitale Version des Hochzeits-Schuhspiels. Der Anbieter stellt eine Webanwendung bereit, mit der Gäste per QR-Code live abstimmen und mit der die Ergebnisse auf einem Bildschirm präsentiert werden. Der konkrete Funktionsumfang, insbesondere die Zahl der gleichzeitig teilnehmenden Gäste, richtet sich nach dem gewählten Paket. Der Anbieter entwickelt den Dienst laufend weiter und kann einzelne Funktionen anpassen, sofern der wesentliche Leistungsinhalt erhalten bleibt."
         },
         {
-          "heading": "§ 3 Registrierung und Vertragsschluss",
-          "body": "Zur Nutzung ist ein Konto erforderlich. Die Anmeldung erfolgt passwortlos über einen per E-Mail zugesandten Anmeldelink. Der Vertrag über ein kostenpflichtiges Paket kommt mit der Bestätigung der Buchung zustande."
+          "heading": "§ 3 Registrierung und Konto",
+          "body": "Für die Nutzung ist ein kostenloses Konto erforderlich. Die Anmeldung erfolgt passwortlos über einen per E-Mail zugesandten Anmeldelink oder über einen unterstützten Drittanbieter-Login. Du bist verpflichtet, wahrheitsgemäße Angaben zu machen und deine Zugangsdaten vertraulich zu behandeln. Der Dienst richtet sich an Personen, die das 18. Lebensjahr vollendet haben und voll handlungsfähig sind. Du kannst dein Konto jederzeit in den Kontoeinstellungen löschen; die zugehörigen Daten werden dabei entfernt."
         },
         {
-          "heading": "§ 4 Preise und Zahlung",
-          "body": "Die Nutzung erfolgt als einmalige Zahlung pro Event; der Preis richtet sich nach der gebuchten Gästekapazität. Kleine Veranstaltungen sind kostenlos. Die Zahlung wird über unseren Zahlungsdienstleister abgewickelt. Alle Preise verstehen sich inklusive der gesetzlichen Umsatzsteuer."
+          "heading": "§ 4 Vertragsschluss",
+          "body": "Die Darstellung der Pakete im Dienst ist eine Aufforderung zur Abgabe eines Angebots. Durch das Anlegen eines kostenlosen Events sowie durch die Bestätigung einer kostenpflichtigen Buchung gibst du ein verbindliches Angebot ab. Der Vertrag über die Nutzung des Dienstes kommt zwischen dir und dem Anbieter zustande, sobald das Event angelegt beziehungsweise die Buchung bestätigt ist."
         },
         {
-          "heading": "§ 5 Widerrufsrecht",
-          "body": "Verbrauchern steht grundsätzlich ein gesetzliches Widerrufsrecht zu. Bei digitalen Inhalten kann dieses vorzeitig erlöschen, wenn die Ausführung mit ausdrücklicher Zustimmung des Verbrauchers vor Ablauf der Widerrufsfrist begonnen hat. [Widerrufsbelehrung ergänzen.]"
+          "heading": "§ 5 Preise, Zahlung und Steuern",
+          "body": "Die Nutzung erfolgt als einmalige Zahlung pro Event. Der Preis richtet sich nach der gebuchten Gästekapazität; kleine Veranstaltungen bis zehn Gäste sind kostenlos. Alle Preise verstehen sich inklusive allfälliger Steuern.\nDie Zahlungsabwicklung erfolgt über Stripe. Stripe tritt dabei als Merchant of Record auf, das heißt, Stripe wickelt die Bezahlung als verantwortlicher Vertragspartner für die Zahlung ab, stellt die Zahlungsbestätigung aus und übernimmt die Berechnung und Abführung allfälliger Steuern. Für die Zahlung können ergänzend die Bedingungen von Stripe gelten. Die zur Zahlung erforderlichen Daten werden direkt an Stripe übermittelt; der Anbieter erhält keine vollständigen Zahlungsdaten.\nEin Upgrade auf ein größeres Paket ist jederzeit möglich; dabei wird nur die Differenz zum bereits bezahlten Paket berechnet."
         },
         {
-          "heading": "§ 6 Verfügbarkeit",
-          "body": "Der Anbieter bemüht sich um eine möglichst unterbrechungsfreie Verfügbarkeit des Dienstes, schuldet diese aber nicht ununterbrochen. Wartungsarbeiten, technische Störungen oder höhere Gewalt können zu Einschränkungen führen."
+          "heading": "§ 6 Bereitstellung und Spielzeitraum",
+          "body": "Nach dem Anlegen kannst du dein Event zeitlich unbegrenzt vorbereiten, bearbeiten und testen. Sobald du das Event bewusst live schaltest, beginnt der Spielzeitraum von 48 Stunden, innerhalb dessen das Spiel gespielt werden kann. Jedes Event kann nur einmal live geschaltet werden. Nach Ablauf der 48 Stunden ist die Spielrunde beendet; die gespeicherten Ergebnisse bleiben im Konto abrufbar."
         },
         {
-          "heading": "§ 7 Haftung",
-          "body": "Der Anbieter haftet unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie nach dem Produkthaftungsgesetz. Bei einfacher Fahrlässigkeit haftet der Anbieter nur bei Verletzung einer wesentlichen Vertragspflicht und begrenzt auf den vertragstypischen, vorhersehbaren Schaden."
+          "heading": "§ 7 Widerruf und Rückerstattung",
+          "body": "Bei Online-Verträgen besteht nach schweizerischem Recht kein gesetzliches Widerrufs- oder Rückgaberecht. Unabhängig davon gilt: Solange ein kostenpflichtiges Event noch nicht live geschaltet und damit noch nicht genutzt wurde, kannst du dich an den Anbieter wenden, der dir kulanzhalber eine Erstattung anbietet. Mit dem Live-Schalten gilt die Leistung als sofort und vollständig bereitgestellte digitale Leistung, für die eine Erstattung ausgeschlossen ist. Wir empfehlen, den Dienst zuvor im kostenlosen Paket zu testen."
         },
         {
-          "heading": "§ 8 Schlussbestimmungen",
-          "body": "Es gilt das Recht der Bundesrepublik Deutschland. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt."
+          "heading": "§ 8 Pflichten der Nutzer und Inhalte",
+          "body": "Du bist für die von dir erstellten Inhalte, insbesondere eigene Fragen und hochgeladene Fotos, selbst verantwortlich und sicherst zu, dass du über die erforderlichen Rechte verfügst und keine Rechte Dritter verletzt. Du verpflichtest dich, den Dienst nicht missbräuchlich zu nutzen und insbesondere keine rechtswidrigen, beleidigenden oder verletzenden Inhalte einzustellen. Der Anbieter kann bei Verstößen den Zugang sperren. Du räumst dem Anbieter das einfache, auf die Vertragsdauer beschränkte Recht ein, deine Inhalte zu speichern und im Rahmen des Dienstes anzuzeigen, soweit dies für die Bereitstellung erforderlich ist. Alle Rechte an der Software, der Marke und den eigenen Inhalten des Anbieters verbleiben beim Anbieter."
+        },
+        {
+          "heading": "§ 9 Verfügbarkeit",
+          "body": "Der Anbieter bemüht sich um eine möglichst unterbrechungsfreie Verfügbarkeit des Dienstes, schuldet diese aber nicht ununterbrochen. Wartungsarbeiten, technische Störungen, Abhängigkeiten von Dritten sowie höhere Gewalt können zu vorübergehenden Einschränkungen führen. Für die Teilnahme ist zudem eine funktionierende Internetverbindung der beteiligten Geräte erforderlich, die nicht im Einflussbereich des Anbieters liegt."
+        },
+        {
+          "heading": "§ 10 Haftung",
+          "body": "Der Anbieter haftet unbeschränkt für Schäden, die vorsätzlich oder grob fahrlässig verursacht werden. Bei leichter Fahrlässigkeit haftet der Anbieter nur für die Verletzung wesentlicher Vertragspflichten und beschränkt auf den vertragstypischen, vorhersehbaren Schaden. Eine weitergehende Haftung ist im gesetzlich zulässigen Rahmen ausgeschlossen. Zwingende gesetzliche Haftungsbestimmungen bleiben unberührt."
+        },
+        {
+          "heading": "§ 11 Datenschutz",
+          "body": "Informationen zur Verarbeitung personenbezogener Daten findest du in unserer Datenschutzerklärung."
+        },
+        {
+          "heading": "§ 12 Änderungen dieser AGB",
+          "body": "Der Anbieter kann diese AGB anpassen, etwa bei Änderungen des Dienstes oder der Rechtslage. Über wesentliche Änderungen wird in geeigneter Weise informiert. Für bereits abgeschlossene Buchungen gilt die zum Zeitpunkt der Buchung gültige Fassung."
+        },
+        {
+          "heading": "§ 13 Anwendbares Recht und Gerichtsstand",
+          "body": "Es gilt schweizerisches Recht unter Ausschluss der Kollisionsnormen und des UN-Kaufrechts. Gerichtsstand ist Zürich, soweit keine zwingenden gesetzlichen Gerichtsstände entgegenstehen. Für Konsumentinnen und Konsumenten bleibt der zwingende Gerichtsstand an ihrem Wohnsitz vorbehalten. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt."
         }
       ]
     }

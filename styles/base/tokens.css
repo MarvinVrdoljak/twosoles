@@ -33,8 +33,8 @@
   /* Font sizes — fluid via clamp; grows from ~390px and hits the Figma value exactly at 1440px */
   --font-size-xs: clamp(11px, 0.66rem + 0.1vw, 12px);
   --font-size-sm: clamp(12px, 0.704rem + 0.19vw, 14px);
-  --font-size-base: clamp(14px, 0.829rem + 0.19vw, 18px);
-  --font-size-lg: clamp(17px, 0.989rem + 0.29vw, 22px);
+  --font-size-base: clamp(16px, 0.829rem + 0.19vw, 18px);
+  --font-size-lg: clamp(18px, 0.989rem + 0.29vw, 22px);
   --font-size-h1: clamp(40px, 1.939rem + 2.29vw, 64px);
   --font-size-h1-small: clamp(30px, 1.737rem + 0.57vw, 36px);
   --font-size-h2: clamp(36px, 1.827rem + 1.72vw, 54px);

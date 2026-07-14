@@ -410,123 +410,158 @@
   "legal": {
     "updatedLabel": "Last updated",
     "updated": "July 2026",
-    "placeholderNote": "Note: this is a non-binding template with placeholders. Replace everything marked in square brackets with your own details and have the texts reviewed by a lawyer before publishing.",
     "imprint": {
       "title": "Imprint",
       "metaTitle": "Imprint",
-      "metaDescription": "Provider identification and legal information about TwoSoles.",
+      "metaDescription": "Provider and contact details for TwoSoles.",
       "sections": [
         {
-          "heading": "Provider information",
-          "body": "[Provider / company name]\n[Street and number]\n[Postal code and city]\n[Country]"
-        },
-        {
-          "heading": "Represented by",
-          "body": "[Name of the authorised representative(s)]"
+          "heading": "Provider",
+          "body": "This website and the TwoSoles service are operated by:\nMarvin Vrdoljak\nGrimselstrasse 30\n8048 Zürich\nSwitzerland"
         },
         {
           "heading": "Contact",
-          "body": "Phone: [phone number]\nEmail: [email address]"
+          "body": "Email: hallo@twosoles.app"
         },
         {
-          "heading": "VAT ID",
-          "body": "VAT identification number:\n[VAT ID, if applicable]"
+          "heading": "Legal form and registration",
+          "body": "TwoSoles is run as a sole proprietorship by Marvin Vrdoljak. The business is not entered in the commercial register and is not registered for VAT. For that reason, no company identification number (UID) and no VAT number are shown."
         },
         {
-          "heading": "Responsible for content",
-          "body": "[Name and address of the responsible person]"
+          "heading": "Payment processing",
+          "body": "Paid bookings are handled through the payment provider Stripe. Stripe acts as the merchant of record, meaning it processes the payment as the responsible contracting party and takes care of calculating and remitting any applicable taxes. You can find the details in our privacy policy and terms."
         },
         {
           "heading": "Liability for content",
-          "body": "As a service provider, we are responsible for our own content on these pages in accordance with general law. However, we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity."
+          "body": "The content of this website is created with the greatest possible care. However, no guarantee is given for the accuracy, completeness or timeliness of the content. Use of the content is at your own risk."
         },
         {
           "heading": "Liability for links",
-          "body": "Our offer may contain links to external third-party websites over whose content we have no influence. The respective provider or operator of the linked pages is always responsible for their content."
+          "body": "Our offer may contain links to external third-party websites over whose content we have no influence. The respective provider or operator of the pages is always responsible for that third-party content."
         },
         {
           "heading": "Copyright",
-          "body": "The content and works created by the site operator on these pages are subject to copyright law. Contributions by third parties are marked as such."
+          "body": "The content and works published on this website are subject to Swiss copyright law. Reproduction, editing, distribution and any kind of use beyond the limits of copyright require the prior written consent of the provider."
         }
       ]
     },
     "privacy": {
       "title": "Privacy Policy",
       "metaTitle": "Privacy Policy",
-      "metaDescription": "How TwoSoles processes personal data: a transparent overview of what we collect and why.",
-      "intro": "Protecting your personal data matters to us. Below we explain which data we process when you use TwoSoles, and why.",
+      "metaDescription": "How TwoSoles processes personal data: a transparent overview of what we collect, why and with which services.",
+      "intro": "Protecting your personal data matters to us. Below we explain which data we process when you use TwoSoles, for what purposes and on what basis. The basis is the Swiss Data Protection Act (revDSG). For users in the EU and EEA, the General Data Protection Regulation (GDPR) additionally applies and grants you the rights set out below.",
       "sections": [
         {
           "heading": "Controller",
-          "body": "The controller responsible for data processing is:\n[Name / company name]\n[Address]\nEmail: [email address]"
+          "body": "The controller responsible for data processing is:\nMarvin Vrdoljak\nGrimselstrasse 30\n8048 Zürich\nSwitzerland\nEmail: hallo@twosoles.app"
         },
         {
           "heading": "What data we process",
-          "body": "Account data: the email address and name you provide when registering.\nEvent and game data: the questions you create and the anonymous votes cast by your guests.\nTechnical data: server log data such as IP address and the date and time of access, processed for technical reasons."
+          "body": "Account data: the email address and name you provide when registering.\nEvent and game data: the questions you create, uploaded photos of the couple and the anonymous votes cast by your guests. It is not stored which guest voted for what.\nContact data: the details you enter in our contact form (name, email address, optionally the wedding date and guest count, and your message).\nPayment data: for paid bookings, the data required for payment, which is processed directly by our payment provider. We do not receive complete payment data.\nTechnical data: server log data such as IP address, date and time of access and details of the browser used, which arise for technical reasons.\nUsage data: aggregated, anonymous statistics on the use of the website (see the section on audience measurement)."
         },
         {
           "heading": "Purposes and legal bases",
-          "body": "We process your data to provide the service and to perform our contract with you (Art. 6(1)(b) GDPR), to ensure secure operation based on our legitimate interest (Art. 6(1)(f) GDPR) and, where required, based on your consent (Art. 6(1)(a) GDPR)."
+          "body": "We process your data to provide the service and to perform our contract with you (Art. 6(1)(b) GDPR), to ensure secure and stable operation and to respond to enquiries based on our legitimate interest (Art. 6(1)(f) GDPR) and, where required, based on your consent (Art. 6(1)(a) GDPR). Under Swiss law, we base the processing on contract performance, our overriding legitimate interest and, where necessary, your consent."
+        },
+        {
+          "heading": "Cookies and local storage",
+          "body": "We only use technically necessary cookies and similar storage techniques, for example to store your login, your language choice and host access during a game. These are required for operation and do not require consent. We do not use tracking or advertising cookies."
+        },
+        {
+          "heading": "Audience measurement",
+          "body": "To improve our service we use Vercel Analytics and Vercel Speed Insights. These services collect aggregated, anonymous information on the use and loading performance of the website, such as pages viewed and technical performance values. They work without cookies, do not create cross-device profiles and do not pass the data on for advertising purposes."
         },
         {
           "heading": "Services we use",
-          "body": "Hosting: [Vercel Inc., USA].\nAuthentication and database: [Supabase].\nPayment processing: [Stripe]. For paid bookings, the data required for payment is transmitted to the payment provider. Where required, data processing agreements are in place with all providers."
+          "body": "For operation we use carefully selected service providers who process data on our behalf:\nHosting and audience measurement: Vercel Inc., USA.\nDatabase, authentication, real-time synchronisation and photo storage: Supabase, with servers located in the European Union (Frankfurt).\nSign in with Google (optional): Google Ireland Limited. This data exchange only takes place if you choose to log in with Google.\nPayment processing: Stripe. Stripe acts as the merchant of record and processes the payment data on its own responsibility, including tax handling.\nContact form: Web3Forms, which processes the details sent through the form and delivers them to us by email.\nWhere required, data processing agreements are in place with these providers."
         },
         {
-          "heading": "Cookies",
-          "body": "We only use technically necessary cookies, for example to store your login and your language choice. These are required for operation and do not require consent."
+          "heading": "International data transfers",
+          "body": "Some of the providers named process data outside Switzerland, in particular in the European Union and the USA. Where data is transferred to a country without an equivalent level of data protection, we ensure appropriate safeguards, such as standard contractual clauses, to protect your data adequately."
         },
         {
           "heading": "Retention period",
-          "body": "We store your data only for as long as necessary for the stated purposes or as required by statutory retention periods. Afterwards the data is deleted."
+          "body": "We store your data only for as long as necessary for the stated purposes or as required by statutory retention periods. Account and event data are stored for as long as your account exists. If you delete your account or an event, the associated data is removed. Afterwards the data is deleted or anonymised."
         },
         {
           "heading": "Your rights",
-          "body": "You have the right to access, rectification, erasure and restriction of processing of your data, as well as to data portability and objection. You also have the right to lodge a complaint with a data protection supervisory authority."
+          "body": "You have the right to access the data processed about you, as well as to rectification, erasure and restriction of processing. You also have the right to data portability and a right to object, and you can withdraw any consent given at any time with effect for the future. To do so, simply contact the address above. You also have the right to lodge a complaint with a supervisory authority. In Switzerland this is the Federal Data Protection and Information Commissioner (FDPIC), and in the EU the data protection authority responsible for you."
+        },
+        {
+          "heading": "Data security",
+          "body": "We take appropriate technical and organisational measures to protect your data against unauthorised access, loss or misuse. Data is transmitted in encrypted form over secure connections (HTTPS)."
+        },
+        {
+          "heading": "Automated decision-making",
+          "body": "We do not carry out automated decision-making, including profiling, within the meaning of the GDPR."
         },
         {
           "heading": "Data protection contact",
-          "body": "If you have any questions about data protection, you can reach us at: [email address]."
+          "body": "If you have any questions about data protection or wish to exercise your rights, you can reach us at: hallo@twosoles.app."
+        },
+        {
+          "heading": "Changes to this privacy policy",
+          "body": "We may amend this privacy policy, for example in the event of changes to our service or the legal situation. The current version published on this page always applies."
         }
       ]
     },
     "terms": {
       "title": "Terms & Conditions",
       "metaTitle": "Terms & Conditions",
-      "metaDescription": "The terms and conditions governing the use of the TwoSoles service.",
-      "intro": "These Terms & Conditions govern the use of the TwoSoles service.",
+      "metaDescription": "The terms and conditions governing the use of TwoSoles.",
+      "intro": "These Terms and Conditions govern the use of the TwoSoles service, offered by Marvin Vrdoljak. Please read them carefully.",
       "sections": [
         {
-          "heading": "1. Scope",
-          "body": "These terms apply to the use of the online services provided via TwoSoles by consumers and businesses. Conflicting terms of the user are not accepted unless their validity is expressly agreed."
+          "heading": "1. Scope and provider",
+          "body": "These terms apply to the use of the online service provided under TwoSoles. The provider is Marvin Vrdoljak, Grimselstrasse 30, 8048 Zürich, Switzerland (the “provider”). By registering and using the service you agree to these terms. We do not accept conflicting terms unless we expressly consent to them."
         },
         {
           "heading": "2. Description of services",
-          "body": "TwoSoles is a digital version of the wedding shoe game. The provider offers an application that lets guests vote live via QR code and presents the results. The specific scope of features depends on the chosen package size."
+          "body": "TwoSoles is a digital version of the wedding shoe game. The provider offers a web application that lets guests vote live via QR code and presents the results on a screen. The specific scope of features, in particular the number of guests taking part at the same time, depends on the chosen package. The provider develops the service on an ongoing basis and may adjust individual features, provided the essential service remains intact."
         },
         {
-          "heading": "3. Registration and conclusion of contract",
-          "body": "An account is required to use the service. Sign-in is passwordless via a login link sent by email. A contract for a paid package is concluded upon confirmation of the booking."
+          "heading": "3. Registration and account",
+          "body": "A free account is required to use the service. Sign-in is passwordless via a login link sent by email or via a supported third-party login. You are obliged to provide truthful information and to keep your login credentials confidential. The service is intended for persons who are at least 18 years old and have full legal capacity. You can delete your account at any time in your account settings; the associated data is removed in the process."
         },
         {
-          "heading": "4. Prices and payment",
-          "body": "Use is charged as a one-off payment per event; the price depends on the booked guest capacity. Small events are free. Payment is handled by our payment provider. All prices include statutory VAT."
+          "heading": "4. Conclusion of contract",
+          "body": "The presentation of the packages in the service is an invitation to submit an offer. By creating a free event or by confirming a paid booking, you submit a binding offer. The contract for the use of the service is concluded between you and the provider as soon as the event is created or the booking is confirmed."
         },
         {
-          "heading": "5. Right of withdrawal",
-          "body": "Consumers generally have a statutory right of withdrawal. For digital content, this right may expire early if performance begins, with the consumer's express consent, before the withdrawal period ends. [Add withdrawal instructions.]"
+          "heading": "5. Prices, payment and taxes",
+          "body": "Use is charged as a one-off payment per event. The price depends on the booked guest capacity; small events of up to ten guests are free. All prices include any applicable taxes.\nPayment is processed by Stripe. Stripe acts as the merchant of record, meaning that Stripe handles the payment as the responsible contracting party for the payment, issues the payment confirmation and takes care of calculating and remitting any applicable taxes. Stripe's own terms may additionally apply to the payment. The data required for payment is transmitted directly to Stripe; the provider does not receive complete payment data.\nAn upgrade to a larger package is possible at any time; in that case only the difference to the package already paid for is charged."
         },
         {
-          "heading": "6. Availability",
-          "body": "The provider strives to keep the service available with as little interruption as possible but does not owe uninterrupted availability. Maintenance, technical faults or force majeure may lead to restrictions."
+          "heading": "6. Provision and play window",
+          "body": "After creating it, you can prepare, edit and test your event without any time limit. Once you deliberately set the event live, the 48-hour play window begins, within which the game can be played. Each event can be set live only once. After the 48 hours the round is over; the saved results remain available in your account."
         },
         {
-          "heading": "7. Liability",
-          "body": "The provider is liable without limitation in cases of intent and gross negligence and under applicable product liability law. In the case of slight negligence, the provider is only liable for the breach of an essential contractual obligation and limited to the foreseeable damage typical for the contract."
+          "heading": "7. Withdrawal and refunds",
+          "body": "For online contracts, Swiss law provides no statutory right of withdrawal or return. Regardless of this: as long as a paid event has not yet been set live and therefore has not been used, you can contact the provider, who will offer you a refund as a goodwill gesture. Once the event is set live, the service counts as an immediately and fully provided digital service for which a refund is excluded. We recommend testing the service in the free package beforehand."
         },
         {
-          "heading": "8. Final provisions",
-          "body": "The law of the Federal Republic of Germany applies. Should individual provisions of these terms be invalid, the validity of the remaining provisions remains unaffected."
+          "heading": "8. User obligations and content",
+          "body": "You are responsible for the content you create, in particular your own questions and uploaded photos, and you warrant that you hold the necessary rights and do not infringe the rights of third parties. You undertake not to misuse the service, in particular not to submit unlawful, offensive or harmful content. The provider may block access in the event of violations. You grant the provider the simple, term-limited right to store your content and display it within the service, to the extent necessary to provide it. All rights to the software, the brand and the provider's own content remain with the provider."
+        },
+        {
+          "heading": "9. Availability",
+          "body": "The provider strives to keep the service available with as little interruption as possible but does not owe uninterrupted availability. Maintenance, technical faults, dependencies on third parties and force majeure may lead to temporary restrictions. Taking part also requires a working internet connection on the devices involved, which is outside the provider's control."
+        },
+        {
+          "heading": "10. Liability",
+          "body": "The provider is liable without limitation for damage caused intentionally or through gross negligence. In the case of slight negligence, the provider is only liable for the breach of essential contractual obligations and limited to the foreseeable damage typical for the contract. Any further liability is excluded to the extent permitted by law. Mandatory statutory liability provisions remain unaffected."
+        },
+        {
+          "heading": "11. Data protection",
+          "body": "Information on the processing of personal data can be found in our privacy policy."
+        },
+        {
+          "heading": "12. Changes to these terms",
+          "body": "The provider may amend these terms, for example in the event of changes to the service or the legal situation. You will be informed of material changes in an appropriate manner. For bookings already concluded, the version valid at the time of booking applies."
+        },
+        {
+          "heading": "13. Governing law and place of jurisdiction",
+          "body": "Swiss law applies, excluding its conflict-of-law rules and the UN Convention on Contracts for the International Sale of Goods. The place of jurisdiction is Zürich, unless mandatory statutory places of jurisdiction apply. For consumers, the mandatory place of jurisdiction at their domicile is reserved. Should individual provisions of these terms be invalid, the validity of the remaining provisions remains unaffected."
         }
       ]
     }
