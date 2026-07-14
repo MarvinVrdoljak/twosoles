@@ -399,7 +399,6 @@ export function FormEventDetail({
               draft={draft}
               update={update}
               title={t('detailsTitle')}
-              subtitle={t('detailsSubtitle')}
               footer={readOnly ? undefined : saveButton}
               readOnly={readOnly}
             />
