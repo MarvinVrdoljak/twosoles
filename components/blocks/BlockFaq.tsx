@@ -1,6 +1,6 @@
 import {getTranslations} from 'next-intl/server'
+import {CommonButton} from '@/components/common/CommonButton'
 import {ItemFaq} from '@/components/items/ItemFaq'
-import {Link} from '@/i18n/navigation'
 import styles from './BlockFaq.module.css'
 
 type FaqItem = {
@@ -31,15 +31,11 @@ export async function BlockFaq() {
           ))}
         </div>
 
-        <p className={styles.note}>
-          {t.rich('note', {
-            support: (chunks) => (
-              <Link className={styles.support} href="/contact">
-                {chunks}
-              </Link>
-            ),
-          })}
-        </p>
+        <div className={styles.actions}>
+          <CommonButton href="/faq" variant="primary" size="md">
+            {t('allCta')}
+          </CommonButton>
+        </div>
       </div>
     </section>
   )

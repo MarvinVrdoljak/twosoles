@@ -49,6 +49,16 @@
   line-height: 1.5;
 }
 
+.link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 /* Open state (placed after the base rules for ascending specificity). */
 .open .icon {
   transform: rotate(45deg);

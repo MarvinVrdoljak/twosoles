@@ -120,22 +120,216 @@
     "eyebrow": "FAQ",
     "title": "Kurz <accent>beantwortet</accent>",
     "note": "Keine passende Antwort gefunden? Kontaktiere unseren <support>Support</support>.",
+    "allCta": "Alle FAQ",
     "items": [
       {
-        "question": "Brauchen die Gäste eine App?",
-        "answer": "Nein. Die Gäste scannen den QR-Code und stimmen direkt im Browser ab. Keine Installation, kein Login."
+        "question": "Was ist das Schuhspiel überhaupt und wie funktioniert es?",
+        "answer": "Beim Schuhspiel sitzt das Brautpaar Rücken an Rücken, jede Person hält einen eigenen Schuh und einen Schuh der anderen. Bei jeder Frage nach dem Muster „Wer würde eher …?“ heben beide den Schuh der Person, auf die die Antwort zutrifft. Das Besondere bei TwoSoles: Der ganze Saal tippt vorher per Handy auf eine Antwort, und der Beamer zeigt danach, ob die Mehrheit das Paar richtig eingeschätzt hat."
       },
       {
-        "question": "Was, wenn das WLAN auf der Location schlecht ist?",
-        "answer": "Das Voting läuft über das Mobilfunknetz der Gäste, nicht über das WLAN der Location. Ein paar Balken Empfang genügen."
+        "question": "Wie lange dauert das Spiel ungefähr?",
+        "answer": "Plane etwa 20 bis 25 Minuten für 10 bis 15 Fragen. Das Tempo bestimmst du dabei selbst und kannst jederzeit mehr oder weniger Fragen stellen."
+      },
+      {
+        "question": "Müssen die Gäste etwas herunterladen oder installieren?",
+        "answer": "Nein. Die Gäste scannen den QR-Code mit der Handykamera und stimmen direkt im Browser ab. Keine App, kein Login, keine Anmeldung."
       },
       {
         "question": "Kann ich eigene Fragen hinzufügen?",
-        "answer": "Ja. Du wählst aus unseren Vorlagen oder schreibst beliebig viele eigene Fragen, passend zu eurem Paar."
+        "answer": "Ja, so viele du möchtest. Du kannst aus unserem Fragenkatalog wählen, ein zufälliges Set würfeln oder komplett eigene Fragen schreiben, passend zu eurem Paar."
       },
       {
-        "question": "Wie lange vor der Hochzeit muss ich buchen?",
-        "answer": "Gar nicht im Voraus. Du erstellst dein Event in fünf Minuten, auch noch am Tag der Hochzeit selbst."
+        "question": "Was, wenn das WLAN oder Internet bei der Location schlecht ist?",
+        "answer": "Das Voting läuft über das Mobilfunknetz der Gäste, nicht über das WLAN der Location. Ein paar Balken Empfang genügen. Für das Gerät an der Leinwand reicht in der Regel ebenfalls mobiles Datennetz."
+      },
+      {
+        "question": "Können wir das Spiel vorab testen, bevor wir es live spielen?",
+        "answer": "Unbedingt. Du kannst das komplette Spiel beliebig oft im Testmodus durchspielen und danach wieder zurücksetzen. Erst wenn du das Event bewusst live schaltest, startet der eigentliche Spielzeitraum. Noch besser ist es, den ganzen Ablauf einmal direkt an der Location auszuprobieren, mit echtem Beamer und WLAN, dann sitzt am großen Tag jeder Handgriff."
+      },
+      {
+        "question": "Kann ich das auch für eine andere Feier nutzen (Verlobung, Jubiläum)?",
+        "answer": "Ja. TwoSoles passt zu jeder Feier, bei der es ums Paar geht: Verlobung, Standesamt, Polterabend oder Jubiläum. Beim Anlegen wählst du einfach den passenden Anlass aus."
+      }
+    ]
+  },
+  "faqPage": {
+    "eyebrow": "FAQ",
+    "metaTitle": "Häufige Fragen",
+    "metaDescription": "Alle Antworten rund um TwoSoles: Ablauf des Schuhspiels, Technik, Einrichtung, Preise und Datenschutz. Freundlich und ausführlich erklärt.",
+    "title": "Häufige Fragen",
+    "subtitle": "Alles, was du über das digitale Schuhspiel wissen willst, von der Technik bis zur Bezahlung. Findest du deine Frage nicht, schreib uns einfach.",
+    "contactNote": "Noch etwas offen? Kontaktiere unseren <support>Support</support>, wir helfen dir persönlich weiter.",
+    "categories": [
+      {
+        "heading": "Das Spiel und der Ablauf",
+        "items": [
+          {
+            "question": "Was ist das Schuhspiel überhaupt und wie funktioniert es?",
+            "answer": "Das Schuhspiel ist ein Klassiker auf Hochzeiten. Das Brautpaar sitzt Rücken an Rücken, und jede Person hält einen eigenen Schuh sowie einen Schuh der anderen Person in der Hand. Bei jeder Frage nach dem Muster „Wer würde eher …?“ heben beide gleichzeitig den Schuh der Person, auf die die Antwort zutrifft. Bei TwoSoles kommt der ganze Saal dazu: Alle Gäste tippen vorher auf ihrem Handy auf eine der beiden Antworten. Sobald die Abstimmung geschlossen ist, hebt das Paar die Schuhe, und der Beamer löst auf, wie die Mehrheit im Saal abgestimmt hat. So seht ihr bei jeder Frage, ob das Publikum das Paar richtig eingeschätzt hat. Genau daraus entstehen die schönsten Lacher des Abends."
+          },
+          {
+            "question": "Wie lange dauert das Spiel ungefähr?",
+            "answer": "Rechne mit rund 20 bis 25 Minuten für 10 bis 15 Fragen. Das Tempo bestimmst aber komplett du als Gastgeber: Du eröffnest jede Frage, schließt die Abstimmung, sobald genug Stimmen da sind, und löst dann auf. Wenn ihr mehr Zeit habt, nimmst du einfach mehr Fragen dazu, für eine kürzere Runde entsprechend weniger."
+          },
+          {
+            "question": "Brauchen wir dafür einen Moderator oder läuft das automatisch?",
+            "answer": "Eine Person sollte das Spiel führen, das macht am meisten Spaß. Sie übernimmt die Host-Steuerung auf dem eigenen Handy und öffnet die Fragen, schließt die Abstimmung und löst auf. Ein kurzer Countdown vor jeder Auflösung sorgt automatisch für Spannung, den Ablauf selbst gibst aber du vor. Das kann die Trauzeugin, der Trauzeuge oder jede andere Person sein, die den Abend gerne moderiert. Ein Mikrofon ist schön, aber kein Muss."
+          },
+          {
+            "question": "Gibt es Punkte oder einen Sieger, oder geht es nur um die Fragen?",
+            "answer": "Im Mittelpunkt steht der gemeinsame Moment, nicht ein Highscore. Es gibt keine Rangliste und keinen offiziellen Gewinner. Jeder Gast sieht auf dem eigenen Handy, ob er richtig geraten hat, und auf der Leinwand seht ihr, wie der ganze Saal lag. Das Schöne ist der Vergleich zwischen Publikum und Paar, nicht das Punktesammeln."
+          },
+          {
+            "question": "Wird Ton oder Musik abgespielt, oder ist es lautlos?",
+            "answer": "TwoSoles läuft ohne eigenen Ton. Die Spannung entsteht über die Bilder auf der Leinwand und die Reaktionen im Saal, so kommt sich das Spiel mit eurer Musikanlage oder der Band nie in die Quere. Wenn ihr möchtet, legt ihr während der Auflösung einfach selbst passende Musik auf."
+          },
+          {
+            "question": "Braucht das Brautpaar auch jeweils ein Handy?",
+            "answer": "Nein. Das Paar antwortet ausschließlich mit den Schuhen und braucht kein Handy. Nur die Gäste, die mit abstimmen möchten, nutzen ihr eigenes Handy. Auch die Host-Steuerung liegt bei der moderierenden Person, nicht beim Paar."
+          },
+          {
+            "question": "Können wir das Spiel vorab testen, bevor wir es live spielen?",
+            "answer": "Ja, und das empfehlen wir sogar. Du kannst den kompletten Ablauf beliebig oft durchspielen, mit echten Fragen und allen Ansichten, und das Spiel danach in den Einstellungen wieder zurücksetzen. Erst wenn du das Event bewusst live schaltest, startet der eigentliche Spielzeitraum von 48 Stunden. So könnt ihr in Ruhe üben, ohne etwas zu verbrauchen. Am wertvollsten ist ein Probelauf direkt an der Location: Verbinde das Gerät einmal mit dem echten Beamer, prüfe den Empfang und scanne den QR-Code mit einem Handy. So weißt du schon vorher, dass Technik und Ablauf sitzen."
+          },
+          {
+            "question": "Kann ich das auch für eine andere Feier nutzen (Verlobung, Jubiläum)?",
+            "answer": "Ja, sehr gern. TwoSoles passt zu jeder Feier, bei der ein Paar im Mittelpunkt steht, etwa Verlobung, Standesamt, Polterabend oder Hochzeitstag. Beim Anlegen wählst du den passenden Anlass, der Rest funktioniert genau gleich."
+          }
+        ]
+      },
+      {
+        "heading": "Fragen und Inhalte",
+        "items": [
+          {
+            "question": "Kann ich eigene Fragen hinzufügen?",
+            "answer": "Ja, so viele du willst. Du kannst aus unserem Fragenkatalog auswählen, mit einem Klick ein zufälliges Set von 15 Fragen würfeln oder komplett eigene Fragen schreiben. Gerade die persönlichen Insider-Fragen bringen erfahrungsgemäß die lautesten Lacher, also mische ruhig Klassiker mit eurem eigenen Paar-Wissen."
+          },
+          {
+            "question": "Kann ich die Reihenfolge der Fragen selbst festlegen?",
+            "answer": "Ja. In deinem Frage-Set ordnest du die Fragen ganz einfach per Drag and Drop in die gewünschte Reihenfolge. So baust du zum Beispiel eine kleine Dramaturgie auf und hebst dir die spannendste Frage für den Schluss auf."
+          },
+          {
+            "question": "Kann man Fragen überspringen, wenn eine unangenehm ist?",
+            "answer": "Ja. In der Host-Steuerung siehst du dein ganzes Frage-Set und kannst jederzeit zur nächsten Frage springen oder eine Frage auslassen. Wenn eine Frage im Moment nicht passt, gehst du einfach weiter, ohne dass es jemand merkt."
+          },
+          {
+            "question": "Sind die Fragen jugendfrei, können Kinder und Großeltern zuschauen?",
+            "answer": "Unser Fragenkatalog ist bewusst charmant und familientauglich gehalten, sodass vom Enkel bis zur Oma alle mitfiebern können. Und weil du deine Fragen selbst zusammenstellst, hast du die volle Kontrolle über den Ton des Spiels. Du entscheidest, wie frech oder wie brav euer Set am Ende wird."
+          },
+          {
+            "question": "In welcher Sprache läuft das Spiel?",
+            "answer": "TwoSoles gibt es aktuell auf Deutsch und Englisch. Beim Anlegen des Events wählst du die Spielsprache, in der Leinwand, Host-Steuerung und Gäste-Handys erscheinen. So können auch internationale Gäste problemlos mitspielen."
+          }
+        ]
+      },
+      {
+        "heading": "Technik und Geräte",
+        "items": [
+          {
+            "question": "Müssen die Gäste etwas herunterladen oder installieren?",
+            "answer": "Nein, gar nichts. Die Gäste scannen den QR-Code auf der Leinwand mit der normalen Handykamera und landen direkt auf der Abstimmseite im Browser. Keine App, kein Store, kein Login und keine Registrierung. Das ist bewusst so einfach gehalten, damit wirklich jeder im Saal mitmachen kann."
+          },
+          {
+            "question": "Funktioniert das in jedem Browser (Safari, Chrome), oder braucht es eine App?",
+            "answer": "Es läuft in jedem modernen Browser, egal ob Safari auf dem iPhone, Chrome auf Android oder der Browser auf Laptop und Tablet. Eine App ist nicht nötig, da alles direkt im Browser passiert. Für das Gerät an der Leinwand empfehlen wir einen Laptop oder ein Tablet mit mindestens 1024 Pixeln Breite und den Vollbildmodus des Browsers."
+          },
+          {
+            "question": "Was, wenn das WLAN oder Internet bei der Location schlecht ist?",
+            "answer": "Das Gäste-Voting läuft über das Mobilfunknetz der Gäste, nicht über das WLAN der Location. Ein paar Balken Empfang genügen also völlig. Das Gerät an der Leinwand und die Host-Steuerung brauchen ebenfalls Internet, dafür reicht in der Regel mobiles Datennetz oder ein einfacher Hotspot. Ein perfektes Location-WLAN ist ausdrücklich keine Voraussetzung."
+          },
+          {
+            "question": "Was passiert, wenn während des Spiels das Internet kurz weg ist?",
+            "answer": "Kein Grund zur Sorge. Verbindet sich ein Gerät nach einer kurzen Unterbrechung wieder, holt es den aktuellen Spielstand automatisch nach. Der Spielverlauf wird laufend gesichert, sodass eine kurze Funklücke weder Stimmen noch den Fortschritt kostet. Im Zweifel wartest du einfach ein paar Sekunden, bis alle wieder verbunden sind, und machst dann weiter."
+          },
+          {
+            "question": "Wie viele Geräte können gleichzeitig verbunden sein?",
+            "answer": "Die Zahl der gleichzeitig abstimmenden Gäste richtet sich nach deinem gebuchten Paket, also zum Beispiel bis zu 10, 50, 100 oder 300 Gäste. Die Leinwand und die Host-Steuerung zählen dabei nicht mit. Wähle einfach das Paket, das zu eurer Gästezahl passt."
+          },
+          {
+            "question": "Was passiert, wenn wir mehr Gäste haben als gebucht?",
+            "answer": "Sobald die Kapazität deines Pakets erreicht ist, sieht ein Gast, der darüber hinaus beitreten möchte, einen freundlichen Hinweis, dass das Spiel gerade voll ist. Wird ein Platz frei, rückt er automatisch nach. Wenn ihr absehbar mehr Gäste erwartet, kannst du dein Paket vorher jederzeit upgraden, damit alle sicher mitspielen können."
+          }
+        ]
+      },
+      {
+        "heading": "Einrichtung und Zeitplan",
+        "items": [
+          {
+            "question": "Wie lange vor der Hochzeit muss ich buchen?",
+            "answer": "Gar nicht im Voraus. Du kannst dein Event in etwa fünf Minuten erstellen, auch noch am Tag der Hochzeit selbst. Natürlich ist es entspannter, alles ein paar Tage vorher in Ruhe vorzubereiten, nötig ist es aber nicht."
+          },
+          {
+            "question": "Ab wann kann ich das Event einrichten, Tage vorher oder erst kurz davor?",
+            "answer": "Ganz wie es dir passt. Du kannst dein Event Wochen vorher anlegen, die Namen und Farben einstellen, Fragen sammeln und Fotos hochladen, oder alles spontan kurz vor dem großen Moment erledigen. Solange du das Event nicht live schaltest, kannst du beliebig lange daran feilen."
+          },
+          {
+            "question": "Wie lange bleibt der Zugang aktiv, nur am Hochzeitstag oder länger?",
+            "answer": "Sobald du das Event live schaltest, hast du genau 48 Stunden Zeit, das Spiel zu spielen. Dieses großzügige Fenster deckt den ganzen Hochzeitstag und den Tag danach ab, falls sich der Ablauf verschiebt. Vor dem Live-Schalten kannst du das Event so lange vorbereiten und testen, wie du möchtest. Nach Ablauf der 48 Stunden ist die Spielrunde beendet, deine Ergebnisse bleiben dir aber gespeichert."
+          }
+        ]
+      },
+      {
+        "heading": "Preise und Bezahlung",
+        "items": [
+          {
+            "question": "Welche Zahlungsmethoden gibt es?",
+            "answer": "Die Bezahlung läuft sicher über unseren Zahlungsdienstleister Stripe. Du kannst mit den gängigen Kredit- und Debitkarten bezahlen sowie bequem mit Apple Pay und Google Pay. Welche Methoden dir genau angezeigt werden, hängt von deinem Gerät und deinem Land ab. Die Auswahl erscheint automatisch im Bezahlfenster."
+          },
+          {
+            "question": "Ist die MwSt. im Preis enthalten?",
+            "answer": "Ja. Alle angezeigten Preise verstehen sich inklusive der gesetzlichen Mehrwertsteuer. Es kommen also keine versteckten Kosten obendrauf, der Preis, den du siehst, ist der Preis, den du zahlst."
+          },
+          {
+            "question": "Kann ich upgraden, wenn ich zuerst das Free-Tier probiert habe?",
+            "answer": "Ja, jederzeit. Du kannst dein Event zunächst kostenlos im kleinen Paket anlegen und in Ruhe alles einrichten. Möchtest du später mehr Gäste zulassen, upgradest du einfach in den Event-Einstellungen auf ein größeres Paket. Dabei zahlst du nur die Differenz zum bisherigen Paket, nicht den vollen Preis noch einmal."
+          },
+          {
+            "question": "Kann ich das Spiel für eine zweite Feier nochmal nutzen, oder ist es an ein Event gebunden?",
+            "answer": "Die Bezahlung gilt pro Event. Für eine zweite Feier legst du einfach ein neues Event an, mit eigenen Namen, Fragen und Gästen. Kleine Runden bis 10 Gäste sind dabei kostenlos, für größere Feiern buchst du erneut das passende Paket. So bleibt jedes Fest sauber getrennt."
+          },
+          {
+            "question": "Gibt es eine Rückerstattung, wenn wir es doch nicht spielen?",
+            "answer": "Solange du das Event noch nicht live geschaltet und damit noch nicht genutzt hast, melde dich einfach bei uns, dann finden wir eine faire Lösung. Sobald das Event live geschaltet ist, gilt es als sofort bereitgestellte digitale Leistung, für die eine Erstattung nicht mehr möglich ist. Wenn du unsicher bist, nutze am besten zuerst das kostenlose Paket zum Ausprobieren."
+          },
+          {
+            "question": "Wie sicher ist die Zahlung?",
+            "answer": "Sehr sicher. Die gesamte Zahlung wird über Stripe abgewickelt, einen der weltweit führenden und zertifizierten Zahlungsdienstleister. Deine Kartendaten werden direkt und verschlüsselt an Stripe übertragen und niemals auf unseren Servern gespeichert. Wir sehen deine vollständigen Zahlungsdaten zu keinem Zeitpunkt."
+          },
+          {
+            "question": "Bekomme ich eine Rechnung oder Quittung?",
+            "answer": "Ja. Nach jeder Zahlung findest du in deinem Konto unter „Abrechnungen“ eine Übersicht deiner Käufe samt Beleg zum Ansehen. Zusätzlich erhältst du von unserem Zahlungsdienstleister eine Zahlungsbestätigung per E-Mail."
+          }
+        ]
+      },
+      {
+        "heading": "Datenschutz und Sicherheit",
+        "items": [
+          {
+            "question": "Was passiert mit unseren Antworten und Daten nach der Hochzeit?",
+            "answer": "Die Stimmen deiner Gäste werden anonym erfasst, es wird also nicht gespeichert, wer wie abgestimmt hat. Deine Fragen und die Ergebnisse bleiben nach dem Spiel in deinem Konto gespeichert, damit du später noch einmal hineinschauen kannst. Wir speichern Daten nur so lange, wie es nötig ist. Die Details dazu findest du in unserer Datenschutzerklärung."
+          },
+          {
+            "question": "Werden Fotos oder Antworten irgendwo öffentlich geteilt?",
+            "answer": "Nein. Eure Fotos und Inhalte erscheinen ausschließlich auf euren eigenen Spiel-Bildschirmen während des Events, also auf der Leinwand und den Handys eurer Gäste. Nichts davon wird öffentlich geteilt, veröffentlicht oder für Werbung genutzt. Das Spiel bleibt euer privater Moment."
+          }
+        ]
+      },
+      {
+        "heading": "Konto und Hilfe",
+        "items": [
+          {
+            "question": "Ich habe bezahlt, aber der Zugang funktioniert nicht, was tun?",
+            "answer": "In den allermeisten Fällen ist der Zugang nach wenigen Augenblicken freigeschaltet. Lade die Seite einmal neu, dann sollte dein Paket erscheinen. Falls es weiterhin klemmt, schreib uns kurz an hallo@twosoles.app mit deiner E-Mail-Adresse und dem Namen des Events. Wir kümmern uns schnellstmöglich darum und schalten den Zugang notfalls manuell frei."
+          },
+          {
+            "question": "Was, wenn ich mich mit der Magic-Link-Mail nicht einloggen kann?",
+            "answer": "Prüfe zuerst deinen Spam- oder Werbeordner, dort landen solche Links manchmal. Achte außerdem darauf, den Link auf demselben Gerät und im selben Browser zu öffnen, mit dem du dich anmelden möchtest. Aus Sicherheitsgründen sind die Links nur begrenzt gültig, fordere im Zweifel also einfach einen neuen an. Alternativ kannst du dich auch mit Google anmelden. Klappt es weiterhin nicht, melde dich bei uns, wir helfen dir persönlich weiter."
+          },
+          {
+            "question": "An wen wende ich mich, wenn am Hochzeitstag etwas nicht läuft, gibt es schnellen Support?",
+            "answer": "Du erreichst uns direkt per E-Mail an hallo@twosoles.app. Wir lesen jede Nachricht selbst und reagieren so schnell wie möglich, damit euer großer Moment nicht ins Stocken gerät. Als Absicherung empfehlen wir außerdem, das Spiel vorab einmal in Ruhe zu testen und beide Geräte am Strom zu lassen. So seid ihr bestens vorbereitet."
+          }
+        ]
       }
     ]
   },
@@ -149,6 +343,7 @@
   "footer": {
     "copyright": "© 2026 TwoSoles · Gemacht für Trauzeug*innen mit Plan.",
     "legalNav": "Rechtliches",
+    "faq": "FAQ",
     "contact": "Kontakt",
     "privacy": "Datenschutz",
     "terms": "AGB",
@@ -624,7 +819,7 @@
         "Lass beide Geräte am Strom, damit unterwegs nichts ausgeht.",
         "Warte mit dem Schließen, bis genug Gäste abgestimmt haben. Die Stimmenzahl siehst du live in der Steuerung.",
         "Erst das Paar die Schuhe heben lassen, dann auflösen. Das ist der Spannungsmoment.",
-        "Mach vorher einen kurzen Probelauf, damit am Tag alles sitzt."
+        "Mach vorher einen kurzen Probelauf, am besten direkt an der Location mit dem echten Beamer und WLAN, damit am großen Tag jeder Handgriff sitzt."
       ],
       "download": "Download Anleitung",
       "downloadHint": "Alles dabei? Druck dir die Anleitung für den Tag aus."

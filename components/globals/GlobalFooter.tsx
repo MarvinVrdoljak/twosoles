@@ -10,6 +10,9 @@ export async function GlobalFooter() {
     <footer className={styles.root}>
       <p className={styles.copy}>{t('copyright')}</p>
       <nav className={styles.links} aria-label={t('legalNav')}>
+        <Link className={styles.link} href="/faq">
+          {t('faq')}
+        </Link>
         <Link className={styles.link} href="/contact">
           {t('contact')}
         </Link>
