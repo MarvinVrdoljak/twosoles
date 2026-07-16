@@ -58,7 +58,7 @@ export async function LayoutContact() {
             </aside>
 
             <div className={styles.formColumn}>
-              <FormContact accessKey={process.env.WEB3FORMS_ACCESS_KEY ?? ''} />
+              <FormContact />
             </div>
           </div>
         </div>

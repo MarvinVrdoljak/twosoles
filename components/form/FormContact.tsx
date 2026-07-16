@@ -8,12 +8,11 @@ import {useToast} from '@/components/common/CommonToast'
 import {CommonSelect, type SelectOption} from '@/components/common/CommonSelect'
 import {FormField} from '@/components/form/FormField'
 import {Link} from '@/i18n/navigation'
+import {sendContactMessage} from '@/utility/contact/actions'
+import {CONTACT_SUBJECTS, type ContactSubject} from '@/utility/contact/subjects'
 import styles from './FormContact.module.css'
 
-const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit'
-const SUBJECT_KEYS = ['general', 'event', 'technical', 'bigEvent', 'feedback', 'other'] as const
-
-type SubjectKey = (typeof SUBJECT_KEYS)[number]
+type SubjectKey = ContactSubject
 
 type Fields = {
   firstName: string
@@ -33,14 +32,7 @@ const EMPTY: Fields = {
   message: '',
 }
 
-type FormContactProps = {
-  // Web3Forms access key. It is a public "form id" (safe in the client by design)
-  // and is submitted straight from the browser: Web3Forms sits behind Cloudflare,
-  // which blocks server-side (bot-looking) requests but allows browser origins.
-  accessKey: string
-}
-
-export function FormContact({accessKey}: FormContactProps) {
+export function FormContact() {
   const t = useTranslations('contact.form')
   const {toast} = useToast()
   const [subject, setSubject] = useState<SubjectKey | ''>('')
@@ -49,7 +41,7 @@ export function FormContact({accessKey}: FormContactProps) {
   const [sent, setSent] = useState(false)
   const [pending, startTransition] = useTransition()
 
-  const subjectOptions: SelectOption[] = SUBJECT_KEYS.map((key) => ({
+  const subjectOptions: SelectOption[] = CONTACT_SUBJECTS.map((key) => ({
     value: key,
     label: t(`subjects.${key}`),
   }))
@@ -64,46 +56,17 @@ export function FormContact({accessKey}: FormContactProps) {
       toast(t('errors.subject'))
       return
     }
-    if (!accessKey) {
-      toast(t('errors.failed'))
-      return
-    }
-
-    const subjectLabel = t(`subjects.${subject}`)
 
     startTransition(async () => {
-      try {
-        const response = await fetch(WEB3FORMS_ENDPOINT, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json', Accept: 'application/json'},
-          body: JSON.stringify({
-            access_key: accessKey,
-            subject: `Neue Kontaktanfrage: ${subjectLabel}`,
-            from_name: `${fields.firstName} ${fields.lastName}`.trim(),
-            // Web3Forms uses `email` as the reply-to address.
-            email: fields.email,
-            replyto: fields.email,
-            // Web3Forms' native honeypot — a filled value is treated as spam.
-            botcheck,
-            // Readable fields for the notification email body.
-            Anliegen: subjectLabel,
-            Vorname: fields.firstName,
-            Nachname: fields.lastName,
-            Hochzeitsdatum: fields.weddingDate || '—',
-            'Anzahl Gäste': fields.guestCount || '—',
-            Nachricht: fields.message,
-          }),
-        })
-
-        const data = (await response.json()) as {success?: boolean}
-        if (response.ok && data.success) {
-          setSent(true)
-          return
-        }
-        toast(t('errors.failed'))
-      } catch {
-        toast(t('errors.failed'))
+      // The email is sent from a server action — the Resend secret key never
+      // reaches the browser. Field validation and the honeypot are re-checked
+      // there too; this client copy is just for fast feedback.
+      const result = await sendContactMessage({subject, ...fields, botcheck})
+      if (result.ok) {
+        setSent(true)
+        return
       }
+      toast(t('errors.failed'))
     })
   }
 

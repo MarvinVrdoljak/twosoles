@@ -482,7 +482,7 @@
         },
         {
           "heading": "Services we use",
-          "body": "For operation we use carefully selected service providers who process data on our behalf:\nHosting and audience measurement: Vercel Inc., USA.\nDatabase, authentication, real-time synchronisation and photo storage: Supabase, with servers located in the European Union (Frankfurt).\nSign in with Google (optional): Google Ireland Limited. This data exchange only takes place if you choose to log in with Google.\nPayment processing: Stripe. Stripe acts as the merchant of record and processes the payment data on its own responsibility, including tax handling.\nContact form: Web3Forms, which processes the details sent through the form and delivers them to us by email.\nWhere required, data processing agreements are in place with these providers."
+          "body": "For operation we use carefully selected service providers who process data on our behalf:\nHosting and audience measurement: Vercel Inc., USA.\nDatabase, authentication, real-time synchronisation and photo storage: Supabase, with servers located in the European Union (Frankfurt).\nSign in with Google (optional): Google Ireland Limited. This data exchange only takes place if you choose to log in with Google.\nPayment processing: Stripe. Stripe acts as the merchant of record and processes the payment data on its own responsibility, including tax handling.\nContact form: Resend, which processes the details sent through the form and delivers them to us by email.\nWhere required, data processing agreements are in place with these providers."
         },
         {
           "heading": "International data transfers",
