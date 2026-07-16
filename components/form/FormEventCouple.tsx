@@ -91,7 +91,7 @@ function ColorField({
                 }}
               >
                 <span className={styles.swatchDot} style={{background: option}} />
-                <span>{names[index]}</span>
+                <span className={styles.colorOptionName}>{names[index]}</span>
               </button>
             ))}
           </div>

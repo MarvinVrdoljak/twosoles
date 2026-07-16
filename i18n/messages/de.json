@@ -28,7 +28,11 @@
     "lead": "Beim Schuh-Spiel antwortet das Brautpaar mit hochgehaltenen Schuhen. Mit TwoSoles stimmt vorher der ganze Saal per Handy ab. Der Beamer enthüllt, ob die Mehrheit das Paar wirklich kennt.",
     "ctaPrimary": "Event kostenlos erstellen",
     "ctaSecondary": "So funktioniert’s",
-    "imageAlt": "Brautpaar beim Schuh-Spiel hält Schuhe in die Höhe"
+    "imageAlt": "Brautpaar beim Schuh-Spiel hält Schuhe in die Höhe",
+    "voting": {
+      "person1": "Mia",
+      "person2": "Ben"
+    }
   },
   "ticker": {
     "ariaLabel": "Beispielfragen aus dem Spiel",
@@ -41,7 +45,7 @@
       "Wer würde eher über den eigenen Witz lachen?",
       "Wer ist der größere Morgenmuffel?",
       "Wer würde eher ein Geheimnis nicht geheim halten können?",
-      "Wer würde eher den Abwasch „vergessen“?"
+      "Wer würde eher den Abwasch «vergessen»?"
     ]
   },
   "steps": {
@@ -61,7 +65,7 @@
       {
         "label": "Ein Knopfdruck",
         "title": "Der Reveal-Moment",
-        "description": "Das Paar hebt die Schuhe, du drückst einen Button, und der Beamer enthüllt, wie der Saal abgestimmt hat. Das „Ohhhh“ kommt von allein."
+        "description": "Das Paar hebt die Schuhe, du drückst einen Button, und der Beamer enthüllt, wie der Saal abgestimmt hat. Das «Ohhhh» kommt von allein."
       }
     ]
   },
@@ -129,7 +133,7 @@
     "items": [
       {
         "question": "Was ist das Schuhspiel überhaupt und wie funktioniert es?",
-        "answer": "Beim Schuhspiel sitzt das Brautpaar Rücken an Rücken, jede Person hält einen eigenen Schuh und einen Schuh der anderen. Bei jeder Frage nach dem Muster „Wer würde eher …?“ heben beide den Schuh der Person, auf die die Antwort zutrifft. Das Besondere bei TwoSoles: Der ganze Saal tippt vorher per Handy auf eine Antwort, und der Beamer zeigt danach, ob die Mehrheit das Paar richtig eingeschätzt hat."
+        "answer": "Beim Schuhspiel sitzt das Brautpaar Rücken an Rücken, jede Person hält einen eigenen Schuh und einen Schuh der anderen. Bei jeder Frage nach dem Muster «Wer würde eher …?» heben beide den Schuh der Person, auf die die Antwort zutrifft. Das Besondere bei TwoSoles: Der ganze Saal tippt vorher per Handy auf eine Antwort, und der Beamer zeigt danach, ob die Mehrheit das Paar richtig eingeschätzt hat."
       },
       {
         "question": "Wie lange dauert das Spiel ungefähr?",
@@ -170,7 +174,7 @@
         "items": [
           {
             "question": "Was ist das Schuhspiel überhaupt und wie funktioniert es?",
-            "answer": "Das Schuhspiel ist ein Klassiker auf Hochzeiten. Das Brautpaar sitzt Rücken an Rücken, und jede Person hält einen eigenen Schuh sowie einen Schuh der anderen Person in der Hand. Bei jeder Frage nach dem Muster „Wer würde eher …?“ heben beide gleichzeitig den Schuh der Person, auf die die Antwort zutrifft. Bei TwoSoles kommt der ganze Saal dazu: Alle Gäste tippen vorher auf ihrem Handy auf eine der beiden Antworten. Sobald die Abstimmung geschlossen ist, hebt das Paar die Schuhe, und der Beamer löst auf, wie die Mehrheit im Saal abgestimmt hat. So seht ihr bei jeder Frage, ob das Publikum das Paar richtig eingeschätzt hat. Genau daraus entstehen die schönsten Lacher des Abends."
+            "answer": "Das Schuhspiel ist ein Klassiker auf Hochzeiten. Das Brautpaar sitzt Rücken an Rücken, und jede Person hält einen eigenen Schuh sowie einen Schuh der anderen Person in der Hand. Bei jeder Frage nach dem Muster «Wer würde eher …?» heben beide gleichzeitig den Schuh der Person, auf die die Antwort zutrifft. Bei TwoSoles kommt der ganze Saal dazu: Alle Gäste tippen vorher auf ihrem Handy auf eine der beiden Antworten. Sobald die Abstimmung geschlossen ist, hebt das Paar die Schuhe, und der Beamer löst auf, wie die Mehrheit im Saal abgestimmt hat. So seht ihr bei jeder Frage, ob das Publikum das Paar richtig eingeschätzt hat. Genau daraus entstehen die schönsten Lacher des Abends."
           },
           {
             "question": "Wie lange dauert das Spiel ungefähr?",
@@ -302,7 +306,7 @@
           },
           {
             "question": "Bekomme ich eine Rechnung oder Quittung?",
-            "answer": "Ja. Nach jeder Zahlung findest du in deinem Konto unter „Abrechnungen“ eine Übersicht deiner Käufe samt Beleg zum Ansehen. Zusätzlich erhältst du von unserem Zahlungsdienstleister eine Zahlungsbestätigung per E-Mail."
+            "answer": "Ja. Nach jeder Zahlung findest du in deinem Konto unter «Abrechnungen» eine Übersicht deiner Käufe samt Beleg zum Ansehen. Zusätzlich erhältst du von unserem Zahlungsdienstleister eine Zahlungsbestätigung per E-Mail."
           }
         ]
       },
@@ -346,7 +350,7 @@
     "imageAlt": "Brautpaar feiert beim Hochzeitsspiel"
   },
   "footer": {
-    "copyright": "© 2026 TwoSoles · Gemacht für Trauzeug*innen mit Plan.",
+    "copyright": "© 2026 TwoSoles",
     "legalNav": "Rechtliches",
     "faq": "FAQ",
     "contact": "Kontakt",
@@ -518,7 +522,7 @@
       "sections": [
         {
           "heading": "§ 1 Geltungsbereich und Anbieter",
-          "body": "Diese AGB gelten für die Nutzung des unter TwoSoles bereitgestellten Online-Dienstes. Anbieter ist Marvin Vrdoljak, Grimselstrasse 30, 8048 Zürich, Schweiz (nachfolgend „Anbieter“). Mit der Registrierung und der Nutzung des Dienstes erklärst du dich mit diesen AGB einverstanden. Abweichende Bedingungen erkennen wir nicht an, sofern wir ihnen nicht ausdrücklich zustimmen."
+          "body": "Diese AGB gelten für die Nutzung des unter TwoSoles bereitgestellten Online-Dienstes. Anbieter ist Marvin Vrdoljak, Grimselstrasse 30, 8048 Zürich, Schweiz (nachfolgend «Anbieter»). Mit der Registrierung und der Nutzung des Dienstes erklärst du dich mit diesen AGB einverstanden. Abweichende Bedingungen erkennen wir nicht an, sofern wir ihnen nicht ausdrücklich zustimmen."
         },
         {
           "heading": "§ 2 Leistungsbeschreibung",
@@ -632,8 +636,16 @@
           "label": "Polterabend"
         },
         {
-          "value": "anniversary",
-          "label": "Jubiläum"
+          "value": "silver_wedding",
+          "label": "Silberne Hochzeit"
+        },
+        {
+          "value": "golden_wedding",
+          "label": "Goldene Hochzeit"
+        },
+        {
+          "value": "parsley_wedding",
+          "label": "Petersilienhochzeit"
         },
         {
           "value": "other",
@@ -688,11 +700,12 @@
       "package": "Gäste / Paket",
       "packageValue": "«{name}» (bis {capacity})",
       "notSet": "Nicht angegeben",
-      "freeTitle": "Erstmal kostenlos sichern",
+      "freeTitle": "Erstmal kostenlos erstellen",
       "freeText": "Du kannst das Event auch erst einmal kostenlos im Paket «Kleine Runde» (max. 10 Spieler) anlegen. Du kannst später jederzeit auf dein gewünschtes Paket upgraden.",
       "freeButton": "Event kostenlos anlegen",
       "creatingFree": "Wird angelegt …",
       "createError": "Das Event konnte nicht angelegt werden. Bitte versuch es erneut.",
+      "photoTooLarge": "Das Bild ist zu groß. Bitte lade ein Foto mit maximal 5 MB hoch.",
       "submit": "Event erstellen & bezahlen",
       "checkoutError": "Die Bezahlung konnte nicht gestartet werden. Bitte versuch es erneut."
     }
@@ -710,6 +723,8 @@
     "save": "Speichern",
     "saving": "Speichern …",
     "saveError": "Konnte nicht gespeichert werden. Bitte versuch es erneut.",
+    "photoTooLarge": "Das Bild ist zu groß. Bitte lade ein Foto mit maximal 5 MB hoch.",
+    "endedNotice": "Dieses Event ist beendet. Deine Ergebnisse bleiben gespeichert, bearbeiten lässt es sich aber nicht mehr. Wir hoffen, ihr hattet einen wundervollen Moment zusammen.",
     "dateInvalid": "Bitte wähle ein Datum zwischen heute und in 10 Jahren.",
     "comingSoon": "Kommt bald.",
     "checkoutConfirming": "Zahlung wird bestätigt …",
@@ -757,7 +772,7 @@
       "settings": "Einstellungen"
     },
     "coupleTitle": "Das Paar",
-    "coupleSubtitle": "Namen und Fotos, wie sie auf der Leinwand erscheinen.",
+    "coupleSubtitle": "Namen, Fotos und Farben, genau so, wie sie später auf der Leinwand erscheinen.",
     "detailsTitle": "Die Eckdaten der Feier",
     "questionsTitle": "Die Fragen für den großen Moment",
     "questionsSubtitle": "Dein Frage-Set: sortieren, ergänzen und austauschen.",
@@ -778,7 +793,7 @@
       "packageUpgrade": "Upgraden",
       "upgradeNotice": "Upgrades sind noch nicht angebunden (Stripe folgt).",
       "deleteTitle": "Event löschen",
-      "deleteText": "Dauerhaft und unwiderruflich. Alle Fragen, Ergebnisse und der QR-Code werden entfernt. Dieser Schritt kann nicht rückgängig gemacht werden. Ausgaben werden nicht zurück erstattet.",
+      "deleteText": "Dauerhaft und unwiderruflich. Alle Fragen, Ergebnisse und der QR-Code werden entfernt. Dieser Schritt kann nicht rückgängig gemacht werden. Bereits gezahlte Beträge werden nicht zurückerstattet.",
       "deleteButton": "Event löschen",
       "deleteConfirm": "Dieses Event wirklich löschen? Das kann nicht rückgängig gemacht werden.",
       "pinRegenerated": "Neue Host-PIN erstellt.",
@@ -798,7 +813,7 @@
       "title": "So spielt man TwoSoles",
       "intro": "Das Schuh-Spiel, live mit dem ganzen Saal. Plane rund 20 bis 25 Minuten für 10 bis 15 Fragen. Hier ist der ganze Ablauf zum Mitlesen oder als PDF zum Download.",
       "ideaTitle": "Die Idee",
-      "idea": "Bei jeder Frage geht es um „Wer würde eher?“. Zur Wahl stehen immer genau zwei Antworten, Person 1 oder Person 2. Alle im Saal tippen auf ihrem Handy auf eine der beiden. Das Paar selbst antwortet, indem es einen Schuh hochhebt. Die große Frage am Ende jeder Runde lautet: Hat das Publikum das Paar richtig eingeschätzt?",
+      "idea": "Bei jeder Frage geht es um «Wer würde eher?». Zur Wahl stehen immer genau zwei Antworten, Person 1 oder Person 2. Alle im Saal tippen auf ihrem Handy auf eine der beiden. Das Paar selbst antwortet, indem es einen Schuh hochhebt. Die große Frage am Ende jeder Runde lautet: Hat das Publikum das Paar richtig eingeschätzt?",
       "needsTitle": "Was du brauchst",
       "needs": [
         "Einen großen Bildschirm, auf dem alle im Saal die Leinwand-Ansicht sehen. Das kann ein Beamer mit Leinwand sein, ein großer Fernseher oder ein Monitor.",
@@ -842,15 +857,15 @@
         },
         {
           "title": "Abstimmung schließen.",
-          "text": "Sind genug Stimmen da, schließt du die Abstimmung. Die Leinwand zeigt jetzt „Geschlossen. Gleich wird aufgelöst.“, das Ergebnis bleibt aber noch verborgen. Genau jetzt hebt das Paar die Schuhe. Jede Person hebt den Schuh derjenigen, für die sie stimmt. Der eigene Schuh bedeutet „Ich“, der Schuh der anderen Person bedeutet „Du“. Beide entscheiden unabhängig voneinander und dürfen sich ruhig widersprechen. Weil das Publikumsergebnis noch verdeckt ist, lässt sich hier niemand beeinflussen."
+          "text": "Sind genug Stimmen da, schließt du die Abstimmung. Die Leinwand zeigt jetzt «Geschlossen. Gleich wird aufgelöst.», das Ergebnis bleibt aber noch verborgen. Genau jetzt hebt das Paar die Schuhe. Jede Person hebt den Schuh derjenigen, für die sie stimmt. Der eigene Schuh bedeutet «Ich», der Schuh der anderen Person bedeutet «Du». Beide entscheiden unabhängig voneinander und dürfen sich ruhig widersprechen. Weil das Publikumsergebnis noch verdeckt ist, lässt sich hier niemand beeinflussen."
         },
         {
           "title": "Der Reveal.",
-          "text": "Du drückst „Auflösen“. Nach einem kurzen Countdown zeigt der Balken auf der Leinwand, wie der Saal abgestimmt hat. Jetzt vergleichst du: Passt die Mehrheit des Publikums zu dem, was das Paar mit den Schuhen gezeigt hat?"
+          "text": "Du drückst «Auflösen». Nach einem kurzen Countdown zeigt der Balken auf der Leinwand, wie der Saal abgestimmt hat. Jetzt vergleichst du: Passt die Mehrheit des Publikums zu dem, was das Paar mit den Schuhen gezeigt hat?"
         },
         {
           "title": "Weiter geht's.",
-          "text": "Mit „Nächste Frage“ geht es durch deine Fragen."
+          "text": "Mit «Nächste Frage» geht es durch deine Fragen."
         }
       ],
       "tipsTitle": "Tipps für den großen Moment",
@@ -1009,7 +1024,7 @@
     "deleteText": "Dauerhaft und unwiderruflich. Beim Löschen werden alle Events, Ergebnisse und Rechnungen entfernt. Dieser Schritt kann nicht rückgängig gemacht werden.",
     "deleteButton": "Konto löschen",
     "deleteConfirmTitle": "Konto wirklich löschen?",
-    "deleteConfirmText": "Dein Konto und alle Events, Ergebnisse und Rechnungen werden endgültig gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "deleteConfirmText": "Dein Konto und alle Events, Ergebnisse und Rechnungen werden endgültig gelöscht. Diese Aktion kann nicht rückgängig gemacht werden. Bereits gezahlte Beträge werden nicht zurückerstattet.",
     "deleteConfirm": "Endgültig löschen",
     "deleteCancel": "Abbrechen",
     "deleting": "Wird gelöscht …",

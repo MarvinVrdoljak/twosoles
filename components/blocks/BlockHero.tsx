@@ -1,6 +1,7 @@
 import {getTranslations} from 'next-intl/server'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonImage} from '@/components/common/CommonImage'
+import {BlockHeroVoting} from './BlockHeroVoting'
 import styles from './BlockHero.module.css'
 import Leaf01 from '@/public/images/leaf_01.svg'
 import Leaf02 from '@/public/images/leaf_02.svg'
@@ -44,6 +45,7 @@ export async function BlockHero() {
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
           </div>
+          <BlockHeroVoting />
         </div>
       </div>
     </section>

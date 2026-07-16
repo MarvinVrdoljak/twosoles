@@ -1,6 +1,6 @@
 # TwoSoles
 
-Digitales „Wedding Shoe Game" – Next.js (App Router) + Supabase.
+Digitales «Wedding Shoe Game» – Next.js (App Router) + Supabase.
 
 Dieser Stand enthält das Grundgerüst: Next.js mit i18n (de/en), lokales Supabase
 und E-Mail/Passwort-Login inklusive Konto-Erstellung. **Noch kein Styling.**
@@ -68,7 +68,7 @@ npm run supabase:start` ausführen.
 
 ### Google OAuth (Social Login)
 
-Login-/Register-Seite haben einen „Mit Google fortfahren"-Button
+Login-/Register-Seite haben einen «Mit Google fortfahren»-Button
 ([`FormGoogleButton`](components/form/FormGoogleButton.tsx) →
 `signInWithOAuth({provider:'google'})`). Google leitet auf den Supabase-Callback,
 Supabase auf [`app/auth/callback/route.ts`](app/auth/callback/route.ts), das den
@@ -110,7 +110,7 @@ Elements**; deshalb läuft der Kauf über eine von Stripe gehostete Seite + Webh
 2. **Upgrade im Event-Detail** (`/dashboard/events/[id]`, Tab _Einstellungen_) –
    auf ein größeres Paket. Es wird nur die **Preisdifferenz** berechnet.
 
-**Ablauf (wichtig):** Das Event wird immer zuerst als **`free` / „Kleine Runde"**
+**Ablauf (wichtig):** Das Event wird immer zuerst als **`free` / «Kleine Runde»**
 angelegt (inkl. Foto-Upload). Das gewünschte Paket reist in den Metadaten der
 Stripe-Session mit; erst der Webhook `checkout.session.completed` hebt
 `events.package` auf das bezahlte Paket. Bricht der Nutzer ab, bleibt das Event
@@ -136,7 +136,7 @@ schlicht kostenlos.
    https://dashboard.stripe.com/settings/managed-payments und die ToS akzeptieren.
 2. **Produkte + Preise** anlegen (https://dashboard.stripe.com/test/products) für
    Intim (29 €), Klassisch (49 €) und Große Feier (79 €). Je Produkt einen als
-   _„Eligible for Managed Payments"_ markierten **Tax-Code** wählen; Preise
+   _«Eligible for Managed Payments»_ markierten **Tax-Code** wählen; Preise
    **inkl. Steuer** (B2C). Die drei Produkt-IDs (`prod_…`) landen in den
    `STRIPE_PRODUCT_*`-Env-Vars.
 

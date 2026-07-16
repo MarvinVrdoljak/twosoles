@@ -74,7 +74,7 @@ export async function seedDummyEventsAction() {
       ...base,
       person1_name: 'Sara',
       person2_name: 'Tom',
-      occasion: 'anniversary',
+      occasion: 'golden_wedding',
       event_date: dateStr(now - 5 * DAY),
       package: 'free',
       questions: questions(8),

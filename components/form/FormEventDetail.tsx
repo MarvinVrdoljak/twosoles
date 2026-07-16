@@ -65,6 +65,11 @@ function parseTab(value: string | null): Tab | null {
   return value && (TAB_KEYS as string[]).includes(value) ? (value as Tab) : null
 }
 
+// Storage rejects anything larger (bucket limit set in Supabase); we check
+// client-side too so the user gets a clear "too large" message instead of a
+// generic save failure.
+const MAX_PHOTO_BYTES = 5 * 1024 * 1024
+
 async function uploadPhoto(
   supabase: ReturnType<typeof createClient>,
   userId: string,
@@ -197,6 +202,18 @@ export function FormEventDetail({
 
   // Upgrade to a higher package: hand off to Stripe Checkout for the price
   // difference. The event stays on its current package until the webhook confirms.
+  // Handing off to Stripe navigates away with `upgrading` still true. If the buyer
+  // returns via the browser back button, the page is restored from the bfcache
+  // with that stale state, leaving the upgrade buttons stuck disabled. `pageshow`
+  // fires on bfcache restore (persisted === true) — reset so they're clickable again.
+  useEffect(() => {
+    const onPageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) setUpgrading(false)
+    }
+    window.addEventListener('pageshow', onPageShow)
+    return () => window.removeEventListener('pageshow', onPageShow)
+  }, [])
+
   const upgrade = async (targetIndex: number) => {
     setUpgrading(true)
     const result = await createCheckoutSessionAction(event.id, PACKAGE_KEYS[targetIndex])
@@ -214,6 +231,15 @@ export function FormEventDetail({
     if (draft.date && !isEventDateInRange(draft.date)) {
       setTab('details')
       notify(t('dateInvalid'))
+      return
+    }
+    // Reject oversized photos up front so we don't fail deep inside the upload.
+    if (
+      (draft.photo1File && draft.photo1File.size > MAX_PHOTO_BYTES) ||
+      (draft.photo2File && draft.photo2File.size > MAX_PHOTO_BYTES)
+    ) {
+      setTab('couple')
+      notify(t('photoTooLarge'))
       return
     }
     setSaving(true)
@@ -284,6 +310,15 @@ export function FormEventDetail({
     if (!window.confirm(t('settings.deleteConfirm'))) return
     setDeleting(true)
     const supabase = createClient()
+    // Remove the couple photos from storage first — the objects aren't covered by
+    // the row's foreign keys, so deleting the event alone would orphan them.
+    // Best-effort: a storage failure shouldn't block the actual event deletion.
+    const paths = [event.person1_photo, event.person2_photo].filter(
+      (path): path is string => typeof path === 'string' && path.length > 0,
+    )
+    if (paths.length > 0) {
+      await supabase.storage.from('event-photos').remove(paths)
+    }
     const {error} = await supabase.from('events').delete().eq('id', event.id)
     if (error) {
       notify(t('saveError'))
@@ -384,6 +419,11 @@ export function FormEventDetail({
         </nav>
 
         <div className={styles.content}>
+          {readOnly ? (
+            <div className={styles.endedNotice} role="status">
+              {t('endedNotice')}
+            </div>
+          ) : null}
           {tab === 'couple' ? (
             <FormEventCouple
               draft={draft}

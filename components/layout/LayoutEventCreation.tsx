@@ -2,7 +2,7 @@
 
 import React from 'react'
 import {useTranslations} from 'next-intl'
-import {ArrowLeft} from 'lucide-react'
+import {ArrowLeft, X} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
 import {Link} from '@/i18n/navigation'
 import styles from './LayoutEventCreation.module.css'
@@ -87,9 +87,10 @@ export function LayoutEventCreation({
           </ol>
         </div>
 
-        <Link href="/dashboard" className={styles.cancel}>
+        <Link href="/dashboard" className={styles.cancel} aria-label={t('cancel')}>
           <ArrowLeft className={styles.cancelIcon} size={16} aria-hidden="true" />
-          {t('cancel')}
+          <span className={styles.cancelText}>{t('cancel')}</span>
+          <X className={styles.cancelClose} size={24} aria-hidden="true" />
         </Link>
       </aside>
 

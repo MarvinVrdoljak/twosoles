@@ -1,6 +1,6 @@
 'use client'
 
-import {useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {useLocale, useTranslations} from 'next-intl'
 import {useToast} from '@/components/common/CommonToast'
 import {LayoutEventCreation} from '@/components/layout/LayoutEventCreation'
@@ -22,6 +22,11 @@ type FormEventWizardProps = {
   // Display prices from Stripe, index-aligned with the tier list.
   prices: string[]
 }
+
+// Storage rejects anything larger (bucket limit set in Supabase); we check
+// client-side too so the user gets a clear "too large" message instead of a
+// generic create failure.
+const MAX_PHOTO_BYTES = 5 * 1024 * 1024
 
 // Upload one couple photo to the private bucket under "<user>/<event>/…" and
 // return its storage path.
@@ -57,6 +62,18 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
   // (photo upload or Stripe hand-off) is retried against the same event instead
   // of creating a duplicate on every attempt.
   const createdEventIdRef = useRef<string | null>(null)
+
+  // Handing off to Stripe navigates away with `creating` still true. If the buyer
+  // returns via the browser back button, the page is restored from the bfcache
+  // with that stale state, leaving the CTA stuck disabled. `pageshow` fires on
+  // bfcache restore (persisted === true) — reset so the button is clickable again.
+  useEffect(() => {
+    const onPageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) setCreating(false)
+    }
+    window.addEventListener('pageshow', onPageShow)
+    return () => window.removeEventListener('pageshow', onPageShow)
+  }, [])
 
   const [draft, setDraft] = useState<EventDraft>(() => ({
     name1: '',
@@ -95,6 +112,15 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
   // The event always starts on `free`; a paid package is only unlocked once
   // Stripe confirms the payment via webhook. Returns null on failure.
   const createEvent = async (): Promise<string | null> => {
+    // Reject oversized photos up front so we don't fail deep inside the upload.
+    if (
+      (draft.photo1File && draft.photo1File.size > MAX_PHOTO_BYTES) ||
+      (draft.photo2File && draft.photo2File.size > MAX_PHOTO_BYTES)
+    ) {
+      setStep(1)
+      toast(t('summary.photoTooLarge'))
+      return null
+    }
     setCreating(true)
     try {
       const supabase = createClient()

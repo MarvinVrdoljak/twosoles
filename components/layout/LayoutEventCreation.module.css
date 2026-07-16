@@ -15,6 +15,7 @@
   padding: var(--spacing-16) var(--side-gap);
   color: var(--color-on-primary);
   background: var(--color-primary);
+  z-index: 2;
 }
 
 .sidebarTop {
@@ -217,14 +218,23 @@
   border-top: 1px solid var(--color-border);
 }
 
-@media (--bp-medium-down) {
-  /* Mobile cancel shows text only — no arrow icon. */
-  .cancelIcon {
-    display: none;
-  }
+/* Below desktop the cancel collapses to a bare X in the top bar; the back
+   arrow and the label only appear once the sidebar is vertical. */
+.cancelIcon,
+.cancelText {
+  display: none;
 }
 
 @media (--bp-large-up) {
+  .cancelClose {
+    display: none;
+  }
+
+  .cancelIcon,
+  .cancelText {
+    display: block;
+  }
+
   .root {
     flex-direction: row;
     height: 100vh;

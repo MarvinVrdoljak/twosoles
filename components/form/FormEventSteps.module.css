@@ -151,8 +151,12 @@
 }
 
 .swatchName {
-  flex: 1 0 0;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
   text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .swatchChevron {
@@ -190,6 +194,13 @@
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
+}
+
+.colorOptionName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .colorOptionActive {
@@ -694,6 +705,10 @@
 
   .couple {
     flex-direction: column;
+  }
+
+  .person {
+    width: 100%;
   }
 
   .qMeta {

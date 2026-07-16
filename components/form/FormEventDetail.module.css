@@ -52,6 +52,17 @@
   min-width: 0;
 }
 
+/* Shown on every tab once the event has ended (read-only archive). */
+.endedNotice {
+  padding: var(--spacing-16) var(--spacing-20);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+  border-radius: var(--radius-md);
+}
+
 /* ---- Tabs ---- */
 .tabs {
   display: flex;

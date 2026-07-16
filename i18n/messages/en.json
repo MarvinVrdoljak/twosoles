@@ -28,7 +28,11 @@
     "lead": "In the shoe game the couple answers by raising shoes. With TwoSoles the whole room votes first on their phones. The projector reveals whether the majority really knows the couple.",
     "ctaPrimary": "Create your event for free",
     "ctaSecondary": "How it works",
-    "imageAlt": "Wedding couple raising shoes during the shoe game"
+    "imageAlt": "Wedding couple raising shoes during the shoe game",
+    "voting": {
+      "person1": "Mia",
+      "person2": "Ben"
+    }
   },
   "ticker": {
     "ariaLabel": "Example questions from the game",
@@ -346,7 +350,7 @@
     "imageAlt": "Wedding couple celebrating during the game"
   },
   "footer": {
-    "copyright": "© 2026 TwoSoles · Made for best men & maids of honour with a plan.",
+    "copyright": "© 2026 TwoSoles",
     "legalNav": "Legal",
     "faq": "FAQ",
     "contact": "Contact",
@@ -632,8 +636,16 @@
           "label": "Pre-wedding party"
         },
         {
-          "value": "anniversary",
-          "label": "Anniversary"
+          "value": "silver_wedding",
+          "label": "Silver wedding anniversary"
+        },
+        {
+          "value": "golden_wedding",
+          "label": "Golden wedding anniversary"
+        },
+        {
+          "value": "parsley_wedding",
+          "label": "Parsley wedding anniversary"
         },
         {
           "value": "other",
@@ -693,6 +705,7 @@
       "freeButton": "Create event for free",
       "creatingFree": "Creating …",
       "createError": "The event couldn't be created. Please try again.",
+      "photoTooLarge": "This image is too large. Please upload a photo of no more than 5 MB.",
       "submit": "Create event & pay",
       "checkoutError": "Couldn't start the payment. Please try again."
     }
@@ -710,6 +723,8 @@
     "save": "Save",
     "saving": "Saving …",
     "saveError": "Couldn't save. Please try again.",
+    "photoTooLarge": "This image is too large. Please upload a photo of no more than 5 MB.",
+    "endedNotice": "This event has ended. Your results stay saved, but it can no longer be edited. We hope you all had a wonderful moment together.",
     "dateInvalid": "Please pick a date between today and 10 years from now.",
     "comingSoon": "Coming soon.",
     "checkoutConfirming": "Confirming your payment …",
@@ -778,7 +793,7 @@
       "packageUpgrade": "Upgrade",
       "upgradeNotice": "Upgrades aren't connected yet (Stripe to follow).",
       "deleteTitle": "Delete event",
-      "deleteText": "Permanent and irreversible. All questions, results and the QR code are removed. This step cannot be undone. Payments are not refunded.",
+      "deleteText": "Permanent and irreversible. All questions, results and the QR code are removed. This step cannot be undone. Payments already made are non-refundable.",
       "deleteButton": "Delete event",
       "deleteConfirm": "Really delete this event? This cannot be undone.",
       "pinRegenerated": "New host PIN generated.",
@@ -1009,7 +1024,7 @@
     "deleteText": "Permanent and irreversible. Deleting removes all events, results and invoices. This step cannot be undone.",
     "deleteButton": "Delete account",
     "deleteConfirmTitle": "Delete account?",
-    "deleteConfirmText": "Your account and all events, results and invoices will be permanently deleted. This action cannot be undone.",
+    "deleteConfirmText": "Your account and all events, results and invoices will be permanently deleted. This action cannot be undone. Payments already made are non-refundable.",
     "deleteConfirm": "Delete permanently",
     "deleteCancel": "Cancel",
     "deleting": "Deleting …",
