@@ -31,7 +31,15 @@ export async function LayoutFaq() {
           <header className={styles.header}>
             <p className="eyebrow">{t('eyebrow')}</p>
             <h1 className={styles.title}>{t('title')}</h1>
-            <p className={styles.subtitle}>{t('subtitle')}</p>
+            <p className={styles.subtitle}>
+              {t.rich('subtitle', {
+                contact: (chunks) => (
+                  <Link className={styles.support} href="/contact">
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </p>
           </header>
 
           {categories.map((category, index) => (
