@@ -7,10 +7,9 @@ import {isContactSubject, type ContactSubject} from './subjects'
 
 // Where contact requests land, and who they come from. Both are overridable per
 // environment; the recipient falls back to the address shown on the page, and
-// the sender to Resend's onboarding domain (works before twosoles.app is
-// verified in Resend — swap to a verified address for production deliverability).
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? 'hallo@twosoles.app'
-const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL ?? 'Two Soles <onboarding@resend.dev>'
+// the sender to the verified twosoles.live domain.
+const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? 'hello@twosoles.live'
+const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL ?? 'Two Soles <hello@twosoles.live>'
 
 export type ContactPayload = {
   subject: ContactSubject

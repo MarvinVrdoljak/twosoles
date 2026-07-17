@@ -328,7 +328,7 @@
         "items": [
           {
             "question": "Ich habe bezahlt, aber der Zugang funktioniert nicht, was tun?",
-            "answer": "In den allermeisten Fällen ist der Zugang nach wenigen Augenblicken freigeschaltet. Lade die Seite einmal neu, dann sollte dein Paket erscheinen. Falls es weiterhin klemmt, schreib uns kurz an hallo@twosoles.app mit deiner E-Mail-Adresse und dem Namen des Events. Wir kümmern uns schnellstmöglich darum und schalten den Zugang notfalls manuell frei."
+            "answer": "In den allermeisten Fällen ist der Zugang nach wenigen Augenblicken freigeschaltet. Lade die Seite einmal neu, dann sollte dein Paket erscheinen. Falls es weiterhin klemmt, schreib uns kurz an hello@twosoles.live mit deiner E-Mail-Adresse und dem Namen des Events. Wir kümmern uns schnellstmöglich darum und schalten den Zugang notfalls manuell frei."
           },
           {
             "question": "Was, wenn ich mich mit der Magic-Link-Mail nicht einloggen kann?",
@@ -336,7 +336,7 @@
           },
           {
             "question": "An wen wende ich mich, wenn am Hochzeitstag etwas nicht läuft, gibt es schnellen Support?",
-            "answer": "Du erreichst uns direkt per E-Mail an hallo@twosoles.app. Wir lesen jede Nachricht selbst und reagieren so schnell wie möglich, damit euer großer Moment nicht ins Stocken gerät. Als Absicherung empfehlen wir außerdem, das Spiel vorab einmal in Ruhe zu testen und beide Geräte am Strom zu lassen. So seid ihr bestens vorbereitet."
+            "answer": "Du erreichst uns direkt per E-Mail an hello@twosoles.live. Wir lesen jede Nachricht selbst und reagieren so schnell wie möglich, damit euer großer Moment nicht ins Stocken gerät. Als Absicherung empfehlen wir außerdem, das Spiel vorab einmal in Ruhe zu testen und beide Geräte am Strom zu lassen. So seid ihr bestens vorbereitet."
           }
         ]
       }
@@ -369,7 +369,7 @@
       "lead": "Du erreichst uns auch klassisch. Wir lesen jede Nachricht selbst, kein Bot dazwischen.",
       "email": {
         "title": "E-Mail",
-        "value": "hallo@twosoles.app"
+        "value": "hello@twosoles.live"
       },
       "response": {
         "title": "Antwortzeit",
@@ -430,7 +430,7 @@
         },
         {
           "heading": "Kontakt",
-          "body": "E-Mail: hallo@twosoles.app"
+          "body": "E-Mail: hello@twosoles.live"
         },
         {
           "heading": "Rechtsform und Register",
@@ -462,7 +462,7 @@
       "sections": [
         {
           "heading": "Verantwortlicher",
-          "body": "Verantwortlich für die Datenverarbeitung ist:\nMarvin Vrdoljak\nGrimselstrasse 30\n8048 Zürich\nSchweiz\nE-Mail: hallo@twosoles.app"
+          "body": "Verantwortlich für die Datenverarbeitung ist:\nMarvin Vrdoljak\nGrimselstrasse 30\n8048 Zürich\nSchweiz\nE-Mail: hello@twosoles.live"
         },
         {
           "heading": "Welche Daten wir verarbeiten",
@@ -506,7 +506,7 @@
         },
         {
           "heading": "Kontakt zum Datenschutz",
-          "body": "Bei Fragen zum Datenschutz oder zur Wahrnehmung deiner Rechte erreichst du uns unter: hallo@twosoles.app."
+          "body": "Bei Fragen zum Datenschutz oder zur Wahrnehmung deiner Rechte erreichst du uns unter: hello@twosoles.live."
         },
         {
           "heading": "Änderungen dieser Datenschutzerklärung",

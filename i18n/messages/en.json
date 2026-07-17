@@ -328,7 +328,7 @@
         "items": [
           {
             "question": "I paid but access isn't working, what should I do?",
-            "answer": "In the vast majority of cases access is unlocked within a few moments. Reload the page once and your package should appear. If it still doesn't, drop us a short email at hallo@twosoles.app with your email address and the name of the event. We'll look into it as fast as we can and unlock access manually if needed."
+            "answer": "In the vast majority of cases access is unlocked within a few moments. Reload the page once and your package should appear. If it still doesn't, drop us a short email at hello@twosoles.live with your email address and the name of the event. We'll look into it as fast as we can and unlock access manually if needed."
           },
           {
             "question": "What if I can't log in with the magic-link email?",
@@ -336,7 +336,7 @@
           },
           {
             "question": "Who do I turn to if something doesn't work on the wedding day, is there fast support?",
-            "answer": "You can reach us directly by email at hallo@twosoles.app. We read every message ourselves and respond as quickly as we can, so your big moment doesn't stall. As a safeguard we also recommend testing the game once in advance and keeping both devices plugged in. That way you're well prepared."
+            "answer": "You can reach us directly by email at hello@twosoles.live. We read every message ourselves and respond as quickly as we can, so your big moment doesn't stall. As a safeguard we also recommend testing the game once in advance and keeping both devices plugged in. That way you're well prepared."
           }
         ]
       }
@@ -369,7 +369,7 @@
       "lead": "You can reach us the classic way too. We read every message ourselves, no bot in between.",
       "email": {
         "title": "Email",
-        "value": "hallo@twosoles.app"
+        "value": "hello@twosoles.live"
       },
       "response": {
         "title": "Response time",
@@ -430,7 +430,7 @@
         },
         {
           "heading": "Contact",
-          "body": "Email: hallo@twosoles.app"
+          "body": "Email: hello@twosoles.live"
         },
         {
           "heading": "Legal form and registration",
@@ -462,7 +462,7 @@
       "sections": [
         {
           "heading": "Controller",
-          "body": "The controller responsible for data processing is:\nMarvin Vrdoljak\nGrimselstrasse 30\n8048 Zürich\nSwitzerland\nEmail: hallo@twosoles.app"
+          "body": "The controller responsible for data processing is:\nMarvin Vrdoljak\nGrimselstrasse 30\n8048 Zürich\nSwitzerland\nEmail: hello@twosoles.live"
         },
         {
           "heading": "What data we process",
@@ -506,7 +506,7 @@
         },
         {
           "heading": "Data protection contact",
-          "body": "If you have any questions about data protection or wish to exercise your rights, you can reach us at: hallo@twosoles.app."
+          "body": "If you have any questions about data protection or wish to exercise your rights, you can reach us at: hello@twosoles.live."
         },
         {
           "heading": "Changes to this privacy policy",
