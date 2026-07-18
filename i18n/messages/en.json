@@ -399,6 +399,7 @@
       "emailLabel": "Email",
       "emailPlaceholder": "sophie@example.com",
       "weddingDateLabel": "Wedding date",
+      "weddingDatePlaceholder": "Choose a date",
       "guestCountLabel": "Number of guests",
       "guestCountPlaceholder": "e.g. 120",
       "messageLabel": "Your message",

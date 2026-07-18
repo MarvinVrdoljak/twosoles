@@ -138,6 +138,7 @@ export function FormContact() {
           id="contact-wedding-date"
           label={t('weddingDateLabel')}
           type="date"
+          placeholder={t('weddingDatePlaceholder')}
           value={fields.weddingDate}
           onChange={set('weddingDate')}
         />

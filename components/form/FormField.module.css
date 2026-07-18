@@ -28,12 +28,42 @@
   color: var(--color-placeholder);
 }
 
+/* Wrapper so a <input type="date"> can carry a placeholder overlay — the date
+   input type ignores the native `placeholder` attribute. */
+.control {
+  position: relative;
+}
+
+/* Stand-in placeholder for the empty date field, positioned exactly over the
+   input's own text area. Hidden as soon as the field is focused or filled. */
+.datePlaceholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding-inline: var(--spacing-16);
+  font-size: var(--font-size-base);
+  color: var(--color-placeholder);
+  pointer-events: none;
+}
+
+.control:focus-within .datePlaceholder {
+  display: none;
+}
+
+/* Hide the browser's native "tt.mm.jjjj" format text while empty and unfocused,
+   so only the overlay placeholder shows. On focus it reappears for editing. */
+.input[type='date'][data-empty='true']:not(:focus)::-webkit-datetime-edit {
+  color: transparent;
+}
+
 /* iOS Safari renders <input type="date"> taller than the other fields, centers
    the value and lets it overflow the box. Scope the reset to iOS (touch-callout
    only matches there) so the desktop calendar picker stays untouched. */
 @supports (-webkit-touch-callout: none) {
   .input[type='date'] {
     appearance: none;
+
     /* Without a value iOS collapses the stripped date input; pin it to the same
        height as a normal single-line field (line + vertical padding + border). */
     min-height: calc(var(--font-size-base) * var(--line-height-base) + 2 * var(--spacing-12) + 2px);
