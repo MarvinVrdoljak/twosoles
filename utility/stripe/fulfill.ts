@@ -1,6 +1,8 @@
 import 'server-only'
 import type Stripe from 'stripe'
 import {createServiceClient} from '@/utility/supabase/service'
+import {trackEventServer} from '@/utility/analytics/track.server'
+import type {PackageKey} from '@/utility/analytics/events'
 import {packageRank} from './packages'
 
 // Outcome of a fulfilment attempt. The webhook uses this to decide its HTTP
@@ -79,6 +81,13 @@ export async function fulfillCheckoutSession(
   })
   if (insertError && insertError.code !== '23505') {
     console.error('[stripe/fulfill] payment log insert failed', {eventId, error: insertError})
+  }
+
+  // Track the paid conversion exactly once. A `null` insertError means this call
+  // just logged a brand-new payment; a `23505` means the other fulfilment path
+  // (webhook vs. success page) already logged — and already tracked — it.
+  if (!insertError) {
+    await trackEventServer('checkout_paid', {package: target as PackageKey})
   }
 
   return 'ok'

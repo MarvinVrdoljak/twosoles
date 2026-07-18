@@ -6,6 +6,7 @@ import {useToast} from '@/components/common/CommonToast'
 import {LayoutEventCreation} from '@/components/layout/LayoutEventCreation'
 import {useRouter} from '@/i18n/navigation'
 import {createClient} from '@/utility/supabase/client'
+import {trackEvent} from '@/utility/analytics/track'
 import {createCheckoutSessionAction} from '@/utility/stripe/actions'
 import {FormEventCouple} from './FormEventCouple'
 import {FormEventDetails} from './FormEventDetails'
@@ -57,6 +58,11 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
 
   const [step, setStep] = useState(1)
   const [creating, setCreating] = useState(false)
+
+  // Top of the create funnel: the wizard mounted. Fires once per visit.
+  useEffect(() => {
+    trackEvent('event_create_started')
+  }, [])
 
   // Remembers the row we already inserted, so a failure *after* the insert
   // (photo upload or Stripe hand-off) is retried against the same event instead
@@ -147,6 +153,9 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
         if (error) throw error
         eventId = (data as {id: string}).id
         createdEventIdRef.current = eventId
+        // Fired only on a genuinely new row (not on a post-insert retry), with
+        // the tier the user selected as their purchase intent.
+        trackEvent('event_created', {package: PACKAGE_KEYS[draft.packageIndex]})
       }
 
       const patch: {person1_photo?: string; person2_photo?: string} = {}

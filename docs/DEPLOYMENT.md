@@ -420,6 +420,6 @@ konfiguriert Google im Dashboard): `SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID`,
 ## Laufender Betrieb
 
 - **Deployen:** Merge nach `staging` deployt Staging, Merge nach `main` deployt Production. Vercel baut automatisch (CD).
-- **Neue DB-Migration:** Datei in `supabase/migrations` anlegen, dann `supabase link --project-ref <ref>` und `supabase db push` pro Projekt (Staging zuerst testen).
+- **Neue DB-Migration:** Datei in `supabase/migrations` anlegen. Lokal anwenden mit `npx supabase migration up`. Remote pushen mit `npm run db:push` (interaktive Auswahl Staging/Production; direkt via `npm run db:push -- staging` bzw. `-- prod`, Vorschau mit `-- staging --dry-run`). Das Script kapselt `supabase link` + `supabase db push` und hat eine Extra-Bestätigung für Production. Immer erst Staging, dann Production. Wichtig: Migration und der Code, der sie nutzt, gehören zusammen deployt (sonst 404/500 im Zeitfenster).
 - **Neue Tabelle, die der Webhook beschreibt:** braucht ein explizites `grant ... to service_role` in der Migration (sonst 42501).
 - **Env-Variable ändern:** in Vercel setzen und neu deployen (Env-Änderungen greifen erst mit einem neuen Deployment).

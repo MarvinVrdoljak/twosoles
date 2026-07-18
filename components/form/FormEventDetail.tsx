@@ -11,6 +11,7 @@ import {DeviceChoiceModal} from '@/components/game/DeviceChoiceModal'
 import {ItemEventGuide} from '@/components/items/ItemEventGuide'
 import {ItemEventOverview} from '@/components/items/ItemEventOverview'
 import {Link, useRouter} from '@/i18n/navigation'
+import {trackEvent} from '@/utility/analytics/track'
 import {deriveStatus} from '@/utility/events/status'
 import {confirmCheckoutAction, createCheckoutSessionAction} from '@/utility/stripe/actions'
 import {createClient} from '@/utility/supabase/client'
@@ -285,12 +286,17 @@ export function FormEventDetail({
     try {
       const supabase = createClient()
       const startedIso = new Date().toISOString()
-      const {error} = await supabase
+      const {data, error} = await supabase
         .from('events')
         .update({started_at: startedIso})
         .eq('id', event.id)
         .is('started_at', null)
+        .select('id')
       if (error) throw error
+      // The `is('started_at', null)` guard means a row comes back only when this
+      // call actually flipped the event live (not a re-click on an already-live
+      // event) — so this fires the analytics event exactly once per go-live.
+      if (data && data.length > 0) trackEvent('game_hosted')
       setStartedAt(startedIso)
       setGoLiveConfirmOpen(false)
       router.refresh()
