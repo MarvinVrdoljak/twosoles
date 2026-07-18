@@ -150,9 +150,12 @@ export function FormEventDetail({
 
     // Remove the checkout params via the router (not window.history) so they're
     // gone from Next's history state too — window.history alone gets re-added on
-    // the next refresh. Land on the tab the checkout carried back: a wizard
-    // purchase returns to "couple", an in-settings upgrade stays on "settings".
-    const returnTab = parseTab(params.get('tab')) ?? 'settings'
+    // the next refresh. A wizard purchase ('couple') lands like a fresh create:
+    // the overview tab on mobile (where it exists), couple on desktop. An
+    // in-settings upgrade ('settings') stays put on both.
+    const requestedTab = parseTab(params.get('tab')) ?? 'settings'
+    const isMobile = !window.matchMedia('(min-width: 1024px)').matches
+    const returnTab = requestedTab === 'couple' && isMobile ? 'overview' : requestedTab
     router.replace(`/dashboard/events/${event.id}?tab=${returnTab}`)
     setTab(returnTab)
 

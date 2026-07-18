@@ -4,8 +4,12 @@
   align-items: center;
   gap: var(--spacing-52);
   width: 100%;
-  max-width: 840px;
+
+  /* Side gap so the accordion doesn't touch the screen edge on mobile; max-width
+     grows by the same amount so the content stays 840px wide on desktop. */
+  max-width: calc(840px + 2 * var(--side-gap));
   margin-inline: auto;
+  padding-inline: var(--side-gap);
   padding-block-end: var(--spacing-128);
 }
 

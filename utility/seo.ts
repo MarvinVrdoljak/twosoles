@@ -11,6 +11,15 @@ export function getBaseUrl(): string {
 // Maps an app locale to the BCP-47 tag OpenGraph expects.
 const OG_LOCALE: Record<Locale, string> = {de: 'de_DE', en: 'en_US'}
 
+// Default social share image (1200×630). Relative path — `metadataBase`
+// resolves it to an absolute URL for the OG/Twitter tags.
+export const SHARE_IMAGE = {
+  url: '/images/twosoles-wedding-game-sharing.jpg',
+  width: 1200,
+  height: 630,
+  alt: 'TwoSoles · Das digitale Hochzeits-Schuhspiel',
+} as const
+
 // Builds canonical + hreflang alternates for one route across every locale.
 // `href` is the internal, locale-agnostic pathname (e.g. '/contact', '/').
 // `getPathname` yields the localized URL (de → '/contact', en → '/en/contact'),
@@ -66,12 +75,13 @@ export function pageMetadata({
       title: ogTitle,
       description,
       url: canonical,
-      // TODO: add a dedicated 1200×630 share image via `images` once available.
+      images: [SHARE_IMAGE],
     },
     twitter: {
       card: 'summary_large_image',
       title: ogTitle,
       description,
+      images: [SHARE_IMAGE.url],
     },
   }
 }

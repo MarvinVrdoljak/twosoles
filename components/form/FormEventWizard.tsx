@@ -13,7 +13,7 @@ import {FormEventDetails} from './FormEventDetails'
 import {FormEventQuestions} from './FormEventQuestions'
 import {FormEventPackage} from './FormEventPackage'
 import {FormEventSummary} from './FormEventSummary'
-import {isEventDateInRange, PACKAGE_KEYS, PERSON_COLORS, todayISODate} from './eventDraft'
+import {isEventDateInRange, PACKAGE_KEYS, PERSON_COLORS} from './eventDraft'
 import type {EventDraft} from './eventDraft'
 
 const TOTAL_STEPS = 5
@@ -91,7 +91,7 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
     photo1File: null,
     photo2File: null,
     occasion: 'wedding',
-    date: todayISODate(),
+    date: '',
     language: locale,
     theme: 'light',
     questions: [],
@@ -177,11 +177,12 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
     }
   }
 
-  // Create the event for free and go straight into it (couple tab), rather than
-  // back to the dashboard — the buyer just made this event, so drop them in it.
+  // Create the event for free and go straight into it, rather than back to the
+  // dashboard. No ?tab= param, so the detail page picks its own landing: the
+  // overview tab on mobile (where it exists), the couple tab on desktop.
   const createFreeAndGo = async () => {
     const eventId = await createEvent()
-    if (eventId) router.push(`/dashboard/events/${eventId}?tab=couple`)
+    if (eventId) router.push(`/dashboard/events/${eventId}`)
   }
 
   // Main CTA on the summary step. Free → dashboard; paid → create as free, then
@@ -191,11 +192,13 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
     if (!eventId) return
 
     if (isFree) {
-      router.push(`/dashboard/events/${eventId}?tab=couple`)
+      // No ?tab= param → the detail page lands on overview (mobile) / couple (desktop).
+      router.push(`/dashboard/events/${eventId}`)
       return
     }
 
-    // Fresh purchase from the wizard: return to the "couple" tab after Stripe.
+    // Fresh purchase from the wizard: land like a fresh create after Stripe
+    // (overview on mobile / couple on desktop — resolved on return, below).
     const result = await createCheckoutSessionAction(
       eventId,
       PACKAGE_KEYS[draft.packageIndex],

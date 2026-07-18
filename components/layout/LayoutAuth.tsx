@@ -18,13 +18,7 @@ type LayoutAuthProps = {
 
 // Split auth shell: a photo with a testimonial overlay on the left (hidden on
 // mobile) and the form column on the right.
-export async function LayoutAuth({
-  eyebrow,
-  title,
-  subtitle,
-  toggle,
-  children,
-}: LayoutAuthProps) {
+export async function LayoutAuth({eyebrow, title, subtitle, toggle, children}: LayoutAuthProps) {
   const t = await getTranslations('auth')
 
   return (
@@ -32,7 +26,7 @@ export async function LayoutAuth({
       <aside className={styles.media}>
         <CommonImage
           className={styles.image}
-          src="/images/auth-couple.jpg"
+          src="/images/twosoles-wedding-game-auth.jpg"
           alt=""
           fill
           priority

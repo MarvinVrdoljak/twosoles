@@ -38,7 +38,7 @@ export async function BlockHero() {
           <div className={styles.media}>
             <CommonImage
               className={styles.image}
-              src="/images/hero-couple.jpg"
+              src="/images/twosoles-wedding-game-hero.jpg"
               alt={t('imageAlt')}
               fill
               priority

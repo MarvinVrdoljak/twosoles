@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import {useTranslations} from 'next-intl'
 import {ArrowLeft, X} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
@@ -41,6 +41,13 @@ export function LayoutEventCreation({
 }: LayoutEventCreationProps) {
   const t = useTranslations('eventWizard')
   const steps = t.raw('steps') as StepMeta[]
+
+  // Every step change (next / back / jump) starts the new step at the top of the
+  // scroll area, so a long previous step doesn't leave the next one scrolled down.
+  const scrollRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    scrollRef.current?.scrollTo({top: 0})
+  }, [activeStep])
 
   return (
     <div className={styles.root}>
@@ -96,7 +103,7 @@ export function LayoutEventCreation({
 
       <div className={styles.content}>
         <Leaf03 className={styles.leafLeft} aria-hidden="true" />
-        <div className={styles.scroll}>
+        <div className={styles.scroll} ref={scrollRef}>
           <div className={styles.inner}>
             <header className={styles.head}>
               <p className={styles.eyebrow}>{eyebrow}</p>

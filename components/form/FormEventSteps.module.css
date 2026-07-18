@@ -279,6 +279,18 @@
   align-items: stretch;
 }
 
+/* On phones the add button is just the "+" icon (the button keeps its aria-label)
+   so the input gets more room; the text label returns on wider screens. */
+.addLabel {
+  display: none;
+}
+
+@media (--bp-medium-up) {
+  .addLabel {
+    display: inline;
+  }
+}
+
 .qInput {
   flex: 1 0 0;
   min-width: 0;
@@ -408,6 +420,7 @@
    scrolling the page when the drag begins on touch; user-select:none keeps a
    touch-drag from selecting the row text. */
 .qHandle {
+  position: relative;
   display: flex;
   flex-shrink: 0;
   color: var(--color-text-muted);
@@ -415,6 +428,19 @@
   touch-action: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Invisible enlarged hit area so the small grip is easy to grab on touch —
+   extends the tappable region without shifting the icon or the row layout. */
+.qHandle::before {
+  content: '';
+  position: absolute;
+  inset: calc(var(--spacing-8) * -1);
+}
+
+/* Let the pointerdown land on the handle, not the icon inside it. */
+.qHandle svg {
+  pointer-events: none;
 }
 
 .qHandle:active {

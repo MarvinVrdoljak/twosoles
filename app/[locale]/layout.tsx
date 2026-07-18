@@ -10,7 +10,7 @@ import {setRequestLocale} from 'next-intl/server'
 import {Fraunces, Nunito} from 'next/font/google'
 import {ToastProvider} from '@/components/common/CommonToast'
 import {routing} from '@/i18n/routing'
-import {getBaseUrl} from '@/utility/seo'
+import {getBaseUrl, SHARE_IMAGE} from '@/utility/seo'
 
 // Site-wide defaults. Page-level `generateMetadata` overrides title/description
 // via the `%s` template and adds canonical + hreflang; favicons + manifest live
@@ -29,12 +29,14 @@ export const metadata: Metadata = {
     title: 'TwoSoles · Das digitale Hochzeits-Schuhspiel',
     description:
       'Das Wedding Shoe Game — live mit allen Gästen. Ohne App, ohne Login, in fünf Minuten startklar.',
+    images: [SHARE_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'TwoSoles · Das digitale Hochzeits-Schuhspiel',
     description:
       'Das Wedding Shoe Game — live mit allen Gästen. Ohne App, ohne Login, in fünf Minuten startklar.',
+    images: [SHARE_IMAGE.url],
   },
   icons: {
     icon: [

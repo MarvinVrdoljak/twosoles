@@ -184,9 +184,15 @@ export function FormEventQuestions({draft, update, title, subtitle, footer, read
               }
             }}
           />
-          <CommonButton variant="primary" size="md" onClick={addCustom} disabled={!input.trim()}>
+          <CommonButton
+            variant="primary"
+            size="md"
+            onClick={addCustom}
+            disabled={!input.trim()}
+            aria-label={t('questions.add')}
+          >
             <Plus size={18} aria-hidden="true" />
-            {t('questions.add')}
+            <span className={styles.addLabel}>{t('questions.add')}</span>
           </CommonButton>
         </div>
       )}

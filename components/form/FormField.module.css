@@ -34,7 +34,9 @@
 @supports (-webkit-touch-callout: none) {
   .input[type='date'] {
     appearance: none;
-    min-height: 0;
+    /* Without a value iOS collapses the stripped date input; pin it to the same
+       height as a normal single-line field (line + vertical padding + border). */
+    min-height: calc(var(--font-size-base) * var(--line-height-base) + 2 * var(--spacing-12) + 2px);
   }
 
   .input[type='date']::-webkit-date-and-time-value {

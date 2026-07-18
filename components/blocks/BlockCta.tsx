@@ -12,7 +12,7 @@ export async function BlockCta() {
       <div className={styles.media}>
         <CommonImage
           className={styles.image}
-          src="/images/hero-couple.jpg"
+          src="/images/twosoles-wedding-game-teaser.jpg"
           alt={t('imageAlt')}
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
