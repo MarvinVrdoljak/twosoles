@@ -398,7 +398,7 @@
       "lastNamePlaceholder": "Doe",
       "emailLabel": "Email",
       "emailPlaceholder": "sophie@example.com",
-      "weddingDateLabel": "Wedding date",
+      "weddingDateLabel": "Event date",
       "weddingDatePlaceholder": "Choose a date",
       "guestCountLabel": "Number of guests",
       "guestCountPlaceholder": "e.g. 120",
@@ -667,6 +667,7 @@
         }
       ],
       "dateLabel": "Date of the celebration",
+      "datePlaceholder": "Choose a date",
       "languageLabel": "Game language",
       "themeLabel": "Colour scheme",
       "themeHint": "Sets the default look of the game screens (projector, guest phones and host). Light suits daytime celebrations, dark suits evening venues. The host can switch it any time during the game.",

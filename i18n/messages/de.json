@@ -398,7 +398,7 @@
       "lastNamePlaceholder": "Mustermann",
       "emailLabel": "E-Mail",
       "emailPlaceholder": "sophie@beispiel.de",
-      "weddingDateLabel": "Datum der Hochzeit",
+      "weddingDateLabel": "Datum der Feier",
       "weddingDatePlaceholder": "Datum wählen",
       "guestCountLabel": "Anzahl Gäste",
       "guestCountPlaceholder": "z. B. 120",
@@ -667,6 +667,7 @@
         }
       ],
       "dateLabel": "Datum der Feier",
+      "datePlaceholder": "Datum wählen",
       "languageLabel": "Spiel-Sprache",
       "themeLabel": "Farbschema",
       "themeHint": "Legt das Standard-Erscheinungsbild der Spiel-Bildschirme fest (Leinwand, Gäste-Handys und Host). Hell passt zu Feiern bei Tageslicht, Dunkel zu abendlichen Locations. Der Host kann es während des Spiels jederzeit umschalten.",

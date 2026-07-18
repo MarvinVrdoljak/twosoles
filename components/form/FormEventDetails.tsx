@@ -109,6 +109,7 @@ export function FormEventDetails({draft, update, title, subtitle, footer, readOn
           id="event-date"
           label={t('details.dateLabel')}
           type="date"
+          placeholder={t('details.datePlaceholder')}
           value={draft.date}
           required
           min={todayISODate()}
