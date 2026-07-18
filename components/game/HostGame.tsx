@@ -157,7 +157,8 @@ export function HostGame({
             votes: s.results[s.questionIndex - 1] ?? [0, 0],
           }
         case 'closed':
-          return {...s, phase: 'question'}
+          // Reopen voting: clear the tally so the whole room votes again.
+          return {...s, phase: 'question', votes: [0, 0]}
         case 'reveal': {
           // Undo the reveal: drop the saved tally and re-close voting.
           const results = {...s.results}

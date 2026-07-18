@@ -1,6 +1,6 @@
 'use client'
 
-import {useEffect, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {useTranslations} from 'next-intl'
 import {AnimatePresence, motion} from 'motion/react'
 import {Heart} from 'lucide-react'
@@ -43,9 +43,17 @@ export function GuestGame({
   const {state, sendVote, overCapacity} = useGameChannel(eventId, 'guest', initialTheme, capacity)
   const [voted, setVoted] = useState<0 | 1 | null>(null)
 
+  // Clear this guest's vote whenever a voting round opens — a fresh question, or
+  // the host reopening voting on the current question. Both show up as a
+  // transition into the 'question' phase, so keying on that covers reopens that
+  // the questionIndex alone would miss.
+  const prevPhase = useRef(state.phase)
   useEffect(() => {
-    setVoted(null)
-  }, [state.questionIndex])
+    if (state.phase === 'question' && prevPhase.current !== 'question') {
+      setVoted(null)
+    }
+    prevPhase.current = state.phase
+  }, [state.phase])
 
   const persons = [person1, person2]
   const question = questions[state.questionIndex] ?? ''

@@ -13,9 +13,9 @@
   color: var(--color-text);
 }
 
-/* Below the trigger, left-aligned by default. Capped to the viewport width so
-   it never exceeds the screen, and flipped right-aligned (.right) by the
-   component when it would overflow the right edge. Shown on hover and focus. */
+/* Below the trigger. Width is capped to the viewport so it never exceeds the
+   screen; the component measures and sets an inline `left` (px, relative to the
+   wrapper) to center it and clamp it on screen. Shown on hover and focus. */
 .tooltip {
   position: absolute;
   top: calc(100% + var(--spacing-8));
@@ -37,11 +37,6 @@
   opacity: 0;
   transition: opacity var(--transition-fast);
   pointer-events: none;
-}
-
-.right {
-  right: 0;
-  left: auto;
 }
 
 .wrap:hover .tooltip,
