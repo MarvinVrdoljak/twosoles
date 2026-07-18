@@ -64,7 +64,6 @@ export const PERSON_COLORS = [
   '#c98b6b',
   '#6b8e9e',
   '#8a9a5b',
-  '#b5838d',
   '#7a6a9e',
   '#4c9a8f',
 ]

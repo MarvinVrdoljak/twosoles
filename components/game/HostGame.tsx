@@ -5,7 +5,6 @@ import {useTranslations} from 'next-intl'
 import {
   ArrowUpRight,
   Check,
-  Info,
   Monitor,
   Moon,
   RotateCcw,
@@ -19,6 +18,7 @@ import {Link} from '@/i18n/navigation'
 import {CommonBadge} from '@/components/common/CommonBadge'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonModal} from '@/components/common/CommonModal'
+import {CommonTooltip} from '@/components/common/CommonTooltip'
 import {useToast} from '@/components/common/CommonToast'
 import {saveGameStateAction} from '@/utility/game/actions'
 import {useGameChannel} from '@/utility/game/useGameChannel'
@@ -35,6 +35,9 @@ type HostGameProps = {
   capacity: number
   // Persisted snapshot to resume from after a reload (null = fresh lobby).
   initialState?: GameState | null
+  // Event is still in preparation (not set live) — shows a reminder banner and
+  // means the capacity is still capped at the free tier until the owner goes live.
+  isDraft?: boolean
 }
 
 export function HostGame({
@@ -45,6 +48,7 @@ export function HostGame({
   initialTheme = 'light',
   capacity,
   initialState = null,
+  isDraft = false,
 }: HostGameProps) {
   const t = useTranslations('game')
   const {toast} = useToast()
@@ -190,6 +194,11 @@ export function HostGame({
 
   return (
     <div className={styles.root} data-theme={state.theme}>
+      {isDraft ? (
+        <div className={styles.draftBar} role="status">
+          {t('host.draftBanner')}
+        </div>
+      ) : null}
       <header className={styles.topbar}>
         <span className={styles.logo}>{t('host.panel')}</span>
         <button
@@ -224,14 +233,7 @@ export function HostGame({
                 </span>
                 <span className={styles.rowLabel}>
                   {t('host.themeLabel')}
-                  <span className={styles.infoWrap}>
-                    <button type="button" className={styles.info} aria-label={t('host.themeHint')}>
-                      <Info size={15} aria-hidden="true" />
-                    </button>
-                    <span className={styles.tooltip} role="tooltip">
-                      {t('host.themeHint')}
-                    </span>
-                  </span>
+                  <CommonTooltip label={t('host.themeHint')} icon />
                 </span>
                 <button
                   type="button"

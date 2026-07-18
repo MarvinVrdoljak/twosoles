@@ -169,6 +169,13 @@ export function ItemEventOverview({
     expired: tDash('statusExpired'),
   }[status]
 
+  const statusTip = {
+    draft: tDash('statusDraftTip'),
+    live: tDash('statusLiveTip'),
+    ended: tDash('statusEndedTip'),
+    expired: tDash('statusExpiredTip'),
+  }[status]
+
   return (
     <aside className={styles.root}>
       <div className={styles.top}>
@@ -176,7 +183,11 @@ export function ItemEventOverview({
           <span className={styles.avatar}>{name1.charAt(0) || '?'}</span>
           <span className={styles.avatar}>{name2.charAt(0) || '?'}</span>
         </div>
-        <CommonBadge variant={STATUS_BADGE_VARIANT[status]} pulse={status === 'live'}>
+        <CommonBadge
+          variant={STATUS_BADGE_VARIANT[status]}
+          pulse={status === 'live'}
+          tooltip={statusTip}
+        >
           {statusLabel}
         </CommonBadge>
       </div>

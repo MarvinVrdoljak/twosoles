@@ -89,12 +89,31 @@
   }
 }
 
-/* Sign-up CTA is hidden on mobile (Login + hamburger remain). */
+/* Login lives in the top bar on desktop only; on mobile it moves into the
+   drawer and the red "jetzt testen" CTA takes its place next to the hamburger. */
+.loginDesktop {
+  display: none;
+
+  @media (--bp-large-up) {
+    display: inline-flex;
+  }
+}
+
+/* Full sign-up CTA (desktop) and the short red CTA (mobile) — mutually
+   exclusive across the large breakpoint. */
 .ctaDesktop {
   display: none;
 
   @media (--bp-large-up) {
     display: inline-flex;
+  }
+}
+
+.ctaMobile {
+  display: inline-flex;
+
+  @media (--bp-large-up) {
+    display: none;
   }
 }
 

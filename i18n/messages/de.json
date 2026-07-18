@@ -14,6 +14,7 @@
     "login": "Login",
     "ctaStart": "Kostenlos starten",
     "ctaStartMenu": "Jetzt kostenlos starten",
+    "ctaStartShort": "Jetzt testen",
     "selectLanguage": "Sprache wählen",
     "menuOpen": "Menü öffnen",
     "menuClose": "Menü schließen",
@@ -623,7 +624,7 @@
       "removePhoto": "Foto entfernen",
       "colorLabel": "Farbe",
       "colorHint": "Diese Farbe kennzeichnet die Person überall im Spiel: auf den Abstimm-Buttons der Gäste und im Ergebnis-Balken auf der Leinwand.",
-      "colorNames": ["Altrosa", "Anthrazit", "Terrakotta", "Rauchblau", "Olivgrün", "Mauve", "Lavendel", "Petrol"]
+      "colorNames": ["Altrosa", "Anthrazit", "Terrakotta", "Rauchblau", "Olivgrün", "Lavendel", "Petrol"]
     },
     "details": {
       "title": "Die Eckdaten der Feier",
@@ -775,6 +776,16 @@
       "confirm": "Ja, jetzt live schalten",
       "cancel": "Abbrechen"
     },
+    "introOverlay": {
+      "title": "Dein Event ist in Vorbereitung",
+      "intro": "Bevor es am großen Tag losgeht, ein kurzer Hinweis:",
+      "points": [
+        "Dein Event ist gerade in Vorbereitung, quasi die Testphase. Hier können sich maximal 10 Gäste verbinden, sodass du das Spiel schon einmal in Ruhe ausprobieren kannst.",
+        "Damit so viele Gäste mitspielen können, wie dein Paket erlaubt, musst du das Event live schalten, sobald es wirklich losgeht.",
+        "Achtung: Das Event lässt sich nur ein einziges Mal live schalten. Ab dann hast du genau 48 Stunden Zeit, das Spiel zu spielen."
+      ],
+      "gotIt": "Verstanden"
+    },
     "tabs": {
       "overview": "Übersicht",
       "couple": "Das Paar",
@@ -787,10 +798,9 @@
     "coupleSubtitle": "Namen, Fotos und Farben, genau so, wie sie später auf der Leinwand erscheinen.",
     "detailsTitle": "Die Eckdaten der Feier",
     "questionsTitle": "Die Fragen für den großen Moment",
-    "questionsSubtitle": "Dein Frage-Set: sortieren, ergänzen und austauschen.",
     "settings": {
       "statusTitle": "Status",
-      "statusDraftText": "Sobald du das Event aktivierst, hast du 48 Stunden Zeit, das Spiel zu spielen. In dieser Zeit können sich unbegrenzt viele Gäste verbinden. Nach Ablauf ist das Event abgeschlossen und kann nicht erneut gestartet werden.",
+      "statusDraftText": "Dein Event ist in Vorbereitung. In dieser Phase können sich maximal 10 Gäste verbinden, damit du in Ruhe testen kannst. Sobald es wirklich losgeht, schalte das Event live: Erst dann spielen so viele Gäste mit, wie dein Paket erlaubt. Ab dem Live-Schalten hast du 48 Stunden Zeit, danach ist das Event abgeschlossen und kann nicht erneut gestartet werden.",
       "statusDraftWarning": "Achtung: Das Event kann nur einmal live geschaltet werden.",
       "goLive": "Event live schalten",
       "statusLiveText": "Dein Event läuft. Teile den Gastcode mit deinen Gästen. Sie brauchen keine App.",
@@ -855,7 +865,8 @@
       "setup": [
         "Verbinde das erste Gerät mit der Leinwand und öffne darauf die <display>Leinwand-Ansicht</display>. Am besten nutzt du den Vollbildmodus des Browsers. Auf einem zweiten Gerät, idealerweise einem Smartphone, öffnest du die <host>Host-Steuerung</host>.",
         "Stell zum Schluss sicher, dass das Spiel zurückgesetzt ist, damit es von vorne startet. Das erledigst du in den <settings>Einstellungen</settings> dieses Events oder im <host>Host-Panel</host>. Danach steht die Leinwand auf dem Willkommens-Screen, und du bist startklar.",
-        "Stell zwei Stühle mit dem Rücken zueinander auf, am besten vor oder neben der Leinwand. So sitzt das Paar Rücken an Rücken und sieht sich gegenseitig nicht. Achte darauf, dass sowohl das Paar als auch die Leinwand für alle im Saal gut sichtbar sind. Das Paar nimmt Platz, und jede Person bekommt einen eigenen Schuh und einen Schuh der anderen Person in die Hand."
+        "Stell zwei Stühle mit dem Rücken zueinander auf, am besten vor oder neben der Leinwand. So sitzt das Paar Rücken an Rücken und sieht sich gegenseitig nicht. Achte darauf, dass sowohl das Paar als auch die Leinwand für alle im Saal gut sichtbar sind. Das Paar nimmt Platz, und jede Person bekommt einen eigenen Schuh und einen Schuh der anderen Person in die Hand.",
+        "Wenn alles steht und der große Moment gekommen ist, schalte das Event in den <settings>Einstellungen</settings> live. Erst dann können so viele Gäste mitspielen, wie dein Paket erlaubt. In der Vorbereitung sind es maximal 10, damit du vorher in Ruhe testen kannst. Achtung: Live-Schalten geht nur ein einziges Mal, danach hast du genau 48 Stunden Zeit."
       ],
       "roundTitle": "So läuft eine Runde",
       "round": [
@@ -930,6 +941,7 @@
     },
     "host": {
       "panel": "HostPanel",
+      "draftBanner": "Dieses Event befindet sich noch in Vorbereitung. Bitte schalte das Event live, sobald es losgeht.",
       "questionOf": "Frage {current}/{total}",
       "guests": "{count} Gäste",
       "capacityReached": "Maximale Spielerzahl von {capacity} erreicht. Es können keine weiteren Gäste beitreten.",
@@ -1007,10 +1019,14 @@
     "eventsSubtitle": "Hier findest du alle deine Spiele, vergangene und kommende. Erstelle ein neues Event, verwalte deine Fragen und teile den Gastcode direkt aus dem Dashboard.",
     "addEventTitle": "Neues Event anlegen",
     "addEventSubtitle": "In 5 Minuten startklar",
-    "statusDraft": "Entwurf",
+    "statusDraft": "Vorbereitung",
     "statusLive": "Live",
     "statusEnded": "Beendet",
     "statusExpired": "Abgelaufen",
+    "statusDraftTip": "In Vorbereitung: Bevor es losgeht, musst du das Event live schalten. Vorher können sich maximal 10 Gäste zum Testen verbinden.",
+    "statusLiveTip": "Das Event läuft. So viele Gäste wie dein Paket erlaubt können mitspielen, 48 Stunden lang.",
+    "statusEndedTip": "Die 48 Stunden sind vorbei. Das Event ist abgeschlossen, die Ergebnisse bleiben gespeichert.",
+    "statusExpiredTip": "Das Datum ist verstrichen, ohne dass das Event live geschaltet wurde. Wähle ein neues Datum, um es wieder zu aktivieren.",
     "cardGuests": "Bis {capacity} · «{name}»",
     "cardQuestions": "{count} Fragen ausgewählt",
     "cardManage": "Event verwalten",

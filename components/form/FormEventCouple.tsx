@@ -1,8 +1,10 @@
 'use client'
 
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useCallback, useEffect, useRef, useState} from 'react'
+import {createPortal} from 'react-dom'
 import {useTranslations} from 'next-intl'
-import {ChevronDown, ImagePlus, Info, X} from 'lucide-react'
+import {ChevronDown, ImagePlus, X} from 'lucide-react'
+import {CommonTooltip} from '@/components/common/CommonTooltip'
 import {PERSON_COLORS} from './eventDraft'
 import type {EventDraft} from './eventDraft'
 import styles from './FormEventSteps.module.css'
@@ -34,17 +36,61 @@ function ColorField({
   disabled?: boolean
 }) {
   const [open, setOpen] = useState(false)
+  const [menuStyle, setMenuStyle] = useState<React.CSSProperties>({})
   const ref = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
+
+  // Position the menu as a fixed overlay anchored to the swatch button. Fixed +
+  // a body portal (below) let it escape the wizard's scroll container and paint
+  // over the sticky bottom button bar. If there isn't enough room below the
+  // button, it opens upward instead; either way it's capped in height and scrolls.
+  const positionMenu = useCallback(() => {
+    const btn = buttonRef.current
+    if (!btn) return
+    const rect = btn.getBoundingClientRect()
+    const gap = 8
+    const edge = 8
+    const desiredMax = 260
+    const spaceBelow = window.innerHeight - rect.bottom - gap - edge
+    const spaceAbove = rect.top - gap - edge
+    const openUp = spaceBelow < Math.min(desiredMax, 220) && spaceAbove > spaceBelow
+    const maxHeight = Math.min(desiredMax, openUp ? spaceAbove : spaceBelow)
+    setMenuStyle({
+      position: 'fixed',
+      left: rect.left,
+      width: rect.width,
+      maxHeight,
+      ...(openUp
+        ? {bottom: window.innerHeight - rect.top + gap}
+        : {top: rect.bottom + gap}),
+    })
+  }, [])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
-        setOpen(false)
-      }
+      const target = event.target as Node
+      // The menu lives in a body portal, so it's outside `ref` in the DOM — check
+      // it separately, otherwise clicking an option would count as "outside".
+      if (ref.current?.contains(target) || menuRef.current?.contains(target)) return
+      setOpen(false)
     }
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
+
+  // While open, keep the fixed menu glued to the button as the page/container
+  // scrolls or the viewport resizes (capture catches scrolls on any ancestor).
+  useEffect(() => {
+    if (!open) return
+    positionMenu()
+    window.addEventListener('resize', positionMenu)
+    window.addEventListener('scroll', positionMenu, true)
+    return () => {
+      window.removeEventListener('resize', positionMenu)
+      window.removeEventListener('scroll', positionMenu, true)
+    }
+  }, [open, positionMenu])
 
   const activeName = names[PERSON_COLORS.indexOf(color)] ?? ''
 
@@ -52,18 +98,12 @@ function ColorField({
     <div className={styles.colorField}>
       <span className={styles.fieldLabel}>
         {label}
-        <span className={styles.infoWrap}>
-          <button type="button" className={styles.info} aria-label={hint}>
-            <Info size={15} aria-hidden="true" />
-          </button>
-          <span className={styles.tooltip} role="tooltip">
-            {hint}
-          </span>
-        </span>
+        <CommonTooltip label={hint} icon />
       </span>
 
       <div className={styles.colorPicker} ref={ref}>
         <button
+          ref={buttonRef}
           type="button"
           className={styles.swatch}
           onClick={() => setOpen((value) => !value)}
@@ -76,26 +116,29 @@ function ColorField({
           <span className={styles.swatchName}>{activeName}</span>
           <ChevronDown className={styles.swatchChevron} size={18} aria-hidden="true" />
         </button>
-        {open ? (
-          <div className={styles.colorMenu} role="menu">
-            {PERSON_COLORS.map((option, index) => (
-              <button
-                key={option}
-                type="button"
-                role="menuitemradio"
-                aria-checked={option === color}
-                className={`${styles.colorOption} ${option === color ? styles.colorOptionActive : ''}`}
-                onClick={() => {
-                  onSelect(option)
-                  setOpen(false)
-                }}
-              >
-                <span className={styles.swatchDot} style={{background: option}} />
-                <span className={styles.colorOptionName}>{names[index]}</span>
-              </button>
-            ))}
-          </div>
-        ) : null}
+        {open
+          ? createPortal(
+              <div className={styles.colorMenu} role="menu" ref={menuRef} style={menuStyle}>
+                {PERSON_COLORS.map((option, index) => (
+                  <button
+                    key={option}
+                    type="button"
+                    role="menuitemradio"
+                    aria-checked={option === color}
+                    className={`${styles.colorOption} ${option === color ? styles.colorOptionActive : ''}`}
+                    onClick={() => {
+                      onSelect(option)
+                      setOpen(false)
+                    }}
+                  >
+                    <span className={styles.swatchDot} style={{background: option}} />
+                    <span className={styles.colorOptionName}>{names[index]}</span>
+                  </button>
+                ))}
+              </div>,
+              document.body,
+            )
+          : null}
       </div>
     </div>
   )

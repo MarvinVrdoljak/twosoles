@@ -177,10 +177,11 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
     }
   }
 
-  // Create the event for free and go to the dashboard.
+  // Create the event for free and go straight into it (couple tab), rather than
+  // back to the dashboard — the buyer just made this event, so drop them in it.
   const createFreeAndGo = async () => {
     const eventId = await createEvent()
-    if (eventId) router.push('/dashboard')
+    if (eventId) router.push(`/dashboard/events/${eventId}?tab=couple`)
   }
 
   // Main CTA on the summary step. Free → dashboard; paid → create as free, then
@@ -190,11 +191,16 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
     if (!eventId) return
 
     if (isFree) {
-      router.push('/dashboard')
+      router.push(`/dashboard/events/${eventId}?tab=couple`)
       return
     }
 
-    const result = await createCheckoutSessionAction(eventId, PACKAGE_KEYS[draft.packageIndex])
+    // Fresh purchase from the wizard: return to the "couple" tab after Stripe.
+    const result = await createCheckoutSessionAction(
+      eventId,
+      PACKAGE_KEYS[draft.packageIndex],
+      'couple',
+    )
     if ('url' in result) {
       window.location.href = result.url
     } else {

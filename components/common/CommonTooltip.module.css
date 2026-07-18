@@ -1,0 +1,50 @@
+.wrap {
+  position: relative;
+  display: inline-flex;
+  cursor: help;
+}
+
+.icon {
+  color: var(--color-text-muted);
+}
+
+.wrap:hover .icon,
+.wrap:focus-visible .icon {
+  color: var(--color-text);
+}
+
+/* Below the trigger, left-aligned by default. Capped to the viewport width so
+   it never exceeds the screen, and flipped right-aligned (.right) by the
+   component when it would overflow the right edge. Shown on hover and focus. */
+.tooltip {
+  position: absolute;
+  top: calc(100% + var(--spacing-8));
+  left: 0;
+  z-index: 30;
+  width: max-content;
+  max-width: min(240px, calc(100vw - 2 * var(--spacing-16)));
+  padding: var(--spacing-8) var(--spacing-12);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-body);
+  line-height: 1.4;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-background);
+  background: var(--color-text);
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 18%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+}
+
+.right {
+  right: 0;
+  left: auto;
+}
+
+.wrap:hover .tooltip,
+.wrap:focus-within .tooltip {
+  opacity: 1;
+}

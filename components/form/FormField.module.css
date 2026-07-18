@@ -28,6 +28,26 @@
   color: var(--color-placeholder);
 }
 
+/* iOS Safari renders <input type="date"> taller than the other fields, centers
+   the value and lets it overflow the box. Scope the reset to iOS (touch-callout
+   only matches there) so the desktop calendar picker stays untouched. */
+@supports (-webkit-touch-callout: none) {
+  .input[type='date'] {
+    appearance: none;
+    min-height: 0;
+  }
+
+  .input[type='date']::-webkit-date-and-time-value {
+    margin: 0;
+    text-align: left;
+  }
+
+  .input[type='date']::-webkit-datetime-edit {
+    padding: 0;
+    line-height: var(--line-height-base);
+  }
+}
+
 .input:focus {
   outline: none;
   border-color: var(--color-primary);

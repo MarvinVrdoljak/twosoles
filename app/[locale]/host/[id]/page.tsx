@@ -34,7 +34,14 @@ export default async function HostGamePage({params}: HostGamePageProps) {
 
   const coupleName = `${event.person1_name} & ${event.person2_name}`
 
-  if (!(await isHostVerified(id))) {
+  // The signed-in owner never needs the PIN on their own device. The events
+  // table is RLS-scoped to the owner, so this select returns a row only for
+  // them (empty for other logged-in users, denied for anon) — a clean ownership
+  // check without exposing user_id through the public game function.
+  const {data: owned} = await supabase.from('events').select('id').eq('id', id).maybeSingle()
+  const isOwner = owned != null
+
+  if (!isOwner && !(await isHostVerified(id))) {
     return <HostPinGate eventId={id} coupleName={coupleName} />
   }
 
@@ -61,8 +68,9 @@ export default async function HostGamePage({params}: HostGamePageProps) {
       person2={{name: event.person2_name, color: event.person2_color ?? '#1f2937'}}
       questions={questions}
       initialTheme={event.game_theme === 'dark' ? 'dark' : 'light'}
-      capacity={guestCapacity(event.package)}
+      capacity={guestCapacity(event.package, event.started_at != null)}
       initialState={initialState}
+      isDraft={event.started_at == null}
     />
   )
 }

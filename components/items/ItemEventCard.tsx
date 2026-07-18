@@ -38,12 +38,23 @@ export async function ItemEventCard({
     expired: t('statusExpired'),
   }[status]
 
+  const statusTip = {
+    draft: t('statusDraftTip'),
+    live: t('statusLiveTip'),
+    ended: t('statusEndedTip'),
+    expired: t('statusExpiredTip'),
+  }[status]
+
   return (
     <article className={styles.root}>
       <div className={styles.head}>
         <div className={styles.topRow}>
           <span className={styles.occasion}>{occasion}</span>
-          <CommonBadge variant={STATUS_BADGE_VARIANT[status]} pulse={status === 'live'}>
+          <CommonBadge
+            variant={STATUS_BADGE_VARIANT[status]}
+            pulse={status === 'live'}
+            tooltip={statusTip}
+          >
             {statusLabel}
           </CommonBadge>
         </div>

@@ -19,6 +19,10 @@ export type PublicEvent = {
   questions: unknown
   package: string
   game_theme: string
+  // Go-live timestamp, or null while the event is still a draft. Drives the
+  // guest-capacity gate: draft events are capped at the free tier (see
+  // guestCapacity), the booked package only unlocks once this is set.
+  started_at: string | null
 }
 
 export type GameState = {

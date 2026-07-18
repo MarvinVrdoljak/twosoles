@@ -69,7 +69,7 @@ export default async function DisplayGamePage({params}: DisplayGamePageProps) {
       questions={questions}
       guestUrl={`${base}/guest/${id}`}
       initialTheme={event.game_theme === 'dark' ? 'dark' : 'light'}
-      capacity={guestCapacity(event.package)}
+      capacity={guestCapacity(event.package, event.started_at != null)}
     />
   )
 }

@@ -89,13 +89,21 @@ export function GlobalHeader() {
             />
           </span>
 
-          <CommonButton href="/login" variant="secondary" size="md">
-            {t('login')}
-          </CommonButton>
+          <span className={styles.loginDesktop}>
+            <CommonButton href="/login" variant="secondary" size="md">
+              {t('login')}
+            </CommonButton>
+          </span>
 
           <span className={styles.ctaDesktop}>
             <CommonButton href="/register" variant="primary" size="md">
               {t('ctaStart')}
+            </CommonButton>
+          </span>
+
+          <span className={styles.ctaMobile}>
+            <CommonButton href="/register" variant="primary" size="sm">
+              {t('ctaStartShort')}
             </CommonButton>
           </span>
 

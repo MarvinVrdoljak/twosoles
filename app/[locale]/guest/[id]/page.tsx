@@ -41,7 +41,7 @@ export default async function GuestGamePage({params}: GuestGamePageProps) {
       person2={{name: event.person2_name, color: event.person2_color ?? '#1f2937'}}
       questions={questions}
       initialTheme={event.game_theme === 'dark' ? 'dark' : 'light'}
-      capacity={guestCapacity(event.package)}
+      capacity={guestCapacity(event.package, event.started_at != null)}
     />
   )
 }

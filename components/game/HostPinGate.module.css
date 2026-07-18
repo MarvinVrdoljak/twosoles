@@ -58,6 +58,7 @@
   width: 100%;
   margin-bottom: var(--spacing-16);
   padding: var(--spacing-16);
+  font-family: var(--font-heading);
   font-size: var(--font-size-h3);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.5em;

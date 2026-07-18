@@ -32,6 +32,11 @@ async function origin(): Promise<string> {
 export async function createCheckoutSessionAction(
   eventId: string,
   targetPackage: string,
+  // Which event-detail tab to land on when the buyer returns from Stripe. The
+  // wizard's fresh purchase returns to "couple" (the natural start of the event),
+  // an in-settings upgrade stays on "settings". Carried back via the success/
+  // cancel URL and read by FormEventDetail on return.
+  returnTab: 'couple' | 'settings' = 'settings',
 ): Promise<CheckoutResult> {
   const user = await getUser()
   if (!user) return {error: 'auth'}
@@ -91,8 +96,8 @@ export async function createCheckoutSessionAction(
         target_package: target,
         previous_package: current,
       },
-      success_url: `${base}/dashboard/events/${eventId}?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${base}/dashboard/events/${eventId}?checkout=canceled`,
+      success_url: `${base}/dashboard/events/${eventId}?checkout=success&session_id={CHECKOUT_SESSION_ID}&tab=${returnTab}`,
+      cancel_url: `${base}/dashboard/events/${eventId}?checkout=canceled&tab=${returnTab}`,
     })
 
     if (!session.url) return {error: 'stripe'}

@@ -1,8 +1,13 @@
 .root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  min-height: 100dvh;
+
+  /* Pin to the dynamic viewport and scroll INSIDE (.scroll), not the page. On
+     iOS this keeps the bottom bar glued to the true bottom as Safari's toolbar
+     shows/hides, instead of a sticky bar that leaves a gap. */
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   background: var(--color-surface);
 }
 
@@ -153,8 +158,9 @@
 .content {
   position: relative;
   display: flex;
-  flex-direction: column;
   flex: 1;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .scroll {
@@ -163,6 +169,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: var(--spacing-32) var(--side-gap);
 }
 
@@ -206,15 +215,15 @@
 }
 
 .bottomBar {
-  position: sticky;
-  bottom: 0;
-  z-index: 2;
+  /* Last flex child of the dvh column, so it sits at the real viewport bottom
+     without sticky positioning (which drifts against iOS's dynamic toolbar). */
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: var(--spacing-16) var(--side-gap);
-  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
-  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--color-surface) 20%, transparent);
+  backdrop-filter: blur(8px);
   border-top: 1px solid var(--color-border);
 }
 

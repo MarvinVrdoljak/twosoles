@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useState} from 'react'
+import React, {useRef, useState} from 'react'
 import {useTranslations} from 'next-intl'
 import {Check, GripVertical, Plus, Shuffle, X} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
@@ -33,6 +33,9 @@ export function FormEventQuestions({draft, update, title, subtitle, footer, read
   const [dragIndex, setDragIndex] = useState<number | null>(null)
   const [editingId, setEditingId] = useState<string | null>(null)
 
+  const listRef = useRef<HTMLUListElement>(null)
+  const dragIndexRef = useRef<number | null>(null)
+
   const questions = draft.questions
   // Catalogue follows the GAME language (draft.language), not the UI locale.
   // It never filters out already-added questions — picking one just copies it
@@ -40,6 +43,11 @@ export function FormEventQuestions({draft, update, title, subtitle, footer, read
   const catalog = getCatalog(draft.language)
 
   const setQuestions = (next: EventQuestion[]) => update({questions: next})
+
+  // Mirrors the live list for the pointer-drag handlers, whose window listeners
+  // would otherwise close over a stale `questions` after the first reorder.
+  const questionsRef = useRef(questions)
+  questionsRef.current = questions
 
   const addCustom = () => {
     const text = input.trim()
@@ -74,12 +82,55 @@ export function FormEventQuestions({draft, update, title, subtitle, footer, read
     }
   }
 
-  const moveTo = (from: number, to: number) => {
-    if (from === to) return
-    const next = [...questions]
+  const reorder = (from: number, to: number) => {
+    if (from === to || from < 0 || to < 0) return
+    const next = [...questionsRef.current]
     const [moved] = next.splice(from, 1)
     next.splice(to, 0, moved)
+    questionsRef.current = next
     setQuestions(next)
+  }
+
+  // Pointer-based drag so reordering works on touch (iOS) as well as mouse — the
+  // HTML5 drag-and-drop API never fires from touch. The grip handle starts it;
+  // while the pointer moves we swap the dragged row to whichever row it's over.
+  const handlePointerMove = (event: PointerEvent) => {
+    const from = dragIndexRef.current
+    const list = listRef.current
+    if (from === null || !list) return
+    const rows = list.children
+    let target = rows.length - 1
+    for (let i = 0; i < rows.length; i++) {
+      const rect = (rows[i] as HTMLElement).getBoundingClientRect()
+      if (event.clientY < rect.top + rect.height / 2) {
+        target = i
+        break
+      }
+    }
+    if (target !== from) {
+      reorder(from, target)
+      dragIndexRef.current = target
+      setDragIndex(target)
+    }
+  }
+
+  const endDrag = () => {
+    dragIndexRef.current = null
+    setDragIndex(null)
+    window.removeEventListener('pointermove', handlePointerMove)
+    window.removeEventListener('pointerup', endDrag)
+    window.removeEventListener('pointercancel', endDrag)
+  }
+
+  const startDrag = (event: React.PointerEvent, index: number) => {
+    if (readOnly || editingId !== null) return
+    // Stop the touch from scrolling the page while dragging.
+    event.preventDefault()
+    dragIndexRef.current = index
+    setDragIndex(index)
+    window.addEventListener('pointermove', handlePointerMove)
+    window.addEventListener('pointerup', endDrag)
+    window.addEventListener('pointercancel', endDrag)
   }
 
   const openCatalog = () => {
@@ -158,24 +209,18 @@ export function FormEventQuestions({draft, update, title, subtitle, footer, read
       {questions.length === 0 ? (
         <p className={styles.qEmpty}>{t('questions.empty')}</p>
       ) : (
-        <ul className={styles.qList}>
+        <ul className={styles.qList} ref={listRef}>
           {questions.map((question, index) => (
             <li
               key={question.id}
               className={`${styles.qRow} ${dragIndex === index ? styles.qRowDragging : ''}`}
-              draggable={!readOnly && editingId !== question.id}
-              onDragStart={() => setDragIndex(index)}
-              onDragOver={(event) => {
-                if (readOnly) return
-                event.preventDefault()
-                if (dragIndex === null || dragIndex === index) return
-                moveTo(dragIndex, index)
-                setDragIndex(index)
-              }}
-              onDragEnd={() => setDragIndex(null)}
             >
               {readOnly ? null : (
-                <span className={styles.qHandle} aria-hidden="true">
+                <span
+                  className={styles.qHandle}
+                  onPointerDown={(event) => startDrag(event, index)}
+                  aria-hidden="true"
+                >
                   <GripVertical size={18} />
                 </span>
               )}

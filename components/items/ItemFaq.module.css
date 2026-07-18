@@ -13,6 +13,11 @@
   text-align: left;
   cursor: pointer;
   padding: var(--spacing-20) var(--spacing-24);
+
+  /* iOS Safari otherwise renders <button> text in the system link blue; pin it
+     to the normal text colour and kill the blue tap highlight. */
+  color: var(--color-text);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .question {
@@ -20,6 +25,7 @@
   font-weight: var(--font-weight-heading);
   font-size: var(--font-size-h4);
   line-height: 1.1;
+  color: var(--color-text);
 }
 
 .icon {

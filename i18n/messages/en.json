@@ -14,6 +14,7 @@
     "login": "Login",
     "ctaStart": "Start for free",
     "ctaStartMenu": "Start now for free",
+    "ctaStartShort": "Try it now",
     "selectLanguage": "Choose language",
     "menuOpen": "Open menu",
     "menuClose": "Close menu",
@@ -623,7 +624,7 @@
       "removePhoto": "Remove photo",
       "colorLabel": "Colour",
       "colorHint": "This colour represents the person throughout the game: on the guests' voting buttons and in the result bar on the screen.",
-      "colorNames": ["Dusty rose", "Charcoal", "Terracotta", "Dusty blue", "Olive", "Mauve", "Lavender", "Teal"]
+      "colorNames": ["Dusty rose", "Charcoal", "Terracotta", "Dusty blue", "Olive", "Lavender", "Teal"]
     },
     "details": {
       "title": "The key facts of the celebration",
@@ -775,6 +776,16 @@
       "confirm": "Yes, set it live now",
       "cancel": "Cancel"
     },
+    "introOverlay": {
+      "title": "Your event is in preparation",
+      "intro": "Before the big day kicks off, a quick heads-up:",
+      "points": [
+        "Your event is in preparation right now, basically the test phase. Up to 10 guests can join here, so you can try the game out in peace first.",
+        "To let as many guests play as your package allows, you need to set the event live once it's really starting.",
+        "Note: the event can be set live only once. From then you have exactly 48 hours to play the game."
+      ],
+      "gotIt": "Got it"
+    },
     "tabs": {
       "overview": "Overview",
       "couple": "The couple",
@@ -787,10 +798,9 @@
     "coupleSubtitle": "Names and photos as they appear on the projector.",
     "detailsTitle": "The key facts of the celebration",
     "questionsTitle": "The questions for the big moment",
-    "questionsSubtitle": "Your question set: reorder, add and swap.",
     "settings": {
       "statusTitle": "Status",
-      "statusDraftText": "Once you activate the event you have 48 hours to play the game. During this time any number of guests can join. After that the event is closed and cannot be started again.",
+      "statusDraftText": "Your event is in preparation. In this phase up to 10 guests can join so you can test in peace. Once it's really starting, set the event live: only then can as many guests play as your package allows. From going live you have 48 hours, after which the event is closed and cannot be started again.",
       "statusDraftWarning": "Note: the event can only be set live once.",
       "goLive": "Set event live",
       "statusLiveText": "Your event is live. Share the guest code with your guests. They don't need an app.",
@@ -855,7 +865,8 @@
       "setup": [
         "Connect the first device to the screen and open the <display>projector view</display> on it. It's best to use your browser's fullscreen mode. On a second device, ideally a smartphone, you open the <host>host controls</host>.",
         "Finally, make sure the game is reset so it starts from the beginning. You do this in this event's <settings>settings</settings> or in the <host>host panel</host>. After that the screen sits on the welcome screen and you're ready to go.",
-        "Set up two chairs back to back, ideally in front of or next to the screen. That way the couple sits back to back and can't see each other. Make sure both the couple and the screen are clearly visible to everyone in the room. The couple takes their seats, and each person is handed one of their own shoes and one of the other person's."
+        "Set up two chairs back to back, ideally in front of or next to the screen. That way the couple sits back to back and can't see each other. Make sure both the couple and the screen are clearly visible to everyone in the room. The couple takes their seats, and each person is handed one of their own shoes and one of the other person's.",
+        "When everything's in place and the big moment has come, set the event live in the <settings>settings</settings>. Only then can as many guests play as your package allows. In preparation it's a maximum of 10, so you can test in peace beforehand. Note: you can go live only once, and from then you have exactly 48 hours."
       ],
       "roundTitle": "How a round works",
       "round": [
@@ -930,6 +941,7 @@
     },
     "host": {
       "panel": "HostPanel",
+      "draftBanner": "This event is still in preparation. Please set the event live once it's starting.",
       "questionOf": "Question {current}/{total}",
       "guests": "{count} guests",
       "capacityReached": "Maximum of {capacity} players reached. No more guests can join.",
@@ -1007,10 +1019,14 @@
     "eventsSubtitle": "All your games in one place, past and upcoming. Create a new event, manage your questions and share the guest code right from the dashboard.",
     "addEventTitle": "Create a new event",
     "addEventSubtitle": "Ready in 5 minutes",
-    "statusDraft": "Draft",
+    "statusDraft": "Preparation",
     "statusLive": "Live",
     "statusEnded": "Ended",
     "statusExpired": "Expired",
+    "statusDraftTip": "In preparation: set the event live before it starts. Until then up to 10 guests can join to test.",
+    "statusLiveTip": "The event is live. As many guests as your package allows can play, for 48 hours.",
+    "statusEndedTip": "The 48 hours are over. The event is closed; the results stay saved.",
+    "statusExpiredTip": "The date passed without the event being set live. Pick a new date to reactivate it.",
     "cardGuests": "Up to {capacity} · «{name}»",
     "cardQuestions": "{count} questions selected",
     "cardManage": "Manage event",

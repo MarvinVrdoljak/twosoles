@@ -7,7 +7,13 @@ const DEVELOPMENT: Record<string, number> = {free: 3, small: 5, medium: 10, larg
 
 // Resolved on the server (in the game pages) and passed down as a prop, so the
 // dev override follows the server's NODE_ENV.
-export function guestCapacity(pkg: string): number {
+//
+// A DRAFT event (not yet set live) is always capped at the free tier, whatever
+// package was booked: the paid capacity only unlocks once the host goes live.
+// This keeps a whole party from streaming in during setup/testing and makes
+// "go live" the deliberate switch that turns the booked capacity on.
+export function guestCapacity(pkg: string, isLive: boolean): number {
   const table = process.env.NODE_ENV === 'development' ? DEVELOPMENT : PRODUCTION
-  return table[pkg] ?? table.free
+  const effective = isLive ? pkg : 'free'
+  return table[effective] ?? table.free
 }

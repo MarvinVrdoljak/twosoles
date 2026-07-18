@@ -10,6 +10,20 @@
     color 0.4s ease;
 }
 
+/* Reminder bar shown across the top of the host view while the event is still
+   in preparation (not set live). Uses the same primary tint as the "draft"
+   status badge and flips with the game theme via the token variables. */
+.draftBar {
+  padding: var(--spacing-12) var(--spacing-20);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+  color: var(--color-primary);
+  text-align: center;
+  background: var(--color-primary-light);
+  border-bottom: 1px solid var(--color-border);
+}
+
 .topbar {
   display: flex;
   align-items: center;
@@ -360,54 +374,10 @@
 }
 
 /* Appearance card must let the info tooltip escape its rounded bounds. */
+
+/* Lets the theme-hint tooltip overflow the card instead of being clipped. */
 .groupCardTip {
   overflow: visible;
-}
-
-.infoWrap {
-  position: relative;
-  display: inline-flex;
-}
-
-.info {
-  display: inline-flex;
-  padding: 0;
-  color: var(--color-text-muted);
-  cursor: help;
-  background: none;
-  border: none;
-}
-
-.info:hover,
-.info:focus-visible {
-  color: var(--color-text);
-}
-
-/* Small hover/focus tooltip. Anchored to the icon's left so it extends right
-   and never runs off a narrow phone screen. Shown on hover and on focus (so a
-   tap on the icon reveals it on touch devices). */
-.tooltip {
-  position: absolute;
-  bottom: calc(100% + var(--spacing-8));
-  left: 0;
-  z-index: 5;
-  width: max-content;
-  max-width: 240px;
-  padding: var(--spacing-8) var(--spacing-12);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-body);
-  color: var(--color-background);
-  background: var(--color-text);
-  border-radius: var(--radius-md);
-  box-shadow: 0 6px 20px rgb(0 0 0 / 18%);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-  pointer-events: none;
-}
-
-.infoWrap:hover .tooltip,
-.infoWrap:focus-within .tooltip {
-  opacity: 1;
 }
 
 /* Small light/dark switch on the Appearance row. The whole row is the

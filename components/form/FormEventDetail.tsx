@@ -117,6 +117,7 @@ export function FormEventDetail({
   const [upgrading, setUpgrading] = useState(false)
   const [resetGameOpen, setResetGameOpen] = useState(false)
   const [resettingGame, setResettingGame] = useState(false)
+  const [introOpen, setIntroOpen] = useState(false)
 
   // Most notices are errors; success + info pass their type explicitly.
   const notify = (text: string, type: 'success' | 'error' | 'info' = 'error') => toast(text, type)
@@ -149,10 +150,11 @@ export function FormEventDetail({
 
     // Remove the checkout params via the router (not window.history) so they're
     // gone from Next's history state too — window.history alone gets re-added on
-    // the next refresh. Land on the settings tab: that's where the upgrade lives,
-    // and it preserves the tab context after the Stripe round-trip.
-    router.replace(`/dashboard/events/${event.id}?tab=settings`)
-    setTab('settings')
+    // the next refresh. Land on the tab the checkout carried back: a wizard
+    // purchase returns to "couple", an in-settings upgrade stays on "settings".
+    const returnTab = parseTab(params.get('tab')) ?? 'settings'
+    router.replace(`/dashboard/events/${event.id}?tab=${returnTab}`)
+    setTab(returnTab)
 
     if (checkout === 'success' && sessionId) {
       notify(t('checkoutConfirming'), 'info')
@@ -201,6 +203,30 @@ export function FormEventDetail({
   // Ended events are archived — the edit tabs become read-only (no saving).
   const readOnly = status === 'ended'
 
+  // One-time heads-up the first time the owner opens a still-in-preparation
+  // event: explains that guests are capped at 10 until they go live, and that
+  // going live is a one-shot, 48h commitment. Keyed per event in localStorage so
+  // it shows once (works whether the event was just created free or via Stripe).
+  const introStorageKey = `ts_intro_${event.id}`
+  useEffect(() => {
+    if (status !== 'draft') return
+    try {
+      if (window.localStorage.getItem(introStorageKey)) return
+    } catch {
+      // localStorage unavailable (private mode) — just show it, don't persist.
+    }
+    setIntroOpen(true)
+  }, [status, introStorageKey])
+
+  const dismissIntro = () => {
+    setIntroOpen(false)
+    try {
+      window.localStorage.setItem(introStorageKey, '1')
+    } catch {
+      // Ignore — worst case the overlay shows again next time.
+    }
+  }
+
   // Upgrade to a higher package: hand off to Stripe Checkout for the price
   // difference. The event stays on its current package until the webhook confirms.
   // Handing off to Stripe navigates away with `upgrading` still true. If the buyer
@@ -217,7 +243,7 @@ export function FormEventDetail({
 
   const upgrade = async (targetIndex: number) => {
     setUpgrading(true)
-    const result = await createCheckoutSessionAction(event.id, PACKAGE_KEYS[targetIndex])
+    const result = await createCheckoutSessionAction(event.id, PACKAGE_KEYS[targetIndex], 'settings')
     if ('url' in result) {
       window.location.href = result.url
     } else {
@@ -454,7 +480,6 @@ export function FormEventDetail({
               draft={draft}
               update={update}
               title={t('questionsTitle')}
-              subtitle={t('questionsSubtitle')}
               footer={readOnly ? undefined : saveButton}
               readOnly={readOnly}
             />
@@ -512,6 +537,27 @@ export function FormEventDetail({
           <p className={styles.goLiveText}>{t('goLiveConfirm.text')}</p>
           <ul className={styles.goLivePoints}>
             {(t.raw('goLiveConfirm.points') as string[]).map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        </div>
+      </CommonModal>
+
+      <CommonModal
+        open={introOpen}
+        onClose={dismissIntro}
+        title={t('introOverlay.title')}
+        closeLabel={t('introOverlay.gotIt')}
+        footer={
+          <CommonButton variant="primary" size="md" onClick={dismissIntro}>
+            {t('introOverlay.gotIt')}
+          </CommonButton>
+        }
+      >
+        <div className={styles.goLive}>
+          <p className={styles.goLiveText}>{t('introOverlay.intro')}</p>
+          <ul className={styles.goLivePoints}>
+            {(t.raw('introOverlay.points') as string[]).map((point) => (
               <li key={point}>{point}</li>
             ))}
           </ul>

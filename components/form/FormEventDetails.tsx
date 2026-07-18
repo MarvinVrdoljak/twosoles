@@ -2,7 +2,8 @@
 
 import type {ReactNode} from 'react'
 import {useTranslations} from 'next-intl'
-import {ChevronDown, Info} from 'lucide-react'
+import {ChevronDown} from 'lucide-react'
+import {CommonTooltip} from '@/components/common/CommonTooltip'
 import {FormField} from '@/components/form/FormField'
 import {routing} from '@/i18n/routing'
 import type {GameTheme} from '@/utility/game/types'
@@ -44,16 +45,7 @@ function SelectField({
     <div className={styles.field}>
       <label htmlFor={id} className={styles.fieldLabel}>
         {label}
-        {hint ? (
-          <span className={styles.infoWrap}>
-            <button type="button" className={styles.info} aria-label={hint}>
-              <Info size={15} aria-hidden="true" />
-            </button>
-            <span className={styles.tooltip} role="tooltip">
-              {hint}
-            </span>
-          </span>
-        ) : null}
+        {hint ? <CommonTooltip label={hint} icon /> : null}
       </label>
       <div className={styles.selectWrap}>
         <select
