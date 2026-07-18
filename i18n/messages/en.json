@@ -473,12 +473,20 @@
           "body": "We process your data to provide the service and to perform our contract with you (Art. 6(1)(b) GDPR), to ensure secure and stable operation and to respond to enquiries based on our legitimate interest (Art. 6(1)(f) GDPR) and, where required, based on your consent (Art. 6(1)(a) GDPR). Under Swiss law, we base the processing on contract performance, our overriding legitimate interest and, where necessary, your consent."
         },
         {
+          "heading": "Visibility of your event content",
+          "body": "The content of an event, in particular the couple's names, your questions and the uploaded photos, is shown during the game on the devices of participating guests and on the presenting screen. Access is only possible through an unguessable event link or QR code: only those who receive this link from you can see the content. The photos are held in private storage and are served only through short-lived, server-generated links; direct public access is not possible. The game pages are also excluded from indexing by search engines."
+        },
+        {
           "heading": "Cookies and local storage",
           "body": "We only use technically necessary cookies and similar storage techniques, for example to store your login, your language choice and host access during a game. These are required for operation and do not require consent. We do not use tracking or advertising cookies."
         },
         {
           "heading": "Audience measurement",
           "body": "To improve our service we use Vercel Analytics and Vercel Speed Insights. These services collect aggregated, anonymous information on the use and loading performance of the website, such as pages viewed and technical performance values. They work without cookies, do not create cross-device profiles and do not pass the data on for advertising purposes."
+        },
+        {
+          "heading": "Email communication",
+          "body": "We only send you emails that are necessary for the service (transactional emails), such as the sign-in link, payment confirmations and replies to your enquiries. We do not send a newsletter or advertising emails; any promotional contact only takes place if you have expressly consented beforehand, and you can withdraw such consent at any time with effect for the future."
         },
         {
           "heading": "Services we use",
@@ -503,6 +511,10 @@
         {
           "heading": "Automated decision-making",
           "body": "We do not carry out automated decision-making, including profiling, within the meaning of the GDPR."
+        },
+        {
+          "heading": "Minors",
+          "body": "Our service is intended for persons of legal age. We do not knowingly process data of children. Should we become aware that data of minors has been provided to us without the required consent, we will delete it."
         },
         {
           "heading": "Data protection contact",
@@ -550,11 +562,11 @@
         },
         {
           "heading": "8. User obligations and content",
-          "body": "You are responsible for the content you create, in particular your own questions and uploaded photos, and you warrant that you hold the necessary rights and do not infringe the rights of third parties. You undertake not to misuse the service, in particular not to submit unlawful, offensive or harmful content. The provider may block access in the event of violations. You grant the provider the simple, term-limited right to store your content and display it within the service, to the extent necessary to provide it. All rights to the software, the brand and the provider's own content remain with the provider."
+          "body": "You are responsible for the content you create, in particular your own questions and uploaded photos, and you warrant that you hold the necessary rights and do not infringe the rights of third parties. Where individuals are recognizable in uploaded photos, you warrant that they have consented to the storage and display within the service (right to one's own image). You undertake not to misuse the service, in particular not to submit unlawful, offensive or harmful content. In the event of serious or repeated violations, misuse, unlawful content or non-payment, the provider may temporarily block access or terminate the account. In that case the account and the associated data are deleted; paid services that have already been fully provided are not refunded. You grant the provider the simple, term-limited right to store your content and display it within the service, to the extent necessary to provide it. All rights to the software, the brand and the provider's own content remain with the provider."
         },
         {
           "heading": "9. Availability",
-          "body": "The provider strives to keep the service available with as little interruption as possible but does not owe uninterrupted availability. Maintenance, technical faults, dependencies on third parties and force majeure may lead to temporary restrictions. Taking part also requires a working internet connection on the devices involved, which is outside the provider's control."
+          "body": "The provider strives to keep the service available with as little interruption as possible but does not owe uninterrupted availability. Maintenance, technical faults, dependencies on third parties and force majeure may lead to temporary restrictions. Taking part also requires a working internet connection on the devices involved, which is outside the provider's control. The service is not a data backup service. You should independently save results that are important to you, for example by export or screenshot, as the provider does not owe permanent retention or restoration."
         },
         {
           "heading": "10. Liability",
@@ -570,7 +582,7 @@
         },
         {
           "heading": "13. Governing law and place of jurisdiction",
-          "body": "Swiss law applies, excluding its conflict-of-law rules and the UN Convention on Contracts for the International Sale of Goods. The place of jurisdiction is Zürich, unless mandatory statutory places of jurisdiction apply. For consumers, the mandatory place of jurisdiction at their domicile is reserved. Should individual provisions of these terms be invalid, the validity of the remaining provisions remains unaffected."
+          "body": "Swiss law applies, excluding its conflict-of-law rules and the UN Convention on Contracts for the International Sale of Goods. The place of jurisdiction is Zürich, unless mandatory statutory places of jurisdiction apply. For consumers, the mandatory place of jurisdiction at their domicile is reserved. For consumers with their habitual residence in the European Union, the mandatory consumer protection provisions of their country of residence also remain unaffected; the choice of law does not deprive them of the protection afforded by those provisions. Should individual provisions of these terms be invalid, the validity of the remaining provisions remains unaffected."
         }
       ]
     }

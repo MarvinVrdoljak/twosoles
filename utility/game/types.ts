@@ -4,6 +4,23 @@ export type GamePhase = 'lobby' | 'question' | 'closed' | 'countdown' | 'reveal'
 
 export type GameTheme = 'light' | 'dark'
 
+// One row of the public game data, as returned by the get_public_event RPC.
+// The Supabase client is untyped, so the login-free screens cast the RPC result
+// to this shape. Owner-only columns (host_pin, user_id, email, game_state) are
+// never part of it — the function only selects the whitelisted columns.
+export type PublicEvent = {
+  id: string
+  person1_name: string
+  person2_name: string
+  person1_color: string | null
+  person2_color: string | null
+  person1_photo: string | null
+  person2_photo: string | null
+  questions: unknown
+  package: string
+  game_theme: string
+}
+
 export type GameState = {
   phase: GamePhase
   // Index into the event's question set.

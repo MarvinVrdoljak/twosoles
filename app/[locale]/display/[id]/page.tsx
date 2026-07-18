@@ -4,7 +4,9 @@ import {notFound} from 'next/navigation'
 import {DisplayGame} from '@/components/game/DisplayGame'
 import type {Locale} from '@/i18n/routing'
 import {guestCapacity} from '@/utility/game/capacity'
+import type {PublicEvent} from '@/utility/game/types'
 import {createClient} from '@/utility/supabase/server'
+import {createServiceClient} from '@/utility/supabase/service'
 
 type DisplayGamePageProps = {
   params: Promise<{locale: Locale; id: string}>
@@ -15,25 +17,27 @@ type DisplayGamePageProps = {
 export const metadata = {robots: {index: false, follow: false}}
 
 // Display view (Leinwand) — shown on the beamer, no login. Reads the event's
-// public game data through the public_events view and renders the live board.
+// public game data through get_public_event and renders the live board.
 export default async function DisplayGamePage({params}: DisplayGamePageProps) {
   const {locale, id} = await params
   setRequestLocale(locale)
 
   const supabase = await createClient()
   const {data: event} = await supabase
-    .from('public_events')
-    .select(
-      'person1_name, person2_name, person1_color, person2_color, person1_photo, person2_photo, questions, package, game_theme',
-    )
-    .eq('id', id)
-    .maybeSingle()
+    .rpc('get_public_event', {event_id: id})
+    .maybeSingle<PublicEvent>()
 
   if (!event) notFound()
 
+  // Sign the couple photos with the service role, NOT the anon client. The
+  // bucket is private and anon no longer has any access to storage.objects (see
+  // the migration dropping "Public can read event photos"), so the beamer can't
+  // be used to enumerate or read other events' photos. This server component
+  // signs short-lived URLs only for the event it already resolved above.
+  const service = createServiceClient()
   const sign = async (path: string | null) => {
     if (!path) return null
-    const {data} = await supabase.storage.from('event-photos').createSignedUrl(path, 3600)
+    const {data} = await service.storage.from('event-photos').createSignedUrl(path, 3600)
     return data?.signedUrl ?? null
   }
   const [photo1, photo2] = await Promise.all([

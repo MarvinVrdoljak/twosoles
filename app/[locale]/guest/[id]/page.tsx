@@ -3,6 +3,7 @@ import {notFound} from 'next/navigation'
 import {GuestGame} from '@/components/game/GuestGame'
 import type {Locale} from '@/i18n/routing'
 import {guestCapacity} from '@/utility/game/capacity'
+import type {PublicEvent} from '@/utility/game/types'
 import {createClient} from '@/utility/supabase/server'
 
 type GuestGamePageProps = {
@@ -14,7 +15,8 @@ type GuestGamePageProps = {
 export const metadata = {robots: {index: false, follow: false}}
 
 // Guest view (Gäste-Handy) — opened via QR, no login. Reads the event's public
-// game data through the public_events view (owner-only columns stay hidden).
+// game data through get_public_event (owner-only columns stay hidden; the id
+// argument is required, so no event is enumerable without its UUID).
 // TODO: game-language locale.
 export default async function GuestGamePage({params}: GuestGamePageProps) {
   const {locale, id} = await params
@@ -22,10 +24,8 @@ export default async function GuestGamePage({params}: GuestGamePageProps) {
 
   const supabase = await createClient()
   const {data: event} = await supabase
-    .from('public_events')
-    .select('person1_name, person2_name, person1_color, person2_color, questions, package, game_theme')
-    .eq('id', id)
-    .maybeSingle()
+    .rpc('get_public_event', {event_id: id})
+    .maybeSingle<PublicEvent>()
 
   if (!event) notFound()
 

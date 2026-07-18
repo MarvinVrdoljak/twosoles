@@ -473,12 +473,20 @@
           "body": "Wir verarbeiten deine Daten, um den Dienst bereitzustellen und unseren Vertrag mit dir zu erfüllen (Art. 6 Abs. 1 lit. b DSGVO), um einen sicheren und stabilen Betrieb sowie die Beantwortung von Anfragen auf Grundlage unseres berechtigten Interesses zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO) und, soweit erforderlich, auf Grundlage deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Nach schweizerischem Recht stützen wir die Verarbeitung auf die Vertragserfüllung, unser überwiegendes berechtigtes Interesse sowie, wo nötig, deine Einwilligung."
         },
         {
+          "heading": "Sichtbarkeit deiner Event-Inhalte",
+          "body": "Die Inhalte eines Events, insbesondere die Namen des Paares, deine Fragen und die hochgeladenen Fotos, werden während des Spiels auf den Geräten der teilnehmenden Gäste und auf dem präsentierenden Bildschirm angezeigt. Der Zugang erfolgt ausschließlich über einen nicht erratbaren Event-Link beziehungsweise QR-Code: Nur wer diesen Link von dir erhält, kann die Inhalte sehen. Die Fotos liegen in einem privaten Speicher und werden nur über kurzlebige, serverseitig erzeugte Links ausgeliefert; ein direkter öffentlicher Abruf ist nicht möglich. Die Spielseiten sind zudem von der Indexierung durch Suchmaschinen ausgenommen."
+        },
+        {
           "heading": "Cookies und lokale Speicherung",
           "body": "Wir verwenden ausschließlich technisch notwendige Cookies und vergleichbare Speichertechniken, etwa zur Speicherung deiner Anmeldung, deiner Sprachauswahl und des Host-Zugangs während eines Spiels. Diese sind für den Betrieb erforderlich und bedürfen keiner Einwilligung. Tracking- oder Werbe-Cookies setzen wir nicht ein."
         },
         {
           "heading": "Reichweitenmessung",
           "body": "Zur Verbesserung unseres Angebots nutzen wir Vercel Analytics und Vercel Speed Insights. Diese Dienste erfassen aggregierte, anonyme Informationen zur Nutzung und zur Ladeleistung der Website, etwa aufgerufene Seiten und technische Leistungswerte. Sie arbeiten ohne Cookies, erstellen keine geräteübergreifenden Profile und geben die Daten nicht zu Werbezwecken weiter."
+        },
+        {
+          "heading": "E-Mail-Kommunikation",
+          "body": "Wir senden dir ausschließlich für den Dienst erforderliche (transaktionale) E-Mails, etwa den Anmeldelink, Zahlungsbestätigungen sowie Antworten auf deine Anfragen. Einen Newsletter oder Werbe-E-Mails versenden wir nicht; eine werbliche Ansprache erfolgt nur, wenn du zuvor ausdrücklich eingewilligt hast, und du kannst eine solche Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen."
         },
         {
           "heading": "Eingesetzte Dienste",
@@ -503,6 +511,10 @@
         {
           "heading": "Automatisierte Entscheidungsfindung",
           "body": "Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne der DSGVO findet nicht statt."
+        },
+        {
+          "heading": "Minderjährige",
+          "body": "Unser Dienst richtet sich an volljährige Personen. Wir verarbeiten nicht wissentlich Daten von Kindern. Sollten wir Kenntnis davon erlangen, dass uns ohne die erforderliche Einwilligung Daten von Minderjährigen übermittelt wurden, löschen wir diese."
         },
         {
           "heading": "Kontakt zum Datenschutz",
@@ -550,11 +562,11 @@
         },
         {
           "heading": "§ 8 Pflichten der Nutzer und Inhalte",
-          "body": "Du bist für die von dir erstellten Inhalte, insbesondere eigene Fragen und hochgeladene Fotos, selbst verantwortlich und sicherst zu, dass du über die erforderlichen Rechte verfügst und keine Rechte Dritter verletzt. Du verpflichtest dich, den Dienst nicht missbräuchlich zu nutzen und insbesondere keine rechtswidrigen, beleidigenden oder verletzenden Inhalte einzustellen. Der Anbieter kann bei Verstößen den Zugang sperren. Du räumst dem Anbieter das einfache, auf die Vertragsdauer beschränkte Recht ein, deine Inhalte zu speichern und im Rahmen des Dienstes anzuzeigen, soweit dies für die Bereitstellung erforderlich ist. Alle Rechte an der Software, der Marke und den eigenen Inhalten des Anbieters verbleiben beim Anbieter."
+          "body": "Du bist für die von dir erstellten Inhalte, insbesondere eigene Fragen und hochgeladene Fotos, selbst verantwortlich und sicherst zu, dass du über die erforderlichen Rechte verfügst und keine Rechte Dritter verletzt. Sind auf hochgeladenen Fotos Personen erkennbar, sicherst du zu, dass diese der Speicherung und der Anzeige im Rahmen des Dienstes zugestimmt haben (Recht am eigenen Bild). Du verpflichtest dich, den Dienst nicht missbräuchlich zu nutzen und insbesondere keine rechtswidrigen, beleidigenden oder verletzenden Inhalte einzustellen. Bei erheblichen oder wiederholten Verstößen, missbräuchlicher Nutzung, rechtswidrigen Inhalten oder ausbleibender Zahlung kann der Anbieter den Zugang vorübergehend sperren oder das Konto kündigen. In diesem Fall werden das Konto und die zugehörigen Daten gelöscht; bereits vollständig erbrachte, kostenpflichtige Leistungen werden nicht erstattet. Du räumst dem Anbieter das einfache, auf die Vertragsdauer beschränkte Recht ein, deine Inhalte zu speichern und im Rahmen des Dienstes anzuzeigen, soweit dies für die Bereitstellung erforderlich ist. Alle Rechte an der Software, der Marke und den eigenen Inhalten des Anbieters verbleiben beim Anbieter."
         },
         {
           "heading": "§ 9 Verfügbarkeit",
-          "body": "Der Anbieter bemüht sich um eine möglichst unterbrechungsfreie Verfügbarkeit des Dienstes, schuldet diese aber nicht ununterbrochen. Wartungsarbeiten, technische Störungen, Abhängigkeiten von Dritten sowie höhere Gewalt können zu vorübergehenden Einschränkungen führen. Für die Teilnahme ist zudem eine funktionierende Internetverbindung der beteiligten Geräte erforderlich, die nicht im Einflussbereich des Anbieters liegt."
+          "body": "Der Anbieter bemüht sich um eine möglichst unterbrechungsfreie Verfügbarkeit des Dienstes, schuldet diese aber nicht ununterbrochen. Wartungsarbeiten, technische Störungen, Abhängigkeiten von Dritten sowie höhere Gewalt können zu vorübergehenden Einschränkungen führen. Für die Teilnahme ist zudem eine funktionierende Internetverbindung der beteiligten Geräte erforderlich, die nicht im Einflussbereich des Anbieters liegt. Der Dienst ist kein Datensicherungsdienst. Für dich wichtige Ergebnisse solltest du eigenständig sichern, etwa per Export oder Bildschirmfoto, da der Anbieter keine dauerhafte Aufbewahrung oder Wiederherstellung schuldet."
         },
         {
           "heading": "§ 10 Haftung",
@@ -570,7 +582,7 @@
         },
         {
           "heading": "§ 13 Anwendbares Recht und Gerichtsstand",
-          "body": "Es gilt schweizerisches Recht unter Ausschluss der Kollisionsnormen und des UN-Kaufrechts. Gerichtsstand ist Zürich, soweit keine zwingenden gesetzlichen Gerichtsstände entgegenstehen. Für Konsumentinnen und Konsumenten bleibt der zwingende Gerichtsstand an ihrem Wohnsitz vorbehalten. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt."
+          "body": "Es gilt schweizerisches Recht unter Ausschluss der Kollisionsnormen und des UN-Kaufrechts. Gerichtsstand ist Zürich, soweit keine zwingenden gesetzlichen Gerichtsstände entgegenstehen. Für Konsumentinnen und Konsumenten bleibt der zwingende Gerichtsstand an ihrem Wohnsitz vorbehalten. Bei Konsumentinnen und Konsumenten mit gewöhnlichem Aufenthalt in der Europäischen Union bleiben zudem die zwingenden Verbraucherschutzbestimmungen ihres Aufenthaltsstaates unberührt; die Rechtswahl führt nicht dazu, dass ihnen der durch diese Bestimmungen gewährte Schutz entzogen wird. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt."
         }
       ]
     }

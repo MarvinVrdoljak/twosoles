@@ -5,7 +5,7 @@ import {HostPinGate} from '@/components/game/HostPinGate'
 import type {Locale} from '@/i18n/routing'
 import {guestCapacity} from '@/utility/game/capacity'
 import {isHostVerified} from '@/utility/game/hostSession'
-import type {GameState} from '@/utility/game/types'
+import type {GameState, PublicEvent} from '@/utility/game/types'
 import {createClient} from '@/utility/supabase/server'
 import {createServiceClient} from '@/utility/supabase/service'
 
@@ -19,18 +19,16 @@ export const metadata = {robots: {index: false, follow: false}}
 
 // Host control view (Host-Steuerung) — drives the game. Login-free: gated by the
 // event's 4-digit PIN instead of an account, so the host can open it as easily
-// as guests join. Reads only public columns (via public_events); the PIN itself
-// never reaches the client.
+// as guests join. Reads only public columns (via get_public_event); the PIN
+// itself never reaches the client.
 export default async function HostGamePage({params}: HostGamePageProps) {
   const {locale, id} = await params
   setRequestLocale(locale)
 
   const supabase = await createClient()
   const {data: event} = await supabase
-    .from('public_events')
-    .select('person1_name, person2_name, person1_color, person2_color, questions, package, game_theme')
-    .eq('id', id)
-    .maybeSingle()
+    .rpc('get_public_event', {event_id: id})
+    .maybeSingle<PublicEvent>()
 
   if (!event) notFound()
 
