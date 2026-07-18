@@ -1,6 +1,6 @@
 'use client'
 
-import {useEffect, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {useTranslations} from 'next-intl'
 import {animate, motion, useMotionValue, useReducedMotion, useTransform} from 'motion/react'
 import styles from './BlockHeroVoting.module.css'
@@ -14,11 +14,20 @@ const RESULTS: [number, number][] = [
 
 const CYCLE_MS = 3600
 
-// Matches the bar height transition so number and bar move as one.
-const COUNT_TRANSITION = {duration: 0.9, ease: 'easeOut'} as const
+// The card itself pops in at 0.95s (see the CSS card-in animation) — the very
+// first bar fill waits until it is visible, later cycles run immediately.
+const ENTRANCE_DELAY = 1.05
 
 // Counts from the previous value to the new one instead of swapping the text.
-function AnimatedPct({value, reduceMotion}: {value: number; reduceMotion: boolean}) {
+function AnimatedPct({
+  value,
+  delay,
+  reduceMotion,
+}: {
+  value: number
+  delay: number
+  reduceMotion: boolean
+}) {
   const raw = useMotionValue(value)
   const label = useTransform(raw, (v) => `${Math.round(v)}%`)
 
@@ -27,9 +36,10 @@ function AnimatedPct({value, reduceMotion}: {value: number; reduceMotion: boolea
       raw.set(value)
       return
     }
-    const controls = animate(raw, value, COUNT_TRANSITION)
+    // Matches the bar height transition so number and bar move as one.
+    const controls = animate(raw, value, {duration: 0.9, ease: 'easeOut', delay})
     return () => controls.stop()
-  }, [value, reduceMotion, raw])
+  }, [value, delay, reduceMotion, raw])
 
   return <motion.span className={styles.pct}>{label}</motion.span>
 }
@@ -38,15 +48,18 @@ export function BlockHeroVoting() {
   const t = useTranslations('hero.voting')
   const reduceMotion = useReducedMotion() ?? false
   const [index, setIndex] = useState(0)
+  const firstFill = useRef(true)
 
   useEffect(() => {
     if (reduceMotion) return
     const timer = setInterval(() => {
+      firstFill.current = false
       setIndex((current) => (current + 1) % RESULTS.length)
     }, CYCLE_MS)
     return () => clearInterval(timer)
   }, [reduceMotion])
 
+  const delay = firstFill.current ? ENTRANCE_DELAY : 0
   const result = RESULTS[index]
   const names = [t('person1'), t('person2')]
 
@@ -56,13 +69,13 @@ export function BlockHeroVoting() {
       <div className={styles.bars}>
         {result.map((pct, personIndex) => (
           <div key={personIndex} className={styles.barCol}>
-            <AnimatedPct value={pct} reduceMotion={reduceMotion} />
+            <AnimatedPct value={pct} delay={delay} reduceMotion={reduceMotion} />
             <div className={styles.barTrack}>
               <motion.div
                 className={`${styles.bar} ${personIndex === 0 ? styles.barPrimary : styles.barInk}`}
                 initial={reduceMotion ? false : {height: '8%'}}
                 animate={{height: `${Math.max(8, pct)}%`}}
-                transition={{duration: 0.9, ease: 'easeOut'}}
+                transition={{duration: 0.9, ease: 'easeOut', delay}}
               />
             </div>
             <span className={styles.name}>{names[personIndex]}</span>

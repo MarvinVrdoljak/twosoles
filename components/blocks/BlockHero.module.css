@@ -34,6 +34,18 @@
   font-style: italic;
 }
 
+/* Word-by-word reveal: each word sits in an overflow-hidden mask and slides
+   up into place. The stagger delay comes from the server as `--wd` per word. */
+.word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.wordInner {
+  display: inline-block;
+}
+
 .lead {
   margin: 0;
   max-width: 600px;
@@ -109,5 +121,96 @@
 
   .leafRight {
     z-index: 0;
+  }
+}
+
+/* ============================================================
+   Motion — only for visitors who haven't asked to reduce it.
+   The rules above describe the final, static state, so content
+   is never hidden for reduced-motion users.
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  /* Headline words slide up out of their mask, staggered via --wd. */
+  .wordInner {
+    transform: translateY(112%);
+    animation: hero-word-up 0.95s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+    animation-delay: var(--wd, 0s);
+  }
+
+  /* Copy around the headline fades up after the words have started:
+     eyebrow (1) -> lead (3) -> actions (4). The headline (2) animates
+     per word instead, so it is skipped here. */
+  .content > *:nth-child(1),
+  .content > *:nth-child(3),
+  .content > *:nth-child(4) {
+    opacity: 0;
+    animation: hero-fade-up 1.2s cubic-bezier(0.22, 0.8, 0.3, 1) both;
+  }
+
+  .content > *:nth-child(1) {
+    animation-delay: 0.45s;
+  }
+
+  .content > *:nth-child(3) {
+    animation-delay: 0.55s;
+  }
+
+  .content > *:nth-child(4) {
+    animation-delay: 0.65s;
+  }
+
+  /* Gate reveal: the photo starts as a small arch window (clip-path with the
+     same radii as the resting border-radius) and opens up like a gate, while
+     the image inside zooms out — as if stepping through the archway. */
+  .media {
+    animation: hero-gate 1.4s cubic-bezier(0.22, 0.8, 0.3, 1) 0.2s both;
+  }
+
+  .image {
+    animation: hero-gate-zoom 1.4s cubic-bezier(0.22, 0.8, 0.3, 1) 0.2s both;
+  }
+}
+
+@keyframes hero-gate {
+  0% {
+    opacity: 0;
+    clip-path: inset(16% 24% 26% 24% round 240px 240px var(--radius-xl) var(--radius-xl));
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 240px 240px var(--radius-xl) var(--radius-xl));
+  }
+}
+
+@keyframes hero-gate-zoom {
+  from {
+    transform: scale(1.22);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-word-up {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

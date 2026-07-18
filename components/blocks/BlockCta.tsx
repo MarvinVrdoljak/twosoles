@@ -1,6 +1,7 @@
 import {getTranslations} from 'next-intl/server'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonImage} from '@/components/common/CommonImage'
+import {CommonReveal} from '@/components/common/CommonReveal'
 import styles from './BlockCta.module.css'
 
 // Closing call-to-action: photo beside a headline + sign-up button.
@@ -9,7 +10,7 @@ export async function BlockCta() {
 
   return (
     <section className={styles.root}>
-      <div className={styles.media}>
+      <CommonReveal className={styles.media} y={0}>
         <CommonImage
           className={styles.image}
           src="/images/twosoles-wedding-game-teaser.jpg"
@@ -17,9 +18,9 @@ export async function BlockCta() {
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
-      </div>
+      </CommonReveal>
 
-      <div className={styles.content}>
+      <CommonReveal className={styles.content} delay={0.1}>
         <div className={styles.heading}>
           <p className="eyebrow">{t('eyebrow')}</p>
           <h2 className={styles.title}>
@@ -34,7 +35,7 @@ export async function BlockCta() {
             {t('cta')}
           </CommonButton>
         </div>
-      </div>
+      </CommonReveal>
     </section>
   )
 }

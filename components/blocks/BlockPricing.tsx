@@ -1,4 +1,5 @@
 import {getLocale, getTranslations} from 'next-intl/server'
+import {CommonReveal} from '@/components/common/CommonReveal'
 import {ItemPrice} from '@/components/items/ItemPrice'
 import {getTierPriceDisplays} from '@/utility/stripe/prices'
 import styles from './BlockPricing.module.css'
@@ -21,7 +22,7 @@ export async function BlockPricing() {
 
   return (
     <section id="pricing" className={styles.root} aria-labelledby="pricing-title">
-      <div className={styles.header}>
+      <CommonReveal className={styles.header}>
         <p className="eyebrow">{t('eyebrow')}</p>
         <h2 id="pricing-title" className={styles.title}>
           {t.rich('title', {
@@ -29,9 +30,9 @@ export async function BlockPricing() {
           })}
         </h2>
         <p className={styles.lead}>{t('lead')}</p>
-      </div>
+      </CommonReveal>
 
-      <ul className={styles.grid}>
+      <CommonReveal tag="ul" className={styles.grid} delay={0.1}>
         {tiers.map((tier, index) => (
           <ItemPrice
             key={tier.name}
@@ -44,7 +45,7 @@ export async function BlockPricing() {
             ctaLabel={t('cta')}
           />
         ))}
-      </ul>
+      </CommonReveal>
     </section>
   )
 }

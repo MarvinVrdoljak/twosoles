@@ -1,4 +1,5 @@
 import {getTranslations} from 'next-intl/server'
+import {CommonReveal} from '@/components/common/CommonReveal'
 import {ItemTestimonial} from '@/components/items/ItemTestimonial'
 import styles from './BlockTestimonials.module.css'
 
@@ -15,16 +16,16 @@ export async function BlockTestimonials() {
 
   return (
     <section id="voices" className={styles.root} aria-labelledby="testimonials-title">
-      <div className={styles.header}>
+      <CommonReveal className={styles.header}>
         <p className="eyebrow">{t('eyebrow')}</p>
         <h2 id="testimonials-title" className={styles.title}>
           {t.rich('title', {
             accent: (chunks) => <em className={styles.accent}>{chunks}</em>,
           })}
         </h2>
-      </div>
+      </CommonReveal>
 
-      <ul className={styles.grid}>
+      <CommonReveal tag="ul" className={styles.grid} delay={0.1}>
         {items.map((item, index) => (
           <ItemTestimonial
             key={index}
@@ -33,7 +34,7 @@ export async function BlockTestimonials() {
             role={item.role}
           />
         ))}
-      </ul>
+      </CommonReveal>
     </section>
   )
 }

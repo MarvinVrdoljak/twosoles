@@ -9,8 +9,14 @@
   border-radius: var(--radius-lg);
   box-shadow: 0 16px 44px rgb(31 41 55 / 14%);
 
-  /* Gentle idle float to sell the "hovering over the photo" feel. */
-  animation: card-float 4.5s ease-in-out infinite alternate;
+  /* Pops in after the hero copy has settled (card-in), then keeps a gentle
+     idle float to sell the "hovering over the photo" feel. The float starts
+     only after the entrance has finished so both never fight over transform. */
+  @media (prefers-reduced-motion: no-preference) {
+    animation:
+      card-in 0.9s cubic-bezier(0.2, 1.2, 0.4, 1) 0.95s both,
+      card-float 4.5s ease-in-out 1.9s infinite alternate;
+  }
 
   @media (--bp-large-up) {
     left: -44px;
@@ -23,6 +29,18 @@
     bottom: -18px;
     left: -6px;
     padding: var(--spacing-12) var(--spacing-16);
+  }
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -97,10 +115,4 @@
   font-weight: var(--font-weight-semibold);
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .root {
-    animation: none;
-  }
 }

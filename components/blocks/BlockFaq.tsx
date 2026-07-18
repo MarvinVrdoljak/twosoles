@@ -1,5 +1,6 @@
 import {getTranslations} from 'next-intl/server'
 import {CommonButton} from '@/components/common/CommonButton'
+import {CommonReveal} from '@/components/common/CommonReveal'
 import {ItemFaq} from '@/components/items/ItemFaq'
 import styles from './BlockFaq.module.css'
 
@@ -15,16 +16,16 @@ export async function BlockFaq() {
 
   return (
     <section id="faq" className={styles.root} aria-labelledby="faq-title">
-      <div className={styles.header}>
+      <CommonReveal className={styles.header}>
         <p className="eyebrow">{t('eyebrow')}</p>
         <h2 id="faq-title" className={styles.title}>
           {t.rich('title', {
             accent: (chunks) => <em className={styles.accent}>{chunks}</em>,
           })}
         </h2>
-      </div>
+      </CommonReveal>
 
-      <div className={styles.body}>
+      <CommonReveal className={styles.body} delay={0.1}>
         <div className={styles.accordion}>
           {items.map((item, index) => (
             <ItemFaq key={index} question={item.question} answer={item.answer} />
@@ -36,7 +37,7 @@ export async function BlockFaq() {
             {t('allCta')}
           </CommonButton>
         </div>
-      </div>
+      </CommonReveal>
     </section>
   )
 }
