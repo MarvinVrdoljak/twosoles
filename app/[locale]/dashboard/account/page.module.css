@@ -22,6 +22,11 @@
   background: var(--color-surface-variant);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
+
+  /* Tighter padding on mobile, matching the event detail cards. */
+  @media (--bp-medium-down) {
+    padding: var(--spacing-24);
+  }
 }
 
 .cardTitle {

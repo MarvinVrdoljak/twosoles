@@ -49,6 +49,12 @@
   align-items: stretch;
   gap: var(--spacing-32);
   align-self: stretch;
+
+  /* On mobile the section nav is hidden: the logo still links to the events
+     dashboard and the account link lives in the user menu. */
+  @media (--bp-medium-down) {
+    display: none;
+  }
 }
 
 .navLink {
