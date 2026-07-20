@@ -1,0 +1,14 @@
+/* Per-word mask for the scroll-triggered title reveal. Matches the hero: the
+   mask is extended below the baseline (padding + negative margin, so the line
+   box is unchanged) so descenders (g, p, ß, …) aren't clipped. */
+.word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
+}
+
+.wordInner {
+  display: inline-block;
+}

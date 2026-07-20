@@ -2,6 +2,7 @@ import {getTranslations} from 'next-intl/server'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonImage} from '@/components/common/CommonImage'
 import {CommonReveal} from '@/components/common/CommonReveal'
+import {CommonTitleReveal} from '@/components/common/CommonTitleReveal'
 import styles from './BlockCta.module.css'
 
 // Closing call-to-action: photo beside a headline + sign-up button.
@@ -20,22 +21,27 @@ export async function BlockCta() {
         />
       </CommonReveal>
 
-      <CommonReveal className={styles.content} delay={0.1}>
+      <div className={styles.content}>
         <div className={styles.heading}>
-          <p className="eyebrow">{t('eyebrow')}</p>
-          <h2 className={styles.title}>
-            {t.rich('title', {
-              accent: (chunks) => <em className={styles.accent}>{chunks}</em>,
-            })}
-          </h2>
+          <CommonReveal tag="p" className="eyebrow">
+            {t('eyebrow')}
+          </CommonReveal>
+          <CommonTitleReveal
+            tag="h2"
+            className={styles.title}
+            accentClassName={styles.accent}
+            text={t.raw('title') as string}
+          />
         </div>
-        <p className={styles.lead}>{t('lead')}</p>
-        <div className={styles.actions}>
+        <CommonReveal tag="p" className={styles.lead} delay={0.1}>
+          {t('lead')}
+        </CommonReveal>
+        <CommonReveal className={styles.actions} delay={0.15}>
           <CommonButton href="/register" variant="primary" size="lg">
             {t('cta')}
           </CommonButton>
-        </div>
-      </CommonReveal>
+        </CommonReveal>
+      </div>
     </section>
   )
 }

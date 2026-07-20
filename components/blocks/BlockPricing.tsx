@@ -1,5 +1,6 @@
 import {getLocale, getTranslations} from 'next-intl/server'
 import {CommonReveal} from '@/components/common/CommonReveal'
+import {CommonTitleReveal} from '@/components/common/CommonTitleReveal'
 import {ItemPrice} from '@/components/items/ItemPrice'
 import {getTierPriceDisplays} from '@/utility/stripe/prices'
 import styles from './BlockPricing.module.css'
@@ -22,15 +23,21 @@ export async function BlockPricing() {
 
   return (
     <section id="pricing" className={styles.root} aria-labelledby="pricing-title">
-      <CommonReveal className={styles.header}>
-        <p className="eyebrow">{t('eyebrow')}</p>
-        <h2 id="pricing-title" className={styles.title}>
-          {t.rich('title', {
-            accent: (chunks) => <em className={styles.accent}>{chunks}</em>,
-          })}
-        </h2>
-        <p className={styles.lead}>{t('lead')}</p>
-      </CommonReveal>
+      <div className={styles.header}>
+        <CommonReveal tag="p" className="eyebrow">
+          {t('eyebrow')}
+        </CommonReveal>
+        <CommonTitleReveal
+          tag="h2"
+          id="pricing-title"
+          className={styles.title}
+          accentClassName={styles.accent}
+          text={t.raw('title') as string}
+        />
+        <CommonReveal tag="p" className={styles.lead} delay={0.1}>
+          {t('lead')}
+        </CommonReveal>
+      </div>
 
       <CommonReveal tag="ul" className={styles.grid} delay={0.1}>
         {tiers.map((tier, index) => (

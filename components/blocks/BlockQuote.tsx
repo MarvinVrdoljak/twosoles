@@ -1,5 +1,5 @@
 import {getTranslations} from 'next-intl/server'
-import {CommonReveal} from '@/components/common/CommonReveal'
+import {CommonTitleReveal} from '@/components/common/CommonTitleReveal'
 import styles from './BlockQuote.module.css'
 
 // Large centered pull-quote on the page (cream) background.
@@ -8,13 +8,14 @@ export async function BlockQuote() {
 
   return (
     <section className={styles.root}>
-      <CommonReveal tag="blockquote" className={styles.quote}>
-        <p className={styles.text}>
-          {t.rich('text', {
-            accent: (chunks) => <span className={styles.accent}>{chunks}</span>,
-          })}
-        </p>
-      </CommonReveal>
+      <blockquote className={styles.quote}>
+        <CommonTitleReveal
+          tag="p"
+          className={styles.text}
+          accentClassName={styles.accent}
+          text={t.raw('text') as string}
+        />
+      </blockquote>
     </section>
   )
 }

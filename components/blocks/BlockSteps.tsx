@@ -1,5 +1,6 @@
 import {getTranslations} from 'next-intl/server'
 import {CommonReveal} from '@/components/common/CommonReveal'
+import {CommonTitleReveal} from '@/components/common/CommonTitleReveal'
 import {ItemStep} from '@/components/items/ItemStep'
 import styles from './BlockSteps.module.css'
 
@@ -17,14 +18,18 @@ export async function BlockSteps() {
 
   return (
     <section id="how-it-works" className={styles.root} aria-labelledby="steps-title">
-      <CommonReveal className={styles.header}>
-        <p className="eyebrow">{t('eyebrow')}</p>
-        <h2 id="steps-title" className={styles.title}>
-          {t.rich('title', {
-            accent: (chunks) => <em className={styles.accent}>{chunks}</em>,
-          })}
-        </h2>
-      </CommonReveal>
+      <div className={styles.header}>
+        <CommonReveal tag="p" className="eyebrow">
+          {t('eyebrow')}
+        </CommonReveal>
+        <CommonTitleReveal
+          tag="h2"
+          id="steps-title"
+          className={styles.title}
+          accentClassName={styles.accent}
+          text={t.raw('title') as string}
+        />
+      </div>
 
       <CommonReveal tag="ol" className={styles.grid} delay={0.1}>
         {items.map((item, index) => (

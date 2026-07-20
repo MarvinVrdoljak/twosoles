@@ -11,8 +11,8 @@ type CommonRevealProps = {
   className?: string
   /** Extra delay in seconds, e.g. to stagger a grid after its section header. */
   delay?: number
-  /** Rendered element — keeps semantics when revealing lists or quotes. */
-  tag?: 'div' | 'ul' | 'ol' | 'blockquote'
+  /** Rendered element — keeps semantics when revealing lists, quotes or text. */
+  tag?: 'div' | 'ul' | 'ol' | 'blockquote' | 'p'
   /** Upward travel in px; 0 turns the reveal into a pure fade. */
   y?: number
 }
