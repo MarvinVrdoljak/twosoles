@@ -35,11 +35,15 @@
 }
 
 /* Word-by-word reveal: each word sits in an overflow-hidden mask and slides
-   up into place. The stagger delay comes from the server as `--wd` per word. */
+   up into place. The stagger delay comes from the server as `--wd` per word.
+   The mask is extended below the baseline (padding + negative margin, so the
+   line box is unchanged) so descenders (g, p, ß, …) aren't clipped. */
 .word {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
 }
 
 .wordInner {
@@ -130,9 +134,10 @@
    is never hidden for reduced-motion users.
    ============================================================ */
 @media (prefers-reduced-motion: no-preference) {
-  /* Headline words slide up out of their mask, staggered via --wd. */
+  /* Headline words slide up out of their mask, staggered via --wd. Starts a
+     little past 100% so the extended (descender) mask is fully covered. */
   .wordInner {
-    transform: translateY(112%);
+    transform: translateY(135%);
     animation: hero-word-up 0.95s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
     animation-delay: var(--wd, 0s);
   }
