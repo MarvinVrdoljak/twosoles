@@ -13,6 +13,8 @@ import {GlobalHeader} from '@/components/globals/GlobalHeader'
 import {getPathname} from '@/i18n/navigation'
 import type {Locale} from '@/i18n/routing'
 import {getBaseUrl, pageMetadata} from '@/utility/seo'
+import {isPaidPackage, PACKAGE_ORDER} from '@/utility/stripe/packages'
+import {getPaidPackagePrices} from '@/utility/stripe/prices'
 import {getUser} from '@/utility/supabase/user'
 
 type HomeProps = {
@@ -44,10 +46,38 @@ export default async function Home({params}: HomeProps) {
   const baseUrl = getBaseUrl()
   const home = await getTranslations({locale, namespace: 'home'})
   const faq = await getTranslations({locale, namespace: 'faq'})
+  const pricing = await getTranslations({locale, namespace: 'pricing'})
   const faqItems = faq.raw('items') as Array<{question: string; answer: string}>
+  const tiers = pricing.raw('tiers') as Array<{
+    name: string
+    tagline: string
+    capacity: string
+    free?: boolean
+  }>
+
+  // Live Stripe prices (same source as the pricing block, no hardcoded amounts)
+  // power the Offer schema, so the structured data can never drift from reality.
+  const paidPrices = await getPaidPackagePrices()
+  const currency = paidPrices.small.currency.toUpperCase()
+  // One Offer per package, index-aligned with PACKAGE_ORDER / pricing.tiers.
+  const offers = PACKAGE_ORDER.map((pkg, index) => {
+    const tier = tiers[index]
+    const priceCents = isPaidPackage(pkg) ? paidPrices[pkg].amountCents : 0
+    return {
+      '@type': 'Offer',
+      name: tier.name,
+      description: tier.tagline,
+      price: (priceCents / 100).toFixed(2),
+      priceCurrency: currency,
+      // One-off purchase per event, no subscription.
+      availability: 'https://schema.org/InStock',
+    }
+  })
+  const highPriceCents = Math.max(...PACKAGE_ORDER.filter(isPaidPackage).map((p) => paidPrices[p].amountCents))
 
   // Structured data for rich results: brand identity, site-level search intent,
-  // and the FAQ (eligible for FAQ rich snippets in Google).
+  // the priced product (as a web-based game with per-tier offers), and the FAQ
+  // (eligible for FAQ rich snippets in Google).
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -57,6 +87,13 @@ export default async function Home({params}: HomeProps) {
         name: 'TwoSoles',
         url: baseUrl,
         logo: `${baseUrl}/favicon/favicon-96x96.png`,
+        description: home('metaDescription'),
+        contactPoint: {
+          '@type': 'ContactPoint',
+          email: 'hello@twosoles.live',
+          contactType: 'customer support',
+          availableLanguage: ['de', 'en'],
+        },
       },
       {
         '@type': 'WebSite',
@@ -66,6 +103,25 @@ export default async function Home({params}: HomeProps) {
         description: home('metaDescription'),
         inLanguage: locale,
         publisher: {'@id': `${baseUrl}/#organization`},
+      },
+      {
+        '@type': 'SoftwareApplication',
+        '@id': `${baseUrl}/#app`,
+        name: 'TwoSoles',
+        url: baseUrl,
+        description: home('metaDescription'),
+        applicationCategory: 'GameApplication',
+        operatingSystem: 'Web',
+        inLanguage: locale,
+        publisher: {'@id': `${baseUrl}/#organization`},
+        offers: {
+          '@type': 'AggregateOffer',
+          priceCurrency: currency,
+          lowPrice: '0.00',
+          highPrice: (highPriceCents / 100).toFixed(2),
+          offerCount: offers.length,
+          offers,
+        },
       },
       {
         '@type': 'FAQPage',

@@ -1,0 +1,36 @@
+# TwoSoles
+
+> TwoSoles ist das digitale Wedding Shoe Game (Schuhspiel) für Hochzeiten und Polterabende. Beim klassischen Schuhspiel beantwortet das Brautpaar Fragen, indem es Schuhe hochhält. Mit TwoSoles stimmt vorher der ganze Saal per Handy ab, und der Beamer enthüllt live, ob die Mehrheit das Paar richtig eingeschätzt hat. Kein App-Download, keine Anmeldung für Gäste, Setup in fünf Minuten.
+
+## So funktioniert es
+
+- Setup (ca. 5 Minuten): Paarnamen eingeben, Fragen wählen oder eigene schreiben, QR-Code generieren.
+- Abstimmung: Gäste scannen den QR-Code und voten anonym auf dem eigenen Handy. Keine App, kein Login.
+- Reveal-Moment: Das Paar hebt die Schuhe, der Gastgeber drückt einen Button, und der Beamer enthüllt das Abstimmungsergebnis des Saals.
+
+## Preise
+
+- Einmalig pro Event, kein Abo. Preise sind pro Event und richten sich nach der Gästezahl.
+- Kleine Runde: kostenlos, bis zu 10 Gäste (Polterabend im engsten Kreis).
+- Intim: kostenpflichtig, bis zu 50 Gäste.
+- Klassisch: kostenpflichtig, bis zu 100 Gäste.
+- Große Feier: kostenpflichtig, bis zu 300 Gäste.
+- Aktuelle Preise werden auf der Preise-Sektion der Startseite live angezeigt.
+
+## Seiten
+
+- [Startseite](https://twosoles.live/): Produktüberblick, So-funktioniert-es, Preise, Stimmen und FAQ.
+- [Häufige Fragen (FAQ)](https://twosoles.live/faq): Alle Antworten zu Ablauf, Technik, Einrichtung, Preisen und Datenschutz.
+- [Kontakt](https://twosoles.live/contact): Kontaktmöglichkeiten.
+- [English version](https://twosoles.live/en): Same product, English language.
+
+## Rechtliches
+
+- [Impressum](https://twosoles.live/imprint)
+- [Datenschutz](https://twosoles.live/privacy)
+- [AGB](https://twosoles.live/terms)
+
+## Kontakt
+
+- E-Mail: hello@twosoles.live
+- Sprachen: Deutsch, Englisch
