@@ -1,4 +1,5 @@
 .root {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -9,6 +10,20 @@
   transition:
     background 0.4s ease,
     color 0.4s ease;
+}
+
+/* Couple only: "not you? switch" — back to the partner picker. */
+.changeWho {
+  position: absolute;
+  top: var(--spacing-8);
+  right: var(--spacing-8);
+  padding: var(--spacing-4) var(--spacing-12);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
 .header {

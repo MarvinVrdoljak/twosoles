@@ -51,6 +51,9 @@ type ItemEventOverviewProps = {
   onGoLive: () => void
   onPlay: () => void
   questions: string
+  // 'phone' surfaces an extra couple link (the bride/groom answer on their own
+  // devices); 'shoe' hides it (the host enters the couple's answer instead).
+  answerMode: string
 }
 
 export function ItemEventOverview({
@@ -66,6 +69,7 @@ export function ItemEventOverview({
   goingLive,
   onGoLive,
   onPlay,
+  answerMode,
 }: ItemEventOverviewProps) {
   const t = useTranslations('eventDetail')
   const tDash = useTranslations('dashboard')
@@ -85,6 +89,11 @@ export function ItemEventOverview({
 
   const cards = [
     {key: 'guest', label: t('guestLink'), href: `/guest/${eventId}`},
+    // Phone mode: the couple answers on their own phones. Both partners scan the
+    // same link and pick who they are on the first screen.
+    ...(answerMode === 'phone'
+      ? [{key: 'couple', label: t('coupleLink'), href: `/couple/${eventId}`}]
+      : []),
     {key: 'display', label: t('displayLink'), href: `/display/${eventId}`},
     {key: 'host', label: t('hostLink'), href: `/host/${eventId}`},
   ]
@@ -135,6 +144,13 @@ export function ItemEventOverview({
           heading: couple,
           intro: pdf('guestIntro'),
           instruction: pdf('scanHint'),
+        }
+      } else if (card.key === 'couple') {
+        content = {
+          eyebrow: pdf('coupleEyebrow'),
+          heading: couple,
+          intro: pdf('coupleIntro'),
+          instruction: pdf('coupleHint'),
         }
       } else if (card.key === 'display') {
         content = {

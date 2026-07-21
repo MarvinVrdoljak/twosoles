@@ -94,6 +94,7 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
     date: '',
     language: locale,
     theme: 'light',
+    answerMode: 'shoe',
     questions: [],
     packageIndex: 2,
   }))
@@ -145,6 +146,7 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
             event_date: draft.date || null,
             game_language: draft.language,
             game_theme: draft.theme,
+            answer_mode: draft.answerMode,
             questions: draft.questions.map((q) => ({text: q.text})),
             package: PACKAGE_KEYS[0],
           })

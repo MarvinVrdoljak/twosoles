@@ -71,6 +71,7 @@ export default async function HostGamePage({params}: HostGamePageProps) {
       capacity={guestCapacity(event.package, event.started_at != null)}
       initialState={initialState}
       isDraft={event.started_at == null}
+      answerMode={event.answer_mode === 'phone' ? 'phone' : 'shoe'}
     />
   )
 }

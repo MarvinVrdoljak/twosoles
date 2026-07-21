@@ -434,3 +434,86 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
 }
+
+/* Disabled primary (shoe mode: couple picks not yet entered). */
+.primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.primary:disabled:hover {
+  background: var(--color-primary);
+}
+
+/* Shoe mode: host enters what each partner raised, after voting closes. */
+.coupleInput {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  margin-top: var(--spacing-20);
+  padding-top: var(--spacing-20);
+  border-top: 1px solid var(--color-border);
+}
+
+.coupleInputTitle {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.couplePickRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.couplePickWho {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.couplePickBtns {
+  display: flex;
+  gap: var(--spacing-8);
+}
+
+.couplePickBtn {
+  flex: 1;
+  padding: var(--spacing-12);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  cursor: pointer;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.couplePickBtnOn {
+  color: var(--color-white);
+}
+
+.coupleInputHint {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.couplePhoneStatus {
+  margin: var(--spacing-16) 0 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.groupHint {
+  margin: 0 var(--spacing-4);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}

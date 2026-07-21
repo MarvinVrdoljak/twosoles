@@ -674,6 +674,12 @@
       "themeOptions": {
         "light": "Light",
         "dark": "Dark"
+      },
+      "answerModeLabel": "How does the couple answer?",
+      "answerModeHint": "Classic: the couple raises real shoes and the host taps in who they meant once voting closes. On the phone: the couple answers secretly on two of their own devices and the screen reveals both at once. Either way, the finale shows how often you agreed and how well the room knows you.",
+      "answerModeOptions": {
+        "shoe": "Classic (raise shoes)",
+        "phone": "On the phone (secret)"
       }
     },
     "questions": {
@@ -728,6 +734,7 @@
   "eventDetail": {
     "back": "Back to events",
     "guestLink": "Guest link",
+    "coupleLink": "Couple view (phone)",
     "displayLink": "Display view",
     "hostLink": "Host controls",
     "openView": "Open view",
@@ -756,7 +763,10 @@
       "displayEyebrow": "For the projector",
       "displayIntro": "Open this page on the device connected to the projector or screen. It shows the live view for all your guests.",
       "hostEyebrow": "For the host",
-      "hostIntro": "Open this page on your own device (phone, tablet or laptop) to steer the game."
+      "hostIntro": "Open this page on your own device (phone, tablet or laptop) to steer the game.",
+      "coupleEyebrow": "For the couple",
+      "coupleIntro": "In phone mode the two of you answer secretly on your own phones. Both open this link and pick who is playing on this device at the start.",
+      "coupleHint": "Open this link on both partners' phones and pick who you are:"
     },
     "deviceChoice": {
       "title": "What will you use this device for?",
@@ -863,6 +873,9 @@
           "text": "The game view for guests, which opens on their phone via QR code. It shows the current question and the two answers to choose from."
         }
       ],
+      "coupleTitle": "The couple link (phone mode)",
+      "coupleText": "Since you chose phone mode, the couple doesn't answer with shoes but secretly on two of their own phones. Open this link on both devices. On the first screen each of you picks which partner you are, then you tap your answer to every question. The audience and the couple vote at the same time, and the screen reveals both together.",
+      "coupleLinkText": "Open on both partners' phones, then pick who you are.",
       "setupTitle": "Setup",
       "setup": [
         "Connect the first device to the screen and open the <display>projector view</display> on it. It's best to use your browser's fullscreen mode. On a second device, ideally a smartphone, you open the <host>host controls</host>.",
@@ -919,7 +932,23 @@
       "finishedText": "That was TwoSoles. See you next time!",
       "countdownIntro": "And the result is …",
       "live": "Live",
-      "votesWord": "votes"
+      "votesWord": "votes",
+      "partnerSays": "{name} says",
+      "matchYes": "In sync!",
+      "matchNo": "Split!",
+      "crowdRight": "In sync! And the room got it right.",
+      "crowdWrong": "In sync! But the room got it wrong.",
+      "revealSplit": "Split! The two saw it differently.",
+      "harmonyValue": "{count} of {total}",
+      "harmonyLabel": "questions where you agreed",
+      "crowdLabel": "how well the room knows you"
+    },
+    "couple": {
+      "youAre": "You are {name}",
+      "whoTitle": "Who are you?",
+      "whoText": "Pick which of you is playing on this phone.",
+      "taken": "taken",
+      "changeWho": "Not {name}? Switch"
     },
     "guest": {
       "questionOf": "Question {current} of {total}",
@@ -993,7 +1022,17 @@
       "pinChecking": "Checking …",
       "pinError": "Wrong PIN. Please try again.",
       "resetSuccess": "Game reset. All screens are back in the lobby.",
-      "resetError": "Reset locally, but you appear to be offline. The projector and guests may not have updated."
+      "resetError": "Reset locally, but you appear to be offline. The projector and guests may not have updated.",
+      "showAudience": "Show the audience",
+      "statusCoupleRevealed": "Couple revealed",
+      "back": "Back",
+      "coupleInputTitle": "What did the couple raise?",
+      "couplePicksFor": "{name} points to …",
+      "coupleInputHint": "Enter both answers to reveal.",
+      "couplePhoneStatus": "{count, plural, =0 {The couple hasn't answered yet} =1 {One partner answered on their phone} other {Both partners answered on their phones}}",
+      "coupleLinksTitle": "Couple links",
+      "coupleLinksHint": "Open one link on each partner's phone. The couple only answers secretly through these links.",
+      "coupleLinkPartner": "Link for {name}"
     }
   },
   "home": {

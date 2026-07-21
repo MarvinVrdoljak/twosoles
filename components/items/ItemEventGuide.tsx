@@ -41,6 +41,9 @@ type ItemEventGuideProps = {
   eventId: string
   couple: string
   gameLanguage: string
+  // 'phone' shows the couple-link section (the bride/groom answer on their own
+  // devices); 'shoe' hides it (the host enters the couple's answer instead).
+  answerMode: string
   // Jumps to this event's Settings tab (where the game reset lives). Same-page
   // tab switch, so it's a callback rather than a link.
   onOpenSettings: () => void
@@ -48,7 +51,13 @@ type ItemEventGuideProps = {
 
 // Static "how to play" tab. Screen names link to the live views in a new tab;
 // the download button renders the whole guide as a PDF.
-export function ItemEventGuide({eventId, couple, gameLanguage, onOpenSettings}: ItemEventGuideProps) {
+export function ItemEventGuide({
+  eventId,
+  couple,
+  gameLanguage,
+  answerMode,
+  onOpenSettings,
+}: ItemEventGuideProps) {
   const t = useTranslations('eventDetail')
   const locale = useLocale() as Locale
   const needs = t.raw('guide.needs') as string[]
@@ -246,6 +255,35 @@ export function ItemEventGuide({eventId, couple, gameLanguage, onOpenSettings}: 
           ))}
         </div>
       </section>
+
+      {answerMode === 'phone' ? (
+        <section className={styles.guideSection}>
+          <h3 className={styles.guideHeading}>{t('guide.coupleTitle')}</h3>
+          <p className={styles.guideText}>{t('guide.coupleText')}</p>
+          <div className={styles.views}>
+            <div className={styles.view}>
+              <span className={styles.viewBody}>
+                <span className={styles.viewTextGroup}>
+                  <span className={styles.viewTitle}>{t('coupleLink')}</span>
+                  <span className={styles.viewText}>{t('guide.coupleLinkText')}</span>
+                </span>
+                <CommonButton
+                  href={`/couple/${eventId}`}
+                  variant="secondary"
+                  size="sm"
+                  target="_blank"
+                >
+                  <ExternalLink size={16} aria-hidden="true" />
+                  {t('openView')}
+                </CommonButton>
+              </span>
+              <span className={styles.viewQr}>
+                <GameQr value={absolute(`/couple/${eventId}`)} />
+              </span>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className={styles.guideSection}>
         <h3 className={styles.guideHeading}>{t('guide.setupTitle')}</h3>

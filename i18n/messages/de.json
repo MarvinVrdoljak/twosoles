@@ -674,6 +674,12 @@
       "themeOptions": {
         "light": "Hell",
         "dark": "Dunkel"
+      },
+      "answerModeLabel": "Wie antwortet das Paar?",
+      "answerModeHint": "Klassisch: Das Paar hebt echte Schuhe, der Host trägt nach dem Schließen der Abstimmung ein, wer wen gemeint hat. Am Handy: Das Paar antwortet geheim auf zwei eigenen Geräten, die Leinwand löst gleichzeitig auf. Beide Varianten zeigen am Ende, wie oft ihr euch einig wart und wie gut der Raum euch kennt.",
+      "answerModeOptions": {
+        "shoe": "Klassisch (Schuhe heben)",
+        "phone": "Am Handy (geheim)"
       }
     },
     "questions": {
@@ -728,6 +734,7 @@
   "eventDetail": {
     "back": "Zur Event-Übersicht",
     "guestLink": "Gäste Link",
+    "coupleLink": "Paar-Ansicht (Handy)",
     "displayLink": "Display-Ansicht",
     "hostLink": "Host-Steuerung",
     "openView": "Ansicht öffnen",
@@ -756,7 +763,10 @@
       "displayEyebrow": "Für den Beamer",
       "displayIntro": "Öffne diese Seite auf dem Gerät, das mit dem Beamer oder Bildschirm verbunden ist. Sie zeigt die Live-Ansicht für alle Gäste.",
       "hostEyebrow": "Für die Moderation",
-      "hostIntro": "Öffne diese Seite auf deinem eigenen Gerät (Handy, Tablet oder Laptop), um das Spiel zu steuern."
+      "hostIntro": "Öffne diese Seite auf deinem eigenen Gerät (Handy, Tablet oder Laptop), um das Spiel zu steuern.",
+      "coupleEyebrow": "Für das Brautpaar",
+      "coupleIntro": "Im Handy-Modus antwortet ihr zwei geheim auf euren eigenen Handys. Öffnet beide diesen Link und wählt zu Beginn aus, wer von euch an diesem Gerät mitspielt.",
+      "coupleHint": "Öffnet diesen Link auf beiden Handys des Paares und wählt aus, wer ihr seid:"
     },
     "deviceChoice": {
       "title": "Wofür nutzt du dieses Gerät?",
@@ -863,6 +873,9 @@
           "text": "Die Spielansicht für die Gäste, die sich per QR-Code auf dem Handy öffnet. Sie zeigt die aktuelle Frage und die zwei Antworten zur Auswahl."
         }
       ],
+      "coupleTitle": "Der Paar-Link (Handy-Modus)",
+      "coupleText": "Da ihr den Handy-Modus gewählt habt, antwortet das Paar nicht mit Schuhen, sondern geheim auf zwei eigenen Handys. Öffnet diesen Link auf beiden Geräten. Auf dem ersten Screen wählt jeder aus, wer von den beiden er ist, danach tippt ihr bei jeder Frage eure Antwort. Publikum und Paar stimmen gleichzeitig ab, die Leinwand löst beides zusammen auf.",
+      "coupleLinkText": "Auf beiden Handys des Paares öffnen, dann Person auswählen.",
       "setupTitle": "Aufbau",
       "setup": [
         "Verbinde das erste Gerät mit der Leinwand und öffne darauf die <display>Leinwand-Ansicht</display>. Am besten nutzt du den Vollbildmodus des Browsers. Auf einem zweiten Gerät, idealerweise einem Smartphone, öffnest du die <host>Host-Steuerung</host>.",
@@ -919,7 +932,23 @@
       "finishedText": "Das war TwoSoles. Bis zum nächsten Mal!",
       "countdownIntro": "Und das Ergebnis lautet …",
       "live": "Live",
-      "votesWord": "Stimmen"
+      "votesWord": "Stimmen",
+      "partnerSays": "{name} sagt",
+      "matchYes": "Einig!",
+      "matchNo": "Uneinig!",
+      "crowdRight": "Einig! Und der Raum lag richtig.",
+      "crowdWrong": "Einig! Aber der Raum lag daneben.",
+      "revealSplit": "Uneinig! Die zwei sahen das verschieden.",
+      "harmonyValue": "{count} von {total}",
+      "harmonyLabel": "Fragen, bei denen ihr euch einig wart",
+      "crowdLabel": "So gut kennt euch der Raum"
+    },
+    "couple": {
+      "youAre": "Du bist {name}",
+      "whoTitle": "Wer bist du?",
+      "whoText": "Wählt aus, wer von euch beiden an diesem Handy mitspielt.",
+      "taken": "vergeben",
+      "changeWho": "Nicht {name}? Wechseln"
     },
     "guest": {
       "questionOf": "Frage {current} von {total}",
@@ -993,7 +1022,17 @@
       "pinChecking": "Wird geprüft …",
       "pinError": "Falsche PIN. Bitte versuch es erneut.",
       "resetSuccess": "Spiel zurückgesetzt. Alle Bildschirme sind zurück in der Lobby.",
-      "resetError": "Lokal zurückgesetzt, aber du scheinst offline zu sein. Leinwand und Gäste wurden möglicherweise nicht aktualisiert."
+      "resetError": "Lokal zurückgesetzt, aber du scheinst offline zu sein. Leinwand und Gäste wurden möglicherweise nicht aktualisiert.",
+      "showAudience": "Publikum zeigen",
+      "statusCoupleRevealed": "Paar aufgelöst",
+      "back": "Zurück",
+      "coupleInputTitle": "Was hat das Paar gehoben?",
+      "couplePicksFor": "{name} zeigt auf …",
+      "coupleInputHint": "Trage beide Antworten ein, um auflösen zu können.",
+      "couplePhoneStatus": "{count, plural, =0 {Das Paar hat noch nicht geantwortet} =1 {Ein Partner hat auf dem Handy geantwortet} other {Beide Partner haben auf dem Handy geantwortet}}",
+      "coupleLinksTitle": "Paar-Links",
+      "coupleLinksHint": "Öffne je einen Link auf dem Handy des jeweiligen Partners. Nur über diese Links antwortet das Paar geheim.",
+      "coupleLinkPartner": "Link für {name}"
     }
   },
   "home": {

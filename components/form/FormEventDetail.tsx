@@ -19,7 +19,7 @@ import {FormEventCouple} from './FormEventCouple'
 import {FormEventDetails} from './FormEventDetails'
 import {FormEventQuestions} from './FormEventQuestions'
 import {FormEventSettings} from './FormEventSettings'
-import type {GameTheme} from '@/utility/game/types'
+import type {AnswerMode, GameTheme} from '@/utility/game/types'
 import {isEventDateInRange, PACKAGE_KEYS} from './eventDraft'
 import type {EventDraft} from './eventDraft'
 import styles from './FormEventDetail.module.css'
@@ -36,6 +36,7 @@ type EventData = {
   event_date: string | null
   game_language: string
   game_theme: string
+  answer_mode: string
   questions: {text: string; custom?: boolean}[]
   package: string
   started_at: string | null
@@ -193,6 +194,7 @@ export function FormEventDetail({
     date: event.event_date ?? '',
     language: event.game_language,
     theme: (event.game_theme as GameTheme) ?? 'light',
+    answerMode: (event.answer_mode as AnswerMode) ?? 'shoe',
     questions: (event.questions ?? []).map((q, index) => ({
       id: `q-${index}`,
       text: q.text,
@@ -293,6 +295,7 @@ export function FormEventDetail({
           event_date: draft.date || null,
           game_language: draft.language,
           game_theme: draft.theme,
+          answer_mode: draft.answerMode,
           questions: draft.questions.map((q) => ({text: q.text})),
           // NOTE: `package` is deliberately NOT saved here. It's owned solely by
           // the Stripe purchase/upgrade flow (webhook + success confirm); writing
@@ -436,6 +439,7 @@ export function FormEventDetail({
             goingLive={goingLive}
             onGoLive={requestGoLive}
             onPlay={() => setDeviceChoiceOpen(true)}
+            answerMode={draft.answerMode}
           />
         </div>
 
@@ -492,6 +496,7 @@ export function FormEventDetail({
               eventId={event.id}
               couple={`${draft.name1 || '?'} & ${draft.name2 || '?'}`}
               gameLanguage={draft.language}
+              answerMode={draft.answerMode}
               onOpenSettings={() => goToTab('settings')}
             />
           ) : null}

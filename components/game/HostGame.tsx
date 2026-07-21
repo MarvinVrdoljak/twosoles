@@ -5,6 +5,7 @@ import {useTranslations} from 'next-intl'
 import {
   ArrowUpRight,
   Check,
+  Heart,
   Monitor,
   Moon,
   RotateCcw,
@@ -22,7 +23,13 @@ import {CommonTooltip} from '@/components/common/CommonTooltip'
 import {useToast} from '@/components/common/CommonToast'
 import {saveGameStateAction} from '@/utility/game/actions'
 import {useGameChannel} from '@/utility/game/useGameChannel'
-import {COUNTDOWN_REVEAL_MS, type GameState, type GameTheme} from '@/utility/game/types'
+import {
+  COUNTDOWN_REVEAL_MS,
+  coupleAnswered,
+  type AnswerMode,
+  type GameState,
+  type GameTheme,
+} from '@/utility/game/types'
 import styles from './HostGame.module.css'
 
 type HostGameProps = {
@@ -38,6 +45,9 @@ type HostGameProps = {
   // Event is still in preparation (not set live) — shows a reminder banner and
   // means the capacity is still capped at the free tier until the owner goes live.
   isDraft?: boolean
+  // How the couple answers: 'shoe' = host taps in what each partner raised
+  // (after voting closes); 'phone' = the couple answers on their own devices.
+  answerMode?: AnswerMode
 }
 
 export function HostGame({
@@ -49,6 +59,7 @@ export function HostGame({
   capacity,
   initialState = null,
   isDraft = false,
+  answerMode = 'shoe',
 }: HostGameProps) {
   const t = useTranslations('game')
   const {toast} = useToast()
@@ -63,7 +74,14 @@ export function HostGame({
   const [confirmResetOpen, setConfirmResetOpen] = useState(false)
 
   const resetPoll = () => {
-    setState((s) => ({...s, phase: 'lobby', questionIndex: 0, votes: [0, 0], results: {}}))
+    setState((s) => ({
+      ...s,
+      phase: 'lobby',
+      questionIndex: 0,
+      votes: [0, 0],
+      results: {},
+      coupleAnswers: {},
+    }))
     // The reset only reaches the display + guests when the channel is live; if
     // it isn't connected, warn that they may not have reset with the host.
     if (connected) {
@@ -81,6 +99,26 @@ export function HostGame({
   const waiting = Math.max(0, guestCount - capacity)
   const isLast = state.questionIndex >= questions.length - 1
 
+  // Couple's own answer for the current question ([person1's pick, person2's],
+  // -1 = not set yet). In shoe mode the host taps these after voting closes.
+  const couplePick = state.coupleAnswers[state.questionIndex] ?? [-1, -1]
+  const setCouplePick = (slot: 0 | 1, option: 0 | 1) => {
+    setState((s) => {
+      const prev = s.coupleAnswers[s.questionIndex] ?? [-1, -1]
+      const pair: [number, number] = [prev[0], prev[1]]
+      pair[slot] = option
+      return {...s, coupleAnswers: {...s.coupleAnswers, [s.questionIndex]: pair}}
+    })
+  }
+  // Shoe mode: the host must enter both partners' picks before revealing, so the
+  // match can be shown. In phone mode the couple has already answered on their
+  // phones, so nothing is gated here.
+  const needsCouplePicks = answerMode === 'shoe' && state.phase === 'closed'
+  const couplePicksComplete = coupleAnswered(state.coupleAnswers[state.questionIndex])
+  const primaryDisabled = needsCouplePicks && !couplePicksComplete
+  // Phone mode: how many of the two partners have answered the current question.
+  const couplePhoneAnswered = couplePick.filter((v) => v >= 0).length
+
   const advance = () => {
     setState((s) => {
       switch (s.phase) {
@@ -90,10 +128,16 @@ export function HostGame({
           return {...s, phase: 'closed'}
         case 'closed':
           // Kick off the dramatic 3-2-1 build-up on the display; the timer
-          // below auto-advances to the reveal (host can also skip it manually).
+          // below auto-advances (host can also skip it manually).
           return {...s, phase: 'countdown'}
         case 'countdown':
-          // Reveal and persist this question's final tally for the overview.
+          // Reveal the couple's own picks first (if they answered); otherwise go
+          // straight to the audience result and persist its tally.
+          return coupleAnswered(s.coupleAnswers[s.questionIndex])
+            ? {...s, phase: 'coupleReveal'}
+            : {...s, phase: 'reveal', results: {...s.results, [s.questionIndex]: s.votes}}
+        case 'coupleReveal':
+          // Host clicks on: now bring in the audience result + persist its tally.
           return {...s, phase: 'reveal', results: {...s.results, [s.questionIndex]: s.votes}}
         case 'reveal':
           return isLast
@@ -112,11 +156,14 @@ export function HostGame({
   useEffect(() => {
     if (state.phase !== 'countdown') return
     const id = setTimeout(() => {
-      setState((s) =>
-        s.phase === 'countdown'
-          ? {...s, phase: 'reveal', results: {...s.results, [s.questionIndex]: s.votes}}
-          : s,
-      )
+      setState((s) => {
+        if (s.phase !== 'countdown') return s
+        // Couple picks first (if answered); the host then clicks on to the
+        // audience. No couple answer → straight to the audience result.
+        return coupleAnswered(s.coupleAnswers[s.questionIndex])
+          ? {...s, phase: 'coupleReveal'}
+          : {...s, phase: 'reveal', results: {...s.results, [s.questionIndex]: s.votes}}
+      })
     }, COUNTDOWN_REVEAL_MS)
     return () => clearTimeout(id)
   }, [state.phase, setState])
@@ -139,6 +186,7 @@ export function HostGame({
     question: t('host.closeVoting'),
     closed: t('host.reveal'),
     countdown: t('host.reveal'),
+    coupleReveal: t('host.showAudience'),
     reveal: isLast ? t('host.finish') : t('host.next'),
     finished: '',
   }
@@ -159,11 +207,17 @@ export function HostGame({
         case 'closed':
           // Reopen voting: clear the tally so the whole room votes again.
           return {...s, phase: 'question', votes: [0, 0]}
+        case 'coupleReveal':
+          // Back to the closed question (votes + couple picks stay intact).
+          return {...s, phase: 'closed'}
         case 'reveal': {
-          // Undo the reveal: drop the saved tally and re-close voting.
+          // Undo the audience reveal: drop the saved tally. Step back to the
+          // couple reveal if there was one, otherwise to the closed question.
           const results = {...s.results}
           delete results[s.questionIndex]
-          return {...s, phase: 'closed', results}
+          return coupleAnswered(s.coupleAnswers[s.questionIndex])
+            ? {...s, phase: 'coupleReveal', results}
+            : {...s, phase: 'closed', results}
         }
         case 'finished':
           return {...s, phase: 'reveal'}
@@ -179,6 +233,7 @@ export function HostGame({
     closed: t('host.reopenVoting'),
     // Countdown is a transient 3-2-1 build-up that auto-advances — no back button.
     countdown: '',
+    coupleReveal: t('host.back'),
     reveal: t('host.undoReveal'),
     finished: t('host.backToResult'),
   }
@@ -188,6 +243,7 @@ export function HostGame({
     question: t('host.statusLive'),
     closed: t('host.votingClosed'),
     countdown: t('host.statusRevealing'),
+    coupleReveal: t('host.statusCoupleRevealed'),
     reveal: t('host.statusRevealed'),
   }
 
@@ -292,6 +348,33 @@ export function HostGame({
             </section>
           </div>
 
+          {/* Couple links (phone mode): one private link per partner. */}
+          {answerMode === 'phone' ? (
+            <div className={styles.group}>
+              <p className={styles.sectionLabel}>{t('host.coupleLinksTitle')}</p>
+              <p className={styles.groupHint}>{t('host.coupleLinksHint')}</p>
+              <section className={styles.groupCard}>
+                {[person1, person2].map((partner, slot) => (
+                  <Link
+                    key={slot}
+                    href={`/couple/${eventId}?p=${slot + 1}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.row}
+                  >
+                    <span className={styles.rowIcon}>
+                      <Heart size={20} aria-hidden="true" />
+                    </span>
+                    <span className={styles.rowLabel}>
+                      {t('host.coupleLinkPartner', {name: partner.name})}
+                    </span>
+                    <ArrowUpRight size={18} className={styles.rowTrail} aria-hidden="true" />
+                  </Link>
+                ))}
+              </section>
+            </div>
+          ) : null}
+
           {/* Reset */}
           <div className={styles.group}>
             <CommonButton variant="danger" size="md" onClick={() => setConfirmResetOpen(true)}>
@@ -353,11 +436,58 @@ export function HostGame({
                   </CommonBadge>
                 </div>
               ) : null}
+
+              {needsCouplePicks ? (
+                <div className={styles.coupleInput}>
+                  <p className={styles.coupleInputTitle}>{t('host.coupleInputTitle')}</p>
+                  {persons.map((partner, slot) => (
+                    <div key={slot} className={styles.couplePickRow}>
+                      <span className={styles.couplePickWho}>
+                        {t('host.couplePicksFor', {name: partner.name})}
+                      </span>
+                      <div className={styles.couplePickBtns}>
+                        {persons.map((target, ti) => {
+                          const selected = couplePick[slot] === ti
+                          return (
+                            <button
+                              key={ti}
+                              type="button"
+                              className={`${styles.couplePickBtn} ${selected ? styles.couplePickBtnOn : ''}`}
+                              style={
+                                selected
+                                  ? {background: target.color, borderColor: target.color}
+                                  : undefined
+                              }
+                              onClick={() => setCouplePick(slot as 0 | 1, ti as 0 | 1)}
+                            >
+                              {target.name}
+                            </button>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                  {!couplePicksComplete ? (
+                    <p className={styles.coupleInputHint}>{t('host.coupleInputHint')}</p>
+                  ) : null}
+                </div>
+              ) : null}
+
+              {answerMode === 'phone' && (state.phase === 'question' || state.phase === 'closed') ? (
+                <p className={styles.couplePhoneStatus}>
+                  {t('host.couplePhoneStatus', {count: couplePhoneAnswered})}
+                </p>
+              ) : null}
             </section>
           )}
 
           {primaryLabel[state.phase] ? (
-            <button type="button" className={styles.primary} onClick={advance}>
+            <button
+              type="button"
+              className={styles.primary}
+              onClick={advance}
+              disabled={primaryDisabled}
+            >
               {primaryLabel[state.phase]}
             </button>
           ) : null}

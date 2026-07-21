@@ -4,11 +4,11 @@ import {useCallback, useEffect, useRef, useState} from 'react'
 import type {RealtimeChannel} from '@supabase/supabase-js'
 import {createClient} from '@/utility/supabase/client'
 import {INITIAL_GAME_STATE} from './types'
-import type {GameState, GameTheme} from './types'
+import type {CoupleAnswer, GameState, GameTheme} from './types'
 
-type Role = 'host' | 'display' | 'guest'
+type Role = 'host' | 'display' | 'guest' | 'couple'
 
-type PresenceMeta = {role: Role; joinedAt: number}
+type PresenceMeta = {role: Role; joinedAt: number; coupleSlot?: 0 | 1 | null}
 
 // Shared live-game channel over Supabase Realtime. The host is the authority:
 // it holds + broadcasts the GameState; display + guests subscribe. Guests send
@@ -25,6 +25,10 @@ export function useGameChannel(
   // Host only: the last state restored from the DB, so a reload resumes the
   // game (phase/votes/results) instead of resetting everyone to the lobby.
   initialState: GameState | null = null,
+  // Couple devices only: which partner this device is (0 = person1, 1 = person2),
+  // or null for the picker (not yet chosen). Published via Presence so the other
+  // partner's picker can tell which slot is already taken.
+  coupleSlot: 0 | 1 | null = null,
 ) {
   const [state, setLocalState] = useState<GameState>(
     initialState ?? {...INITIAL_GAME_STATE, theme: initialTheme},
@@ -33,6 +37,9 @@ export function useGameChannel(
   const [connected, setConnected] = useState(false)
   // Guests only: true when this guest joined past the package's capacity.
   const [overCapacity, setOverCapacity] = useState(false)
+  // Couple slots currently claimed by any connected couple device — lets the
+  // picker disable a partner the other device already took.
+  const [claimedCoupleSlots, setClaimedCoupleSlots] = useState<(0 | 1)[]>([])
 
   const channelRef = useRef<RealtimeChannel | null>(null)
   const stateRef = useRef(state)
@@ -42,6 +49,8 @@ export function useGameChannel(
   // readiness and hold any votes cast in that window to flush on connect.
   const subscribedRef = useRef(false)
   const pendingVotesRef = useRef<(0 | 1)[]>([])
+  // Couple devices (phone mode): each partner's pick, held until connected.
+  const pendingCoupleRef = useRef<{slot: 0 | 1; option: 0 | 1}[]>([])
 
   // Stable identity + join time for this device, so the capacity ranking is
   // deterministic and this guest can locate itself in the presence list.
@@ -78,6 +87,25 @@ export function useGameChannel(
           return next
         })
       })
+
+      // Host records the couple's own picks (phone mode). Each partner (slot 0 =
+      // person1's device, 1 = person2's) sends who they pointed at for the
+      // question the host currently shows. Last write per slot wins, so a partner
+      // can change their mind while voting is open.
+      channel.on('broadcast', {event: 'coupleVote'}, ({payload}) => {
+        const {slot, option} = payload as {slot: 0 | 1; option: 0 | 1}
+        setLocalState((current) => {
+          const prev = current.coupleAnswers[current.questionIndex] ?? [-1, -1]
+          const pair: CoupleAnswer = [prev[0], prev[1]]
+          pair[slot] = option
+          const next = {
+            ...current,
+            coupleAnswers: {...current.coupleAnswers, [current.questionIndex]: pair},
+          }
+          channel.send({type: 'broadcast', event: 'state', payload: next})
+          return next
+        })
+      })
     }
 
     channel.on('presence', {event: 'sync'}, () => {
@@ -95,13 +123,19 @@ export function useGameChannel(
         const myRank = guests.findIndex((entry) => entry.key === presenceKeyRef.current)
         setOverCapacity(myRank >= capacity)
       }
+
+      // Which couple slots are already taken by a connected partner device.
+      const claimed = Object.values(channel.presenceState<PresenceMeta>())
+        .map((metas) => metas[0]?.coupleSlot)
+        .filter((slot): slot is 0 | 1 => slot === 0 || slot === 1)
+      setClaimedCoupleSlots([...new Set(claimed)])
     })
 
     channel.subscribe((status) => {
       if (status !== 'SUBSCRIBED') return
       subscribedRef.current = true
       setConnected(true)
-      void channel.track({role, joinedAt: joinedAtRef.current})
+      void channel.track({role, joinedAt: joinedAtRef.current, coupleSlot})
       if (role === 'host') {
         channel.send({type: 'broadcast', event: 'state', payload: stateRef.current})
       } else {
@@ -113,6 +147,12 @@ export function useGameChannel(
       for (const option of pending) {
         channel.send({type: 'broadcast', event: 'vote', payload: {option}})
       }
+      // Same for couple picks cast before connect.
+      const pendingCouple = pendingCoupleRef.current
+      pendingCoupleRef.current = []
+      for (const cv of pendingCouple) {
+        channel.send({type: 'broadcast', event: 'coupleVote', payload: cv})
+      }
     })
 
     channelRef.current = channel
@@ -121,7 +161,7 @@ export function useGameChannel(
       void supabase.removeChannel(channel)
       channelRef.current = null
     }
-  }, [eventId, role, capacity])
+  }, [eventId, role, capacity, coupleSlot])
 
   // Host: update + broadcast. Subscribers (dev stepper): update local view only.
   const setState = useCallback(
@@ -147,9 +187,30 @@ export function useGameChannel(
     }
   }, [])
 
+  // Couple device (phone mode): send this partner's pick for the current
+  // question. Queued until connected, mirroring sendVote.
+  const sendCoupleVote = useCallback((slot: 0 | 1, option: 0 | 1) => {
+    if (subscribedRef.current) {
+      channelRef.current?.send({type: 'broadcast', event: 'coupleVote', payload: {slot, option}})
+    } else {
+      pendingCoupleRef.current.push({slot, option})
+    }
+  }, [])
+
   // Host-relevant: the game is full once as many (or more) guests are present as
   // the package allows.
   const atCapacity = guestCount >= capacity
 
-  return {state, setState, sendVote, guestCount, connected, overCapacity, atCapacity, capacity}
+  return {
+    state,
+    setState,
+    sendVote,
+    sendCoupleVote,
+    guestCount,
+    connected,
+    overCapacity,
+    atCapacity,
+    capacity,
+    claimedCoupleSlots,
+  }
 }

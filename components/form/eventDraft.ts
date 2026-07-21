@@ -1,4 +1,4 @@
-import type {GameTheme} from '@/utility/game/types'
+import type {AnswerMode, GameTheme} from '@/utility/game/types'
 
 // Shared shape for the event-creation wizard. Held in the wizard's client state
 // and passed down to each step. Nothing is persisted yet — saving + payment
@@ -24,6 +24,9 @@ export type EventDraft = {
   // Default colour scheme for the game screens (light or dark). The host can
   // still flip it live; this is the event's starting theme.
   theme: GameTheme
+  // How the couple answers: 'shoe' (host enters what they raised) or 'phone'
+  // (couple votes secretly on their own devices). Fixed for the whole game.
+  answerMode: AnswerMode
   questions: EventQuestion[]
   packageIndex: number
 }

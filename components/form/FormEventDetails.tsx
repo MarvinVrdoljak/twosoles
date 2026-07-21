@@ -6,7 +6,7 @@ import {ChevronDown} from 'lucide-react'
 import {CommonTooltip} from '@/components/common/CommonTooltip'
 import {FormField} from '@/components/form/FormField'
 import {routing} from '@/i18n/routing'
-import type {GameTheme} from '@/utility/game/types'
+import type {AnswerMode, GameTheme} from '@/utility/game/types'
 import {maxEventISODate, todayISODate} from './eventDraft'
 import type {EventDraft} from './eventDraft'
 import styles from './FormEventSteps.module.css'
@@ -86,6 +86,11 @@ export function FormEventDetails({draft, update, title, subtitle, footer, readOn
     label: t(`details.themeOptions.${value}`),
   }))
 
+  const answerModeOptions: Option[] = (['shoe', 'phone'] as AnswerMode[]).map((value) => ({
+    value,
+    label: t(`details.answerModeOptions.${value}`),
+  }))
+
   return (
     <div className={styles.stepCard}>
       {title ? (
@@ -134,6 +139,16 @@ export function FormEventDetails({draft, update, title, subtitle, footer, readOn
           value={draft.theme}
           options={themeOptions}
           onChange={(value) => update({theme: value as GameTheme})}
+          disabled={readOnly}
+        />
+
+        <SelectField
+          id="event-answer-mode"
+          label={t('details.answerModeLabel')}
+          hint={t('details.answerModeHint')}
+          value={draft.answerMode}
+          options={answerModeOptions}
+          onChange={(value) => update({answerMode: value as AnswerMode})}
           disabled={readOnly}
         />
       </div>

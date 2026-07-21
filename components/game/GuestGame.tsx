@@ -19,6 +19,11 @@ type GuestGameProps = {
   initialTheme?: GameTheme
   // Max guests for the event's package; guests past it see the "full" screen.
   capacity: number
+  // Phone mode only: when set, this device belongs to the couple (slot 0 =
+  // person1, 1 = person2). It answers on the same two buttons but its pick is
+  // recorded as the couple's own answer, not a public vote, and it is exempt
+  // from the guest capacity cap. onChange returns to the "who are you?" picker.
+  couple?: {slot: 0 | 1; partnerName: string; onChange?: () => void}
 }
 
 const fade = {
@@ -28,7 +33,7 @@ const fade = {
   transition: {duration: 0.35, ease: 'easeOut'},
 } as const
 
-const ACTIVE_PHASES = ['question', 'closed', 'countdown', 'reveal']
+const ACTIVE_PHASES = ['question', 'closed', 'countdown', 'coupleReveal', 'reveal']
 
 export function GuestGame({
   eventId,
@@ -38,9 +43,17 @@ export function GuestGame({
   questions,
   initialTheme = 'light',
   capacity,
+  couple,
 }: GuestGameProps) {
   const t = useTranslations('game')
-  const {state, sendVote, overCapacity} = useGameChannel(eventId, 'guest', initialTheme, capacity)
+  const {state, sendVote, sendCoupleVote, overCapacity} = useGameChannel(
+    eventId,
+    couple ? 'couple' : 'guest',
+    initialTheme,
+    capacity,
+    null,
+    couple ? couple.slot : null,
+  )
   const [voted, setVoted] = useState<0 | 1 | null>(null)
 
   // Clear this guest's vote whenever a voting round opens — a fresh question, or
@@ -61,7 +74,11 @@ export function GuestGame({
   const vote = (index: 0 | 1) => {
     if (voted !== null) return
     setVoted(index)
-    sendVote(index)
+    if (couple) {
+      sendCoupleVote(couple.slot, index)
+    } else {
+      sendVote(index)
+    }
   }
 
   const active = ACTIVE_PHASES.includes(state.phase)
@@ -125,10 +142,17 @@ export function GuestGame({
 
   return (
     <div className={styles.root} data-theme={state.theme}>
+      {couple?.onChange ? (
+        <button type="button" className={styles.changeWho} onClick={couple.onChange}>
+          {t('couple.changeWho', {name: couple.partnerName})}
+        </button>
+      ) : null}
       {active ? (
         <>
           <header className={styles.header}>
-            <p className={styles.eyebrow}>{t('display.eyebrowQuestion')}</p>
+            <p className={styles.eyebrow}>
+              {couple ? t('couple.youAre', {name: couple.partnerName}) : t('display.eyebrowQuestion')}
+            </p>
             <p className={styles.couple}>{coupleName}</p>
             <p className={styles.progress}>
               {t('guest.questionOf', {current: state.questionIndex + 1, total: questions.length})}
