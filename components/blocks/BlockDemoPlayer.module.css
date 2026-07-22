@@ -570,31 +570,31 @@
    48px mobile) plus a little breathing space for the Leinwand box-shadow and the
    tilted phones, so 440px x zoom always sits comfortably inside the padded
    content box. Tuned at each bracket's lower bound. */
-@media (width <= 480px) {
+@media (max-width: 480px) {
   .scene {
     zoom: 0.8;
   }
 }
 
-@media (width <= 430px) {
+@media (max-width: 430px) {
   .scene {
     zoom: 0.7;
   }
 }
 
-@media (width <= 390px) {
+@media (max-width: 390px) {
   .scene {
     zoom: 0.62;
   }
 }
 
-@media (width <= 350px) {
+@media (max-width: 350px) {
   .scene {
     zoom: 0.55;
   }
 }
 
-@media (width <= 320px) {
+@media (max-width: 320px) {
   .scene {
     zoom: 0.5;
   }
