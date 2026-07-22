@@ -1019,7 +1019,7 @@
       "fullText": "Dieses Spiel hat bereits die maximale Anzahl von {capacity} Spielern erreicht. Wird ein Platz frei, kannst du automatisch beitreten."
     },
     "host": {
-      "panel": "HostPanel",
+      "panel": "Host-Steuerung",
       "draftBanner": "Dieses Event befindet sich noch in Vorbereitung. Bitte schalte das Event live, sobald es losgeht.",
       "questionOf": "Frage {current}/{total}",
       "guests": "{count} Gäste",

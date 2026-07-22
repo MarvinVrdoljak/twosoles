@@ -1019,7 +1019,7 @@
       "fullText": "This game already has its maximum of {capacity} players. If someone leaves, you'll be able to join automatically."
     },
     "host": {
-      "panel": "HostPanel",
+      "panel": "Host Panel",
       "draftBanner": "This event is still in preparation. Please set the event live once it's starting.",
       "questionOf": "Question {current}/{total}",
       "guests": "{count} guests",

@@ -232,7 +232,7 @@ function DemoDisplay({
 }
 
 // ---------------------------------------------------------------------------
-// The host controller (a phone) — mirrors HostGame: serif-italic "HostPanel"
+// The host controller (a phone) — mirrors HostGame: serif-italic "Host Panel"
 // topbar, the question card with the two vote cards, and the pill button that
 // drives the round (pulsing to show what the host presses next).
 function DemoHost({
@@ -305,9 +305,17 @@ function DemoHost({
           </AnimatePresence>
         </div>
 
-        <span className={`${styles.hostPrimary} ${reduce ? '' : styles.hostPrimaryPulse}`}>
+        {/* The host "presses" this to advance: a quick scale-down/up runs on
+            every phase change (keyed on phase), so it reads as a real tap. */}
+        <motion.span
+          key={phase}
+          className={styles.hostPrimary}
+          initial={false}
+          animate={reduce ? undefined : {scale: [1, 0.92, 1]}}
+          transition={{duration: 0.32, ease: 'easeOut', times: [0, 0.35, 1]}}
+        >
           {primaryLabel[phase]}
-        </span>
+        </motion.span>
       </div>
     </div>
   )

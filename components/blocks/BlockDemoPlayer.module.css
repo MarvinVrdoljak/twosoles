@@ -86,7 +86,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  min-height: 300px;
+  min-height: 340px;
   padding: var(--spacing-16) var(--spacing-24) var(--spacing-28);
   overflow: hidden;
   background: var(--color-background);
@@ -514,6 +514,8 @@
   .devices {
     flex-wrap: wrap;
     width: 100%;
+    /* Pull the phone fan further up so it overlaps the Leinwand a bit more. */
+    margin-top: -40px;
   }
 
   /* Guest phones tilt less than on desktop so the stacked rows stay tidy. */
@@ -564,33 +566,37 @@
   }
 }
 
+/* The zoom factors leave room for the section's side padding (2 x --side-gap,
+   48px mobile) plus a little breathing space for the Leinwand box-shadow and the
+   tilted phones, so 440px x zoom always sits comfortably inside the padded
+   content box. Tuned at each bracket's lower bound. */
 @media (width <= 480px) {
   .scene {
-    zoom: 0.86;
+    zoom: 0.8;
   }
 }
 
 @media (width <= 430px) {
   .scene {
-    zoom: 0.77;
+    zoom: 0.7;
   }
 }
 
 @media (width <= 390px) {
   .scene {
-    zoom: 0.68;
+    zoom: 0.62;
   }
 }
 
 @media (width <= 350px) {
   .scene {
-    zoom: 0.61;
+    zoom: 0.55;
   }
 }
 
 @media (width <= 320px) {
   .scene {
-    zoom: 0.52;
+    zoom: 0.5;
   }
 }
 
@@ -767,21 +773,6 @@
   text-align: center;
   background: var(--color-primary);
   border-radius: var(--radius-full);
-}
-
-.hostPrimaryPulse {
-  animation: primary-pulse 2s ease-in-out infinite;
-}
-
-@keyframes primary-pulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgb(166 112 112 / 45%);
-  }
-
-  50% {
-    box-shadow: 0 0 0 6px rgb(166 112 112 / 0%);
-  }
 }
 
 /* Guest / couple phone (inside a phone) — mirrors GuestGame -------------- */
@@ -975,8 +966,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .liveDot,
-  .hostPrimaryPulse {
+  .liveDot {
     animation: none;
   }
 }
