@@ -94,7 +94,10 @@ export function coupleMatches(pair: CoupleAnswer): boolean {
   return pair[0] === pair[1]
 }
 
-// Which person the audience leaned toward (ties fall to person1).
-export function audienceMajority(votes: [number, number]): 0 | 1 {
-  return votes[0] >= votes[1] ? 0 : 1
+// Which person the audience leaned toward, or -1 on a tie (50/50, or no votes).
+// A tie has no majority, so the room is counted as wrong — it never equals a
+// couple pick (always 0 or 1).
+export function audienceMajority(votes: [number, number]): 0 | 1 | -1 {
+  if (votes[0] === votes[1]) return -1
+  return votes[0] > votes[1] ? 0 : 1
 }

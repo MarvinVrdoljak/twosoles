@@ -66,7 +66,7 @@
       {
         "label": "Ein Knopfdruck",
         "title": "Der Reveal-Moment",
-        "description": "Das Paar hebt die Schuhe, du drückst einen Button, und der Beamer enthüllt, wie der Saal abgestimmt hat. Das «Ohhhh» kommt von allein."
+        "description": "Das Paar hebt die Schuhe oder stimmt geheim am Handy ab. Der Beamer enthüllt, wie der Saal abgestimmt hat. Das «Ohhhh» kommt von allein."
       }
     ]
   },
@@ -134,15 +134,19 @@
     "items": [
       {
         "question": "Was ist das Schuhspiel überhaupt und wie funktioniert es?",
-        "answer": "Beim Schuhspiel sitzt das Brautpaar Rücken an Rücken, jede Person hält einen eigenen Schuh und einen Schuh der anderen. Bei jeder Frage nach dem Muster «Wer würde eher …?» heben beide den Schuh der Person, auf die die Antwort zutrifft. Das Besondere bei TwoSoles: Der ganze Saal tippt vorher per Handy auf eine Antwort, und der Beamer zeigt danach, ob die Mehrheit das Paar richtig eingeschätzt hat."
+        "answer": "Beim Schuhspiel sitzt das Brautpaar Rücken an Rücken, jede Person hält einen eigenen Schuh und einen Schuh der anderen. Bei jeder Frage nach dem Muster «Wer würde eher …?» antworten beide, für wen es zutrifft. Das Besondere bei TwoSoles: Der ganze Saal tippt vorher per Handy auf eine Antwort. Aufgelöst wird in zwei Schritten, zuerst das Paar, dann das Publikum, damit ihr seht, ob der Saal die beiden richtig eingeschätzt hat."
+      },
+      {
+        "question": "Mit Schuhen oder am Handy? Was ist der Unterschied?",
+        "answer": "Beim Anlegen wählst du den Spieltyp. Im klassischen Schuh-Modus hebt das Paar echte Schuhe, und du als Gastgeber trägst kurz ein, was die beiden gezeigt haben. Im Handy-Modus antwortet das Paar geheim auf zwei eigenen Handys, und die Leinwand löst alles automatisch auf. Das Spielgefühl bleibt gleich, nur die Art, wie das Paar antwortet, unterscheidet sich."
       },
       {
         "question": "Wie lange dauert das Spiel ungefähr?",
         "answer": "Plane etwa 20 bis 25 Minuten für 10 bis 15 Fragen. Das Tempo bestimmst du dabei selbst und kannst jederzeit mehr oder weniger Fragen stellen."
       },
       {
-        "question": "Müssen die Gäste etwas herunterladen oder installieren?",
-        "answer": "Nein. Die Gäste scannen den QR-Code mit der Handykamera und stimmen direkt im Browser ab. Keine App, kein Login, keine Anmeldung."
+        "question": "Braucht es eine App oder muss man etwas installieren?",
+        "answer": "Nein, für nichts. Alles läuft direkt im Browser, egal ob Gäste, Host-Steuerung, Leinwand oder das Paar. Die Gäste scannen den QR-Code mit der Handykamera und stimmen sofort ab. Keine App, kein Login, keine Anmeldung."
       },
       {
         "question": "Kann ich eigene Fragen hinzufügen?",
@@ -187,15 +191,19 @@
           },
           {
             "question": "Gibt es Punkte oder einen Sieger, oder geht es nur um die Fragen?",
-            "answer": "Im Mittelpunkt steht der gemeinsame Moment, nicht ein Highscore. Es gibt keine Rangliste und keinen offiziellen Gewinner. Jeder Gast sieht auf dem eigenen Handy, ob er richtig geraten hat, und auf der Leinwand seht ihr, wie der ganze Saal lag. Das Schöne ist der Vergleich zwischen Publikum und Paar, nicht das Punktesammeln."
+            "answer": "Im Mittelpunkt steht der gemeinsame Moment, nicht ein Highscore. Es gibt keine Rangliste und keinen offiziellen Gewinner. Auf der Leinwand seht ihr bei jeder Frage, wie der ganze Saal lag und ob er das Paar richtig eingeschätzt hat. Am Ende fasst ein kurzes Finale zusammen, wie oft sich das Paar einig war und wie gut der Raum die beiden kannte, als schöner Abschluss, nicht als Wettbewerb."
           },
           {
             "question": "Wird Ton oder Musik abgespielt, oder ist es lautlos?",
             "answer": "TwoSoles läuft ohne eigenen Ton. Die Spannung entsteht über die Bilder auf der Leinwand und die Reaktionen im Saal, so kommt sich das Spiel mit eurer Musikanlage oder der Band nie in die Quere. Wenn ihr möchtet, legt ihr während der Auflösung einfach selbst passende Musik auf."
           },
           {
+            "question": "Mit Schuhen oder am Handy? Was ist der Unterschied zwischen den Spieltypen?",
+            "answer": "Beim Anlegen wählst du, wie das Paar antwortet. Im klassischen Schuh-Modus sitzt das Paar Rücken an Rücken und hebt bei jeder Frage die Schuhe, und du als Gastgeber trägst in der Steuerung kurz ein, was die beiden gezeigt haben. Im Handy-Modus antwortet das Paar geheim auf zwei eigenen Handys, ganz ohne Schuhe, und die Leinwand löst alles automatisch auf. In beiden Fällen ist der Ablauf gleich: Erst wird das Paar aufgelöst, dann kommt das Publikumsergebnis dazu, und am Ende fasst ein Finale zusammen, wie oft ihr euch einig wart und wie gut der Saal euch kannte."
+          },
+          {
             "question": "Braucht das Brautpaar auch jeweils ein Handy?",
-            "answer": "Nein. Das Paar antwortet ausschließlich mit den Schuhen und braucht kein Handy. Nur die Gäste, die mit abstimmen möchten, nutzen ihr eigenes Handy. Auch die Host-Steuerung liegt bei der moderierenden Person, nicht beim Paar."
+            "answer": "Das hängt vom Spieltyp ab. Im klassischen Schuh-Modus antwortet das Paar nur mit den Schuhen und braucht kein Handy. Im Handy-Modus nutzt jede der beiden Personen ein eigenes Handy, um geheim zu antworten, also zwei Geräte fürs Paar. Die Gäste nutzen in beiden Fällen ihr eigenes Handy, und die Host-Steuerung liegt bei der moderierenden Person."
           },
           {
             "question": "Können wir das Spiel vorab testen, bevor wir es live spielen?",
@@ -236,8 +244,8 @@
         "heading": "Technik und Geräte",
         "items": [
           {
-            "question": "Müssen die Gäste etwas herunterladen oder installieren?",
-            "answer": "Nein, gar nichts. Die Gäste scannen den QR-Code auf der Leinwand mit der normalen Handykamera und landen direkt auf der Abstimmseite im Browser. Keine App, kein Store, kein Login und keine Registrierung. Das ist bewusst so einfach gehalten, damit wirklich jeder im Saal mitmachen kann."
+            "question": "Braucht es eine App oder muss man etwas installieren?",
+            "answer": "Nein, für gar nichts. Alles läuft direkt im Browser, egal ob Gäste, Host-Steuerung, Leinwand oder das Paar im Handy-Modus. Die Gäste scannen den QR-Code auf der Leinwand mit der normalen Handykamera und landen direkt auf der Abstimmseite. Keine App, kein Store, kein Login und keine Registrierung. Das ist bewusst so einfach gehalten, damit wirklich jeder im Saal mitmachen kann."
           },
           {
             "question": "Funktioniert das in jedem Browser (Safari, Chrome), oder braucht es eine App?",
@@ -346,7 +354,7 @@
   "cta": {
     "eyebrow": "Für den Abend, der bleibt",
     "title": "Das Hochzeitsspiel, über das <accent>noch Jahre geredet wird.</accent>",
-    "lead": "In fünf Minuten startklar. Kein Setup, keine App für deine Gäste.",
+    "lead": "In fünf Minuten startklar. Keine extra App oder Download nötig.",
     "cta": "Event kostenlos erstellen",
     "imageAlt": "Brautpaar feiert beim Hochzeitsspiel"
   },
@@ -679,7 +687,7 @@
       "answerModeHint": "Klassisch: Das Paar hebt echte Schuhe, der Host trägt nach dem Schließen der Abstimmung ein, wer wen gemeint hat. Am Handy: Das Paar antwortet geheim auf zwei eigenen Geräten, die Leinwand löst gleichzeitig auf. Beide Varianten zeigen am Ende, wie oft ihr euch einig wart und wie gut der Raum euch kennt.",
       "answerModeOptions": {
         "shoe": "Klassisch (Schuhe heben)",
-        "phone": "Am Handy (geheim)"
+        "phone": "Digital (am Handy)"
       }
     },
     "questions": {
@@ -734,7 +742,7 @@
   "eventDetail": {
     "back": "Zur Event-Übersicht",
     "guestLink": "Gäste Link",
-    "coupleLink": "Paar-Ansicht (Handy)",
+    "coupleLink": "Paar-Ansicht",
     "displayLink": "Display-Ansicht",
     "hostLink": "Host-Steuerung",
     "openView": "Ansicht öffnen",
@@ -845,20 +853,21 @@
     },
     "guide": {
       "title": "So spielt man TwoSoles",
-      "intro": "Das Schuh-Spiel, live mit dem ganzen Saal. Plane rund 20 bis 25 Minuten für 10 bis 15 Fragen. Hier ist der ganze Ablauf zum Mitlesen oder als PDF zum Download.",
+      "intro": "Das digitale Schuh-Spiel, live mit dem ganzen Saal. Plane rund 20 bis 25 Minuten für 10 bis 15 Fragen. Diese Anleitung erklärt beide Spielarten, den klassischen Schuh-Modus und den Handy-Modus, sodass du für jeden Fall vorbereitet bist. Welchen Modus du gewählt hast, siehst du in den Eckdaten. Zum Mitlesen oder als <pdf>PDF zum Ausdrucken</pdf>.",
       "ideaTitle": "Die Idee",
-      "idea": "Bei jeder Frage geht es um «Wer würde eher?». Zur Wahl stehen immer genau zwei Antworten, Person 1 oder Person 2. Alle im Saal tippen auf ihrem Handy auf eine der beiden. Das Paar selbst antwortet, indem es einen Schuh hochhebt. Die große Frage am Ende jeder Runde lautet: Hat das Publikum das Paar richtig eingeschätzt?",
+      "idea": "Bei jeder Frage geht es um «Wer würde eher?». Zur Wahl stehen immer genau zwei Antworten: Person 1 oder Person 2. Der ganze Saal tippt auf dem Handy ab, und das Paar antwortet selbst. Dafür gibt es zwei Spielarten, die du beim Anlegen des Events wählst: Im klassischen Schuh-Modus hebt das Paar Schuhe, im Handy-Modus antwortet es geheim auf zwei eigenen Handys. Am Ende jeder Frage vergleicht ihr, ob der Saal das Paar richtig eingeschätzt hat. Ein kurzes Finale fasst zusammen, wie oft sich das Paar einig war und wie gut der Raum es kennt.",
       "needsTitle": "Was du brauchst",
       "needs": [
         "Einen großen Bildschirm, auf dem alle im Saal die Leinwand-Ansicht sehen. Das kann ein Beamer mit Leinwand sein, ein großer Fernseher oder ein Monitor.",
         "Ein Gerät, das du an die Leinwand anschließt. Empfohlen ist ein Laptop oder Tablet mit mindestens 1024px Breite.",
         "Ein zweites Gerät für die Host-Steuerung, mit dem du das Spiel führst. Laptop, Tablet oder Handy.",
         "Eine Internetverbindung für das Gerät an der Leinwand und das Host-Gerät. Auch die Gäste brauchen Internet. In der Regel reicht mobiles Datennetz.",
-        "Zwei Stühle und je ein Paar Schuhe der beiden. Jede Person hält am Ende einen eigenen Schuh und einen Schuh der anderen Person.",
+        "Nur im klassischen Schuh-Modus: zwei Stühle und je ein Paar Schuhe der beiden. Jede Person hält am Ende einen eigenen Schuh und einen Schuh der anderen.",
+        "Nur im Handy-Modus: zwei eigene Handys für das Paar, eines pro Person, mit dem Paar-Link geöffnet.",
         "Optional ein Mikrofon für die Moderation."
       ],
-      "viewsTitle": "Die 3 Ansichten",
-      "viewsIntro": "Bevor es losgeht, lohnt sich ein Blick auf die drei Ansichten, zwischen denen das Spiel läuft.",
+      "viewsTitle": "Die 4 Ansichten",
+      "viewsIntro": "Bevor es losgeht, lohnt sich ein Blick auf die vier Ansichten, zwischen denen das Spiel läuft. Die Paar-Ansicht brauchst du nur im Handy-Modus.",
       "views": [
         {
           "title": "Leinwand-Ansicht",
@@ -871,17 +880,18 @@
         {
           "title": "Gäste-Ansicht",
           "text": "Die Spielansicht für die Gäste, die sich per QR-Code auf dem Handy öffnet. Sie zeigt die aktuelle Frage und die zwei Antworten zur Auswahl."
+        },
+        {
+          "title": "Paar-Ansicht (nur im Handy-Modus)",
+          "text": "Der geheime Link für das Paar. Öffnet ihn auf beiden Handys des Paares, wählt aus, wer wer ist, und tippt bei jeder Frage eure Antwort. Im Schuh-Modus bleibt diese Ansicht ungenutzt."
         }
       ],
-      "coupleTitle": "Der Paar-Link (Handy-Modus)",
-      "coupleText": "Da ihr den Handy-Modus gewählt habt, antwortet das Paar nicht mit Schuhen, sondern geheim auf zwei eigenen Handys. Öffnet diesen Link auf beiden Geräten. Auf dem ersten Screen wählt jeder aus, wer von den beiden er ist, danach tippt ihr bei jeder Frage eure Antwort. Publikum und Paar stimmen gleichzeitig ab, die Leinwand löst beides zusammen auf.",
-      "coupleLinkText": "Auf beiden Handys des Paares öffnen, dann Person auswählen.",
       "setupTitle": "Aufbau",
       "setup": [
         "Verbinde das erste Gerät mit der Leinwand und öffne darauf die <display>Leinwand-Ansicht</display>. Am besten nutzt du den Vollbildmodus des Browsers. Auf einem zweiten Gerät, idealerweise einem Smartphone, öffnest du die <host>Host-Steuerung</host>.",
         "Stell zum Schluss sicher, dass das Spiel zurückgesetzt ist, damit es von vorne startet. Das erledigst du in den <settings>Einstellungen</settings> dieses Events oder im <host>Host-Panel</host>. Danach steht die Leinwand auf dem Willkommens-Screen, und du bist startklar.",
-        "Stell zwei Stühle mit dem Rücken zueinander auf, am besten vor oder neben der Leinwand. So sitzt das Paar Rücken an Rücken und sieht sich gegenseitig nicht. Achte darauf, dass sowohl das Paar als auch die Leinwand für alle im Saal gut sichtbar sind. Das Paar nimmt Platz, und jede Person bekommt einen eigenen Schuh und einen Schuh der anderen Person in die Hand.",
-        "Wenn alles steht und der große Moment gekommen ist, schalte das Event in den <settings>Einstellungen</settings> live. Erst dann können so viele Gäste mitspielen, wie dein Paket erlaubt. In der Vorbereitung sind es maximal 10, damit du vorher in Ruhe testen kannst. Achtung: Live-Schalten geht nur ein einziges Mal, danach hast du genau 48 Stunden Zeit."
+        "Bereite jetzt das Paar vor, je nachdem, wie ihr spielt. Im Schuh-Modus stellst du zwei Stühle mit dem Rücken zueinander auf, am besten vor oder neben der Leinwand, sodass das Paar Rücken an Rücken sitzt und sich nicht sieht. Jede Person bekommt einen eigenen Schuh und einen Schuh der anderen in die Hand. Im Handy-Modus gibst du dem Paar die zwei Paar-Links, einen pro Person, und beide öffnen ihren Link auf dem eigenen Handy und wählen aus, wer sie sind. Achte in beiden Fällen darauf, dass das Paar und die Leinwand für alle im Saal gut sichtbar sind.",
+        "Schalte das Event am besten schon im Vorfeld in den <settings>Einstellungen</settings> live, nicht erst im letzten Moment. Erst dann können so viele Gäste mitspielen, wie dein Paket erlaubt. In der Vorbereitung sind es maximal 10, damit du vorher in Ruhe testen kannst. Achtung: Live-Schalten geht nur ein einziges Mal, danach hast du genau 48 Stunden Zeit. Plane es also so, dass dein Event in dieses 48-Stunden-Fenster fällt."
       ],
       "roundTitle": "So läuft eine Runde",
       "round": [
@@ -891,28 +901,27 @@
         },
         {
           "title": "Frage stellen.",
-          "text": "Du eröffnest in der <host>Host-Steuerung</host> die erste Frage. Sie erscheint groß auf der Leinwand, und die Gäste tippen auf ihrem Handy auf Person 1 oder Person 2. In der Host-Steuerung siehst du live, wie viele Stimmen schon da sind."
+          "text": "Du eröffnest in der <host>Host-Steuerung</host> die erste Frage. Sie erscheint groß auf der Leinwand, und die Gäste tippen auf ihrem Handy auf Person 1 oder Person 2. Im Handy-Modus tippt auch das Paar parallel seine Antwort auf den eigenen Handys. In der Host-Steuerung siehst du live, wie viele Stimmen schon da sind."
         },
         {
           "title": "Abstimmung schließen.",
-          "text": "Sind genug Stimmen da, schließt du die Abstimmung. Die Leinwand zeigt jetzt «Geschlossen. Gleich wird aufgelöst.», das Ergebnis bleibt aber noch verborgen. Genau jetzt hebt das Paar die Schuhe. Jede Person hebt den Schuh derjenigen, für die sie stimmt. Der eigene Schuh bedeutet «Ich», der Schuh der anderen Person bedeutet «Du». Beide entscheiden unabhängig voneinander und dürfen sich ruhig widersprechen. Weil das Publikumsergebnis noch verdeckt ist, lässt sich hier niemand beeinflussen."
+          "text": "Sind genug Stimmen da, schließt du die Abstimmung. Die Leinwand zeigt jetzt «Geschlossen. Gleich wird aufgelöst.», das Ergebnis bleibt aber verborgen. Im Schuh-Modus hebt das Paar genau jetzt die Schuhe: Jede Person hebt den Schuh derjenigen, für die sie stimmt (der eigene Schuh bedeutet «Ich», der Schuh der anderen «Du»), und du trägst in der Steuerung kurz ein, was die beiden gezeigt haben. Im Handy-Modus hat das Paar schon parallel zum Publikum auf den eigenen Handys geantwortet, du musst nichts eintragen. Beide entscheiden unabhängig und dürfen sich ruhig widersprechen."
         },
         {
-          "title": "Der Reveal.",
-          "text": "Du drückst «Auflösen». Nach einem kurzen Countdown zeigt der Balken auf der Leinwand, wie der Saal abgestimmt hat. Jetzt vergleichst du: Passt die Mehrheit des Publikums zu dem, was das Paar mit den Schuhen gezeigt hat?"
+          "title": "Auflösen.",
+          "text": "Du drückst «Auflösen». Nach einem kurzen Countdown erscheint das Ergebnis. Im Handy-Modus geschieht das in zwei Schritten: Zuerst zeigt die Leinwand nur das Paar, was jede Person gesagt hat und ob sich die beiden einig sind, dann holst du mit einem weiteren Klick das Publikumsergebnis dazu, und die Leinwand sagt direkt, ob der Raum das Paar richtig eingeschätzt hat. Im Schuh-Modus zeigt die Leinwand direkt das Publikumsergebnis, das ihr mit den hochgehaltenen Schuhen des Paares vergleicht."
         },
         {
           "title": "Weiter geht's.",
-          "text": "Mit «Nächste Frage» geht es durch deine Fragen."
+          "text": "Mit «Nächste Frage» geht es durch dein Set. Nach der letzten Frage zeigt das Finale, wie oft sich das Paar einig war und wie gut der Saal die beiden kannte."
         }
       ],
       "tipsTitle": "Tipps für den großen Moment",
       "tips": [
         "10 bis 15 Fragen sind ideal. Genug Spannung, ohne dass es zäh wird.",
         "Insider-Fragen bringen die lautesten Lacher. Mische Klassiker mit deinem persönlichen Paar-Wissen.",
-        "Lass beide Geräte am Strom, damit unterwegs nichts ausgeht.",
+        "Lass alle Geräte am Strom, im Handy-Modus auch die beiden Handys des Paares, damit unterwegs nichts ausgeht.",
         "Warte mit dem Schließen, bis genug Gäste abgestimmt haben. Die Stimmenzahl siehst du live in der Steuerung.",
-        "Erst das Paar die Schuhe heben lassen, dann auflösen. Das ist der Spannungsmoment.",
         "Mach vorher einen kurzen Probelauf, am besten direkt an der Location mit dem echten Beamer und WLAN, damit am großen Tag jeder Handgriff sitzt."
       ],
       "download": "Download Anleitung",
@@ -929,7 +938,7 @@
       "votes": "{count} Stimmen",
       "closed": "Geschlossen. Gleich wird aufgelöst …",
       "finishedTitle": "Danke fürs Mitspielen!",
-      "finishedText": "Das war TwoSoles. Bis zum nächsten Mal!",
+      "finishedText": "Bis zum nächsten Mal!",
       "countdownIntro": "Und das Ergebnis lautet …",
       "live": "Live",
       "votesWord": "Stimmen",
@@ -962,7 +971,7 @@
       "correct": "Du lagst richtig!",
       "wrong": "Knapp daneben!",
       "finishedTitle": "Danke fürs Mitspielen!",
-      "finishedText": "Das war TwoSoles 💜",
+      "finishedText": "Bis zum nächsten Mal!",
       "lookAtScreen": "Schau auf die Leinwand!",
       "nextComing": "Die nächste Frage kommt gleich.",
       "votingEnded": "Abstimmung beendet",
@@ -1026,9 +1035,9 @@
       "showAudience": "Publikum zeigen",
       "statusCoupleRevealed": "Paar aufgelöst",
       "back": "Zurück",
-      "coupleInputTitle": "Was hat das Paar gehoben?",
-      "couplePicksFor": "{name} zeigt auf …",
-      "coupleInputHint": "Trage beide Antworten ein, um auflösen zu können.",
+      "coupleInputTitle": "Die Antworten des Paares",
+      "coupleInputText": "Frag jetzt das Paar, für wen die beiden gestimmt haben, und trage die Antworten hier ein.",
+      "couplePicksFor": "{name} sagt …",
       "couplePhoneStatus": "{count, plural, =0 {Das Paar hat noch nicht geantwortet} =1 {Ein Partner hat auf dem Handy geantwortet} other {Beide Partner haben auf dem Handy geantwortet}}",
       "coupleLinksTitle": "Paar-Links",
       "coupleLinksHint": "Öffne je einen Link auf dem Handy des jeweiligen Partners. Nur über diese Links antwortet das Paar geheim.",

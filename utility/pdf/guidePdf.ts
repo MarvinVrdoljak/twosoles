@@ -1,7 +1,7 @@
 // Client-side PDF generation for the full "how to play" guide — a printable
 // booklet the host can take to the day itself. Flowing multi-page A4 layout:
 // a centred header (couple eyebrow, Fraunces title, heart flourish, intro),
-// then the idea, the "needs", the three views, the setup, the numbered round
+// then the idea, the "needs", the views, the setup, the numbered round
 // and the tips. jsPDF is imported lazily and the app's fonts are embedded,
 // mirroring eventPdf.ts.
 
@@ -174,7 +174,7 @@ export async function downloadGuidePdf(content: GuidePdfContent) {
   sectionHeading(content.needsTitle)
   bulletList(content.needs)
 
-  // ---- The 3 views -------------------------------------------------------
+  // ---- The views ---------------------------------------------------------
 
   sectionHeading(content.viewsTitle)
   paragraph(content.viewsIntro)

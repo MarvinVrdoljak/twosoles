@@ -131,9 +131,11 @@ export function HostGame({
           // below auto-advances (host can also skip it manually).
           return {...s, phase: 'countdown'}
         case 'countdown':
-          // Reveal the couple's own picks first (if they answered); otherwise go
-          // straight to the audience result and persist its tally.
-          return coupleAnswered(s.coupleAnswers[s.questionIndex])
+          // Phone mode: reveal the couple's own picks first (if they answered).
+          // Shoe mode (classic): the couple already showed their shoes in the
+          // room, so skip the on-screen couple reveal and go straight to the
+          // audience result (still persisting the couple picks for the finale).
+          return answerMode === 'phone' && coupleAnswered(s.coupleAnswers[s.questionIndex])
             ? {...s, phase: 'coupleReveal'}
             : {...s, phase: 'reveal', results: {...s.results, [s.questionIndex]: s.votes}}
         case 'coupleReveal':
@@ -158,9 +160,9 @@ export function HostGame({
     const id = setTimeout(() => {
       setState((s) => {
         if (s.phase !== 'countdown') return s
-        // Couple picks first (if answered); the host then clicks on to the
-        // audience. No couple answer → straight to the audience result.
-        return coupleAnswered(s.coupleAnswers[s.questionIndex])
+        // Phone mode: couple picks first (if answered), host then clicks on to
+        // the audience. Shoe mode: straight to the audience result.
+        return answerMode === 'phone' && coupleAnswered(s.coupleAnswers[s.questionIndex])
           ? {...s, phase: 'coupleReveal'}
           : {...s, phase: 'reveal', results: {...s.results, [s.questionIndex]: s.votes}}
       })
@@ -215,7 +217,7 @@ export function HostGame({
           // couple reveal if there was one, otherwise to the closed question.
           const results = {...s.results}
           delete results[s.questionIndex]
-          return coupleAnswered(s.coupleAnswers[s.questionIndex])
+          return answerMode === 'phone' && coupleAnswered(s.coupleAnswers[s.questionIndex])
             ? {...s, phase: 'coupleReveal', results}
             : {...s, phase: 'closed', results}
         }
@@ -440,6 +442,7 @@ export function HostGame({
               {needsCouplePicks ? (
                 <div className={styles.coupleInput}>
                   <p className={styles.coupleInputTitle}>{t('host.coupleInputTitle')}</p>
+                  <p className={styles.coupleInputText}>{t('host.coupleInputText')}</p>
                   {persons.map((partner, slot) => (
                     <div key={slot} className={styles.couplePickRow}>
                       <span className={styles.couplePickWho}>
@@ -467,9 +470,6 @@ export function HostGame({
                       </div>
                     </div>
                   ))}
-                  {!couplePicksComplete ? (
-                    <p className={styles.coupleInputHint}>{t('host.coupleInputHint')}</p>
-                  ) : null}
                 </div>
               ) : null}
 

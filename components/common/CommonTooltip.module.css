@@ -13,14 +13,14 @@
   color: var(--color-text);
 }
 
-/* Below the trigger. Width is capped to the viewport so it never exceeds the
-   screen; the component measures and sets an inline `left` (px, relative to the
-   wrapper) to center it and clamp it on screen. Shown on hover and focus. */
+/* Rendered in a body portal (see CommonTooltip.tsx) with fixed positioning, so
+   it clears every stacking context and floats above dropdown menus. The
+   component sets inline `top`/`left` (viewport px, centered + clamped on screen)
+   and toggles `opacity` once positioned. Width is capped to the viewport so it
+   never exceeds the screen. Shown on hover and focus. */
 .tooltip {
-  position: absolute;
-  top: calc(100% + var(--spacing-8));
-  left: 0;
-  z-index: 30;
+  position: fixed;
+  z-index: 1000000;
   width: max-content;
   max-width: min(240px, calc(100vw - 2 * var(--spacing-16)));
   padding: var(--spacing-8) var(--spacing-12);
@@ -34,12 +34,6 @@
   background: var(--color-text);
   border-radius: var(--radius-md);
   box-shadow: 0 6px 20px rgb(0 0 0 / 18%);
-  opacity: 0;
   transition: opacity var(--transition-fast);
   pointer-events: none;
-}
-
-.wrap:hover .tooltip,
-.wrap:focus-within .tooltip {
-  opacity: 1;
 }

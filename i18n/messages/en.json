@@ -66,7 +66,7 @@
       {
         "label": "One button press",
         "title": "The reveal moment",
-        "description": "The couple raises their shoes, you press a button, and the projector reveals how the room voted. The “ohhhh” comes all by itself."
+        "description": "The couple raises their shoes or votes secretly on their phones. The projector reveals how the room voted. The “ohhhh” comes all by itself."
       }
     ]
   },
@@ -134,15 +134,19 @@
     "items": [
       {
         "question": "What is the shoe game and how does it work?",
-        "answer": "In the shoe game the couple sits back to back, each holding one of their own shoes and one of the other person's. For every question along the lines of “Who is more likely to …?” both raise the shoe of the person the answer fits. What makes TwoSoles special: the whole room votes on their phones first, and the projector then reveals whether the majority read the couple right."
+        "answer": "In the shoe game the couple sits back to back, each holding one of their own shoes and one of the other person's. For every question along the lines of “Who is more likely to …?” both answer who it fits. What makes TwoSoles special: the whole room votes on their phones first. The reveal happens in two steps, the couple first, then the audience, so you see whether the room read the two right."
+      },
+      {
+        "question": "Shoes or phones? What's the difference?",
+        "answer": "You choose the game type when you set up the event. In classic shoe mode the couple raises real shoes, and you as host quickly enter what the two showed. In phone mode the couple answers secretly on two of their own phones, and the screen reveals everything automatically. The feel stays the same, only the way the couple answers differs."
       },
       {
         "question": "How long does the game take, roughly?",
         "answer": "Plan for around 20 to 25 minutes for 10 to 15 questions. You set the pace yourself and can always ask more or fewer questions."
       },
       {
-        "question": "Do guests need to download or install anything?",
-        "answer": "No. Guests scan the QR code with their phone camera and vote right in the browser. No app, no login, no sign-up."
+        "question": "Do you need an app or have to install anything?",
+        "answer": "No, for nothing. Everything runs right in the browser, whether it's the guests, the host controls, the screen or the couple. Guests scan the QR code with their phone camera and vote right away. No app, no login, no sign-up."
       },
       {
         "question": "Can I add my own questions?",
@@ -187,15 +191,19 @@
           },
           {
             "question": "Are there points or a winner, or is it just about the questions?",
-            "answer": "The shared moment is what matters, not a high score. There's no leaderboard and no official winner. Each guest sees on their own phone whether they guessed right, and on the screen you all see how the whole room did. The joy is in comparing the audience with the couple, not in collecting points."
+            "answer": "The shared moment is what matters, not a high score. There's no leaderboard and no official winner. On the screen you see, with every question, how the whole room did and whether it read the couple right. At the end, a short finale sums up how often the couple agreed and how well the room knew them, as a lovely closing note, not a competition."
           },
           {
             "question": "Is there sound or music, or is it silent?",
             "answer": "TwoSoles runs without its own audio. The suspense comes from what's on the screen and the reactions in the room, so the game never clashes with your sound system or your band. If you like, just play your own fitting music during the reveal."
           },
           {
+            "question": "Shoes or phones? What's the difference between the game types?",
+            "answer": "When you set up the event you choose how the couple answers. In classic shoe mode the couple sits back to back and raises their shoes for each question, and you as host quickly enter in the controls what the two showed. In phone mode the couple answers secretly on two of their own phones, no shoes at all, and the screen reveals everything automatically. Either way the flow is the same: the couple is revealed first, then the audience result joins in, and at the end a finale sums up how often you agreed and how well the room knew you."
+          },
+          {
             "question": "Does the couple need a phone each too?",
-            "answer": "No. The couple answers only with the shoes and needs no phone. Only the guests who want to vote use their own phones. The host controls stay with the person hosting, not with the couple."
+            "answer": "It depends on the game type. In classic shoe mode the couple answers only with the shoes and needs no phone. In phone mode each of the two uses their own phone to answer secretly, so two devices for the couple. Guests use their own phone in both cases, and the host controls stay with the person hosting."
           },
           {
             "question": "Can we test the game before we play it live?",
@@ -236,8 +244,8 @@
         "heading": "Technology and devices",
         "items": [
           {
-            "question": "Do guests need to download or install anything?",
-            "answer": "No, nothing at all. Guests scan the QR code on the screen with their normal phone camera and land straight on the voting page in the browser. No app, no store, no login and no registration. This is kept deliberately simple so that truly everyone in the room can take part."
+            "question": "Do you need an app or have to install anything?",
+            "answer": "No, nothing at all. Everything runs right in the browser, whether it's the guests, the host controls, the screen or the couple in phone mode. Guests scan the QR code on the screen with their normal phone camera and land straight on the voting page. No app, no store, no login and no registration. This is kept deliberately simple so that truly everyone in the room can take part."
           },
           {
             "question": "Does it work in any browser (Safari, Chrome), or do I need an app?",
@@ -346,7 +354,7 @@
   "cta": {
     "eyebrow": "For the night that stays",
     "title": "The wedding game <accent>people talk about for years.</accent>",
-    "lead": "Ready in five minutes. No setup, no app for your guests.",
+    "lead": "Ready in five minutes. No extra app or download needed.",
     "cta": "Create your event for free",
     "imageAlt": "Wedding couple celebrating during the game"
   },
@@ -679,7 +687,7 @@
       "answerModeHint": "Classic: the couple raises real shoes and the host taps in who they meant once voting closes. On the phone: the couple answers secretly on two of their own devices and the screen reveals both at once. Either way, the finale shows how often you agreed and how well the room knows you.",
       "answerModeOptions": {
         "shoe": "Classic (raise shoes)",
-        "phone": "On the phone (secret)"
+        "phone": "Digital (on the phone)"
       }
     },
     "questions": {
@@ -734,7 +742,7 @@
   "eventDetail": {
     "back": "Back to events",
     "guestLink": "Guest link",
-    "coupleLink": "Couple view (phone)",
+    "coupleLink": "Couple view",
     "displayLink": "Display view",
     "hostLink": "Host controls",
     "openView": "Open view",
@@ -845,20 +853,21 @@
     },
     "guide": {
       "title": "How to play TwoSoles",
-      "intro": "The shoe game, live with the whole room. Plan around 20 to 25 minutes for 10 to 15 questions. Here's the whole flow to read along or download as a PDF.",
+      "intro": "The digital shoe game, live with the whole room. Plan around 20 to 25 minutes for 10 to 15 questions. This guide explains both ways to play, the classic shoe mode and phone mode, so you're ready either way. You can see which mode you chose in the key facts. Read along or <pdf>download as a PDF</pdf>.",
       "ideaTitle": "The idea",
-      "idea": "Every question is a “Who's more likely to?”. There are always exactly two answers to choose from, person 1 or person 2. Everyone in the room taps one of the two on their phone. The couple answers by raising a shoe. The big question at the end of each round: did the audience read the couple right?",
+      "idea": "Every question is a “Who's more likely to?”. There are always exactly two answers to choose from: person 1 or person 2. The whole room votes on their phones, and the couple answers too. There are two ways to play, which you pick when you create the event: in the classic shoe mode the couple raises shoes, in phone mode they answer secretly on two of their own phones. At the end of each question you compare whether the room read the couple right. A short finale sums up how often the couple agreed and how well the room knows them.",
       "needsTitle": "What you need",
       "needs": [
         "A large screen so everyone in the room can see the projector view. That can be a projector with a screen, a big TV or a monitor.",
         "A device you connect to the screen. We recommend a laptop or tablet at least 1024px wide.",
         "A second device for the host controls, which you use to run the game. Laptop, tablet or phone.",
         "An internet connection for the device on the screen and the host device. Guests need internet too. Mobile data is usually enough.",
-        "Two chairs and a pair of shoes from each of the two. In the end each person holds one of their own shoes and one of the other person's.",
+        "For the classic shoe mode only: two chairs and a pair of shoes from each of the two. In the end each person holds one of their own shoes and one of the other person's.",
+        "For phone mode only: two of the couple's own phones, one per person, with the couple link open.",
         "Optionally a microphone for hosting."
       ],
-      "viewsTitle": "The 3 views",
-      "viewsIntro": "Before you start, it's worth a look at the three views the game runs across.",
+      "viewsTitle": "The 4 views",
+      "viewsIntro": "Before you start, it's worth a look at the four views the game runs across. You only need the couple view in phone mode.",
       "views": [
         {
           "title": "Projector view",
@@ -871,17 +880,18 @@
         {
           "title": "Guest view",
           "text": "The game view for guests, which opens on their phone via QR code. It shows the current question and the two answers to choose from."
+        },
+        {
+          "title": "Couple view (phone mode only)",
+          "text": "The secret link for the couple. Open it on both of the couple's phones, pick who is who, and tap your answer to every question. In shoe mode this view stays unused."
         }
       ],
-      "coupleTitle": "The couple link (phone mode)",
-      "coupleText": "Since you chose phone mode, the couple doesn't answer with shoes but secretly on two of their own phones. Open this link on both devices. On the first screen each of you picks which partner you are, then you tap your answer to every question. The audience and the couple vote at the same time, and the screen reveals both together.",
-      "coupleLinkText": "Open on both partners' phones, then pick who you are.",
       "setupTitle": "Setup",
       "setup": [
         "Connect the first device to the screen and open the <display>projector view</display> on it. It's best to use your browser's fullscreen mode. On a second device, ideally a smartphone, you open the <host>host controls</host>.",
         "Finally, make sure the game is reset so it starts from the beginning. You do this in this event's <settings>settings</settings> or in the <host>host panel</host>. After that the screen sits on the welcome screen and you're ready to go.",
-        "Set up two chairs back to back, ideally in front of or next to the screen. That way the couple sits back to back and can't see each other. Make sure both the couple and the screen are clearly visible to everyone in the room. The couple takes their seats, and each person is handed one of their own shoes and one of the other person's.",
-        "When everything's in place and the big moment has come, set the event live in the <settings>settings</settings>. Only then can as many guests play as your package allows. In preparation it's a maximum of 10, so you can test in peace beforehand. Note: you can go live only once, and from then you have exactly 48 hours."
+        "Now prepare the couple, depending on how you play. In shoe mode, set up two chairs back to back, ideally in front of or next to the screen, so the couple sits back to back and can't see each other. Each person is handed one of their own shoes and one of the other person's. In phone mode, hand the couple the two couple links, one per person, and both open their link on their own phone and pick which partner they are. Either way, make sure the couple and the screen are clearly visible to everyone in the room.",
+        "It's best to set the event live in the <settings>settings</settings> ahead of time, not at the last moment. Only then can as many guests play as your package allows. In preparation it's a maximum of 10, so you can test in peace beforehand. Note: you can go live only once, and from then you have exactly 48 hours, so plan it so your event falls within that 48-hour window."
       ],
       "roundTitle": "How a round works",
       "round": [
@@ -891,28 +901,27 @@
         },
         {
           "title": "Ask a question.",
-          "text": "You open the first question in the <host>host controls</host>. It appears large on the screen, and guests tap person 1 or person 2 on their phone. In the host controls you see live how many votes are already in."
+          "text": "You open the first question in the <host>host controls</host>. It appears large on the screen, and guests tap person 1 or person 2 on their phone. In phone mode the couple taps its answer on their own phones at the same time. In the host controls you see live how many votes are already in."
         },
         {
           "title": "Close the vote.",
-          "text": "Once enough votes are in, you close the vote. The screen now shows “Closed. The reveal is coming.”, but the result stays hidden. This is exactly when the couple raises their shoes. Each person raises the shoe of whoever they're voting for. Their own shoe means “me”, the other person's shoe means “you”. Both decide independently and are welcome to disagree. Because the audience result is still hidden, no one can be swayed."
+          "text": "Once enough votes are in, you close the vote. The screen now shows “Closed. The reveal is coming.”, but the result stays hidden. In shoe mode this is exactly when the couple raises their shoes: each person raises the shoe of whoever they're voting for (their own shoe means “me”, the other person's means “you”), and you quickly enter in the controls what the two showed. In phone mode the couple has already answered on their own phones alongside the audience, so there's nothing to enter. Both decide independently and are welcome to disagree."
         },
         {
-          "title": "The reveal.",
-          "text": "You press “Reveal”. After a short countdown, the bar on the screen shows how the room voted. Now you compare: does the audience majority match what the couple showed with their shoes?"
+          "title": "Reveal.",
+          "text": "You press “Reveal”. After a short countdown, the result appears. In phone mode it happens in two steps: first the screen shows only the couple, what each person said and whether the two agree, then with one more click you bring in the audience result and the screen tells you directly whether the room read the couple right. In shoe mode the screen shows the audience result directly, which you compare with the couple's raised shoes."
         },
         {
           "title": "Keep going.",
-          "text": "With “Next question” you work through your questions."
+          "text": "With “Next question” you work through your set. After the last question, the finale shows how often the couple agreed and how well the room knew them."
         }
       ],
       "tipsTitle": "Tips for the big moment",
       "tips": [
         "10 to 15 questions is ideal. Enough tension without dragging.",
         "Insider questions bring the loudest laughs. Mix classics with your personal couple knowledge.",
-        "Keep both devices plugged in so nothing dies mid-game.",
+        "Keep all devices plugged in, including the couple's two phones in phone mode, so nothing dies mid-game.",
         "Wait to close until enough guests have voted. You see the vote count live in the controls.",
-        "Have the couple raise their shoes first, then reveal. That's the moment of suspense.",
         "Do a short dry run beforehand, ideally right at the venue with the real projector and Wi-Fi, so every step is dialed in on the big day."
       ],
       "download": "Download guide",
@@ -929,7 +938,7 @@
       "votes": "{count} votes",
       "closed": "Closed. The result is coming up …",
       "finishedTitle": "Thanks for playing!",
-      "finishedText": "That was TwoSoles. See you next time!",
+      "finishedText": "See you next time!",
       "countdownIntro": "And the result is …",
       "live": "Live",
       "votesWord": "votes",
@@ -962,7 +971,7 @@
       "correct": "You got it right!",
       "wrong": "So close!",
       "finishedTitle": "Thanks for playing!",
-      "finishedText": "That was TwoSoles 💜",
+      "finishedText": "See you next time!",
       "lookAtScreen": "Look at the screen!",
       "nextComing": "The next question is coming up.",
       "votingEnded": "Voting ended",
@@ -1026,9 +1035,9 @@
       "showAudience": "Show the audience",
       "statusCoupleRevealed": "Couple revealed",
       "back": "Back",
-      "coupleInputTitle": "What did the couple raise?",
-      "couplePicksFor": "{name} points to …",
-      "coupleInputHint": "Enter both answers to reveal.",
+      "coupleInputTitle": "The couple's answers",
+      "coupleInputText": "Now ask the couple who each of them picked, and enter their answers here.",
+      "couplePicksFor": "{name} says …",
       "couplePhoneStatus": "{count, plural, =0 {The couple hasn't answered yet} =1 {One partner answered on their phone} other {Both partners answered on their phones}}",
       "coupleLinksTitle": "Couple links",
       "coupleLinksHint": "Open one link on each partner's phone. The couple only answers secretly through these links.",

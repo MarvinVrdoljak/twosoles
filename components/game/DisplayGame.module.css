@@ -485,6 +485,13 @@
   color: var(--color-primary);
 }
 
+/* The harmony value carries words ("2 von 3"), so it needs a smaller size and
+   no wrapping to stay on one line next to the plain "%" stat. */
+.finaleNumText {
+  font-size: clamp(36px, 4.5vw, 64px);
+  white-space: nowrap;
+}
+
 .finaleLabel {
   font-size: var(--font-size-lg);
   color: var(--color-text-muted);

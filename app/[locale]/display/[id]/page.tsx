@@ -70,6 +70,7 @@ export default async function DisplayGamePage({params}: DisplayGamePageProps) {
       guestUrl={`${base}/guest/${id}`}
       initialTheme={event.game_theme === 'dark' ? 'dark' : 'light'}
       capacity={guestCapacity(event.package, event.started_at != null)}
+      answerMode={event.answer_mode === 'phone' ? 'phone' : 'shoe'}
     />
   )
 }

@@ -439,7 +439,9 @@ export function FormEventDetail({
             goingLive={goingLive}
             onGoLive={requestGoLive}
             onPlay={() => setDeviceChoiceOpen(true)}
-            answerMode={draft.answerMode}
+            // Reflect the SAVED mode, not the live draft — the couple card should
+            // only appear once the choice has actually been persisted.
+            answerMode={event.answer_mode}
           />
         </div>
 
@@ -496,7 +498,6 @@ export function FormEventDetail({
               eventId={event.id}
               couple={`${draft.name1 || '?'} & ${draft.name2 || '?'}`}
               gameLanguage={draft.language}
-              answerMode={draft.answerMode}
               onOpenSettings={() => goToTab('settings')}
             />
           ) : null}

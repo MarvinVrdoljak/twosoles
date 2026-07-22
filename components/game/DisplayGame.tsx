@@ -2,7 +2,7 @@
 
 import {useEffect, useRef, useState} from 'react'
 import {useTranslations} from 'next-intl'
-import {AnimatePresence, motion} from 'motion/react'
+import {AnimatePresence, animate, motion, useMotionValue, useTransform} from 'motion/react'
 import {GameQr} from './GameQr'
 import {useGameChannel} from '@/utility/game/useGameChannel'
 import {
@@ -10,6 +10,7 @@ import {
   COUNTDOWN_DIGIT_HOLD_MS,
   coupleAnswered,
   coupleMatches,
+  type AnswerMode,
   type GameTheme,
 } from '@/utility/game/types'
 import styles from './DisplayGame.module.css'
@@ -17,6 +18,28 @@ import Leaf03 from '@/public/images/leaf_03.svg'
 import Leaf01 from '@/public/images/leaf_01.svg'
 
 type Person = {name: string; color: string; photo: string | null}
+
+// A percentage that counts up from 0 to `value` in step with the bar it labels,
+// so the number rises together with the graph rather than snapping into place.
+function CountUpPercent({
+  value,
+  delay,
+  duration,
+  className,
+}: {
+  value: number
+  delay: number
+  duration: number
+  className?: string
+}) {
+  const mv = useMotionValue(0)
+  const text = useTransform(mv, (v) => `${Math.round(v)}%`)
+  useEffect(() => {
+    const controls = animate(mv, value, {delay, duration, ease: 'easeOut'})
+    return () => controls.stop()
+  }, [mv, value, delay, duration])
+  return <motion.span className={className}>{text}</motion.span>
+}
 
 type DisplayGameProps = {
   eventId: string
@@ -28,6 +51,10 @@ type DisplayGameProps = {
   initialTheme?: GameTheme
   // Max guests for the event's package — cap the shown count to match the host.
   capacity?: number
+  // How the couple answers. In 'shoe' (classic) mode the couple raised their
+  // shoes in the room, so the couple reveal is skipped on the beamer and every
+  // question falls back to the classic full-size bars.
+  answerMode?: AnswerMode
 }
 
 // Soft transition preset reused across phases.
@@ -55,6 +82,7 @@ export function DisplayGame({
   guestUrl,
   initialTheme = 'light',
   capacity = Infinity,
+  answerMode = 'shoe',
 }: DisplayGameProps) {
   const t = useTranslations('game')
   const {state, guestCount} = useGameChannel(eventId, 'display', initialTheme)
@@ -74,7 +102,9 @@ export function DisplayGame({
   // Couple's answer for the question being revealed (if both partners answered):
   // did they agree, and — when they did — did the room read them right?
   const revealPair = state.coupleAnswers[state.questionIndex]
-  const showCouple = coupleAnswered(revealPair)
+  // Only the phone mode reveals the couple's picks on screen; in shoe (classic)
+  // mode they already showed their shoes, so the reveal stays the classic bars.
+  const showCouple = answerMode === 'phone' && coupleAnswered(revealPair)
   const coupleMatch = showCouple && coupleMatches(revealPair)
   const crowdRight = coupleMatch && audienceMajority(state.votes) === revealPair[0]
 
@@ -300,7 +330,12 @@ export function DisplayGame({
                           />
                         </span>
                         <span className={styles.rowValue}>
-                          <span className={styles.rowPct}>{pct(index as 0 | 1)}%</span>
+                          <CountUpPercent
+                            className={styles.rowPct}
+                            value={pct(index as 0 | 1)}
+                            delay={0.15}
+                            duration={0.8}
+                          />
                           <span className={styles.rowVotes}>
                             {t('display.votes', {count: state.votes[index]})}
                           </span>
@@ -309,18 +344,16 @@ export function DisplayGame({
                     ))}
                   </motion.div>
                 ) : (
-                  /* No couple answer for this question — classic full-size bars. */
+                  /* Shoe mode, or no couple answer — classic full-size bars. */
                   <div className={styles.bars}>
                     {persons.map((person, index) => (
                       <div key={index} className={styles.barCol}>
-                        <motion.span
+                        <CountUpPercent
                           className={styles.pct}
-                          initial={{opacity: 0}}
-                          animate={{opacity: 1}}
-                          transition={{delay: 0.6}}
-                        >
-                          {pct(index as 0 | 1)}%
-                        </motion.span>
+                          value={pct(index as 0 | 1)}
+                          delay={0.1}
+                          duration={0.9}
+                        />
                         <div className={styles.barTrack}>
                           <motion.div
                             className={styles.bar}
@@ -362,7 +395,7 @@ export function DisplayGame({
                   transition={{delay: 0.3, duration: 0.6, ease: 'easeOut'}}
                 >
                   <div className={styles.finaleStat}>
-                    <span className={styles.finaleNum}>
+                    <span className={`${styles.finaleNum} ${styles.finaleNumText}`}>
                       {t('display.harmonyValue', {count: harmonyCount, total: totalAnswered})}
                     </span>
                     <span className={styles.finaleLabel}>{t('display.harmonyLabel')}</span>

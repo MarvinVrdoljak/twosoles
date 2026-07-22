@@ -27,10 +27,12 @@ type LooseTranslator = ((key: string) => string) & {
   raw: (key: string) => unknown
 }
 
-// The three game views, in the SAME order as the `guide.views` translation
-// array (Leinwand-Ansicht → Host-Steuerung → Gäste-Ansicht). The key doubles as
-// the route segment: /display, /host, /guest.
-const VIEW_KEYS = ['display', 'host', 'guest'] as const
+// The four game views, in the SAME order as the `guide.views` translation array
+// (Leinwand → Host → Gäste → Paar). The key doubles as the route segment:
+// /display, /host, /guest, /couple. The couple view is only used in phone mode,
+// but the guide explains both modes regardless of the event's choice, so it's
+// always listed.
+const VIEW_KEYS = ['display', 'host', 'guest', 'couple'] as const
 type ViewKey = (typeof VIEW_KEYS)[number]
 
 // Strip the inline link tags (<display>, <host>, <download>, …) so the printed
@@ -41,9 +43,6 @@ type ItemEventGuideProps = {
   eventId: string
   couple: string
   gameLanguage: string
-  // 'phone' shows the couple-link section (the bride/groom answer on their own
-  // devices); 'shoe' hides it (the host enters the couple's answer instead).
-  answerMode: string
   // Jumps to this event's Settings tab (where the game reset lives). Same-page
   // tab switch, so it's a callback rather than a link.
   onOpenSettings: () => void
@@ -55,16 +54,20 @@ export function ItemEventGuide({
   eventId,
   couple,
   gameLanguage,
-  answerMode,
   onOpenSettings,
 }: ItemEventGuideProps) {
   const t = useTranslations('eventDetail')
   const locale = useLocale() as Locale
   const needs = t.raw('guide.needs') as string[]
-  const views = t.raw('guide.views') as Step[]
   const setup = t.raw('guide.setup') as string[]
   const round = t.raw('guide.round') as Step[]
   const tips = t.raw('guide.tips') as string[]
+
+  // The four views the game runs across (the couple view is phone-mode only, but
+  // the guide covers both modes, so it's always shown).
+  const views: (Step & {key: ViewKey})[] = (t.raw('guide.views') as Step[]).map(
+    (view, index) => ({...view, key: VIEW_KEYS[index]}),
+  )
 
   // Absolute URLs are only known on the client — the QR codes must be
   // scannable, so build them from the live origin after mount.
@@ -149,7 +152,7 @@ export function ItemEventGuide({
         fileName: `${g('title')} – ${couple}.pdf`,
         eyebrow: couple,
         title: g('title'),
-        intro: g('intro'),
+        intro: stripTags(g.raw('intro') as string),
         ideaTitle: g('ideaTitle'),
         idea: g('idea'),
         needsTitle: g('needsTitle'),
@@ -201,13 +204,24 @@ export function ItemEventGuide({
         {chunks}
       </button>
     ),
+    // Downloads the whole guide as a PDF (same as the button at the bottom).
+    pdf: (chunks) => (
+      <button
+        type="button"
+        className={styles.inlineLink}
+        onClick={handleDownload}
+        disabled={pdfBusy}
+      >
+        {chunks}
+      </button>
+    ),
   }
 
   return (
     <div className={styles.guide}>
       <section className={styles.guideSection}>
         <h2 className={styles.guideTitle}>{t('guide.title')}</h2>
-        <p className={styles.guideIntro}>{t('guide.intro')}</p>
+        <p className={styles.guideIntro}>{tRich('guide.intro', richTags)}</p>
       </section>
 
       <hr className={styles.divider} />
@@ -231,7 +245,7 @@ export function ItemEventGuide({
         <p className={styles.guideText}>{t('guide.viewsIntro')}</p>
         <div className={styles.views}>
           {views.map((view, index) => (
-            <div key={view.title} className={styles.view}>
+            <div key={view.key} className={styles.view}>
               <span className={styles.stepNumber}>{index + 1}</span>
               <span className={styles.viewBody}>
                 <span className={styles.viewTextGroup}>
@@ -239,7 +253,7 @@ export function ItemEventGuide({
                   <span className={styles.viewText}>{view.text}</span>
                 </span>
                 <CommonButton
-                  href={viewPath(VIEW_KEYS[index])}
+                  href={viewPath(view.key)}
                   variant="secondary"
                   size="sm"
                   target="_blank"
@@ -249,41 +263,12 @@ export function ItemEventGuide({
                 </CommonButton>
               </span>
               <span className={styles.viewQr}>
-                <GameQr value={absolute(viewPath(VIEW_KEYS[index]))} />
+                <GameQr value={absolute(viewPath(view.key))} />
               </span>
             </div>
           ))}
         </div>
       </section>
-
-      {answerMode === 'phone' ? (
-        <section className={styles.guideSection}>
-          <h3 className={styles.guideHeading}>{t('guide.coupleTitle')}</h3>
-          <p className={styles.guideText}>{t('guide.coupleText')}</p>
-          <div className={styles.views}>
-            <div className={styles.view}>
-              <span className={styles.viewBody}>
-                <span className={styles.viewTextGroup}>
-                  <span className={styles.viewTitle}>{t('coupleLink')}</span>
-                  <span className={styles.viewText}>{t('guide.coupleLinkText')}</span>
-                </span>
-                <CommonButton
-                  href={`/couple/${eventId}`}
-                  variant="secondary"
-                  size="sm"
-                  target="_blank"
-                >
-                  <ExternalLink size={16} aria-hidden="true" />
-                  {t('openView')}
-                </CommonButton>
-              </span>
-              <span className={styles.viewQr}>
-                <GameQr value={absolute(`/couple/${eventId}`)} />
-              </span>
-            </div>
-          </div>
-        </section>
-      ) : null}
 
       <section className={styles.guideSection}>
         <h3 className={styles.guideHeading}>{t('guide.setupTitle')}</h3>
