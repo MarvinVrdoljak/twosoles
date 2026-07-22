@@ -51,14 +51,16 @@
    but not the layout box (which stays 440px x full height), so we clip BOTH axes
    here — otherwise that phantom box leaks out and inflates the parent with
    whitespace. overflow-clip-margin keeps the Leinwand/phone shadows bleeding past
-   the clip edge (Safari 16.4+; older engines simply clip a touch tighter). */
+   the clip edge (Safari 16.4+; older engines simply clip a touch tighter). The
+   margin must clear the largest shadow (Leinwand: 0 30px 70px -> ~100px reach),
+   so nothing gets cut where a shadow runs past the sceneFit box. */
 .sceneFit {
   width: 100%;
   /* overflow: clip establishes a BFC, so the scene's negative margin-bottom (set
      in JS) reliably shrinks this parent's auto height to the scaled height, and
-     the untransformed 440px layout box is clipped instead of overflowing. */
+     the untransformed 500px layout box is clipped instead of overflowing. */
   overflow: clip;
-  overflow-clip-margin: 70px;
+  overflow-clip-margin: 120px;
 }
 
 .scene {
