@@ -46,21 +46,17 @@
 
 /* Scene / diorama ------------------------------------------------------- */
 
-/* Fit wrapper: the scene is scaled with transform: scale() in JS to fit narrow
-   viewports (see BlockDemoPlayer's scaler effect). transform shrinks the *paint*
-   but not the layout box (which stays 440px x full height), so we clip BOTH axes
-   here — otherwise that phantom box leaks out and inflates the parent with
-   whitespace. overflow-clip-margin keeps the Leinwand/phone shadows bleeding past
-   the clip edge (Safari 16.4+; older engines simply clip a touch tighter). The
-   margin must clear the largest shadow (Leinwand: 0 30px 70px -> ~100px reach),
-   so nothing gets cut where a shadow runs past the sceneFit box. */
+/* Fit wrapper for the JS-scaled scene (see BlockDemoPlayer's scaler effect).
+   display: flow-root establishes a BFC so the scene's negative margin-bottom (set
+   in JS) reliably shrinks this parent to the scaled height. We deliberately do NOT
+   clip: unlike zoom, transform: scale() already reduces the scene's
+   scrollable-overflow contribution, so the scaled + centred scene can't push the
+   page sideways (and box-shadows never count toward scroll overflow anyway).
+   Leaving overflow visible means the Leinwand/phone shadows bleed out uncut —
+   which is why we don't rely on overflow-clip-margin (flaky on iOS WebKit). */
 .sceneFit {
+  display: flow-root;
   width: 100%;
-  /* overflow: clip establishes a BFC, so the scene's negative margin-bottom (set
-     in JS) reliably shrinks this parent's auto height to the scaled height, and
-     the untransformed 500px layout box is clipped instead of overflowing. */
-  overflow: clip;
-  overflow-clip-margin: 120px;
 }
 
 .scene {
@@ -70,14 +66,15 @@
   width: 100%;
 
   /* Pre-hydration fallback: shrink the mobile diorama with a static transform so
-     the first paint (before the JS scaler measures and refines this) never
-     overflows the screen. Only below ~548px, where the 500px scene no longer fits
-     the padded viewport and the JS scaler actually kicks in — above that it fits
-     as-is, so a static scale here would shrink it without the JS height
-     compensation and leave a gap. The scaler effect overrides this once mounted. */
+     the first paint (before the JS scaler measures and refines it) fits without
+     the page scrolling sideways. Since we no longer clip, this must be small
+     enough to fit on its own down to ~320px (0.58 ≈ (320 - side padding) / 500),
+     and top-left origin keeps it in-bounds. Only below ~548px, where the 500px
+     scene no longer fits and the JS scaler kicks in. The scaler effect overrides
+     this (proper scale, centred, height-compensated) once mounted. */
   @media (max-width: 547px) {
-    transform: scale(0.78);
-    transform-origin: top center;
+    transform: scale(0.58);
+    transform-origin: top left;
   }
 }
 
