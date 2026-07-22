@@ -1,0 +1,1005 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-32);
+  align-items: center;
+  width: 100%;
+}
+
+/* Segmented tab control ------------------------------------------------ */
+.tabs {
+  display: flex;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
+  background: var(--color-chip);
+  border-radius: var(--radius-full);
+}
+
+.tab {
+  display: inline-flex;
+  gap: var(--spacing-8);
+  align-items: center;
+  padding: var(--spacing-8) var(--spacing-20);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.tab:hover {
+  color: var(--color-text);
+}
+
+.tabActive {
+  background: var(--color-surface-variant);
+  color: var(--color-primary);
+  box-shadow: 0 2px 8px rgb(31 41 55 / 10%);
+}
+
+/* Scene / diorama ------------------------------------------------------- */
+.scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.displayWrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 620px;
+}
+
+.roleTag {
+  padding: 3px var(--spacing-8);
+  color: var(--color-text-muted);
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--color-chip);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.displayWrap .roleTag {
+  position: absolute;
+  top: var(--spacing-12);
+  left: var(--spacing-12);
+  z-index: 2;
+}
+
+/* The Leinwand / projector screen (mirrors DisplayGame: couple name pinned on
+   top, content centered below). */
+.displayScreen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 300px;
+  padding: var(--spacing-16) var(--spacing-24) var(--spacing-28);
+  overflow: hidden;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 30px 70px rgb(31 41 55 / 16%);
+
+  @media (--bp-medium-up) {
+    min-height: 380px;
+    padding: var(--spacing-16) var(--spacing-32) var(--spacing-40);
+  }
+
+  @media (--bp-large-up) {
+    min-height: 400px;
+  }
+}
+
+/* Botanical corner decorations, mirroring the live DisplayGame. Kept faint
+   (border tone) and clipped by the screen's rounded overflow. */
+.leafTop,
+.leafBottom {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  height: auto;
+  color: var(--color-border);
+  pointer-events: none;
+}
+
+.leafTop {
+  top: -26px;
+  left: -22px;
+  width: 96px;
+  transform: rotate(-155deg);
+}
+
+.leafBottom {
+  right: -30px;
+  bottom: -38px;
+  width: 150px;
+  transform: scaleX(-1) rotate(-30deg);
+}
+
+.dCoupleTop {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.dStage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.dCenter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.dEyebrow {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.dCoupleBig {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 4.6vw, 34px);
+  font-style: italic;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.05;
+}
+
+.dQr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-8);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 18px rgb(31 41 55 / 10%);
+}
+
+.dLobbyCta {
+  margin: 0;
+  font-size: var(--font-size-sm);
+}
+
+.dGuestPill {
+  display: inline-flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  padding: var(--spacing-4) var(--spacing-12);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  background: var(--color-chip);
+  border-radius: var(--radius-full);
+}
+
+.dQuestion {
+  max-width: 14em;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 3.4vw, 32px);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.dQuestionSm {
+  max-width: 18em;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(16px, 1.9vw, 20px);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.dLivePill {
+  display: inline-flex;
+  gap: var(--spacing-8);
+  align-items: center;
+  padding: var(--spacing-4) var(--spacing-12);
+  background: var(--color-chip);
+  border-radius: var(--radius-full);
+}
+
+.dLiveNum {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.dLiveMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+}
+
+.dLiveWord {
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.1;
+}
+
+.dLiveTag {
+  display: inline-flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  color: var(--color-success);
+  font-size: 9px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dClosedNote {
+  margin: 0;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  font-style: italic;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Reveal: couple picks (digital mode) — mini duo cards like the original. */
+.dDuo {
+  display: flex;
+  gap: var(--spacing-12);
+  justify-content: center;
+  width: 100%;
+}
+
+.dDuoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  flex: 1;
+  max-width: 150px;
+  padding: var(--spacing-12);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.dDuoSays {
+  color: var(--color-text-muted);
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dDuoPick {
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.05;
+}
+
+.dVerdict {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-style: italic;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.verdictYes {
+  color: var(--color-success);
+}
+
+.verdictNo {
+  color: var(--color-primary);
+}
+
+/* Reveal: audience rows (digital mode). */
+.dRows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  width: min(100%, 340px);
+}
+
+.dRow {
+  display: flex;
+  gap: var(--spacing-8);
+  align-items: center;
+}
+
+.dRowAvatar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-full);
+}
+
+.dRowName {
+  flex-shrink: 0;
+  width: 38px;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-align: left;
+}
+
+.dRowTrack {
+  display: flex;
+  flex: 1;
+  height: 12px;
+  overflow: hidden;
+  background: var(--color-chip);
+  border-radius: var(--radius-full);
+}
+
+.dRowBar {
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+.dRowPct {
+  flex-shrink: 0;
+  width: 44px;
+  font-family: var(--font-heading);
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* Reveal: classic full-size bars (shoe mode) — like the original result. */
+.dBars {
+  display: flex;
+  gap: var(--spacing-40);
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.dBarCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  align-items: center;
+  width: 96px;
+}
+
+.dBarPct {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: var(--font-weight-semibold);
+}
+
+.dBarTrack {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 110px;
+}
+
+.dBar {
+  width: 100%;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.dBarName {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+}
+
+.dBarVotes {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+/* Devices row (front of the diorama) ----------------------------------- */
+.devices {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin-top: -12px;
+
+  @media (--bp-medium-up) {
+    margin-top: -12px;
+  }
+}
+
+.deviceSlot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  align-items: center;
+}
+
+/* Desktop: role labels sit below the phones (on mobile they stay above the
+   couple/host row so the overlapping guest phones don't cover them). */
+@media (--bp-medium-up) {
+  .deviceSlot {
+    flex-direction: column-reverse;
+  }
+}
+
+/* Line-break helper: only takes effect on mobile digital (see media query). */
+.deviceBreak {
+  display: none;
+}
+
+.slotOuterLeft {
+  z-index: 1;
+  margin-right: -14px;
+  transform: rotate(-7deg);
+}
+
+.slotOuterRight {
+  z-index: 1;
+  margin-left: -14px;
+  transform: rotate(7deg);
+}
+
+.slotInnerLeft {
+  z-index: 2;
+  margin-right: -14px;
+  transform: rotate(-3deg);
+}
+
+.slotInnerRight {
+  z-index: 2;
+  margin-left: -14px;
+  transform: rotate(3deg);
+}
+
+.slotHost {
+  z-index: 3;
+}
+
+/* --- Small screens -----------------------------------------------------
+   The phones keep their exact desktop size + internal layout (fixed px, so the
+   content never re-wraps) AND the desktop fan (tilt + slight overlap). Only the
+   arrangement changes: a forced line break splits the five phones into a top
+   row (Mia · Host · Ben, host centred) and the two guest phones on a row below
+   that lie in front of / over the three. The whole cluster is then zoomed down
+   as one unit to fit narrow viewports — `zoom` scales layout + paint together,
+   so nothing reflows and no horizontal scrollbar appears. */
+@media (--bp-medium-down) {
+  .scene {
+    width: 440px;
+  }
+
+  .devices {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  /* Guest phones tilt less than on desktop so the stacked rows stay tidy. */
+  .slotOuterLeft {
+    transform: rotate(-3deg);
+  }
+
+  .slotOuterRight {
+    transform: rotate(3deg);
+  }
+
+  /* Digital: Mia · Host · Ben fill the top row (host centred); the forced break
+     then drops the two guest phones onto the row below. */
+  .devicesWide .slotInnerLeft {
+    order: 1;
+  }
+
+  .devicesWide .slotHost {
+    order: 2;
+  }
+
+  .devicesWide .slotInnerRight {
+    order: 3;
+  }
+
+  .devicesWide .deviceBreak {
+    display: block;
+    order: 4;
+    flex-basis: 100%;
+    height: 0;
+  }
+
+  .devicesWide .slotOuterLeft {
+    order: 5;
+  }
+
+  .devicesWide .slotOuterRight {
+    order: 6;
+  }
+
+  /* Guests sit on the row below but lie in front (higher z-index), overlapping
+     upward so they cover the bottom of the three phones; label below the phone. */
+  .devicesWide .slotOuterLeft,
+  .devicesWide .slotOuterRight {
+    z-index: 6;
+    margin-top: -14px;
+    flex-direction: column-reverse;
+  }
+}
+
+@media (width <= 480px) {
+  .scene {
+    zoom: 0.86;
+  }
+}
+
+@media (width <= 430px) {
+  .scene {
+    zoom: 0.77;
+  }
+}
+
+@media (width <= 390px) {
+  .scene {
+    zoom: 0.68;
+  }
+}
+
+@media (width <= 350px) {
+  .scene {
+    zoom: 0.61;
+  }
+}
+
+@media (width <= 320px) {
+  .scene {
+    zoom: 0.52;
+  }
+}
+
+/* Shared 9:16 phone frame ------------------------------------------------
+   Fixed px width per breakpoint (no vw: a toggling scrollbar would make every
+   phone wobble) and an absolutely-inset screen, so the content can never
+   stretch the frame — each phase renders into the exact same box. */
+.phone {
+  position: relative;
+  flex: none;
+  width: 150px;
+  aspect-ratio: 9 / 18;
+  background: var(--color-text);
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgb(31 41 55 / 20%);
+}
+
+.phoneNotch {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  z-index: 2;
+  width: 30px;
+  height: 4px;
+  background: rgb(255 255 255 / 35%);
+  border-radius: var(--radius-full);
+  transform: translateX(-50%);
+}
+
+.phoneScreen {
+  position: absolute;
+  inset: 6px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: var(--spacing-16) var(--spacing-8) var(--spacing-8);
+  background: var(--color-background);
+  border-radius: 19px;
+}
+
+/* Host controller (inside a phone) — mirrors HostGame ------------------- */
+.hostTopbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--spacing-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hostLogo {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-style: italic;
+  font-weight: var(--font-weight-bold);
+}
+
+.hostGear {
+  display: flex;
+  padding: 3px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.hostContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 0;
+  padding-block: var(--spacing-8);
+}
+
+.hostCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding: var(--spacing-8);
+  background: var(--color-surface-variant);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.hostH1 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+}
+
+.hostMuted {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 9px;
+  line-height: 1.35;
+}
+
+.hostQHead {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hostQNum {
+  color: var(--color-primary);
+  font-size: 8px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hostQuestion {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+}
+
+.hostVoteCards {
+  display: flex;
+  gap: var(--spacing-4);
+}
+
+.hostVoteCard {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1px;
+  align-items: center;
+  padding: var(--spacing-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.hostVoteName {
+  color: var(--color-primary);
+  font-size: 8px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hostVoteNum {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.hostVoteLabel {
+  color: var(--color-text-muted);
+  font-size: 8px;
+}
+
+.hostTotal {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 8px;
+  text-align: center;
+}
+
+.hostPrimary {
+  display: block;
+  padding: var(--spacing-8);
+  color: var(--color-on-primary);
+  font-size: 9px;
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+.hostPrimaryPulse {
+  animation: primary-pulse 2s ease-in-out infinite;
+}
+
+@keyframes primary-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(166 112 112 / 45%);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgb(166 112 112 / 0%);
+  }
+}
+
+/* Guest / couple phone (inside a phone) — mirrors GuestGame -------------- */
+.gLobby {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.gActive {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.gHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  text-align: center;
+}
+
+.gEyebrow {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 7px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.gCouple {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.1;
+}
+
+.gProgress {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 7px;
+}
+
+.gDivider {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  width: 100%;
+  margin-top: var(--spacing-4);
+}
+
+.gDividerLine {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.gDividerHeart {
+  flex-shrink: 0;
+  color: var(--color-primary);
+  opacity: 0.7;
+}
+
+.gQuestionZone {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding-block: var(--spacing-4);
+}
+
+.gQuestion {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.gActionZone {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 58px;
+}
+
+.gActionInner {
+  width: 100%;
+}
+
+.gOptions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+}
+
+.gOption {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-8);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  border-radius: var(--radius-full);
+}
+
+.gStatus {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.gStatusPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--spacing-8) var(--spacing-4);
+  font-family: var(--font-heading);
+  font-size: 8px;
+  font-weight: var(--font-weight-semibold);
+  background: var(--color-chip);
+  border-radius: var(--radius-full);
+}
+
+.gBig {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+}
+
+.gNote {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 8px;
+  line-height: 1.35;
+}
+
+/* Shared live dot ------------------------------------------------------- */
+.liveDot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-success);
+  border-radius: var(--radius-full);
+  animation: dot-pulse 1.6s ease-in-out infinite;
+}
+
+.dLiveTag .liveDot {
+  background: currentcolor;
+}
+
+@keyframes dot-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+/* Hint ------------------------------------------------------------------ */
+.hint {
+  max-width: 440px;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liveDot,
+  .hostPrimaryPulse {
+    animation: none;
+  }
+}
+
+/* --- Wide screens: side by side ----------------------------------------
+   Once the viewport is wide enough (≥1440px) to fit the Leinwand and the phone
+   fan next to each other, lay them out in a row: the Leinwand on the left, the
+   phones on the right overlapping its right edge just a little on their left. */
+@media (--bp-xxlarge-up) {
+  .scene {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .displayWrap {
+    flex: none;
+    width: 580px;
+  }
+
+  .devices {
+    width: auto;
+    margin-top: 0;
+    margin-left: -12px;
+  }
+}

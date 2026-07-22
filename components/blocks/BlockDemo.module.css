@@ -1,0 +1,61 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-40);
+  padding-block: var(--spacing-64);
+  padding-inline: var(--side-gap);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+
+  @media (--bp-medium-up) {
+    padding-block: var(--spacing-128);
+    gap: var(--spacing-52);
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-12);
+  max-width: 640px;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-h2);
+}
+
+.accent {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.lead {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-base);
+}
+
+.playerWrap {
+  width: 100%;
+  max-width: 720px;
+
+  /* Wide screens: Leinwand + phones sit side by side, so give the player room. */
+  @media (--bp-xxlarge-up) {
+    max-width: 1240px;
+  }
+}
+
+.disclaimer {
+  max-width: 440px;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-style: italic;
+  line-height: var(--line-height-base);
+  text-align: center;
+}

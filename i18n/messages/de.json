@@ -70,6 +70,45 @@
       }
     ]
   },
+  "demo": {
+    "eyebrow": "Sieh es in Aktion",
+    "title": "So spielt sich eine <accent>Runde.</accent>",
+    "lead": "Eine kurze Runde, automatisch abgespielt. Wähle, wie das Paar antwortet. Die Gäste stimmen immer mit.",
+    "disclaimer": "Vereinfachte Vorschau zur Veranschaulichung des Spielablaufs. Gestaltung und Details im echten Spiel können abweichen.",
+    "tabs": {
+      "shoe": "Klassisch",
+      "phone": "Digital"
+    },
+    "tabHint": {
+      "shoe": "Das Paar hebt echte Schuhe, der Host trägt ein.",
+      "phone": "Das Paar antwortet geheim am Handy, die Leinwand löst gleichzeitig auf."
+    },
+    "person1": "Mia",
+    "person2": "Ben",
+    "roles": {
+      "display": "Leinwand",
+      "host": "Host",
+      "guest": "Gäste"
+    },
+    "screenLabel": "Leinwand",
+    "eyebrowQuestion": "Wer würde eher?",
+    "voteStatus": "Die Gäste stimmen ab …",
+    "votesLive": "{count} Stimmen",
+    "answerShoe": "Schuhe hoch!",
+    "answerPhone": "Geheime Antwort am Handy",
+    "partnerSays": "{name} sagt",
+    "resultEyebrow": "Das Ergebnis",
+    "matchYes": "Einig!",
+    "matchNo": "Uneinig!",
+    "crowdRight": "Einig! Und der Raum lag richtig.",
+    "crowdWrong": "Einig! Aber der Raum lag daneben.",
+    "revealSplit": "Uneinig! Die zwei sahen das verschieden.",
+    "questions": [
+      "Wer würde eher den Wecker fünfmal snoozen?",
+      "Wer ist spontaner im Alltag?",
+      "Wer gibt bei einem Streit eher nach?"
+    ]
+  },
   "quote": {
     "text": "«Endlich mal was, wo <accent>alle mitmachen</accent> und nicht nur zuschauen.»"
   },

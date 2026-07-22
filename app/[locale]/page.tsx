@@ -1,6 +1,7 @@
 import {getTranslations, setRequestLocale} from 'next-intl/server'
 import {redirect} from 'next/navigation'
 import {BlockCta} from '@/components/blocks/BlockCta'
+import {BlockDemo} from '@/components/blocks/BlockDemo'
 import {BlockFaq} from '@/components/blocks/BlockFaq'
 import {BlockHero} from '@/components/blocks/BlockHero'
 import {BlockPricing} from '@/components/blocks/BlockPricing'
@@ -146,6 +147,7 @@ export default async function Home({params}: HomeProps) {
         <BlockHero />
         <BlockTicker />
         <BlockSteps />
+        <BlockDemo />
         <BlockQuote />
         <BlockPricing />
         <BlockTestimonials />

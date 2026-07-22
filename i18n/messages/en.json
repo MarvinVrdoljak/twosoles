@@ -70,6 +70,45 @@
       }
     ]
   },
+  "demo": {
+    "eyebrow": "See it in action",
+    "title": "How one <accent>round plays out.</accent>",
+    "lead": "A short round, played automatically. Pick how the couple answers. The guests always vote along.",
+    "disclaimer": "A simplified preview to illustrate how the game plays. The real game's design and details may differ.",
+    "tabs": {
+      "shoe": "Classic",
+      "phone": "Digital"
+    },
+    "tabHint": {
+      "shoe": "The couple raises real shoes, the host enters the picks.",
+      "phone": "The couple answers secretly on their phones, the screen reveals both at once."
+    },
+    "person1": "Mia",
+    "person2": "Ben",
+    "roles": {
+      "display": "Screen",
+      "host": "Host",
+      "guest": "Guests"
+    },
+    "screenLabel": "Screen",
+    "eyebrowQuestion": "Who is more likely?",
+    "voteStatus": "The guests are voting …",
+    "votesLive": "{count} votes",
+    "answerShoe": "Shoes up!",
+    "answerPhone": "Secret answer on the phone",
+    "partnerSays": "{name} says",
+    "resultEyebrow": "The result",
+    "matchYes": "In sync!",
+    "matchNo": "Split!",
+    "crowdRight": "In sync! And the room got it right.",
+    "crowdWrong": "In sync! But the room got it wrong.",
+    "revealSplit": "Split! The two saw it differently.",
+    "questions": [
+      "Who's more likely to snooze the alarm five times?",
+      "Who's more spontaneous day to day?",
+      "Who's more likely to give in during an argument?"
+    ]
+  },
   "quote": {
     "text": "“Finally, something where <accent>everyone joins in</accent> and doesn't just watch.”"
   },

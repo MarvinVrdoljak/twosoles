@@ -40,12 +40,12 @@
 }
 
 [data-theme='dark'].root {
-  --leaf-opacity: 0.12;
+  --leaf-opacity: 0.3;
 }
 
 [data-theme='dark'] .leafTop,
 [data-theme='dark'] .leafBottom {
-  opacity: 0.12;
+  opacity: 0.3;
 }
 
 .couple {

@@ -37,13 +37,17 @@
 /* Word-by-word reveal: each word sits in an overflow-hidden mask and slides
    up into place. The stagger delay comes from the server as `--wd` per word.
    The mask is extended below the baseline (padding + negative margin, so the
-   line box is unchanged) so descenders (g, p, ß, …) aren't clipped. */
+   line box is unchanged) so descenders (g, p, ß, …) aren't clipped. The same
+   trick is applied to the right so the slanted glyphs of italic accent words
+   aren't clipped horizontally by the mask. */
 .word {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
   padding-bottom: 0.2em;
   margin-bottom: -0.2em;
+  padding-right: 0.15em;
+  margin-right: -0.15em;
 }
 
 .wordInner {
