@@ -2,6 +2,7 @@ import type {CSSProperties, ReactNode} from 'react'
 import {getTranslations} from 'next-intl/server'
 import {CommonButton} from '@/components/common/CommonButton'
 import {CommonImage} from '@/components/common/CommonImage'
+import {BlockHeroScrollCta} from './BlockHeroScrollCta'
 import {BlockHeroVoting} from './BlockHeroVoting'
 import styles from './BlockHero.module.css'
 import Leaf01 from '@/public/images/leaf_01.svg'
@@ -62,9 +63,7 @@ export async function BlockHero() {
             <CommonButton href="/register" variant="primary" size="lg">
               {t('ctaPrimary')}
             </CommonButton>
-            <CommonButton href="#how-it-works" variant="secondary" size="lg">
-              {t('ctaSecondary')}
-            </CommonButton>
+            <BlockHeroScrollCta>{t('ctaSecondary')}</BlockHeroScrollCta>
           </div>
         </div>
 

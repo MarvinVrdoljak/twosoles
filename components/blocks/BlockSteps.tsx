@@ -10,14 +10,14 @@ type StepItem = {
   description: string
 }
 
-// "So funktioniert's" — section title plus three numbered steps. Also the
-// in-page anchor target for the nav and the hero's secondary CTA.
+// The three numbered steps section (eyebrow "In drei Schritten"). The
+// "So funktioniert's" nav/CTA anchor now lives on BlockDemo above it.
 export async function BlockSteps() {
   const t = await getTranslations('steps')
   const items = t.raw('items') as StepItem[]
 
   return (
-    <section id="how-it-works" className={styles.root} aria-labelledby="steps-title">
+    <section className={styles.root} aria-labelledby="steps-title">
       <div className={styles.header}>
         <CommonReveal tag="p" className="eyebrow">
           {t('eyebrow')}

@@ -4,15 +4,16 @@ import {CommonTitleReveal} from '@/components/common/CommonTitleReveal'
 import {BlockDemoPlayer} from './BlockDemoPlayer'
 import styles from './BlockDemo.module.css'
 
-// Abstract, self-playing preview of a live round — sits right below the three
-// "So funktioniert's" steps. Purely a marketing showcase (not the real game):
-// the interactive, looping part lives in the client BlockDemoPlayer. Drop this
-// section from app/[locale]/page.tsx to hide the demo entirely.
+// Abstract, self-playing preview of a live round. Carries the "So funktioniert's"
+// eyebrow and the #how-it-works nav/CTA anchor, sitting above the three numbered
+// steps. Purely a marketing showcase (not the real game): the interactive,
+// looping part lives in the client BlockDemoPlayer. Drop this section from
+// app/[locale]/page.tsx to hide the demo entirely.
 export async function BlockDemo() {
   const t = await getTranslations('demo')
 
   return (
-    <section className={styles.root} aria-labelledby="demo-title">
+    <section id="how-it-works" className={styles.root} aria-labelledby="demo-title">
       <div className={styles.header}>
         <CommonReveal tag="p" className="eyebrow">
           {t('eyebrow')}

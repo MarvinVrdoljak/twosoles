@@ -50,7 +50,7 @@
     ]
   },
   "steps": {
-    "eyebrow": "How it works",
+    "eyebrow": "In three steps",
     "title": "Simple. Fast. <accent>Unforgettable.</accent>",
     "items": [
       {
@@ -71,7 +71,7 @@
     ]
   },
   "demo": {
-    "eyebrow": "See it in action",
+    "eyebrow": "How it works",
     "title": "How one <accent>round plays out.</accent>",
     "lead": "A short round, played automatically. Pick how the couple answers. The guests always vote along.",
     "disclaimer": "A simplified preview to illustrate how the game plays. The real game's design and details may differ.",

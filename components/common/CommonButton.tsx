@@ -16,7 +16,7 @@ type CommonButtonProps = {
   // Button mode (when no href): native button for forms / handlers.
   type?: 'button' | 'submit'
   disabled?: boolean
-  onClick?: () => void
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
   // Link mode only: open in a new tab (adds a safe rel).
   target?: '_blank'
 }
