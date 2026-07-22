@@ -1,6 +1,6 @@
 'use client'
 
-import {useEffect, useState} from 'react'
+import {useEffect, useLayoutEffect, useRef, useState} from 'react'
 import {useLocale, useTranslations} from 'next-intl'
 import {AnimatePresence, animate, motion, useMotionValue, useReducedMotion, useTransform} from 'motion/react'
 import {Footprints, Heart, Settings, Smartphone} from 'lucide-react'
@@ -10,6 +10,10 @@ import type {Locale} from '@/i18n/routing'
 import styles from './BlockDemoPlayer.module.css'
 import Leaf01 from '@/public/images/leaf_01.svg'
 import Leaf03 from '@/public/images/leaf_03.svg'
+
+// useLayoutEffect on the client (measure + scale before paint), useEffect on the
+// server (avoids the SSR warning). The diorama is scaled to fit in JS, see below.
+const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 // The two answer modes, mirrored 1:1 from the real event setting (answer_mode).
 type Mode = 'shoe' | 'phone'
@@ -115,7 +119,7 @@ function DemoDisplay({
               <p className={styles.dCoupleBig}>{coupleName}</p>
               {loginUrl ? (
                 <span className={styles.dQr}>
-                  <GameQr value={loginUrl} size={110} />
+                  <GameQr value={loginUrl} size={90} />
                 </span>
               ) : null}
               <p className={styles.dLobbyCta}>{g('display.lobbyCta')}</p>
@@ -453,6 +457,44 @@ export function BlockDemoPlayer() {
   const [round, setRound] = useState(0)
   const [phase, setPhase] = useState<Phase>('lobby')
 
+  // Scale the fixed-size diorama down to fit narrow viewports. We do this in JS
+  // (measured transform) instead of CSS `zoom`: on iOS Safari `zoom` only scales
+  // the paint, not the layout box, so the 440px scene kept overflowing the screen
+  // edge on real phones (desktop `zoom` reduces layout, which is why it looked
+  // fine there). transform: scale() shrinks the footprint identically everywhere.
+  const sceneFitRef = useRef<HTMLDivElement>(null)
+  const sceneRef = useRef<HTMLDivElement>(null)
+  useIsoLayoutEffect(() => {
+    const fitEl = sceneFitRef.current
+    const scene = sceneRef.current
+    if (!fitEl || !scene) return
+
+    const apply = () => {
+      // Reset, then measure the scene at its natural (unscaled) size.
+      scene.style.transform = ''
+      scene.style.marginBottom = ''
+      const avail = fitEl.clientWidth
+      const natW = scene.offsetWidth
+      const natH = scene.offsetHeight
+      if (!avail || natW <= avail) return
+      // Leave a little room for the tilted phones and the Leinwand shadow.
+      const scale = (avail - 20) / natW
+      const offsetX = (avail - natW * scale) / 2
+      scene.style.transformOrigin = 'top left'
+      scene.style.transform = `translateX(${offsetX}px) scale(${scale})`
+      // transform does not shrink the layout box (it stays 440px x natH), so pull
+      // the freed vertical space back with a negative margin-bottom. In block flow
+      // this reliably shrinks the parent's auto height to the scaled height.
+      scene.style.marginBottom = `${-Math.round(natH * (1 - scale))}px`
+    }
+
+    apply()
+    const ro = new ResizeObserver(apply)
+    ro.observe(fitEl)
+    ro.observe(scene)
+    return () => ro.disconnect()
+  }, [mode])
+
   const questions = t.raw('questions') as string[]
   const names = [t('person1'), t('person2')]
 
@@ -526,9 +568,12 @@ export function BlockDemoPlayer() {
       </div>
 
       {/* Diorama: the big screen behind, the phones tilted in front. Digital
-          mode adds the couple's two phones next to the host. */}
-      <div className={styles.scene}>
-        <div className={styles.displayWrap}>
+          mode adds the couple's two phones next to the host. The fit wrapper
+          clips the horizontal overflow of the scaled scene (see the scaler
+          effect above) so it can never push the page past the screen edge. */}
+      <div className={styles.sceneFit} ref={sceneFitRef}>
+        <div className={styles.scene} ref={sceneRef}>
+          <div className={styles.displayWrap}>
           <span className={styles.roleTag}>{t('roles.display')}</span>
           <DemoDisplay
             phase={phase}
@@ -603,6 +648,7 @@ export function BlockDemoPlayer() {
           {/* Forces the two guest phones onto a second row on mobile (digital);
               inert on desktop, where all five sit in one fanned row. */}
           <span className={styles.deviceBreak} aria-hidden="true" />
+        </div>
         </div>
       </div>
 

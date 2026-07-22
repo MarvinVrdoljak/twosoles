@@ -45,11 +45,38 @@
 }
 
 /* Scene / diorama ------------------------------------------------------- */
+
+/* Fit wrapper: the scene is scaled with transform: scale() in JS to fit narrow
+   viewports (see BlockDemoPlayer's scaler effect). transform shrinks the *paint*
+   but not the layout box (which stays 440px x full height), so we clip BOTH axes
+   here — otherwise that phantom box leaks out and inflates the parent with
+   whitespace. overflow-clip-margin keeps the Leinwand/phone shadows bleeding past
+   the clip edge (Safari 16.4+; older engines simply clip a touch tighter). */
+.sceneFit {
+  width: 100%;
+  /* overflow: clip establishes a BFC, so the scene's negative margin-bottom (set
+     in JS) reliably shrinks this parent's auto height to the scaled height, and
+     the untransformed 440px layout box is clipped instead of overflowing. */
+  overflow: clip;
+  overflow-clip-margin: 70px;
+}
+
 .scene {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+
+  /* Pre-hydration fallback: shrink the mobile diorama with a static transform so
+     the first paint (before the JS scaler measures and refines this) never
+     overflows the screen. Only below ~548px, where the 500px scene no longer fits
+     the padded viewport and the JS scaler actually kicks in — above that it fits
+     as-is, so a static scale here would shrink it without the JS height
+     compensation and leave a gap. The scaler effect overrides this once mounted. */
+  @media (max-width: 547px) {
+    transform: scale(0.78);
+    transform-origin: top center;
+  }
 }
 
 .displayWrap {
@@ -503,12 +530,16 @@
    content never re-wraps) AND the desktop fan (tilt + slight overlap). Only the
    arrangement changes: a forced line break splits the five phones into a top
    row (Mia · Host · Ben, host centred) and the two guest phones on a row below
-   that lie in front of / over the three. The whole cluster is then zoomed down
-   as one unit to fit narrow viewports — `zoom` scales layout + paint together,
+   that lie in front of / over the three. The whole cluster is then scaled down
+   as one unit (transform: scale() in JS, see .sceneFit) to fit narrow viewports,
    so nothing reflows and no horizontal scrollbar appears. */
 @media (--bp-medium-down) {
   .scene {
-    width: 440px;
+    width: 500px;
+    /* Centre the fixed-width scene when it fits (548-767px, where the JS scaler
+       leaves it unscaled). Below 548px it is wider than the container, so this
+       resolves to 0 and the JS translateX handles centring instead. */
+    margin-inline: auto;
   }
 
   .devices {
@@ -563,40 +594,6 @@
     z-index: 6;
     margin-top: -14px;
     flex-direction: column-reverse;
-  }
-}
-
-/* The zoom factors leave room for the section's side padding (2 x --side-gap,
-   48px mobile) plus a little breathing space for the Leinwand box-shadow and the
-   tilted phones, so 440px x zoom always sits comfortably inside the padded
-   content box. Tuned at each bracket's lower bound. */
-@media (max-width: 480px) {
-  .scene {
-    zoom: 0.8;
-  }
-}
-
-@media (max-width: 430px) {
-  .scene {
-    zoom: 0.7;
-  }
-}
-
-@media (max-width: 390px) {
-  .scene {
-    zoom: 0.62;
-  }
-}
-
-@media (max-width: 350px) {
-  .scene {
-    zoom: 0.55;
-  }
-}
-
-@media (max-width: 320px) {
-  .scene {
-    zoom: 0.5;
   }
 }
 
