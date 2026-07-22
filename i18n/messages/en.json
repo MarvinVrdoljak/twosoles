@@ -80,8 +80,8 @@
       "phone": "Digital"
     },
     "tabHint": {
-      "shoe": "The couple raises shoes, just like the classic shoe game. The host records the result afterwards.",
-      "phone": "The couple answers secretly on their phones, the screen reveals both at once."
+      "shoe": "Like the classic shoe game: for each question the couple raises the shoe of the person they mean, and the host records the answer. At the end the screen reveals whether the couple agreed and how well the room knows them.",
+      "phone": "The couple answers each question secretly on their own phones. The screen reveals both answers at once and shows how well the room knows the couple."
     },
     "person1": "Mia",
     "person2": "Ben",

@@ -567,6 +567,9 @@ export function BlockDemoPlayer() {
         ))}
       </div>
 
+      {/* Mode hint, right under the tabs it describes. */}
+      <p className={styles.hint}>{t(`tabHint.${mode}`)}</p>
+
       {/* Diorama: the big screen behind, the phones tilted in front. Digital
           mode adds the couple's two phones next to the host. The fit wrapper
           clips the horizontal overflow of the scaled scene (see the scaler
@@ -652,7 +655,8 @@ export function BlockDemoPlayer() {
         </div>
       </div>
 
-      <p className={styles.hint}>{t(`tabHint.${mode}`)}</p>
+      {/* Disclaimer, below the graphics. */}
+      <p className={styles.disclaimer}>{t('disclaimer')}</p>
     </div>
   )
 }

@@ -27,9 +27,6 @@ export async function BlockDemo() {
         <CommonReveal tag="p" className={styles.lead} delay={0.1}>
           {t('lead')}
         </CommonReveal>
-        <CommonReveal tag="p" className={styles.disclaimer} delay={0.15}>
-          {t('disclaimer')}
-        </CommonReveal>
       </div>
 
       <CommonReveal className={styles.playerWrap} delay={0.15}>

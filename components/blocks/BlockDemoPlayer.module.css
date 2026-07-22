@@ -953,10 +953,20 @@
 
 /* Hint ------------------------------------------------------------------ */
 .hint {
-  max-width: 440px;
+  max-width: 600px;
   margin: 0;
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  text-align: center;
+}
+
+.disclaimer {
+  max-width: 440px;
+  margin: var(--spacing-16) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-style: italic;
   line-height: var(--line-height-base);
   text-align: center;
 }
