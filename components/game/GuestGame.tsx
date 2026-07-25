@@ -106,8 +106,10 @@ export function GuestGame({
     let pill = ''
     let hint = ''
     if (state.phase === 'question') {
-      pill = t('guest.votedFor', {name: voted !== null ? persons[voted].name : ''})
-      hint = t('guest.waitingResult')
+      // The couple answers, it doesn't vote — so it gets its own wording.
+      const name = voted !== null ? persons[voted].name : ''
+      pill = couple ? t('couple.answered', {name}) : t('guest.votedFor', {name})
+      hint = couple ? t('couple.waitingResult') : t('guest.waitingResult')
     } else if (state.phase === 'closed') {
       pill = t('guest.votingEnded')
       hint = t('guest.resultSoon')

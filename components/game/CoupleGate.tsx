@@ -44,11 +44,20 @@ function CouplePicker({
   onPick: (slot: 0 | 1) => void
 }) {
   const t = useTranslations('game')
-  const {claimedCoupleSlots} = useGameChannel(eventId, 'couple', initialTheme, Infinity, null, null)
+  // `state` is only read for the theme here: the picker joins the channel anyway
+  // for the claimed slots, so it can follow the host's light/dark switch live.
+  const {claimedCoupleSlots, state} = useGameChannel(
+    eventId,
+    'couple',
+    initialTheme,
+    Infinity,
+    null,
+    null,
+  )
   const persons = [person1, person2]
 
   return (
-    <div className={styles.root} data-theme={initialTheme}>
+    <div className={styles.root} data-theme={state.theme}>
       <div className={styles.stage}>
         <div className={styles.center}>
           <p className={styles.eyebrow}>{coupleName}</p>

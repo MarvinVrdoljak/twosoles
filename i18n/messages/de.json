@@ -1,7 +1,5 @@
 {
   "general": {
-    "home": "Startseite",
-    "loading": "Laden …",
     "notifications": "Benachrichtigungen",
     "dismiss": "Schließen"
   },
@@ -197,7 +195,7 @@
       },
       {
         "question": "Können wir das Spiel vorab testen, bevor wir es live spielen?",
-        "answer": "Unbedingt. Du kannst das komplette Spiel beliebig oft im Testmodus durchspielen und danach wieder zurücksetzen. Erst wenn du das Event bewusst live schaltest, startet der eigentliche Spielzeitraum. Noch besser ist es, den ganzen Ablauf einmal direkt an der Location auszuprobieren, mit echtem Beamer und WLAN, dann sitzt am großen Tag jeder Handgriff."
+        "answer": "Unbedingt. Solange dein Event in Vorbereitung ist, kannst du das komplette Spiel beliebig oft durchspielen und danach wieder zurücksetzen. Erst wenn du das Event bewusst live schaltest, startet der eigentliche Spielzeitraum. Noch besser ist es, den ganzen Ablauf einmal direkt an der Location auszuprobieren, mit echtem Beamer und WLAN, dann sitzt am großen Tag jeder Handgriff."
       },
       {
         "question": "Kann ich das auch für eine andere Feier nutzen (Verlobung, Jubiläum)?",
@@ -266,16 +264,12 @@
             "answer": "Ja. In deinem Frage-Set ordnest du die Fragen ganz einfach per Drag and Drop in die gewünschte Reihenfolge. So baust du zum Beispiel eine kleine Dramaturgie auf und hebst dir die spannendste Frage für den Schluss auf."
           },
           {
-            "question": "Kann man Fragen überspringen, wenn eine unangenehm ist?",
-            "answer": "Ja. In der Host-Steuerung siehst du dein ganzes Frage-Set und kannst jederzeit zur nächsten Frage springen oder eine Frage auslassen. Wenn eine Frage im Moment nicht passt, gehst du einfach weiter, ohne dass es jemand merkt."
-          },
-          {
             "question": "Sind die Fragen jugendfrei, können Kinder und Großeltern zuschauen?",
             "answer": "Unser Fragenkatalog ist bewusst charmant und familientauglich gehalten, sodass vom Enkel bis zur Oma alle mitfiebern können. Und weil du deine Fragen selbst zusammenstellst, hast du die volle Kontrolle über den Ton des Spiels. Du entscheidest, wie frech oder wie brav euer Set am Ende wird."
           },
           {
             "question": "In welcher Sprache läuft das Spiel?",
-            "answer": "TwoSoles gibt es aktuell auf Deutsch und Englisch. Beim Anlegen des Events wählst du die Spielsprache, in der Leinwand, Host-Steuerung und Gäste-Handys erscheinen. So können auch internationale Gäste problemlos mitspielen."
+            "answer": "TwoSoles gibt es aktuell auf Deutsch und Englisch. Beim Anlegen des Events wählst du die Spielsprache, in der Leinwand, Host-Steuerung, Gäste-Handys und die Paar-Ansicht erscheinen. So können auch internationale Gäste problemlos mitspielen."
           }
         ]
       },
@@ -300,7 +294,7 @@
           },
           {
             "question": "Wie viele Geräte können gleichzeitig verbunden sein?",
-            "answer": "Die Zahl der gleichzeitig abstimmenden Gäste richtet sich nach deinem gebuchten Paket, also zum Beispiel bis zu 10, 50, 100 oder 300 Gäste. Die Leinwand und die Host-Steuerung zählen dabei nicht mit. Wähle einfach das Paket, das zu eurer Gästezahl passt."
+            "answer": "Die Zahl der gleichzeitig abstimmenden Gäste richtet sich nach deinem gebuchten Paket, also zum Beispiel bis zu 10, 50, 100 oder 300 Gäste. Die Leinwand, die Host-Steuerung und im Handy-Modus die beiden Handys des Paares zählen dabei nicht mit, das Limit gilt nur für die Gäste. Wähle einfach das Paket, das zu eurer Gästezahl passt."
           },
           {
             "question": "Was passiert, wenn wir mehr Gäste haben als gebucht?",
@@ -648,7 +642,7 @@
       },
       {
         "title": "Eckdaten",
-        "subtitle": "Titel, Datum, Sprache"
+        "subtitle": "Anlass, Datum, Sprache"
       },
       {
         "title": "Fragen",
@@ -676,9 +670,8 @@
     },
     "details": {
       "title": "Die Eckdaten der Feier",
-      "subtitle": "Titel, Datum und Sprache. Die Gästezahl kommt später. Erst bauen, dann entscheiden.",
+      "subtitle": "Anlass, Datum, Sprache und Spielart. Die Gästezahl kommt später. Erst bauen, dann entscheiden.",
       "occasionLabel": "Anlass",
-      "occasionPlaceholder": "Hochzeit",
       "occasions": [
         {
           "value": "wedding",
@@ -717,7 +710,7 @@
       "datePlaceholder": "Datum wählen",
       "languageLabel": "Spiel-Sprache",
       "themeLabel": "Farbschema",
-      "themeHint": "Legt das Standard-Erscheinungsbild der Spiel-Bildschirme fest (Leinwand, Gäste-Handys und Host). Hell passt zu Feiern bei Tageslicht, Dunkel zu abendlichen Locations. Der Host kann es während des Spiels jederzeit umschalten.",
+      "themeHint": "Legt das Standard-Erscheinungsbild der Spiel-Bildschirme fest. Hell passt zu Feiern bei Tageslicht, Dunkel zu abendlichen Locations. Der Host kann es während des Spiels jederzeit umschalten.",
       "themeOptions": {
         "light": "Hell",
         "dark": "Dunkel"
@@ -738,11 +731,9 @@
       "random": "Zufällig",
       "catalog": "Fragenkatalog",
       "catalogTitle": "Aus dem Katalog wählen",
-      "catalogEmpty": "Alle Katalog-Fragen sind schon in deinem Set.",
       "apply": "Übernehmen",
       "remove": "Frage entfernen",
       "editLabel": "Frage bearbeiten",
-      "customBadge": "Eigene Frage",
       "empty": "Noch keine Fragen. Schreib eigene, würfle 15 aus dem Katalog oder wähle aus dem Fragenkatalog.",
       "close": "Schließen",
       "randomConfirmTitle": "Fragen neu würfeln?",
@@ -769,7 +760,7 @@
       "packageValue": "«{name}» (bis {capacity})",
       "notSet": "Nicht angegeben",
       "freeTitle": "Erstmal kostenlos erstellen",
-      "freeText": "Du kannst das Event auch erst einmal kostenlos im Paket «Kleine Runde» (max. 10 Spieler) anlegen. Du kannst später jederzeit auf dein gewünschtes Paket upgraden.",
+      "freeText": "Du kannst das Event auch erst einmal kostenlos im Paket «Kleine Runde» (max. 10 Gäste) anlegen. Du kannst später jederzeit auf dein gewünschtes Paket upgraden.",
       "freeButton": "Event kostenlos anlegen",
       "creatingFree": "Wird angelegt …",
       "createError": "Das Event konnte nicht angelegt werden. Bitte versuch es erneut.",
@@ -795,7 +786,6 @@
     "photoTooLarge": "Das Bild ist zu groß. Bitte lade ein Foto mit maximal 5 MB hoch.",
     "endedNotice": "Dieses Event ist beendet. Deine Ergebnisse bleiben gespeichert, bearbeiten lässt es sich aber nicht mehr. Wir hoffen, ihr hattet einen wundervollen Moment zusammen.",
     "dateInvalid": "Bitte wähle ein Datum zwischen heute und in 10 Jahren.",
-    "comingSoon": "Kommt bald.",
     "checkoutConfirming": "Zahlung wird bestätigt …",
     "checkoutSuccess": "Zahlung erfolgreich. Dein Paket ist freigeschaltet.",
     "checkoutPending": "Deine Zahlung ist eingegangen und wird verarbeitet. Falls das Paket nicht sofort erscheint, lade die Seite in einem Moment neu.",
@@ -862,17 +852,16 @@
       "statusDraftText": "Dein Event ist in Vorbereitung. In dieser Phase können sich maximal 10 Gäste verbinden, damit du in Ruhe testen kannst. Sobald es wirklich losgeht, schalte das Event live: Erst dann spielen so viele Gäste mit, wie dein Paket erlaubt. Ab dem Live-Schalten hast du 48 Stunden Zeit, danach ist das Event abgeschlossen und kann nicht erneut gestartet werden.",
       "statusDraftWarning": "Achtung: Das Event kann nur einmal live geschaltet werden.",
       "goLive": "Event live schalten",
-      "statusLiveText": "Dein Event läuft. Teile den Gastcode mit deinen Gästen. Sie brauchen keine App.",
+      "statusLiveText": "Dein Event läuft. Teile den Gäste-Link oder den QR-Code mit deinen Gästen. Sie brauchen keine App.",
       "statusEndedText": "Das Event ist beendet. Die Ergebnisse bleiben für dich gespeichert.",
       "statusExpiredText": "Das Datum ist verstrichen und das Event wurde nie live geschaltet. Du kannst das Event wieder aktivieren, indem du unter <link>Eckdaten</link> ein neues Datum in der Zukunft wählst.",
-      "pinTitle": "Host-Pin",
-      "pinText": "Schützt die Beamer-Steuerung. Gäste brauchen ihn nicht.",
+      "pinTitle": "Host-PIN",
+      "pinText": "Schützt die Host-Steuerung. Gäste brauchen sie nicht.",
       "pinRegenerate": "Neu generieren",
       "packageTitle": "Paket & Kapazität",
       "packageText": "Bis 10 Gäste kostenlos. Ein Upgrade jederzeit möglich. Bezahlt wird einmalig pro Event.",
       "packageCurrent": "Aktueller Tarif",
       "packageUpgrade": "Upgraden",
-      "upgradeNotice": "Upgrades sind noch nicht angebunden (Stripe folgt).",
       "deleteTitle": "Event löschen",
       "deleteText": "Dauerhaft und unwiderruflich. Alle Fragen, Ergebnisse und der QR-Code werden entfernt. Dieser Schritt kann nicht rückgängig gemacht werden. Bereits gezahlte Beträge werden nicht zurückerstattet.",
       "deleteButton": "Event löschen",
@@ -996,19 +985,16 @@
       "whoTitle": "Wer bist du?",
       "whoText": "Wählt aus, wer von euch beiden an diesem Handy mitspielt.",
       "taken": "vergeben",
-      "changeWho": "Nicht {name}? Wechseln"
+      "changeWho": "Nicht {name}? Wechseln",
+      "answered": "Deine Antwort: {name}",
+      "waitingResult": "Gleich wird aufgelöst …"
     },
     "guest": {
       "questionOf": "Frage {current} von {total}",
       "lobbyTitle": "Gleich geht's los",
       "lobbyText": "Warte kurz, das Spiel startet gleich.",
-      "tapHint": "Tippe auf deine Antwort",
       "votedFor": "Du hast für {name} gestimmt",
       "waitingResult": "Warte auf das Ergebnis …",
-      "closed": "Abstimmung geschlossen",
-      "resultEyebrow": "Das Ergebnis",
-      "correct": "Du lagst richtig!",
-      "wrong": "Knapp daneben!",
       "finishedTitle": "Danke fürs Mitspielen!",
       "finishedText": "Bis zum nächsten Mal!",
       "lookAtScreen": "Schau auf die Leinwand!",
@@ -1016,14 +1002,14 @@
       "votingEnded": "Abstimmung beendet",
       "resultSoon": "Das Ergebnis wird gleich enthüllt …",
       "fullTitle": "Das Spiel ist voll",
-      "fullText": "Dieses Spiel hat bereits die maximale Anzahl von {capacity} Spielern erreicht. Wird ein Platz frei, kannst du automatisch beitreten."
+      "fullText": "Dieses Spiel hat bereits die maximale Anzahl von {capacity} Gästen erreicht. Wird ein Platz frei, kannst du automatisch beitreten."
     },
     "host": {
       "panel": "Host-Steuerung",
       "draftBanner": "Dieses Event befindet sich noch in Vorbereitung. Bitte schalte das Event live, sobald es losgeht.",
       "questionOf": "Frage {current}/{total}",
       "guests": "{count} Gäste",
-      "capacityReached": "Maximale Spielerzahl von {capacity} erreicht. Es können keine weiteren Gäste beitreten.",
+      "capacityReached": "Maximale Gästezahl von {capacity} erreicht. Es können keine weiteren Gäste beitreten.",
       "capacityWaiting": "{count, plural, one {# Gast kommt gerade nicht rein} other {# Gäste kommen gerade nicht rein}}",
       "votesTotal": "{count} Stimmen insgesamt",
       "votesLabel": "Stimmen",
@@ -1045,10 +1031,9 @@
       "settingsTitle": "Einstellungen",
       "appearance": "Darstellung",
       "themeLabel": "Farbschema",
-      "themeHint": "Legt das Erscheinungsbild fest (hell oder dunkel) und ändert alle Ansichten gleichzeitig: die Leinwand, die Gäste-Handys und dieses Panel.",
+      "themeHint": "Legt das Erscheinungsbild fest (hell oder dunkel) und ändert alle Ansichten gleichzeitig: die Leinwand, die Gäste-Handys, die Handys des Paares und dieses Panel.",
       "light": "Hell",
       "dark": "Dunkel",
-      "backToPanel": "Zurück",
       "lobbyTitle": "Bereit?",
       "lobbyText": "Sobald du startest, sehen die Gäste auf ihren Handys die erste Frage.",
       "finishedTitle": "Spiel beendet",
@@ -1057,9 +1042,9 @@
       "editEvent": "Event bearbeiten",
       "openGuest": "Gäste-Ansicht öffnen",
       "openDisplay": "Leinwand öffnen",
-      "resetPoll": "Umfrage zurücksetzen",
+      "resetPoll": "Spiel zurücksetzen",
       "resetConfirmTitle": "Bist du dir sicher?",
-      "resetConfirmText": "Das setzt die Umfrage komplett zurück: Alle Stimmen und gespeicherten Ergebnisse gehen verloren und das Spiel startet wieder in der Lobby.",
+      "resetConfirmText": "Das setzt das Spiel komplett zurück: Alle Stimmen und gespeicherten Ergebnisse gehen verloren und das Spiel startet wieder in der Lobby.",
       "resetCancel": "Abbrechen",
       "resetConfirm": "Zurücksetzen",
       "close": "Schließen",
@@ -1087,14 +1072,7 @@
     "title": "TwoSoles",
     "metaTitle": "TwoSoles · Das digitale Hochzeits-Schuhspiel",
     "metaDescription": "Das Wedding Shoe Game live mit allen Gästen: Der ganze Saal stimmt per Handy ab, der Beamer enthüllt das Ergebnis. Ohne App, ohne Login, in fünf Minuten startklar.",
-    "intro": "Das digitale Hochzeits-Schuhspiel.",
-    "goToLogin": "Anmelden",
-    "goToRegister": "Konto erstellen"
-  },
-  "host": {
-    "title": "Host-Bereich",
-    "loggedInAs": "Eingeloggt als {name}",
-    "logout": "Abmelden"
+    "intro": "Das digitale Hochzeits-Schuhspiel."
   },
   "dashboard": {
     "navLabel": "Dashboard-Navigation",
@@ -1105,7 +1083,7 @@
     "language": "Sprache",
     "logout": "Abmelden",
     "eventsTitle": "Deine Events",
-    "eventsSubtitle": "Hier findest du alle deine Spiele, vergangene und kommende. Erstelle ein neues Event, verwalte deine Fragen und teile den Gastcode direkt aus dem Dashboard.",
+    "eventsSubtitle": "Hier findest du alle deine Spiele, vergangene und kommende. Erstelle ein neues Event, verwalte deine Fragen und teile den Gäste-Link direkt aus dem Dashboard.",
     "addEventTitle": "Neues Event anlegen",
     "addEventSubtitle": "In 5 Minuten startklar",
     "statusDraft": "Vorbereitung",
@@ -1175,8 +1153,7 @@
     "testimonialQuote": "«Der Saal ist beim ersten Reveal komplett ausgeflippt.»",
     "testimonialName": "Daniel R.",
     "testimonialRole": "Bruder des Bräutigams",
-    "legalNote": "Mit der Anmeldung stimmst du unseren <agb>AGB</agb> & dem <privacy>Datenschutz</privacy> zu.",
-    "errorGeneric": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+    "legalNote": "Mit der Anmeldung stimmst du unseren <agb>AGB</agb> & dem <privacy>Datenschutz</privacy> zu."
   },
   "notFound": {
     "eyebrow": "Fehler 404",

@@ -21,8 +21,8 @@ type CommonTooltipProps = {
 // the page — including custom dropdown menus that are themselves portaled (e.g.
 // the color picker) and would otherwise cover an in-flow tooltip. Default:
 // centered under the trigger; if a centered box would run off either viewport
-// edge, it's clamped to stay on screen. Measured on show, so no layout library
-// is needed.
+// edge, it's clamped to stay on screen, and if it wouldn't fit below the trigger
+// it flips above it. Measured on show, so no layout library is needed.
 export function CommonTooltip({label, children, icon = false, className}: CommonTooltipProps) {
   const wrapRef = useRef<HTMLSpanElement>(null)
   const tipRef = useRef<HTMLSpanElement>(null)
@@ -46,12 +46,19 @@ export function CommonTooltip({label, children, icon = false, className}: Common
     if (!wrap || !tip) return
     const rect = wrap.getBoundingClientRect()
     const tipWidth = tip.offsetWidth
+    const tipHeight = tip.offsetHeight
     const margin = 8
     const centered = rect.left + rect.width / 2 - tipWidth / 2
     // Clamp so [left, left + tipWidth] stays within the viewport margins. The CSS
     // max-width caps tipWidth to the viewport minus margins, so this is valid.
     const left = Math.min(Math.max(centered, margin), window.innerWidth - margin - tipWidth)
-    setPos({top: rect.bottom + margin, left})
+    // Below the trigger by default; flip above when the box wouldn't fit under it
+    // (near the bottom edge). If it fits neither way, keep it below and clamp to
+    // the top margin so the start of the text stays readable.
+    const below = rect.bottom + margin
+    const above = rect.top - margin - tipHeight
+    const top = below + tipHeight > window.innerHeight - margin && above >= margin ? above : below
+    setPos({top: Math.max(top, margin), left})
   }, [open, label])
 
   return (

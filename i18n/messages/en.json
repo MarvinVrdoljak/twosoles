@@ -1,7 +1,5 @@
 {
   "general": {
-    "home": "Home",
-    "loading": "Loading …",
     "notifications": "Notifications",
     "dismiss": "Dismiss"
   },
@@ -197,7 +195,7 @@
       },
       {
         "question": "Can we test the game before we play it live?",
-        "answer": "Absolutely. You can run through the whole game as often as you like in test mode and reset it afterwards. Only when you deliberately set the event live does the actual play window begin. Even better is to run through the whole thing once at the venue itself, with the real projector and Wi-Fi, so every step is dialed in on the big day."
+        "answer": "Absolutely. While your event is still in preparation you can run through the whole game as often as you like and reset it afterwards. Only when you deliberately set the event live does the actual play window begin. Even better is to run through the whole thing once at the venue itself, with the real projector and Wi-Fi, so every step is dialed in on the big day."
       },
       {
         "question": "Can I use this for another celebration too (engagement, anniversary)?",
@@ -266,16 +264,12 @@
             "answer": "Yes. In your question set you simply arrange the questions by drag and drop into the order you want. That way you can build a little dramaturgy and save the most exciting question for last."
           },
           {
-            "question": "Can questions be skipped if one feels awkward?",
-            "answer": "Yes. In the host controls you see your entire question set and can jump to the next question or skip one at any time. If a question doesn't fit the mood, you simply move on and no one will notice."
-          },
-          {
             "question": "Are the questions family-friendly, can kids and grandparents watch?",
             "answer": "Our question catalogue is deliberately charming and family-friendly, so everyone from the youngest to grandma can join in. And because you put your own set together, you have full control over the tone of the game. You decide how cheeky or how gentle your set turns out."
           },
           {
             "question": "What language does the game run in?",
-            "answer": "TwoSoles is currently available in German and English. When you create the event you choose the game language for the screen, the host controls and the guests' phones. That way international guests can join in with ease."
+            "answer": "TwoSoles is currently available in German and English. When you create the event you choose the game language for the screen, the host controls, the guests' phones and the couple's view. That way international guests can join in with ease."
           }
         ]
       },
@@ -300,7 +294,7 @@
           },
           {
             "question": "How many devices can be connected at the same time?",
-            "answer": "The number of guests voting at the same time depends on the package you booked, for example up to 10, 50, 100 or 300 guests. The screen and the host controls don't count towards that. Simply choose the package that matches your guest count."
+            "answer": "The number of guests voting at the same time depends on the package you booked, for example up to 10, 50, 100 or 300 guests. The screen, the host controls and, in phone mode, the couple's two phones don't count towards that, the limit applies to guests only. Simply choose the package that matches your guest count."
           },
           {
             "question": "What happens if we have more guests than we booked for?",
@@ -648,7 +642,7 @@
       },
       {
         "title": "Key facts",
-        "subtitle": "Title, date, language"
+        "subtitle": "Occasion, date, language"
       },
       {
         "title": "Questions",
@@ -672,13 +666,20 @@
       "removePhoto": "Remove photo",
       "colorLabel": "Colour",
       "colorHint": "This colour represents the person throughout the game: on the guests' voting buttons and in the result bar on the screen.",
-      "colorNames": ["Dusty rose", "Charcoal", "Terracotta", "Dusty blue", "Olive", "Lavender", "Teal"]
+      "colorNames": [
+        "Dusty rose",
+        "Charcoal",
+        "Terracotta",
+        "Dusty blue",
+        "Olive",
+        "Lavender",
+        "Teal"
+      ]
     },
     "details": {
       "title": "The key facts of the celebration",
-      "subtitle": "Title, date and language. The guest count comes later. Build first, decide later.",
+      "subtitle": "Occasion, date, language and game type. The guest count comes later. Build first, decide later.",
       "occasionLabel": "Occasion",
-      "occasionPlaceholder": "Wedding",
       "occasions": [
         {
           "value": "wedding",
@@ -717,7 +718,7 @@
       "datePlaceholder": "Choose a date",
       "languageLabel": "Game language",
       "themeLabel": "Colour scheme",
-      "themeHint": "Sets the default look of the game screens (projector, guest phones and host). Light suits daytime celebrations, dark suits evening venues. The host can switch it any time during the game.",
+      "themeHint": "Sets the default look of the game screens. Light suits daytime celebrations, dark suits evening venues. The host can switch it any time during the game.",
       "themeOptions": {
         "light": "Light",
         "dark": "Dark"
@@ -738,11 +739,9 @@
       "random": "Random",
       "catalog": "Question catalogue",
       "catalogTitle": "Choose from the catalogue",
-      "catalogEmpty": "All catalogue questions are already in your set.",
       "apply": "Apply",
       "remove": "Remove question",
       "editLabel": "Edit question",
-      "customBadge": "Custom question",
       "empty": "No questions yet. Write your own, roll 15 from the catalogue or pick from it.",
       "close": "Close",
       "randomConfirmTitle": "Re-roll the questions?",
@@ -766,10 +765,10 @@
       "language": "Language",
       "questions": "Questions",
       "package": "Guests / package",
-      "packageValue": "«{name}» (up to {capacity})",
+      "packageValue": "“{name}” (up to {capacity})",
       "notSet": "Not set",
       "freeTitle": "Secure it for free first",
-      "freeText": "You can also create the event for free in the «Small circle» package (max. 10 players) first. You can upgrade to your preferred package any time later.",
+      "freeText": "You can also create the event for free in the “Small circle” package (max. 10 guests) first. You can upgrade to your preferred package any time later.",
       "freeButton": "Create event for free",
       "creatingFree": "Creating …",
       "createError": "The event couldn't be created. Please try again.",
@@ -795,7 +794,6 @@
     "photoTooLarge": "This image is too large. Please upload a photo of no more than 5 MB.",
     "endedNotice": "This event has ended. Your results stay saved, but it can no longer be edited. We hope you all had a wonderful moment together.",
     "dateInvalid": "Please pick a date between today and 10 years from now.",
-    "comingSoon": "Coming soon.",
     "checkoutConfirming": "Confirming your payment …",
     "checkoutSuccess": "Payment successful. Your package is unlocked.",
     "checkoutPending": "Your payment came through and is being processed. If the package doesn't show right away, refresh the page in a moment.",
@@ -862,17 +860,16 @@
       "statusDraftText": "Your event is in preparation. In this phase up to 10 guests can join so you can test in peace. Once it's really starting, set the event live: only then can as many guests play as your package allows. From going live you have 48 hours, after which the event is closed and cannot be started again.",
       "statusDraftWarning": "Note: the event can only be set live once.",
       "goLive": "Set event live",
-      "statusLiveText": "Your event is live. Share the guest code with your guests. They don't need an app.",
+      "statusLiveText": "Your event is live. Share the guest link or the QR code with your guests. They don't need an app.",
       "statusEndedText": "The event has ended. The results stay saved for you.",
       "statusExpiredText": "The date has passed and the event was never set live. You can reactivate the event by choosing a new date in the future under <link>Key facts</link>.",
       "pinTitle": "Host PIN",
-      "pinText": "Protects the projector controls. Guests don't need it.",
+      "pinText": "Protects the host controls. Guests don't need it.",
       "pinRegenerate": "Regenerate",
       "packageTitle": "Package & capacity",
       "packageText": "Up to 10 guests free. Upgrade any time. Pay once per event.",
       "packageCurrent": "Current plan",
       "packageUpgrade": "Upgrade",
-      "upgradeNotice": "Upgrades aren't connected yet (Stripe to follow).",
       "deleteTitle": "Delete event",
       "deleteText": "Permanent and irreversible. All questions, results and the QR code are removed. This step cannot be undone. Payments already made are non-refundable.",
       "deleteButton": "Delete event",
@@ -996,19 +993,16 @@
       "whoTitle": "Who are you?",
       "whoText": "Pick which of you is playing on this phone.",
       "taken": "taken",
-      "changeWho": "Not {name}? Switch"
+      "changeWho": "Not {name}? Switch",
+      "answered": "Your answer: {name}",
+      "waitingResult": "The reveal is coming up …"
     },
     "guest": {
       "questionOf": "Question {current} of {total}",
       "lobbyTitle": "About to begin",
       "lobbyText": "Hang tight, the game is about to start.",
-      "tapHint": "Tap your answer",
       "votedFor": "You voted for {name}",
       "waitingResult": "Waiting for the result …",
-      "closed": "Voting closed",
-      "resultEyebrow": "The result",
-      "correct": "You got it right!",
-      "wrong": "So close!",
       "finishedTitle": "Thanks for playing!",
       "finishedText": "See you next time!",
       "lookAtScreen": "Look at the screen!",
@@ -1016,14 +1010,14 @@
       "votingEnded": "Voting ended",
       "resultSoon": "The result will be revealed shortly …",
       "fullTitle": "The game is full",
-      "fullText": "This game already has its maximum of {capacity} players. If someone leaves, you'll be able to join automatically."
+      "fullText": "This game already has its maximum of {capacity} guests. If someone leaves, you'll be able to join automatically."
     },
     "host": {
       "panel": "Host Panel",
       "draftBanner": "This event is still in preparation. Please set the event live once it's starting.",
       "questionOf": "Question {current}/{total}",
       "guests": "{count} guests",
-      "capacityReached": "Maximum of {capacity} players reached. No more guests can join.",
+      "capacityReached": "Maximum of {capacity} guests reached. No more guests can join.",
       "capacityWaiting": "{count, plural, one {# guest can't join right now} other {# guests can't join right now}}",
       "votesTotal": "{count} votes total",
       "votesLabel": "votes",
@@ -1045,10 +1039,9 @@
       "settingsTitle": "Settings",
       "appearance": "Appearance",
       "themeLabel": "Theme",
-      "themeHint": "Sets the appearance (light or dark) and changes every screen at once: the display, the guests' phones and this panel.",
+      "themeHint": "Sets the appearance (light or dark) and changes every screen at once: the display, the guests' phones, the couple's phones and this panel.",
       "light": "Light",
       "dark": "Dark",
-      "backToPanel": "Back",
       "lobbyTitle": "Ready?",
       "lobbyText": "Once you start, guests see the first question on their phones.",
       "finishedTitle": "Game over",
@@ -1087,14 +1080,7 @@
     "title": "TwoSoles",
     "metaTitle": "TwoSoles · The digital wedding shoe game",
     "metaDescription": "The wedding shoe game live with every guest: the whole room votes on their phone and the projector reveals the result. No app, no login. Ready in five minutes.",
-    "intro": "The digital wedding shoe game.",
-    "goToLogin": "Sign in",
-    "goToRegister": "Create account"
-  },
-  "host": {
-    "title": "Host area",
-    "loggedInAs": "Signed in as {name}",
-    "logout": "Sign out"
+    "intro": "The digital wedding shoe game."
   },
   "dashboard": {
     "navLabel": "Dashboard navigation",
@@ -1105,7 +1091,7 @@
     "language": "Language",
     "logout": "Sign out",
     "eventsTitle": "Your events",
-    "eventsSubtitle": "All your games in one place, past and upcoming. Create a new event, manage your questions and share the guest code right from the dashboard.",
+    "eventsSubtitle": "All your games in one place, past and upcoming. Create a new event, manage your questions and share the guest link right from the dashboard.",
     "addEventTitle": "Create a new event",
     "addEventSubtitle": "Ready in 5 minutes",
     "statusDraft": "Preparation",
@@ -1116,7 +1102,7 @@
     "statusLiveTip": "The event is live. As many guests as your package allows can play, for 48 hours.",
     "statusEndedTip": "The 48 hours are over. The event is closed; the results stay saved.",
     "statusExpiredTip": "The date passed without the event being set live. Pick a new date to reactivate it.",
-    "cardGuests": "Up to {capacity} · «{name}»",
+    "cardGuests": "Up to {capacity} · “{name}”",
     "cardQuestions": "{count} questions selected",
     "cardManage": "Manage event",
     "cardControl": "Open game",
@@ -1135,8 +1121,8 @@
     "viewReceipt": "View receipt",
     "noBills": "No purchases yet.",
     "billDeletedEvent": "Deleted event",
-    "billPurchaseMeta": "{date} · «{package}»",
-    "billUpgradeMeta": "{date} · Upgrade to «{package}»",
+    "billPurchaseMeta": "{date} · “{package}”",
+    "billUpgradeMeta": "{date} · Upgrade to “{package}”",
     "deleteTitle": "Delete account",
     "deleteText": "Permanent and irreversible. Deleting removes all events, results and invoices. This step cannot be undone.",
     "deleteButton": "Delete account",
@@ -1175,8 +1161,7 @@
     "testimonialQuote": "“The room completely lost it at the first reveal.”",
     "testimonialName": "Daniel R.",
     "testimonialRole": "Groom's brother",
-    "legalNote": "By signing up you agree to our <agb>Terms</agb> & <privacy>Privacy Policy</privacy>.",
-    "errorGeneric": "Something went wrong. Please try again."
+    "legalNote": "By signing up you agree to our <agb>Terms</agb> & <privacy>Privacy Policy</privacy>."
   },
   "notFound": {
     "eyebrow": "Error 404",
