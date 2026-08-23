@@ -8,6 +8,10 @@ import styles from './LayoutLegal.module.css'
 type LegalPage = 'imprint' | 'privacy' | 'terms'
 
 type LegalSection = {
+  // Stable handle for sections that are reproduced outside this page (the order
+  // confirmation email quotes the withdrawal instructions verbatim), so the
+  // numbering can change without breaking the reference.
+  id?: string
   heading: string
   body: string
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import {useEffect, useState} from 'react'
-import {useTranslations} from 'next-intl'
+import {useLocale, useTranslations} from 'next-intl'
 import {useSearchParams} from 'next/navigation'
 import {ArrowLeft} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
@@ -13,6 +13,7 @@ import {ItemEventOverview} from '@/components/items/ItemEventOverview'
 import {Link, useRouter} from '@/i18n/navigation'
 import {trackEvent} from '@/utility/analytics/track'
 import {deriveStatus} from '@/utility/events/status'
+import {goLiveAction} from '@/utility/events/actions'
 import {confirmCheckoutAction, createCheckoutSessionAction} from '@/utility/stripe/actions'
 import {createClient} from '@/utility/supabase/client'
 import {FormEventCouple} from './FormEventCouple'
@@ -55,6 +56,13 @@ type FormEventDetailProps = {
   // 0). The settings tab formats the upgrade difference from these.
   priceCents: number[]
   currency: string
+  // True when this event was paid for and the 14-day withdrawal period is still
+  // running, so going live costs the owner that right and needs their explicit
+  // declaration (§ 356 Abs. 4/5 BGB). False for free events and for the common
+  // case of booking well before the wedding.
+  needsWithdrawalConsent: boolean
+  // Localised end of that period, shown in the declaration. Null when none applies.
+  withdrawalDeadlineText: string | null
 }
 
 type Tab = 'overview' | 'couple' | 'details' | 'questions' | 'guide' | 'settings'
@@ -98,9 +106,12 @@ export function FormEventDetail({
   userId,
   priceCents,
   currency,
+  needsWithdrawalConsent,
+  withdrawalDeadlineText,
 }: FormEventDetailProps) {
   const t = useTranslations('eventDetail')
   const tDash = useTranslations('dashboard')
+  const locale = useLocale()
   const router = useRouter()
   const searchParams = useSearchParams()
   const {toast} = useToast()
@@ -116,6 +127,9 @@ export function FormEventDetail({
   const [goLiveConfirmOpen, setGoLiveConfirmOpen] = useState(false)
   const [deviceChoiceOpen, setDeviceChoiceOpen] = useState(false)
   const [upgrading, setUpgrading] = useState(false)
+  // § 356 Abs. 4/5 BGB declaration, asked in the go-live dialog and only while
+  // the purchase can still be withdrawn. Never pre-checked.
+  const [consent, setConsent] = useState(false)
   const [resetGameOpen, setResetGameOpen] = useState(false)
   const [resettingGame, setResettingGame] = useState(false)
   const [introOpen, setIntroOpen] = useState(false)
@@ -248,7 +262,11 @@ export function FormEventDetail({
 
   const upgrade = async (targetIndex: number) => {
     setUpgrading(true)
-    const result = await createCheckoutSessionAction(event.id, PACKAGE_KEYS[targetIndex], 'settings')
+    const result = await createCheckoutSessionAction(
+      event.id,
+      PACKAGE_KEYS[targetIndex],
+      'settings',
+    )
     if ('url' in result) {
       window.location.href = result.url
     } else {
@@ -314,22 +332,22 @@ export function FormEventDetail({
   }
 
   const goLive = async () => {
+    // Going live is what actually consumes the service, so this is the moment
+    // the § 356 Abs. 4/5 BGB declaration has to exist — and only while the
+    // purchase could still be withdrawn. The disabled button is just a hint;
+    // the server re-derives the requirement and refuses without the declaration.
+    if (needsWithdrawalConsent && !consent) return
     setGoingLive(true)
     try {
-      const supabase = createClient()
-      const startedIso = new Date().toISOString()
-      const {data, error} = await supabase
-        .from('events')
-        .update({started_at: startedIso})
-        .eq('id', event.id)
-        .is('started_at', null)
-        .select('id')
-      if (error) throw error
-      // The `is('started_at', null)` guard means a row comes back only when this
-      // call actually flipped the event live (not a re-click on an already-live
-      // event) — so this fires the analytics event exactly once per go-live.
-      if (data && data.length > 0) trackEvent('game_hosted')
-      setStartedAt(startedIso)
+      const result = await goLiveAction(event.id, locale, consent)
+      if (!result.ok) {
+        notify(result.error === 'consent' ? t('goLiveConfirm.consentRequired') : t('saveError'))
+        return
+      }
+      // `flipped` is false when the event was already live (double click, stale
+      // tab), so the go-live is tracked exactly once.
+      if (result.flipped) trackEvent('game_hosted')
+      setStartedAt(result.startedAt)
       setGoLiveConfirmOpen(false)
       router.refresh()
     } catch {
@@ -341,6 +359,7 @@ export function FormEventDetail({
 
   // Both go-live buttons open a confirmation first (one-time, 48h window).
   const requestGoLive = () => {
+    setConsent(false)
     setGoLiveConfirmOpen(true)
   }
 
@@ -536,7 +555,12 @@ export function FormEventDetail({
             >
               {t('goLiveConfirm.cancel')}
             </CommonButton>
-            <CommonButton variant="primary" size="md" onClick={goLive} disabled={goingLive}>
+            <CommonButton
+              variant="primary"
+              size="md"
+              onClick={goLive}
+              disabled={goingLive || (needsWithdrawalConsent && !consent)}
+            >
               {goingLive ? t('saving') : t('goLiveConfirm.confirm')}
             </CommonButton>
           </>
@@ -549,6 +573,23 @@ export function FormEventDetail({
               <li key={point}>{point}</li>
             ))}
           </ul>
+
+          {/* Only shown while the paid booking could still be withdrawn. Book
+              well ahead of the wedding and this never appears, because the
+              period is long over before anything is played. */}
+          {needsWithdrawalConsent ? (
+            <label className={styles.consent}>
+              <input
+                type="checkbox"
+                className={styles.consentInput}
+                checked={consent}
+                onChange={(event) => setConsent(event.target.checked)}
+              />
+              <span className={styles.consentText}>
+                {t('goLiveConfirm.consentLabel', {date: withdrawalDeadlineText ?? ''})}
+              </span>
+            </label>
+          ) : null}
         </div>
       </CommonModal>
 

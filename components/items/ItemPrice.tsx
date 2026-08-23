@@ -9,6 +9,9 @@ type ItemPriceProps = {
   capacityPrefix: string
   capacity: string
   ctaLabel: string
+  // PAngV: a consumer price has to carry its VAT statement right next to it.
+  // Omitted for the free tier, where there is nothing to state.
+  vatNote?: string
 }
 
 // A single pricing tier card. Rendered inside the BlockPricing list.
@@ -20,6 +23,7 @@ export function ItemPrice({
   capacityPrefix,
   capacity,
   ctaLabel,
+  vatNote,
 }: ItemPriceProps) {
   return (
     <li className={styles.root}>
@@ -33,6 +37,8 @@ export function ItemPrice({
           <span className={styles.amount}>{price}</span>
           {period ? <span className={styles.period}>{period}</span> : null}
         </p>
+
+        {vatNote ? <p className={styles.vat}>{vatNote}</p> : null}
 
         <p className={styles.capacity}>
           {capacityPrefix} <strong className={styles.capacityCount}>{capacity}</strong>

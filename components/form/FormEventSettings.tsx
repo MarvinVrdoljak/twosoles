@@ -3,6 +3,7 @@
 import {useLocale, useTranslations} from 'next-intl'
 import {RotateCcw, RotateCw, Trash2} from 'lucide-react'
 import {CommonButton} from '@/components/common/CommonButton'
+import {Link} from '@/i18n/navigation'
 import type {EventStatus} from '@/utility/events/status'
 import {formatPrice} from '@/utility/stripe/format'
 import styles from './FormEventDetail.module.css'
@@ -47,12 +48,16 @@ export function FormEventSettings({
   currency,
 }: FormEventSettingsProps) {
   const t = useTranslations('eventDetail')
+  const tPricing = useTranslations('pricing')
+  const tCheckout = useTranslations('checkout')
   const locale = useLocale()
-  const tiers = useTranslations('pricing').raw('tiers') as Tier[]
+  const tiers = tPricing.raw('tiers') as Tier[]
 
   // A finished/expired event can't be upgraded (the server blocks it too), so
   // hide the upgrade buttons rather than let them 404 into a checkout error.
   const canUpgrade = status !== 'ended' && status !== 'expired'
+  // Nothing to order once the top tier is reached: skip the whole consent block.
+  const hasUpgrade = canUpgrade && packageIndex < tiers.length - 1
 
   return (
     <div className={styles.settings}>
@@ -138,15 +143,40 @@ export function FormEventSettings({
                     variant="primary"
                     size="sm"
                     onClick={() => onUpgrade(index)}
+                    // § 312j Abs. 3 BGB: the label has to name the payment obligation.
                     disabled={upgrading}
                   >
-                    {t('settings.packageUpgrade')}
+                    {tCheckout('upgradeSubmit')}
                   </CommonButton>
                 ) : null}
               </li>
             )
           })}
         </ul>
+
+        {hasUpgrade ? (
+          <>
+            {/* PAngV + § 312j Abs. 2: price statement and the essentials of the
+                order, right where the order is placed. One paragraph, so the
+                small print reads as small print instead of three stacked notes. */}
+            <p className={styles.pkgLegal}>
+              {tCheckout('vatNote')}. {tCheckout('upgradeNote')} {tCheckout('period')}:{' '}
+              {tCheckout('periodValue')}.{' '}
+              {tCheckout.rich('legalHint', {
+                terms: (chunks) => (
+                  <Link href="/terms" className={styles.legalLink} target="_blank">
+                    {chunks}
+                  </Link>
+                ),
+                privacy: (chunks) => (
+                  <Link href="/privacy" className={styles.legalLink} target="_blank">
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </p>
+          </>
+        ) : null}
       </section>
 
       {/* Reset game */}

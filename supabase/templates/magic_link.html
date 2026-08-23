@@ -8,7 +8,9 @@
     <meta name="supported-color-schemes" content="light" />
     <title>TwoSoles</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,700&family=Nunito:wght@400;600&display=swap");
+      /* No webfont import on purpose: an @import to a font CDN would send the
+         recipient's IP address to a third party without consent. Every
+         font-family below falls back to a system serif / sans-serif. */
       body {
         margin: 0;
         padding: 0;
@@ -20,7 +22,7 @@
   </head>
   <body style="margin: 0; padding: 0; background-color: #faf7f2;">
     <span style="display: none; max-height: 0; overflow: hidden; opacity: 0; color: #faf7f2; font-size: 1px; line-height: 1px;">
-      {{ if $en }}Your sign-in link for TwoSoles — valid for 60 minutes.{{ else }}Dein Anmelde-Link für TwoSoles — gültig für 60 Minuten.{{ end }}
+      {{ if $en }}Your sign-in link for TwoSoles, valid for 60 minutes.{{ else }}Dein Anmelde-Link für TwoSoles, gültig für 60 Minuten.{{ end }}
     </span>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #faf7f2;">
       <tr>

@@ -401,7 +401,8 @@ Alle von der App gelesenen Variablen. Spalte „Scope" zeigt, wo sie gesetzt sei
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase Projekt-URL | `utility/supabase/config.ts` | Prod-Projekt | Staging-Projekt |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Öffentlicher Supabase Key (Browser plus SSR) | `utility/supabase/config.ts` | Prod anon | Staging anon |
 | `SUPABASE_SECRET_KEY` | Service-Key (umgeht RLS) für Webhook plus Konto-Löschung | `utility/supabase/service.ts` | Prod `sb_secret_...` | Staging `sb_secret_...` |
-| `RESEND_API_KEY` | Kontaktformular-Versand | `utility/contact/actions.ts` | `re_...` | `re_...` |
+| `RESEND_API_KEY` | Kontaktformular-Versand plus Bestellbestätigung (§ 312f BGB) | `utility/contact/actions.ts`, `utility/email/orderConfirmation.ts` | `re_...` | `re_...` |
+| `ORDER_FROM_EMAIL` | optional, Absender Bestellbestätigung, sonst `CONTACT_FROM_EMAIL` | `utility/email/orderConfirmation.ts` | Default `Two Soles <hello@twosoles.live>` | Default |
 | `CONTACT_TO_EMAIL` | optional, Empfänger Kontaktformular | `utility/contact/actions.ts` | Default `hello@twosoles.live` | Default |
 | `CONTACT_FROM_EMAIL` | optional, Absender Kontaktformular | `utility/contact/actions.ts` | Default `Two Soles <hello@twosoles.live>` | Default |
 | `STRIPE_SECRET_KEY` | Stripe Server-Key | `utility/stripe/server.ts` | `sk_live_...` | `sk_test_...` |

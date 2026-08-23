@@ -52,6 +52,7 @@ async function uploadPhoto(
 // free package; the paid path still awaits Stripe.
 export function FormEventWizard({userId, prices}: FormEventWizardProps) {
   const t = useTranslations('eventWizard')
+  const tCheckout = useTranslations('checkout')
   const locale = useLocale()
   const router = useRouter()
   const {toast} = useToast()
@@ -255,7 +256,9 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
             ? creating
               ? t('summary.creatingFree')
               : t('summary.freeButton')
-            : t('summary.submit')
+            : // § 312j Abs. 3 BGB: the order button has to say, unambiguously,
+              // that clicking it costs money.
+              tCheckout('submit')
           : t('next')
       }
       nextDisabled={!stepValid || creating}
@@ -270,6 +273,7 @@ export function FormEventWizard({userId, prices}: FormEventWizardProps) {
           creating={creating}
           showFreeCard={!isFree}
           onFree={createFreeAndGo}
+          price={prices[draft.packageIndex]}
         />
       ) : null}
     </LayoutEventCreation>

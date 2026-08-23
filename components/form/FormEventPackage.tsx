@@ -21,7 +21,8 @@ type Tier = {
 
 export function FormEventPackage({draft, update, prices}: Props) {
   const t = useTranslations('eventWizard')
-  const tiers = useTranslations('pricing').raw('tiers') as Tier[]
+  const tPricing = useTranslations('pricing')
+  const tiers = tPricing.raw('tiers') as Tier[]
 
   return (
     <div className={styles.stepCard}>
@@ -58,6 +59,10 @@ export function FormEventPackage({draft, update, prices}: Props) {
           )
         })}
       </ul>
+
+      {/* PAngV: the VAT statement has to sit with the prices, not only in the
+          T&Cs. One sentence for the whole list, since it applies to every tier. */}
+      <p className={styles.pkgVat}>{t('package.vatNote')}</p>
     </div>
   )
 }

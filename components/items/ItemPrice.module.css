@@ -46,6 +46,13 @@
   color: var(--color-text-muted);
 }
 
+/* PAngV note under the amount: present but deliberately quiet. */
+.vat {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
 .capacity {
   color: var(--color-text-muted);
 }

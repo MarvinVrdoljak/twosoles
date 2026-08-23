@@ -3,6 +3,7 @@ import type Stripe from 'stripe'
 import {createServiceClient} from '@/utility/supabase/service'
 import {trackEventServer} from '@/utility/analytics/track.server'
 import type {PackageKey} from '@/utility/analytics/events'
+import {sendOrderConfirmation} from '@/utility/email/orderConfirmation'
 import {packageRank} from './packages'
 
 // Outcome of a fulfilment attempt. The webhook uses this to decide its HTTP
@@ -83,11 +84,30 @@ export async function fulfillCheckoutSession(
     console.error('[stripe/fulfill] payment log insert failed', {eventId, error: insertError})
   }
 
-  // Track the paid conversion exactly once. A `null` insertError means this call
-  // just logged a brand-new payment; a `23505` means the other fulfilment path
-  // (webhook vs. success page) already logged — and already tracked — it.
+  // Everything below runs exactly once per payment. A `null` insertError means
+  // this call just logged a brand-new payment; a `23505` means the other
+  // fulfilment path (webhook vs. success page) already got there first.
   if (!insertError) {
     await trackEventServer('checkout_paid', {package: target as PackageKey})
+
+    // § 312f BGB order confirmation on a durable medium. Best-effort: a mail
+    // failure is logged but never fails a paid, already-unlocked order.
+    const to = session.customer_details?.email ?? session.customer_email
+    if (to) {
+      await sendOrderConfirmation({
+        to,
+        locale: meta.locale === 'en' ? 'en' : 'de',
+        eventTitle: meta.event_title ?? '',
+        packageKey: target,
+        amountTotal: session.amount_total,
+        currency: session.currency,
+        orderedAt: new Date(),
+      })
+    } else {
+      console.error('[stripe/fulfill] no buyer email on session, confirmation not sent', {
+        sessionId: session.id,
+      })
+    }
   }
 
   return 'ok'

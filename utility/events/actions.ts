@@ -3,6 +3,84 @@
 import {revalidatePath} from 'next/cache'
 import {createClient} from '@/utility/supabase/server'
 import {getUser} from '@/utility/supabase/user'
+import {consentVersion, requiresWithdrawalConsent} from './withdrawal'
+
+// `flipped` tells the caller whether THIS call actually started the event, so
+// the analytics event fires once even if the button is double-clicked.
+export type GoLiveResult =
+  | {ok: true; startedAt: string; flipped: boolean}
+  | {ok: false; error: 'auth' | 'notfound' | 'already' | 'consent' | 'failed'}
+
+// Set an event live, server-side.
+//
+// This used to be a plain client-side update, which meant the § 356 Abs. 4/5 BGB
+// declaration was only ever gated by a disabled button — RLS happily lets an
+// owner update their own row, so the declaration could be skipped entirely while
+// the terms promise it cannot. The requirement is therefore re-derived here from
+// the database (never trusted from the client) and the update is refused without
+// it.
+export async function goLiveAction(
+  eventId: string,
+  locale: string,
+  // Whether the user actually ticked the declaration. Only ever a claim from the
+  // client; whether it was REQUIRED is decided here, from the database.
+  consentGiven: boolean,
+): Promise<GoLiveResult> {
+  const user = await getUser()
+  if (!user) return {ok: false, error: 'auth'}
+
+  // RLS scopes this to the owner, so a foreign event id just comes back empty.
+  const supabase = await createClient()
+  const {data: event, error: readError} = await supabase
+    .from('events')
+    .select('id, started_at, withdrawal_consent_at')
+    .eq('id', eventId)
+    .maybeSingle()
+  if (readError) return {ok: false, error: 'failed'}
+  if (!event) return {ok: false, error: 'notfound'}
+  if (event.started_at) return {ok: false, error: 'already'}
+
+  // Free events have no payment row, so `orderedAt` stays null and no
+  // declaration is ever due for them.
+  const {data: lastPayment} = await supabase
+    .from('event_payments')
+    .select('created_at')
+    .eq('event_id', eventId)
+    .order('created_at', {ascending: false})
+    .limit(1)
+    .maybeSingle()
+
+  const needsConsent = requiresWithdrawalConsent({
+    startedAt: event.started_at as string | null,
+    consentAt: event.withdrawal_consent_at as string | null,
+    orderedAt: (lastPayment?.created_at as string | null) ?? null,
+  })
+  if (needsConsent && !consentGiven) return {ok: false, error: 'consent'}
+
+  const startedAt = new Date().toISOString()
+  const {data, error} = await supabase
+    .from('events')
+    .update({
+      started_at: startedAt,
+      // Stamped with the go-live itself, so the declaration can never drift
+      // apart from the moment it covers.
+      ...(needsConsent
+        ? {withdrawal_consent_at: startedAt, withdrawal_consent_version: consentVersion(locale)}
+        : {}),
+    })
+    .eq('id', eventId)
+    // Idempotent: a second call updates no rows, so `flipped` stays false and
+    // the go-live is never tracked twice.
+    .is('started_at', null)
+    .select('id')
+  if (error) {
+    console.error('[events/goLive] update failed', {eventId, error})
+    return {ok: false, error: 'failed'}
+  }
+
+  revalidatePath('/[locale]/dashboard/events/[id]', 'page')
+  return {ok: true, startedAt, flipped: (data?.length ?? 0) > 0}
+}
 
 const DAY = 24 * 60 * 60 * 1000
 const HOUR = 60 * 60 * 1000

@@ -689,9 +689,72 @@
   cursor: not-allowed;
 }
 
+/* ---------- Order box + withdrawal consent (§ 312j / § 356 BGB) ---------- */
+
+/* PAngV note under the package prices. Same scale as the small print on the
+   summary step, so both wizard steps whisper the legal notes at the same volume. */
+.pkgVat {
+  margin: var(--spacing-12) 0 0;
+  font-size: var(--font-size-xs);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+/* The single overview card on the summary step. Highlighted only when the order
+   is a paid one, because then it carries the § 312j Abs. 2 BGB details. */
+.orderCard {
+  border-color: color-mix(in srgb, var(--color-primary) 35%, var(--color-border));
+}
+
+.orderTotalRow {
+  margin-top: var(--spacing-12);
+  padding-top: var(--spacing-12);
+  border-top: 1px solid var(--color-border);
+}
+
+.orderTotal {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+}
+
+/* Sits inside the total cell, so it hangs off the amount rather than the card. */
+.orderVat {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-body);
+  line-height: 1.3;
+  color: var(--color-text-muted);
+}
+
+/* Same scale as the VAT note above it, so the card has one size of small print. */
+.legalHint {
+  margin: calc(-1 * var(--spacing-8)) 0 0;
+  font-size: var(--font-size-xs);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.legalLink {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
 @media (--bp-medium-down) {
   .stepCard {
     padding: var(--spacing-20);
+  }
+
+  /* Long values (service description, play window) need the full width. */
+  .sumRow {
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  .sumValue {
+    text-align: left;
   }
 
   .couple {

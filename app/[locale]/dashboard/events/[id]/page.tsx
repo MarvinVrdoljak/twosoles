@@ -4,6 +4,7 @@ import {FormEventDetail} from '@/components/form/FormEventDetail'
 import {LayoutDashboard} from '@/components/layout/LayoutDashboard'
 import {getPathname} from '@/i18n/navigation'
 import type {Locale} from '@/i18n/routing'
+import {requiresWithdrawalConsent, withdrawalDeadline} from '@/utility/events/withdrawal'
 import {getPaidPackagePrices} from '@/utility/stripe/prices'
 import {PACKAGE_ORDER, isPaidPackage} from '@/utility/stripe/packages'
 import {createClient} from '@/utility/supabase/server'
@@ -33,6 +34,27 @@ export default async function EventDetailPage({params}: EventDetailPageProps) {
     notFound()
   }
 
+  // Going live is what consumes the service, so the § 356 Abs. 4/5 BGB
+  // declaration is only needed when the event goes live while the 14 days after
+  // the purchase are still running. Booking well ahead of the wedding means the
+  // period is over before anything is played, and nobody gets asked.
+  const {data: lastPayment} = await supabase
+    .from('event_payments')
+    .select('created_at')
+    .eq('event_id', id)
+    .order('created_at', {ascending: false})
+    .limit(1)
+    .maybeSingle()
+
+  const orderedAt = (lastPayment?.created_at as string | null) ?? null
+  // Same rule the go-live action enforces, so the checkbox appears exactly when
+  // the server is going to insist on it.
+  const needsWithdrawalConsent = requiresWithdrawalConsent({
+    startedAt: event.started_at,
+    consentAt: event.withdrawal_consent_at,
+    orderedAt,
+  })
+
   // Private photos need short-lived signed URLs for the preview.
   const sign = async (path: string | null) => {
     if (!path) return null
@@ -58,6 +80,10 @@ export default async function EventDetailPage({params}: EventDetailPageProps) {
     ? dateFormat.format(new Date(`${event.event_date}T00:00:00`))
     : '—'
   const guests = t('cardGuests', {capacity: tier?.capacity ?? '', name: tier?.name ?? ''})
+  const withdrawalDeadlineText =
+    needsWithdrawalConsent && orderedAt
+      ? dateFormat.format(withdrawalDeadline(new Date(orderedAt)))
+      : null
 
   // Raw amounts (index-aligned with the tier list, free = 0) so the settings tab
   // can show the UPGRADE difference to the current package, not the full price.
@@ -77,6 +103,8 @@ export default async function EventDetailPage({params}: EventDetailPageProps) {
         userId={user.id}
         priceCents={priceCents}
         currency={currency}
+        needsWithdrawalConsent={needsWithdrawalConsent}
+        withdrawalDeadlineText={withdrawalDeadlineText}
       />
     </LayoutDashboard>
   )

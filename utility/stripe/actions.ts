@@ -1,6 +1,7 @@
 'use server'
 
 import {headers} from 'next/headers'
+import {getLocale} from 'next-intl/server'
 import {createClient} from '@/utility/supabase/server'
 import {getUser} from '@/utility/supabase/user'
 import {deriveStatus} from '@/utility/events/status'
@@ -12,6 +13,16 @@ import {isPaidPackage, packageRank, productIdFor, type PaidPackage} from './pack
 type CheckoutResult = {url: string} | {error: 'auth' | 'notfound' | 'invalid' | 'stripe'}
 
 type ConfirmResult = {ok: true; package: PaidPackage} | {ok: false}
+
+// Language for the order confirmation email. Resolved here, where the request
+// still knows it; the webhook that sends the mail no longer does.
+async function orderLocale(): Promise<'de' | 'en'> {
+  try {
+    return (await getLocale()) === 'en' ? 'en' : 'de'
+  } catch {
+    return 'de'
+  }
+}
 
 // Absolute origin for Stripe's redirect URLs. Prefer the incoming request host
 // (works across localhost:3001, previews and prod); fall back to an env override.
@@ -48,7 +59,9 @@ export async function createCheckoutSessionAction(
   const supabase = await createClient()
   const {data: event} = await supabase
     .from('events')
-    .select('id, package, started_at, event_date')
+    // Events have no title column (dropped in 20260713101500); they are
+    // identified by the couple, which is also what the order confirmation shows.
+    .select('id, person1_name, person2_name, package, started_at, event_date')
     .eq('id', eventId)
     .maybeSingle()
   if (!event) return {error: 'notfound'}
@@ -95,14 +108,24 @@ export async function createCheckoutSessionAction(
         user_id: user.id,
         target_package: target,
         previous_package: current,
+        // Everything the order confirmation (§ 312f BGB) needs, carried through
+        // Stripe so the webhook can send it without a second lookup.
+        event_title: `${event.person1_name ?? ''} & ${event.person2_name ?? ''}`.trim().slice(0, 200),
+        locale: await orderLocale(),
       },
       success_url: `${base}/dashboard/events/${eventId}?checkout=success&session_id={CHECKOUT_SESSION_ID}&tab=${returnTab}`,
       cancel_url: `${base}/dashboard/events/${eventId}?checkout=canceled&tab=${returnTab}`,
     })
 
-    if (!session.url) return {error: 'stripe'}
+    if (!session.url) {
+      console.error('[stripe/checkout] session created without a url', {eventId, target})
+      return {error: 'stripe'}
+    }
     return {url: session.url}
-  } catch {
+  } catch (err) {
+    // Swallowing this silently turned every misconfiguration into the same
+    // useless "please try again" toast; the reason belongs in the server log.
+    console.error('[stripe/checkout] failed to create session', {eventId, target, err})
     return {error: 'stripe'}
   }
 }

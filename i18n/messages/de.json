@@ -118,6 +118,7 @@
     "perEvent": "/ Event",
     "cta": "Kostenlos starten",
     "freePrice": "Gratis",
+    "vatNote": "inkl. MwSt.",
     "tiers": [
       {
         "name": "Kleine Runde",
@@ -340,7 +341,7 @@
           },
           {
             "question": "Gibt es eine Rückerstattung, wenn wir es doch nicht spielen?",
-            "answer": "Solange du das Event noch nicht live geschaltet und damit noch nicht genutzt hast, melde dich einfach bei uns, dann finden wir eine faire Lösung. Sobald das Event live geschaltet ist, gilt es als sofort bereitgestellte digitale Leistung, für die eine Erstattung nicht mehr möglich ist. Wenn du unsicher bist, nutze am besten zuerst das kostenlose Paket zum Ausprobieren."
+            "answer": "Ja. Als Verbraucherin oder Verbraucher hast du bei kostenpflichtigen Buchungen ein gesetzliches Widerrufsrecht von 14 Tagen, die Einzelheiten stehen in unserer Widerrufsbelehrung in den AGB. Darüber hinaus gilt unsere freiwillige Zusage: Solange du das Event noch nicht live geschaltet hast, erstatten wir dir den Betrag auf Anfrage vollständig, auch nach Ablauf der Widerrufsfrist. Schreib uns dafür einfach an hello@twosoles.live. Wenn du unsicher bist, nutze am besten zuerst das kostenlose Paket zum Ausprobieren."
           },
           {
             "question": "Wie sicher ist die Zahlung?",
@@ -461,174 +462,279 @@
   },
   "legal": {
     "updatedLabel": "Stand",
-    "updated": "Juli 2026",
+    "updated": "August 2026",
     "imprint": {
       "title": "Impressum",
       "metaTitle": "Impressum",
-      "metaDescription": "Anbieter und Kontaktangaben zu TwoSoles.",
+      "metaDescription": "Anbieter und Kontaktangaben zu TwoSoles nach § 5 DDG.",
       "sections": [
         {
-          "heading": "Anbieter",
-          "body": "Diese Website und das Angebot TwoSoles werden betrieben von:\nMarvin Vrdoljak\nGrimselstrasse 30\n8048 Zürich\nSchweiz"
+          "heading": "Angaben gemäß § 5 DDG",
+          "body": "Diese Website und das Angebot TwoSoles werden betrieben von:\nMarvin Vrdoljak\nDiemshoff 38\n48282 Emsdetten\nDeutschland"
         },
         {
           "heading": "Kontakt",
-          "body": "E-Mail: hello@twosoles.live"
+          "body": "E-Mail: hello@twosoles.live\nKontaktformular: twosoles.live/contact\n\nÜber diese Wege erreichst du uns unmittelbar und elektronisch. Anfragen beantworten wir in der Regel innerhalb von 24 Stunden."
         },
         {
           "heading": "Rechtsform und Register",
-          "body": "TwoSoles wird als Einzelunternehmen von Marvin Vrdoljak geführt. Das Unternehmen ist nicht im Handelsregister eingetragen und nicht mehrwertsteuerpflichtig. Daher werden keine Unternehmens-Identifikationsnummer (UID) und keine Mehrwertsteuernummer ausgewiesen."
+          "body": "TwoSoles wird als Einzelunternehmen von Marvin Vrdoljak geführt. Eine Eintragung im Handelsregister besteht nicht. Eine Aufsichtsbehörde oder eine berufsrechtliche Zulassung ist für die angebotene Leistung nicht erforderlich."
+        },
+        {
+          "heading": "Umsatzsteuer",
+          "body": "Eine Umsatzsteuer-Identifikationsnummer nach § 27a Umsatzsteuergesetz ist nicht vorhanden."
+        },
+        {
+          "heading": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
+          "body": "Marvin Vrdoljak\nDiemshoff 38\n48282 Emsdetten\nDeutschland"
         },
         {
           "heading": "Zahlungsabwicklung",
-          "body": "Kostenpflichtige Buchungen werden über den Zahlungsdienstleister Stripe abgewickelt. Stripe tritt dabei als Merchant of Record auf, wickelt die Zahlung also als verantwortlicher Vertragspartner ab und übernimmt die Berechnung und Abführung allfälliger Steuern. Einzelheiten findest du in unserer Datenschutzerklärung und in den AGB."
+          "body": "Kostenpflichtige Buchungen werden über den Zahlungsdienstleister Stripe abgewickelt. Stripe tritt dabei als Merchant of Record auf, wickelt den Zahlungsvorgang also als verantwortlicher Vertragspartner für die Zahlung ab, stellt den Zahlungsbeleg aus und übernimmt die Berechnung und Abführung der Umsatzsteuer. Vertragspartner für die Bereitstellung des Dienstes selbst bleibt der oben genannte Anbieter. Einzelheiten stehen in unseren AGB und in der Datenschutzerklärung."
+        },
+        {
+          "heading": "Verbraucherstreitbeilegung",
+          "body": "Die Europäische Kommission hat ihre Plattform zur Online-Streitbeilegung zum 20. Juli 2025 eingestellt, ein Verweis darauf entfällt daher.\n\nWir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. Bei Problemen wende dich bitte direkt an uns, in aller Regel finden wir eine unkomplizierte Lösung."
         },
         {
           "heading": "Haftung für Inhalte",
-          "body": "Die Inhalte dieser Website werden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen. Die Nutzung der Inhalte erfolgt auf eigene Verantwortung."
+          "body": "Als Diensteanbieter sind wir nach § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach den §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben davon unberührt. Eine Haftung ist insoweit erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen entfernen wir diese Inhalte umgehend."
         },
         {
           "heading": "Haftung für Links",
-          "body": "Unser Angebot enthält gegebenenfalls Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich."
+          "body": "Unser Angebot enthält gegebenenfalls Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft, rechtswidrige Inhalte waren nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen entfernen wir solche Links umgehend."
         },
         {
           "heading": "Urheberrecht",
-          "body": "Die auf dieser Website veröffentlichten Inhalte und Werke unterliegen dem schweizerischen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung des Anbieters."
+          "body": "Die durch den Anbieter erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung des Anbieters. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Anbieter erstellt wurden, werden die Urheberrechte Dritter beachtet. Solltest du dennoch auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen Hinweis. Bei Bekanntwerden entfernen wir solche Inhalte umgehend."
         }
       ]
     },
     "privacy": {
       "title": "Datenschutzerklärung",
       "metaTitle": "Datenschutzerklärung",
-      "metaDescription": "Wie TwoSoles personenbezogene Daten verarbeitet: transparent erklärt, welche Daten wir erheben, wozu und mit welchen Diensten.",
-      "intro": "Der Schutz deiner personenbezogenen Daten ist uns wichtig. Nachfolgend erklären wir, welche Daten wir bei der Nutzung von TwoSoles verarbeiten, zu welchen Zwecken und auf welcher Grundlage. Grundlage ist das schweizerische Datenschutzgesetz (revDSG). Für Nutzerinnen und Nutzer in der EU und im EWR gilt zusätzlich die Datenschutz-Grundverordnung (DSGVO), die dir die weiter unten genannten Rechte gewährt.",
+      "metaDescription": "Wie TwoSoles personenbezogene Daten verarbeitet: transparent erklärt nach DSGVO, welche Daten wir erheben, wozu, auf welcher Rechtsgrundlage und mit welchen Diensten.",
+      "intro": "Der Schutz deiner personenbezogenen Daten ist uns wichtig. Nachfolgend erklären wir, welche Daten wir bei der Nutzung von TwoSoles verarbeiten, zu welchen Zwecken und auf welcher Rechtsgrundlage. Maßgeblich sind die Datenschutz-Grundverordnung (DSGVO), das Bundesdatenschutzgesetz (BDSG) und das Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG).",
       "sections": [
         {
           "heading": "Verantwortlicher",
-          "body": "Verantwortlich für die Datenverarbeitung ist:\nMarvin Vrdoljak\nGrimselstrasse 30\n8048 Zürich\nSchweiz\nE-Mail: hello@twosoles.live"
+          "body": "Verantwortlicher im Sinne von Art. 4 Nr. 7 DSGVO ist:\nMarvin Vrdoljak\nDiemshoff 38\n48282 Emsdetten\nDeutschland\nE-Mail: hello@twosoles.live"
+        },
+        {
+          "heading": "Datenschutzbeauftragter",
+          "body": "Wir sind nicht verpflichtet, eine Datenschutzbeauftragte oder einen Datenschutzbeauftragten zu benennen, da die Voraussetzungen nach Art. 37 DSGVO und § 38 BDSG nicht vorliegen. Für alle Fragen zum Datenschutz erreichst du uns direkt unter hello@twosoles.live."
         },
         {
           "heading": "Welche Daten wir verarbeiten",
-          "body": "Kontodaten: die E-Mail-Adresse und der Name, die du bei der Registrierung angibst.\nEvent- und Spieldaten: die von dir angelegten Fragen, hochgeladene Fotos des Paares sowie die anonym abgegebenen Stimmen deiner Gäste. Es wird nicht gespeichert, welcher Gast wie abgestimmt hat.\nKontaktdaten: die Angaben, die du in unserem Kontaktformular machst (Name, E-Mail-Adresse, optional Hochzeitsdatum und Gästezahl sowie deine Nachricht).\nZahlungsdaten: bei einer kostenpflichtigen Buchung die zur Zahlung erforderlichen Daten, die direkt über unseren Zahlungsdienstleister verarbeitet werden. Wir erhalten keine vollständigen Zahlungsdaten.\nTechnische Daten: Server-Logdaten wie IP-Adresse, Datum und Uhrzeit des Zugriffs sowie Angaben zum verwendeten Browser, die aus technischen Gründen anfallen.\nNutzungsdaten: aggregierte, anonyme Statistiken zur Nutzung der Website (siehe Abschnitt zur Reichweitenmessung)."
+          "body": "Kontodaten: die E-Mail-Adresse und der Name, die du bei der Registrierung angibst, sowie Zeitpunkte von Anmeldungen.\nEvent- und Spieldaten: die von dir angelegten Fragen, Paarnamen, Anlass und Datum, hochgeladene Fotos, die anonym abgegebenen Stimmen deiner Gäste sowie die Antworten, die das Paar im Spiel gibt. Es wird nicht gespeichert, welcher Gast wie abgestimmt hat.\nKontaktdaten: die Angaben, die du in unserem Kontaktformular machst (Name, E-Mail-Adresse, optional Hochzeitsdatum und Gästezahl sowie deine Nachricht).\nZahlungsdaten: bei einer kostenpflichtigen Buchung die zur Zahlung erforderlichen Angaben, die direkt bei unserem Zahlungsdienstleister verarbeitet werden, sowie die uns übermittelten Belegdaten wie Betrag, Währung, Datum und Zahlungsstatus. Vollständige Zahlungsmitteldaten erhalten wir nicht.\nTechnische Daten: Server-Logdaten wie IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Adresse, Referrer sowie Angaben zu Browser und Betriebssystem.\nNutzungsdaten: aggregierte, anonyme Statistiken zur Nutzung der Website (siehe Abschnitt zur Reichweitenmessung)."
         },
         {
           "heading": "Zwecke und Rechtsgrundlagen",
-          "body": "Wir verarbeiten deine Daten, um den Dienst bereitzustellen und unseren Vertrag mit dir zu erfüllen (Art. 6 Abs. 1 lit. b DSGVO), um einen sicheren und stabilen Betrieb sowie die Beantwortung von Anfragen auf Grundlage unseres berechtigten Interesses zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO) und, soweit erforderlich, auf Grundlage deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Nach schweizerischem Recht stützen wir die Verarbeitung auf die Vertragserfüllung, unser überwiegendes berechtigtes Interesse sowie, wo nötig, deine Einwilligung."
+          "body": "Vertragserfüllung nach Art. 6 Abs. 1 lit. b DSGVO: Bereitstellung des Kontos, Anlegen und Durchführen deiner Events, Abwicklung kostenpflichtiger Buchungen sowie die dazugehörige Kommunikation.\nBerechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO: sicherer und stabiler Betrieb, Abwehr von Missbrauch und Angriffen, Beantwortung allgemeiner Anfragen sowie die bedarfsgerechte Weiterentwicklung des Angebots durch anonyme Reichweitenmessung.\nEinwilligung nach Art. 6 Abs. 1 lit. a DSGVO: Verarbeitungen, für die wir dich gesondert um Zustimmung bitten. Eine erteilte Einwilligung kannst du jederzeit mit Wirkung für die Zukunft widerrufen.\nRechtliche Verpflichtung nach Art. 6 Abs. 1 lit. c DSGVO: Einhaltung handels- und steuerrechtlicher Aufbewahrungspflichten."
+        },
+        {
+          "heading": "Aufruf der Website und Server-Logfiles",
+          "body": "Beim Aufruf unserer Seiten verarbeitet unser Hosting-Dienstleister automatisch technische Zugriffsdaten. Diese Verarbeitung ist erforderlich, um die Website auszuliefern, ihre Stabilität und Sicherheit zu gewährleisten und Angriffe abzuwehren. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Eine Zusammenführung dieser Daten mit anderen Datenquellen findet nicht statt."
+        },
+        {
+          "heading": "Konto und Anmeldung",
+          "body": "Für die Nutzung legst du ein kostenloses Konto an. Dabei verarbeiten wir deine E-Mail-Adresse und deinen Namen. Die Anmeldung erfolgt passwortlos über einen Anmeldelink, den wir dir per E-Mail senden, oder wahlweise über den Login mit Google. Entscheidest du dich für den Google-Login, erhalten wir von Google deine E-Mail-Adresse, deinen Namen und, sofern vorhanden, dein Profilbild. Google erfährt dabei, dass du dich bei TwoSoles anmeldest. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO."
+        },
+        {
+          "heading": "Event- und Spieldaten",
+          "body": "Die Inhalte deines Events, also Paarnamen, Anlass, Datum, Fragen und hochgeladene Fotos, speichern wir, damit du sie vorbereiten und im Spiel abrufen kannst. Die Stimmen deiner Gäste erfassen wir ausschließlich anonym: Gespeichert wird nur, wie viele Stimmen auf welche Antwort entfallen, nicht, wer wie abgestimmt hat. Gäste müssen sich weder registrieren noch einen Namen oder andere personenbezogene Daten angeben. Beim Aufruf der Gästeseite fallen lediglich die technischen Zugriffsdaten an, die im Abschnitt zu den Server-Logfiles beschrieben sind. Die Antworten, die das Paar während des Spiels gibt, speichern wir dem jeweiligen Partner zugeordnet, damit sich das Ergebnis später wieder anzeigen lässt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO."
         },
         {
           "heading": "Sichtbarkeit deiner Event-Inhalte",
-          "body": "Die Inhalte eines Events, insbesondere die Namen des Paares, deine Fragen und die hochgeladenen Fotos, werden während des Spiels auf den Geräten der teilnehmenden Gäste und auf dem präsentierenden Bildschirm angezeigt. Der Zugang erfolgt ausschließlich über einen nicht erratbaren Event-Link beziehungsweise QR-Code: Nur wer diesen Link von dir erhält, kann die Inhalte sehen. Die Fotos liegen in einem privaten Speicher und werden nur über kurzlebige, serverseitig erzeugte Links ausgeliefert; ein direkter öffentlicher Abruf ist nicht möglich. Die Spielseiten sind zudem von der Indexierung durch Suchmaschinen ausgenommen."
+          "body": "Die Inhalte eines Events, insbesondere die Namen des Paares, deine Fragen und die hochgeladenen Fotos, werden während des Spiels auf den Geräten der teilnehmenden Gäste und auf dem präsentierenden Bildschirm angezeigt. Der Zugang erfolgt ausschließlich über einen nicht erratbaren Event-Link beziehungsweise QR-Code: Nur wer diesen Link von dir erhält, kann die Inhalte sehen. Die Fotos liegen in einem privaten Speicher und werden nur über serverseitig erzeugte, jeweils eine Stunde gültige Links ausgeliefert, ein direkter öffentlicher Abruf ist nicht möglich. Die Spielseiten sind zudem von der Indexierung durch Suchmaschinen ausgenommen."
+        },
+        {
+          "heading": "Fotos und Verantwortlichkeit für deine Inhalte",
+          "body": "Lädst du Fotos hoch oder legst du Fragen an, auf denen Personen erkennbar oder benennbar sind, bestimmst du über Zweck und Mittel dieser Verarbeitung. Nutzt du TwoSoles ausschließlich privat für deine Feier, greift für dich regelmäßig die Haushaltsausnahme nach Art. 2 Abs. 2 lit. c DSGVO. Setzt du den Dienst geschäftlich ein, etwa als Hochzeitsplanerin, Hochzeitsplaner, Trauredner oder DJ, bist du für diese Inhalte Verantwortlicher und wir verarbeiten sie in deinem Auftrag. Einen Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO stellen wir dir dafür auf Anfrage zur Verfügung. In beiden Fällen bist du dafür verantwortlich, dass die abgebildeten Personen mit der Anzeige einverstanden sind."
+        },
+        {
+          "heading": "Kontaktformular und E-Mail-Anfragen",
+          "body": "Schreibst du uns über das Kontaktformular oder per E-Mail, verarbeiten wir deine Angaben, um die Anfrage zu bearbeiten und zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn die Anfrage einen Vertrag betrifft, sonst unser berechtigtes Interesse an der Beantwortung von Anfragen nach Art. 6 Abs. 1 lit. f DSGVO. Die Daten löschen wir, sobald die Anfrage abschließend bearbeitet ist und keine Aufbewahrungspflichten entgegenstehen."
+        },
+        {
+          "heading": "Zahlungsabwicklung",
+          "body": "Buchst du ein kostenpflichtiges Paket, leiten wir dich zur Bezahlung an Stripe weiter. Dabei übermitteln wir deine E-Mail-Adresse und die Bezeichnung des gebuchten Pakets, damit Stripe die Zahlung zuordnen und dir den Beleg zustellen kann. Stripe tritt als Merchant of Record auf und verarbeitet die Zahlungsdaten, insbesondere Zahlungsmittel, Rechnungsangaben und Land, eigenverantwortlich. Dafür gilt die Datenschutzerklärung von Stripe. Vollständige Zahlungsmitteldaten wie Kartennummern erhalten wir nicht. Von Stripe erhalten wir zur Zuordnung und Erfüllung deiner Buchung die Kennung der Zahlungssitzung, den gezahlten Betrag, die Währung und den Zahlungsstatus. Rechtsgrundlagen sind Art. 6 Abs. 1 lit. b DSGVO sowie für die Aufbewahrung der Belege Art. 6 Abs. 1 lit. c DSGVO."
         },
         {
           "heading": "Cookies und lokale Speicherung",
-          "body": "Wir verwenden ausschließlich technisch notwendige Cookies und vergleichbare Speichertechniken, etwa zur Speicherung deiner Anmeldung, deiner Sprachauswahl und des Host-Zugangs während eines Spiels. Diese sind für den Betrieb erforderlich und bedürfen keiner Einwilligung. Tracking- oder Werbe-Cookies setzen wir nicht ein."
+          "body": "Wir verwenden ausschließlich technisch notwendige Cookies und vergleichbare Speichertechniken im Browser, etwa zur Speicherung deiner Anmeldung, deiner Sprachauswahl und des Host-Zugangs während eines Spiels. Diese Speicherung ist nach § 25 Abs. 2 Nr. 2 TDDDG unbedingt erforderlich, damit der von dir ausdrücklich gewünschte Dienst funktioniert, und bedarf daher keiner Einwilligung. Ein Einwilligungsbanner brauchst du bei uns nicht wegzuklicken, weil wir keine Tracking-, Marketing- oder Werbe-Cookies einsetzen und keine geräteübergreifenden Profile bilden.\nZusätzlich merkt sich dein Browser lokal, ob du den einmaligen Einführungshinweis zu einem Event bereits weggeklickt hast. Diese Angabe verlässt dein Gerät nicht.\nSchriftarten liefern wir von unserem eigenen Server aus. Eine Verbindung zu Google Fonts oder einem anderen Schrift-CDN findet nicht statt."
         },
         {
           "heading": "Reichweitenmessung",
-          "body": "Zur Verbesserung unseres Angebots nutzen wir Vercel Analytics und Vercel Speed Insights. Diese Dienste erfassen aggregierte, anonyme Informationen zur Nutzung und zur Ladeleistung der Website, etwa aufgerufene Seiten und technische Leistungswerte. Sie arbeiten ohne Cookies, erstellen keine geräteübergreifenden Profile und geben die Daten nicht zu Werbezwecken weiter."
+          "body": "Zur Verbesserung unseres Angebots nutzen wir Vercel Analytics und Vercel Speed Insights. Diese Dienste erfassen aggregierte, anonyme Informationen zur Nutzung und zur Ladeleistung der Website, etwa aufgerufene Seiten, ungefähre Herkunftsregion und technische Leistungswerte. Zusätzlich zählen wir einige anonyme Ereignisse, nämlich das Starten und das Abschließen einer Event-Erstellung, eine abgeschlossene Zahlung und das Starten eines Spiels. Diese Zählungen enthalten keine Inhalte deines Events und keine Angaben zu deiner Person. Die Dienste arbeiten ohne Cookies, ohne Wiedererkennung einzelner Personen und ohne geräteübergreifende Profile, ein Personenbezug wird nicht hergestellt. Rechtsgrundlage ist unser berechtigtes Interesse an einem funktionierenden und schnellen Angebot nach Art. 6 Abs. 1 lit. f DSGVO."
         },
         {
           "heading": "E-Mail-Kommunikation",
-          "body": "Wir senden dir ausschließlich für den Dienst erforderliche (transaktionale) E-Mails, etwa den Anmeldelink, Zahlungsbestätigungen sowie Antworten auf deine Anfragen. Einen Newsletter oder Werbe-E-Mails versenden wir nicht; eine werbliche Ansprache erfolgt nur, wenn du zuvor ausdrücklich eingewilligt hast, und du kannst eine solche Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen."
+          "body": "Wir senden dir ausschließlich für den Dienst erforderliche (transaktionale) E-Mails, etwa den Anmeldelink, Bestell- und Zahlungsbestätigungen sowie Antworten auf deine Anfragen. Einen Newsletter oder Werbe-E-Mails versenden wir nicht. Eine werbliche Ansprache erfolgt nur, wenn du zuvor ausdrücklich eingewilligt hast oder die Voraussetzungen des § 7 Abs. 3 UWG vorliegen. Eine Einwilligung kannst du jederzeit mit Wirkung für die Zukunft widerrufen, ohne dass dafür andere als die Übermittlungskosten nach den Basistarifen entstehen."
         },
         {
-          "heading": "Eingesetzte Dienste",
-          "body": "Für den Betrieb setzen wir sorgfältig ausgewählte Dienstleister ein, die Daten in unserem Auftrag verarbeiten:\nHosting und Reichweitenmessung: Vercel Inc., USA.\nDatenbank, Authentifizierung, Echtzeit-Synchronisation und Foto-Speicher: Supabase, mit Serverstandort in der Europäischen Union (Frankfurt).\nAnmeldung mit Google (optional): Google Ireland Limited. Dieser Datenaustausch findet nur statt, wenn du dich für den Login mit Google entscheidest.\nZahlungsabwicklung: Stripe. Stripe tritt als Merchant of Record auf und verarbeitet die Zahlungsdaten eigenverantwortlich, einschließlich der Steuerabwicklung.\nKontaktformular: Resend, das die über das Formular gesendeten Angaben verarbeitet und uns als E-Mail zustellt.\nMit den Dienstleistern bestehen, soweit erforderlich, Verträge zur Auftragsverarbeitung."
+          "heading": "Empfänger und Auftragsverarbeiter",
+          "body": "Wir geben Daten nur weiter, soweit das für den Betrieb erforderlich ist. Eingesetzt werden:\nHosting, Auslieferung der Website sowie Reichweiten- und Leistungsmessung mit Vercel Analytics und Vercel Speed Insights: Vercel Inc., USA.\nDatenbank, Authentifizierung, Echtzeit-Synchronisation und Foto-Speicher: Supabase, Inc., USA, mit Serverstandort in der Europäischen Union (Frankfurt am Main). Im Rahmen der Anmeldung verarbeitet Supabase auch IP-Adressen, um Missbrauch durch zu häufige Anmeldeversuche zu verhindern.\nAnmeldung mit Google, sofern du diese wählst: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.\nZahlungsabwicklung: Stripe Payments Europe, Limited, Dublin, Irland, sowie weitere Unternehmen der Stripe-Gruppe, unter anderem Stripe, Inc., USA.\nVersand von E-Mails und Zustellung des Kontaktformulars: Resend, USA.\nMit diesen Dienstleistern bestehen, soweit sie in unserem Auftrag verarbeiten, Verträge zur Auftragsverarbeitung nach Art. 28 DSGVO. Darüber hinaus geben wir Daten nur weiter, wenn wir gesetzlich dazu verpflichtet sind oder du eingewilligt hast. Wir verkaufen keine Daten."
         },
         {
-          "heading": "Datenübermittlung ins Ausland",
-          "body": "Ein Teil der genannten Dienstleister verarbeitet Daten außerhalb der Schweiz, insbesondere in der Europäischen Union und in den USA. Erfolgt eine Übermittlung in ein Land ohne gleichwertiges Datenschutzniveau, sorgen wir für geeignete Garantien, etwa Standardvertragsklauseln, um deine Daten angemessen zu schützen."
+          "heading": "Datenübermittlung in Drittländer",
+          "body": "Einige der genannten Dienstleister verarbeiten Daten in den USA oder greifen von dort auf Daten zu. Für diese Übermittlungen stützen wir uns auf die Standardvertragsklauseln der Europäischen Kommission nach Art. 46 Abs. 2 lit. c DSGVO in Verbindung mit ergänzenden Schutzmaßnahmen sowie, soweit der jeweilige Anbieter dort zertifiziert ist, auf den Angemessenheitsbeschluss zum EU-US Data Privacy Framework nach Art. 45 DSGVO. Trotz dieser Garantien lässt sich nicht vollständig ausschließen, dass US-Behörden unter bestimmten Voraussetzungen auf Daten zugreifen können."
         },
         {
           "heading": "Speicherdauer",
-          "body": "Wir speichern deine Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen dies vorsehen. Kontodaten und Event-Daten werden gespeichert, solange dein Konto besteht. Löschst du dein Konto oder ein Event, werden die zugehörigen Daten entfernt. Anschließend werden die Daten gelöscht oder anonymisiert."
+          "body": "Wir speichern personenbezogene Daten nur so lange, wie es für die genannten Zwecke erforderlich ist. Konto- und Event-Daten bleiben gespeichert, solange dein Konto besteht. Löschst du dein Konto oder ein einzelnes Event in den Einstellungen, werden die zugehörigen Daten einschließlich hochgeladener Fotos entfernt. Ausgenommen davon sind die Zahlungs- und Belegdaten zu bereits bezahlten Buchungen: Sie bleiben aus den nachfolgend genannten steuerlichen Gründen erhalten, auch wenn du das zugehörige Event oder dein Konto löschst. Anfragen über das Kontaktformular löschen wir nach abschließender Bearbeitung. Server-Logfiles werden nach kurzer Zeit gelöscht oder gekürzt. Zahlungs- und Belegdaten bewahren wir aufgrund handels- und steuerrechtlicher Pflichten nach § 257 HGB und § 147 AO bis zu zehn Jahre auf, sie sind in dieser Zeit für die weitere Verarbeitung gesperrt."
         },
         {
           "heading": "Deine Rechte",
-          "body": "Du hast das Recht auf Auskunft über die zu deiner Person bearbeiteten Daten sowie auf Berichtigung, Löschung und Einschränkung der Bearbeitung. Zudem stehen dir das Recht auf Datenübertragbarkeit und ein Widerspruchsrecht zu, und eine erteilte Einwilligung kannst du jederzeit mit Wirkung für die Zukunft widerrufen. Wende dich dazu einfach an die oben genannte Kontaktadresse. Du hast außerdem das Recht, dich bei einer Aufsichtsbehörde zu beschweren. In der Schweiz ist dies der Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (EDÖB), in der EU die für dich zuständige Datenschutzbehörde."
+          "body": "Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO) und Datenübertragbarkeit (Art. 20 DSGVO). Eine erteilte Einwilligung kannst du jederzeit mit Wirkung für die Zukunft widerrufen (Art. 7 Abs. 3 DSGVO). Wende dich dafür einfach an hello@twosoles.live.\n\nAußerdem hast du das Recht, dich bei einer Aufsichtsbehörde zu beschweren (Art. 77 DSGVO). Für uns zuständig ist:\nLandesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen\nKavalleriestraße 2-4\n40213 Düsseldorf\nDeutschland\n\nDu kannst dich auch an die Aufsichtsbehörde deines Wohnsitzes oder Arbeitsplatzes wenden."
+        },
+        {
+          "heading": "Widerspruchsrecht",
+          "body": "Du hast das Recht, aus Gründen, die sich aus deiner besonderen Situation ergeben, jederzeit gegen die Verarbeitung deiner personenbezogenen Daten Widerspruch einzulegen, die auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO erfolgt. Legst du Widerspruch ein, verarbeiten wir diese Daten nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe nachweisen, die deine Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen. Werden deine Daten zum Zweck der Direktwerbung verarbeitet, kannst du dem jederzeit und ohne Angabe von Gründen widersprechen. Ein formloser Widerspruch per E-Mail an hello@twosoles.live genügt."
+        },
+        {
+          "heading": "Erforderlichkeit der Bereitstellung",
+          "body": "Die Angabe deiner E-Mail-Adresse ist für die Einrichtung eines Kontos erforderlich, ohne sie können wir den Dienst nicht bereitstellen. Alle übrigen Angaben, etwa Hochzeitsdatum oder Gästezahl im Kontaktformular, sind freiwillig. Eine darüber hinausgehende gesetzliche oder vertragliche Pflicht zur Bereitstellung von Daten besteht nicht."
         },
         {
           "heading": "Datensicherheit",
-          "body": "Wir treffen angemessene technische und organisatorische Maßnahmen, um deine Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen. Die Übertragung erfolgt verschlüsselt über gesicherte Verbindungen (HTTPS)."
+          "body": "Wir treffen angemessene technische und organisatorische Maßnahmen nach Art. 32 DSGVO, um deine Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen. Dazu gehören eine durchgehend verschlüsselte Übertragung über HTTPS, Zugriffsbeschränkungen auf Datenbankebene und ein privater, nicht öffentlich abrufbarer Speicher für hochgeladene Fotos."
         },
         {
-          "heading": "Automatisierte Entscheidungsfindung",
-          "body": "Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne der DSGVO findet nicht statt."
+          "heading": "Keine automatisierte Entscheidungsfindung",
+          "body": "Eine automatisierte Entscheidungsfindung im Einzelfall einschließlich Profiling nach Art. 22 DSGVO findet nicht statt."
         },
         {
           "heading": "Minderjährige",
-          "body": "Unser Dienst richtet sich an volljährige Personen. Wir verarbeiten nicht wissentlich Daten von Kindern. Sollten wir Kenntnis davon erlangen, dass uns ohne die erforderliche Einwilligung Daten von Minderjährigen übermittelt wurden, löschen wir diese."
-        },
-        {
-          "heading": "Kontakt zum Datenschutz",
-          "body": "Bei Fragen zum Datenschutz oder zur Wahrnehmung deiner Rechte erreichst du uns unter: hello@twosoles.live."
+          "body": "Unser Dienst richtet sich an volljährige Personen. Wir verarbeiten nicht wissentlich Daten von Kindern im Sinne von Art. 8 DSGVO. Erlangen wir Kenntnis davon, dass uns ohne die erforderliche Einwilligung Daten von Minderjährigen übermittelt wurden, löschen wir diese unverzüglich."
         },
         {
           "heading": "Änderungen dieser Datenschutzerklärung",
-          "body": "Wir können diese Datenschutzerklärung anpassen, etwa bei Änderungen unseres Angebots oder der Rechtslage. Es gilt jeweils die auf dieser Seite veröffentlichte aktuelle Fassung."
+          "body": "Wir passen diese Datenschutzerklärung an, wenn sich unser Angebot oder die Rechtslage ändert. Es gilt jeweils die auf dieser Seite veröffentlichte aktuelle Fassung."
         }
       ]
     },
     "terms": {
       "title": "Allgemeine Geschäftsbedingungen",
       "metaTitle": "AGB",
-      "metaDescription": "Die Allgemeinen Geschäftsbedingungen für die Nutzung von TwoSoles.",
-      "intro": "Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Nutzung des Dienstes TwoSoles, angeboten von Marvin Vrdoljak. Bitte lies sie aufmerksam durch.",
+      "metaDescription": "Die Allgemeinen Geschäftsbedingungen für die Nutzung von TwoSoles, einschließlich Widerrufsbelehrung für Verbraucher.",
+      "note": "Wichtig für Verbraucherinnen und Verbraucher: Bei kostenpflichtigen Buchungen steht dir ein 14-tägiges Widerrufsrecht zu. Die vollständige Widerrufsbelehrung findest du in § 7, das Muster-Widerrufsformular in § 9.",
+      "intro": "Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Nutzung des Dienstes TwoSoles, angeboten von Marvin Vrdoljak, Diemshoff 38, 48282 Emsdetten, Deutschland. Bitte lies sie aufmerksam durch.",
       "sections": [
         {
-          "heading": "§ 1 Geltungsbereich und Anbieter",
-          "body": "Diese AGB gelten für die Nutzung des unter TwoSoles bereitgestellten Online-Dienstes. Anbieter ist Marvin Vrdoljak, Grimselstrasse 30, 8048 Zürich, Schweiz (nachfolgend «Anbieter»). Mit der Registrierung und der Nutzung des Dienstes erklärst du dich mit diesen AGB einverstanden. Abweichende Bedingungen erkennen wir nicht an, sofern wir ihnen nicht ausdrücklich zustimmen."
+          "heading": "§ 1 Geltungsbereich, Anbieter und Vertragssprache",
+          "body": "Diese AGB gelten für alle Verträge über die Nutzung des unter twosoles.live bereitgestellten Online-Dienstes zwischen dir und Marvin Vrdoljak, Diemshoff 38, 48282 Emsdetten, Deutschland, E-Mail hello@twosoles.live (nachfolgend «Anbieter» oder «wir»).\nAbweichende, entgegenstehende oder ergänzende Bedingungen werden nicht Vertragsbestandteil, es sei denn, wir stimmen ihrer Geltung ausdrücklich zu.\nVerbraucher ist jede natürliche Person, die den Vertrag zu Zwecken abschließt, die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können (§ 13 BGB). Unternehmer ist, wer bei Vertragsschluss in Ausübung seiner gewerblichen oder selbständigen beruflichen Tätigkeit handelt (§ 14 BGB).\nVertragssprachen sind Deutsch und Englisch. Die englische Fassung dieser AGB ist eine Übersetzung zur Erleichterung, bei Abweichungen ist die deutsche Fassung maßgeblich."
         },
         {
           "heading": "§ 2 Leistungsbeschreibung",
-          "body": "TwoSoles ist eine digitale Version des Hochzeits-Schuhspiels. Der Anbieter stellt eine Webanwendung bereit, mit der Gäste per QR-Code live abstimmen und mit der die Ergebnisse auf einem Bildschirm präsentiert werden. Der konkrete Funktionsumfang, insbesondere die Zahl der gleichzeitig teilnehmenden Gäste, richtet sich nach dem gewählten Paket. Der Anbieter entwickelt den Dienst laufend weiter und kann einzelne Funktionen anpassen, sofern der wesentliche Leistungsinhalt erhalten bleibt."
+          "body": "TwoSoles ist eine digitale Version des Hochzeits-Schuhspiels. Wir stellen eine Webanwendung bereit, mit der Gäste per QR-Code live abstimmen und mit der die Ergebnisse auf einem Bildschirm präsentiert werden.\nDer Funktionsumfang, insbesondere die Zahl der gleichzeitig teilnehmenden Gäste, richtet sich nach dem gewählten Paket. Die jeweils geltende Leistungsbeschreibung ergibt sich aus der Darstellung im Dienst zum Zeitpunkt deiner Buchung. Solange ein Event noch nicht live geschaltet ist, gilt zum Schutz vor unbeabsichtigtem Beitritt während der Vorbereitung die Kapazität des kostenlosen Pakets. Die gebuchte Kapazität steht ab dem Live-Schalten zur Verfügung.\nDie Nutzung setzt ein internetfähiges Endgerät, einen aktuellen Browser und eine funktionierende Internetverbindung voraus. Die Bereitstellung dieser Voraussetzungen ist nicht Teil unserer Leistung."
         },
         {
           "heading": "§ 3 Registrierung und Konto",
-          "body": "Für die Nutzung ist ein kostenloses Konto erforderlich. Die Anmeldung erfolgt passwortlos über einen per E-Mail zugesandten Anmeldelink oder über einen unterstützten Drittanbieter-Login. Du bist verpflichtet, wahrheitsgemäße Angaben zu machen und deine Zugangsdaten vertraulich zu behandeln. Der Dienst richtet sich an Personen, die das 18. Lebensjahr vollendet haben und voll handlungsfähig sind. Du kannst dein Konto jederzeit in den Kontoeinstellungen löschen; die zugehörigen Daten werden dabei entfernt."
+          "body": "Für die Nutzung ist ein kostenloses Konto erforderlich. Die Anmeldung erfolgt passwortlos über einen per E-Mail zugesandten Anmeldelink oder über einen unterstützten Drittanbieter-Login.\nDu bist verpflichtet, wahrheitsgemäße Angaben zu machen und deine Zugangsdaten sowie den Anmeldelink vertraulich zu behandeln.\nDer Dienst richtet sich an Personen, die das 18. Lebensjahr vollendet haben und unbeschränkt geschäftsfähig sind.\nDu kannst dein Konto jederzeit und ohne Angabe von Gründen in den Kontoeinstellungen löschen. Die zugehörigen Daten werden dabei entfernt, mit Ausnahme der Zahlungs- und Belegdaten, die wir aufgrund gesetzlicher Aufbewahrungspflichten weiter aufbewahren müssen. Bereits vollständig erbrachte kostenpflichtige Leistungen bleiben davon unberührt."
         },
         {
-          "heading": "§ 4 Vertragsschluss",
-          "body": "Die Darstellung der Pakete im Dienst ist eine Aufforderung zur Abgabe eines Angebots. Durch das Anlegen eines kostenlosen Events sowie durch die Bestätigung einer kostenpflichtigen Buchung gibst du ein verbindliches Angebot ab. Der Vertrag über die Nutzung des Dienstes kommt zwischen dir und dem Anbieter zustande, sobald das Event angelegt beziehungsweise die Buchung bestätigt ist."
+          "heading": "§ 4 Vertragsschluss, Bestellablauf und Vertragstext",
+          "body": "Die Darstellung der Pakete im Dienst ist kein bindendes Angebot, sondern eine unverbindliche Aufforderung an dich, ein Angebot abzugeben.\nDer Bestellablauf für ein kostenpflichtiges Paket ist: Event im Assistenten anlegen, Paket auswählen, Angaben in der Übersicht prüfen, die verbindliche Bestellung über die als zahlungspflichtig gekennzeichnete Schaltfläche abschicken und die Zahlung bei Stripe abschließen. Eingabefehler kannst du bis zum Absenden jederzeit korrigieren, indem du im Assistenten zurückgehst, Felder änderst oder den Vorgang abbrichst.\nMit dem Abschicken der Bestellung gibst du ein verbindliches Angebot ab. Der Vertrag kommt zustande, sobald wir dieses Angebot annehmen, indem wir die Zahlung bestätigen, spätestens mit der Bestellbestätigung in Textform.\nFür ein kostenloses Event kommt der Vertrag mit dem Anlegen des Events zustande.\nDen Vertragstext einschließlich dieser AGB und der Widerrufsbelehrung senden wir dir mit der Bestätigung in Textform zu. Die jeweils aktuelle Fassung dieser AGB kannst du auf dieser Seite jederzeit abrufen, speichern und ausdrucken. Eine gesonderte Speicherung des Vertragstextes in deinem Konto erfolgt nicht.\nAn besondere Verhaltenskodizes haben wir uns nicht unterworfen."
         },
         {
-          "heading": "§ 5 Preise, Zahlung und Steuern",
-          "body": "Die Nutzung erfolgt als einmalige Zahlung pro Event. Der Preis richtet sich nach der gebuchten Gästekapazität; kleine Veranstaltungen bis zehn Gäste sind kostenlos. Alle Preise verstehen sich inklusive allfälliger Steuern.\nDie Zahlungsabwicklung erfolgt über Stripe. Stripe tritt dabei als Merchant of Record auf, das heißt, Stripe wickelt die Bezahlung als verantwortlicher Vertragspartner für die Zahlung ab, stellt die Zahlungsbestätigung aus und übernimmt die Berechnung und Abführung allfälliger Steuern. Für die Zahlung können ergänzend die Bedingungen von Stripe gelten. Die zur Zahlung erforderlichen Daten werden direkt an Stripe übermittelt; der Anbieter erhält keine vollständigen Zahlungsdaten.\nEin Upgrade auf ein größeres Paket ist jederzeit möglich; dabei wird nur die Differenz zum bereits bezahlten Paket berechnet."
+          "heading": "§ 5 Preise, Zahlung und Umsatzsteuer",
+          "body": "Die Nutzung erfolgt als einmalige Zahlung pro Event. Es gibt kein Abonnement und keine wiederkehrenden Kosten. Der Preis richtet sich nach der gebuchten Gästekapazität, Events bis zehn Gäste sind kostenlos.\nAlle Preise sind Endpreise in Euro und enthalten die gesetzliche Umsatzsteuer. Weitere Kosten, insbesondere Versand- oder Lieferkosten, fallen nicht an. Kosten deiner Internetverbindung trägst du selbst.\nDie Zahlung wird über Stripe abgewickelt. Stripe tritt dabei als Merchant of Record auf, wickelt den Zahlungsvorgang also als verantwortlicher Vertragspartner für die Zahlung ab, stellt den Zahlungsbeleg aus und übernimmt die Berechnung und Abführung der Umsatzsteuer. Für den Zahlungsvorgang können ergänzend die Bedingungen von Stripe gelten. Vertragspartner für die Bereitstellung des Dienstes bleiben wir. Die zur Zahlung erforderlichen Daten werden direkt an Stripe übermittelt, wir erhalten keine vollständigen Zahlungsmitteldaten.\nDer Preis ist mit Vertragsschluss sofort und ohne Abzug fällig. Welche Zahlungsarten zur Verfügung stehen, siehst du im Bezahlvorgang.\nEin Upgrade auf ein größeres Paket ist jederzeit möglich, berechnet wird dabei nur die Differenz zum bereits bezahlten Paket."
         },
         {
           "heading": "§ 6 Bereitstellung und Spielzeitraum",
-          "body": "Nach dem Anlegen kannst du dein Event zeitlich unbegrenzt vorbereiten, bearbeiten und testen. Sobald du das Event bewusst live schaltest, beginnt der Spielzeitraum von 48 Stunden, innerhalb dessen das Spiel gespielt werden kann. Jedes Event kann nur einmal live geschaltet werden. Nach Ablauf der 48 Stunden ist die Spielrunde beendet; die gespeicherten Ergebnisse bleiben im Konto abrufbar."
+          "body": "Nach dem Anlegen kannst du dein Event zeitlich unbegrenzt vorbereiten, bearbeiten und testen.\nSobald du das Event bewusst live schaltest, beginnt der Spielzeitraum von 48 Stunden, innerhalb dessen das Spiel gespielt werden kann. Jedes Event kann nur einmal live geschaltet werden.\nNach Ablauf der 48 Stunden endet der vereinbarte Spielzeitraum und das Event lässt sich nicht mehr bearbeiten. Die gespeicherten Ergebnisse bleiben in deinem Konto abrufbar, solange das Konto besteht."
         },
         {
-          "heading": "§ 7 Widerruf und Rückerstattung",
-          "body": "Bei Online-Verträgen besteht nach schweizerischem Recht kein gesetzliches Widerrufs- oder Rückgaberecht. Unabhängig davon gilt: Solange ein kostenpflichtiges Event noch nicht live geschaltet und damit noch nicht genutzt wurde, kannst du dich an den Anbieter wenden, der dir kulanzhalber eine Erstattung anbietet. Mit dem Live-Schalten gilt die Leistung als sofort und vollständig bereitgestellte digitale Leistung, für die eine Erstattung ausgeschlossen ist. Wir empfehlen, den Dienst zuvor im kostenlosen Paket zu testen."
+          "id": "withdrawal",
+          "heading": "§ 7 Widerrufsrecht für Verbraucher",
+          "body": "Verbraucherinnen und Verbrauchern steht bei kostenpflichtigen Buchungen ein gesetzliches Widerrufsrecht zu. Die nachfolgende Belehrung gibt den gesetzlich vorgegebenen Wortlaut wieder und verwendet deshalb die Anrede «Sie».\n\nWiderrufsbelehrung\n\nWiderrufsrecht\nSie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.\nUm Ihr Widerrufsrecht auszuüben, müssen Sie uns (Marvin Vrdoljak, Diemshoff 38, 48282 Emsdetten, Deutschland, E-Mail: hello@twosoles.live) mittels einer eindeutigen Erklärung (zum Beispiel ein mit der Post versandter Brief oder eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das beigefügte Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist.\nZur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.\n\nFolgen des Widerrufs\nWenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart. In keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.\nHaben Sie verlangt, dass die Dienstleistungen während der Widerrufsfrist beginnen sollen, so haben Sie uns einen angemessenen Betrag zu zahlen, der dem Anteil der bis zu dem Zeitpunkt, zu dem Sie uns von der Ausübung des Widerrufsrechts hinsichtlich dieses Vertrags unterrichten, bereits erbrachten Dienstleistungen im Vergleich zum Gesamtumfang der im Vertrag vorgesehenen Dienstleistungen entspricht.\n\nEnde der Widerrufsbelehrung"
         },
         {
-          "heading": "§ 8 Pflichten der Nutzer und Inhalte",
-          "body": "Du bist für die von dir erstellten Inhalte, insbesondere eigene Fragen und hochgeladene Fotos, selbst verantwortlich und sicherst zu, dass du über die erforderlichen Rechte verfügst und keine Rechte Dritter verletzt. Sind auf hochgeladenen Fotos Personen erkennbar, sicherst du zu, dass diese der Speicherung und der Anzeige im Rahmen des Dienstes zugestimmt haben (Recht am eigenen Bild). Du verpflichtest dich, den Dienst nicht missbräuchlich zu nutzen und insbesondere keine rechtswidrigen, beleidigenden oder verletzenden Inhalte einzustellen. Bei erheblichen oder wiederholten Verstößen, missbräuchlicher Nutzung, rechtswidrigen Inhalten oder ausbleibender Zahlung kann der Anbieter den Zugang vorübergehend sperren oder das Konto kündigen. In diesem Fall werden das Konto und die zugehörigen Daten gelöscht; bereits vollständig erbrachte, kostenpflichtige Leistungen werden nicht erstattet. Du räumst dem Anbieter das einfache, auf die Vertragsdauer beschränkte Recht ein, deine Inhalte zu speichern und im Rahmen des Dienstes anzuzeigen, soweit dies für die Bereitstellung erforderlich ist. Alle Rechte an der Software, der Marke und den eigenen Inhalten des Anbieters verbleiben beim Anbieter."
+          "heading": "§ 8 Vorzeitiges Erlöschen des Widerrufsrechts und freiwillige Erstattung",
+          "body": "Dein Widerrufsrecht erlischt vorzeitig, wenn du im Bestellvorgang ausdrücklich verlangst, dass wir mit der Ausführung des Vertrags vor Ablauf der Widerrufsfrist beginnen, du dabei bestätigst, dass du mit Beginn der Ausführung beziehungsweise mit vollständiger Vertragserfüllung dein Widerrufsrecht verlierst, wir mit der Ausführung begonnen haben und dir eine Bestätigung des Vertrags in Textform zur Verfügung gestellt haben (§ 356 Abs. 4 und Abs. 5 BGB).\nAls vollständige Erbringung der Leistung gilt das Live-Schalten deines Events: Erst damit steht dir die gebuchte Gästekapazität für den Spielzeitraum zur Verfügung und du nimmst die Leistung vollständig in Anspruch. Bis dahin bleibt dein Event unverändert in der Vorbereitung, unabhängig davon, welches Paket du bezahlt hast.\nDeshalb fragen wir die Erklärung nicht beim Kauf ab, sondern genau dann, wenn du dein Event live schaltest und seit deiner Buchung noch keine 14 Tage vergangen sind. Liegt dein Event später, ist deine Widerrufsfrist zu diesem Zeitpunkt ohnehin abgelaufen und du wirst nichts bestätigen müssen. Ohne die Erklärung kannst du das Event in diesem Zeitraum nicht live schalten; du kannst stattdessen widerrufen oder einfach warten, bis die Frist abgelaufen ist.\nUnabhängig vom gesetzlichen Widerrufsrecht gilt unsere freiwillige Zusage: Solange du ein kostenpflichtiges Event noch nicht live geschaltet hast, erstatten wir dir den gezahlten Betrag auf Anfrage vollständig, auch nach Ablauf der Widerrufsfrist. Schreib uns dafür einfach an hello@twosoles.live. Wir empfehlen zusätzlich, den Dienst vorab im kostenlosen Paket zu testen.\nBei kostenlosen Events besteht kein gesetzliches Widerrufsrecht, da du weder ein Entgelt zahlst noch personenbezogene Daten bereitstellst, die wir über die Bereitstellung des Dienstes und die Erfüllung gesetzlicher Pflichten hinaus verwenden (§ 312 Abs. 1a BGB). Du kannst ein kostenloses Event jederzeit löschen."
         },
         {
-          "heading": "§ 9 Verfügbarkeit",
-          "body": "Der Anbieter bemüht sich um eine möglichst unterbrechungsfreie Verfügbarkeit des Dienstes, schuldet diese aber nicht ununterbrochen. Wartungsarbeiten, technische Störungen, Abhängigkeiten von Dritten sowie höhere Gewalt können zu vorübergehenden Einschränkungen führen. Für die Teilnahme ist zudem eine funktionierende Internetverbindung der beteiligten Geräte erforderlich, die nicht im Einflussbereich des Anbieters liegt. Der Dienst ist kein Datensicherungsdienst. Für dich wichtige Ergebnisse solltest du eigenständig sichern, etwa per Export oder Bildschirmfoto, da der Anbieter keine dauerhafte Aufbewahrung oder Wiederherstellung schuldet."
+          "id": "withdrawalForm",
+          "heading": "§ 9 Muster-Widerrufsformular",
+          "body": "Wenn du den Vertrag widerrufen willst, kannst du dieses Formular ausfüllen und an uns zurücksenden. Vorgeschrieben ist das nicht, eine formlose E-Mail genügt.\n\nAn:\nMarvin Vrdoljak\nDiemshoff 38\n48282 Emsdetten\nDeutschland\nE-Mail: hello@twosoles.live\n\nHiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über die Erbringung der folgenden Dienstleistung:\n\nBestellt am (*) / erhalten am (*):\nName des/der Verbraucher(s):\nAnschrift des/der Verbraucher(s):\nUnterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier):\nDatum:\n\n(*) Unzutreffendes streichen."
         },
         {
-          "heading": "§ 10 Haftung",
-          "body": "Der Anbieter haftet unbeschränkt für Schäden, die vorsätzlich oder grob fahrlässig verursacht werden. Bei leichter Fahrlässigkeit haftet der Anbieter nur für die Verletzung wesentlicher Vertragspflichten und beschränkt auf den vertragstypischen, vorhersehbaren Schaden. Eine weitergehende Haftung ist im gesetzlich zulässigen Rahmen ausgeschlossen. Zwingende gesetzliche Haftungsbestimmungen bleiben unberührt."
+          "heading": "§ 10 Mängelrechte und Aktualisierungen",
+          "body": "Für Verbraucherinnen und Verbraucher gelten die gesetzlichen Vorschriften über Verträge über digitale Produkte (§§ 327 ff. BGB).\nWir stellen den Dienst frei von Produkt- und Rechtsmängeln bereit und schulden während des Bereitstellungszeitraums diejenigen Aktualisierungen, die erforderlich sind, damit der Dienst vertragsgemäß bleibt, einschließlich Sicherheitsaktualisierungen (§ 327f BGB). Über solche Aktualisierungen informieren wir dich, soweit erforderlich.\nIst der Dienst mangelhaft, kannst du nach Maßgabe der gesetzlichen Vorschriften Nacherfüllung verlangen, den Vertrag beenden, den Preis mindern sowie Schadensersatz oder Ersatz vergeblicher Aufwendungen verlangen (§§ 327i ff. BGB).\nDie gesetzliche Verjährung der Mängelansprüche wird nicht verkürzt."
         },
         {
-          "heading": "§ 11 Datenschutz",
-          "body": "Informationen zur Verarbeitung personenbezogener Daten findest du in unserer Datenschutzerklärung."
+          "heading": "§ 11 Änderungen des Dienstes",
+          "body": "Wir dürfen den Dienst über das zur Aufrechterhaltung der Vertragsmäßigkeit Erforderliche hinaus nur ändern, wenn dafür ein triftiger Grund vorliegt, dir durch die Änderung keine zusätzlichen Kosten entstehen und wir dich klar und verständlich über die Änderung informieren (§ 327r BGB).\nTriftige Gründe sind insbesondere die Anpassung an eine veränderte technische Umgebung, an eine gestiegene Zahl von Nutzenden, an geänderte gesetzliche Vorgaben sowie wichtige betriebliche Gründe.\nBeeinträchtigt eine solche Änderung deine Zugriffsmöglichkeit oder die Nutzbarkeit mehr als nur unerheblich, informieren wir dich mindestens 30 Tage vorher in Textform. Du kannst den Vertrag in diesem Fall innerhalb von 30 Tagen kostenfrei beenden, es sei denn, wir ermöglichen dir, den Dienst ohne zusätzliche Kosten unverändert weiterzunutzen, und die Vertragsmäßigkeit bleibt erhalten."
         },
         {
-          "heading": "§ 12 Änderungen dieser AGB",
-          "body": "Der Anbieter kann diese AGB anpassen, etwa bei Änderungen des Dienstes oder der Rechtslage. Über wesentliche Änderungen wird in geeigneter Weise informiert. Für bereits abgeschlossene Buchungen gilt die zum Zeitpunkt der Buchung gültige Fassung."
+          "heading": "§ 12 Pflichten der Nutzer und Inhalte",
+          "body": "Du bist für die von dir erstellten Inhalte, insbesondere eigene Fragen und hochgeladene Fotos, selbst verantwortlich und sicherst zu, dass du über die erforderlichen Rechte verfügst und keine Rechte Dritter verletzt.\nSind auf hochgeladenen Fotos Personen erkennbar, sicherst du zu, dass diese der Speicherung und der Anzeige im Rahmen des Dienstes zugestimmt haben (§§ 22, 23 KUG, Art. 6 DSGVO).\nDu verpflichtest dich, den Dienst nicht missbräuchlich zu nutzen und insbesondere keine rechtswidrigen, beleidigenden, diskriminierenden, jugendgefährdenden oder Persönlichkeitsrechte verletzenden Inhalte einzustellen.\nDu stellst uns von berechtigten Ansprüchen Dritter frei, die auf einer von dir zu vertretenden rechtswidrigen Nutzung des Dienstes oder auf von dir eingestellten Inhalten beruhen, einschließlich der angemessenen Kosten der Rechtsverteidigung. Wir informieren dich unverzüglich über solche Ansprüche und stimmen uns mit dir ab, bevor wir Erklärungen abgeben."
         },
         {
-          "heading": "§ 13 Anwendbares Recht und Gerichtsstand",
-          "body": "Es gilt schweizerisches Recht unter Ausschluss der Kollisionsnormen und des UN-Kaufrechts. Gerichtsstand ist Zürich, soweit keine zwingenden gesetzlichen Gerichtsstände entgegenstehen. Für Konsumentinnen und Konsumenten bleibt der zwingende Gerichtsstand an ihrem Wohnsitz vorbehalten. Bei Konsumentinnen und Konsumenten mit gewöhnlichem Aufenthalt in der Europäischen Union bleiben zudem die zwingenden Verbraucherschutzbestimmungen ihres Aufenthaltsstaates unberührt; die Rechtswahl führt nicht dazu, dass ihnen der durch diese Bestimmungen gewährte Schutz entzogen wird. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt."
+          "heading": "§ 13 Rechte an Inhalten",
+          "body": "Die Rechte an deinen Inhalten bleiben bei dir. Du räumst uns ein einfaches, räumlich unbeschränktes, auf die Vertragsdauer und den Vertragszweck beschränktes Nutzungsrecht ein, das die Speicherung, Vervielfältigung und Anzeige deiner Inhalte im Rahmen des Dienstes umfasst, soweit dies für die Bereitstellung erforderlich ist. Mit dem Löschen des Events oder deines Kontos endet dieses Nutzungsrecht.\nEine Nutzung deiner Inhalte zu Werbe- oder Referenzzwecken erfolgt ausschließlich mit deiner ausdrücklichen vorherigen Einwilligung.\nAlle Rechte an der Software, der Marke, dem Design sowie an den eigenen Inhalten des Anbieters, insbesondere am mitgelieferten Fragenkatalog, verbleiben beim Anbieter. Du erhältst daran ein einfaches, nicht übertragbares Nutzungsrecht für die Dauer und im Umfang des Vertrags."
+        },
+        {
+          "heading": "§ 14 Sperrung und Kündigung",
+          "body": "Bei erheblichen oder wiederholten Verstößen gegen § 12, bei missbräuchlicher Nutzung, bei rechtswidrigen Inhalten oder bei ausbleibender Zahlung können wir den Zugang vorübergehend sperren oder den Vertrag aus wichtigem Grund kündigen. Vor einer Sperrung oder Kündigung weisen wir dich auf den Verstoß hin und setzen dir eine angemessene Frist zur Abhilfe, soweit das nach den Umständen zumutbar und nicht wegen der Schwere des Verstoßes entbehrlich ist.\nIm Fall einer berechtigten Kündigung durch uns werden das Konto und die zugehörigen Daten gelöscht. Ein Anspruch auf Erstattung besteht insoweit nicht, als die Leistung bereits erbracht wurde oder der Grund für die Kündigung von dir zu vertreten ist. Im Übrigen erstatten wir dir den auf noch nicht erbrachte Leistungen entfallenden Anteil.\nDein Recht zur Kündigung aus wichtigem Grund und deine gesetzlichen Beendigungsrechte bleiben unberührt."
+        },
+        {
+          "heading": "§ 15 Verfügbarkeit",
+          "body": "Wir bemühen uns um eine möglichst unterbrechungsfreie Verfügbarkeit des Dienstes, schulden aber keine ununterbrochene Verfügbarkeit. Wartungsarbeiten, technische Störungen, Abhängigkeiten von Dritten sowie höhere Gewalt können zu vorübergehenden Einschränkungen führen. Planbare Wartungen legen wir nach Möglichkeit in nachfragearme Zeiten.\nFür die Teilnahme ist eine funktionierende Internetverbindung der beteiligten Geräte erforderlich, die nicht in unserem Einflussbereich liegt.\nDer Dienst ist kein Datensicherungsdienst. Für dich wichtige Ergebnisse solltest du eigenständig sichern, etwa per Export oder Bildschirmfoto.\nDeine gesetzlichen Rechte bei Mängeln nach § 10 bleiben von diesem Abschnitt unberührt."
+        },
+        {
+          "heading": "§ 16 Haftung",
+          "body": "Wir haften unbeschränkt für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit, für Vorsatz und grobe Fahrlässigkeit, bei arglistigem Verschweigen eines Mangels, im Rahmen einer von uns übernommenen Garantie sowie nach dem Produkthaftungsgesetz.\nBei einfacher Fahrlässigkeit haften wir nur bei der Verletzung einer wesentlichen Vertragspflicht, also einer Pflicht, deren Erfüllung die ordnungsgemäße Durchführung des Vertrags überhaupt erst ermöglicht und auf deren Einhaltung du regelmäßig vertrauen darfst. In diesem Fall ist die Haftung auf den bei Vertragsschluss vorhersehbaren, vertragstypischen Schaden begrenzt.\nIm Übrigen ist die Haftung ausgeschlossen.\nDiese Haftungsregelungen gelten auch zugunsten unserer gesetzlichen Vertreter, Mitarbeitenden und Erfüllungsgehilfen."
+        },
+        {
+          "heading": "§ 17 Datenschutz und Verantwortung für Gästedaten",
+          "body": "Informationen zur Verarbeitung personenbezogener Daten findest du in unserer Datenschutzerklärung.\nFür die Inhalte, die du in deinem Event anlegst, bist du selbst verantwortlich. Nutzt du TwoSoles ausschließlich privat, greift für dich regelmäßig die Haushaltsausnahme nach Art. 2 Abs. 2 lit. c DSGVO. Setzt du den Dienst geschäftlich ein, bist du für diese Inhalte datenschutzrechtlich Verantwortlicher und wir verarbeiten sie in deinem Auftrag. Einen Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO stellen wir dir auf Anfrage zur Verfügung."
+        },
+        {
+          "heading": "§ 18 Änderungen dieser AGB",
+          "body": "Wir können diese AGB anpassen, etwa bei Änderungen des Dienstes, der Rechtslage oder der höchstrichterlichen Rechtsprechung, sofern dies für dich zumutbar ist und die Änderung das Gleichgewicht von Leistung und Gegenleistung nicht zu deinen Lasten verschiebt.\nÜber beabsichtigte Änderungen informieren wir dich mindestens sechs Wochen vor ihrem Wirksamwerden in Textform. Widersprichst du nicht innerhalb von sechs Wochen nach Zugang der Mitteilung, gelten die Änderungen als angenommen. Auf diese Folge und dein Widerspruchsrecht weisen wir dich in der Mitteilung gesondert hin. Widersprichst du, können beide Seiten den Vertrag zum Zeitpunkt des Wirksamwerdens der Änderung beenden.\nFür bereits abgeschlossene Buchungen gilt die zum Zeitpunkt der Buchung geltende Fassung."
+        },
+        {
+          "heading": "§ 19 Streitbeilegung",
+          "body": "Die Europäische Kommission hat ihre Plattform zur Online-Streitbeilegung zum 20. Juli 2025 eingestellt.\nWir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. Bitte wende dich bei Problemen zuerst direkt an uns unter hello@twosoles.live."
+        },
+        {
+          "heading": "§ 20 Anwendbares Recht, Gerichtsstand und Schlussbestimmungen",
+          "body": "Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Hast du als Verbraucherin oder Verbraucher deinen gewöhnlichen Aufenthalt in einem anderen Staat, bleiben die zwingenden Verbraucherschutzvorschriften dieses Staates unberührt (Art. 6 Rom-I-Verordnung). Die Rechtswahl führt nicht dazu, dass dir der Schutz entzogen wird, den diese Vorschriften gewähren.\nFür Verbraucherinnen und Verbraucher gelten die gesetzlichen Gerichtsstände, eine abweichende Vereinbarung treffen wir nicht. Bist du Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen, ist ausschließlicher Gerichtsstand für alle Streitigkeiten aus diesem Vertragsverhältnis unser Geschäftssitz.\nSollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. An die Stelle der unwirksamen Bestimmung treten die gesetzlichen Vorschriften."
         }
       ]
     }
+  },
+  "checkout": {
+    "service": "Leistung",
+    "serviceValue": "TwoSoles, digitales Schuhspiel für ein Event",
+    "period": "Spielzeitraum",
+    "periodValue": "48 Stunden ab dem Live-Schalten, Vorbereitung zeitlich unbegrenzt",
+    "total": "Gesamtpreis",
+    "vatNote": "inkl. MwSt., keine weiteren Kosten",
+    "legalHint": "Es gelten unsere <terms>AGB</terms> und die <privacy>Datenschutzerklärung</privacy>. Die Widerrufsbelehrung findest du in § 7 der AGB.",
+    "submit": "Zahlungspflichtig buchen",
+    "upgradeSubmit": "Zahlungspflichtig upgraden",
+    "upgradeNote": "Berechnet wird nur die Differenz zu deinem aktuellen Paket."
+  },
+  "orderEmail": {
+    "subject": "Deine Bestellbestätigung für TwoSoles",
+    "preview": "Deine Bestellung bei TwoSoles ist bestätigt.",
+    "heading": "Bestellbestätigung",
+    "intro": "Danke für deine Buchung. Hiermit bestätigen wir den Vertrag zwischen dir und Marvin Vrdoljak, Diemshoff 38, 48282 Emsdetten, Deutschland. Diese E-Mail enthält den Vertragsinhalt, die Widerrufsbelehrung und das Muster-Widerrufsformular in Textform.",
+    "orderTitle": "Deine Bestellung",
+    "event": "Event",
+    "package": "Paket",
+    "capacity": "Gäste",
+    "amount": "Gezahlter Betrag",
+    "vatNote": "Alle Preise sind Endpreise und enthalten die gesetzliche Umsatzsteuer.",
+    "date": "Bestelldatum",
+    "merchantNote": "Die Zahlung wurde über Stripe als Merchant of Record abgewickelt. Den Zahlungsbeleg stellt Stripe aus, du findest ihn auch in deinem Konto unter Rechnungen.",
+    "termsTitle": "Allgemeine Geschäftsbedingungen",
+    "termsText": "Es gelten die AGB in der Fassung vom Zeitpunkt deiner Buchung. Du kannst sie jederzeit unter {url} abrufen und speichern.",
+    "privacyText": "Informationen zum Datenschutz findest du unter {url}.",
+    "footer": "Bei Fragen antworte einfach auf diese E-Mail oder schreib an hello@twosoles.live."
   },
   "eventWizard": {
     "cancel": "Abbrechen",
@@ -746,7 +852,8 @@
       "subtitle": "Bis 10 Gäste kostenlos. Ein Upgrade jederzeit möglich. Bezahlt wird einmalig pro Event.",
       "select": "Auswählen",
       "selected": "Ausgewählt",
-      "upTo": "Bis zu {capacity}"
+      "upTo": "Bis zu {capacity}",
+      "vatNote": "Alle Preise verstehen sich inklusive MwSt. Weitere Kosten fallen nicht an."
     },
     "summary": {
       "title": "Fast geschafft!",
@@ -765,7 +872,6 @@
       "creatingFree": "Wird angelegt …",
       "createError": "Das Event konnte nicht angelegt werden. Bitte versuch es erneut.",
       "photoTooLarge": "Das Bild ist zu groß. Bitte lade ein Foto mit maximal 5 MB hoch.",
-      "submit": "Event erstellen & bezahlen",
       "checkoutError": "Die Bezahlung konnte nicht gestartet werden. Bitte versuch es erneut."
     }
   },
@@ -815,6 +921,8 @@
       "cancel": "Abbrechen"
     },
     "goLiveConfirm": {
+      "consentLabel": "Ja, jetzt live schalten. Ich verlange die Leistung damit ausdrücklich schon vor Ablauf meiner Widerrufsfrist am {date} und weiß, dass mein Widerrufsrecht damit erlischt.",
+    "consentRequired": "Bitte bestätige zuerst die Erklärung zum Widerrufsrecht, sonst können wir das Event noch nicht live schalten.",
       "title": "Event wirklich live schalten?",
       "text": "Bitte gut überlegen, das lässt sich nicht rückgängig machen:",
       "points": [
@@ -861,7 +969,6 @@
       "packageTitle": "Paket & Kapazität",
       "packageText": "Bis 10 Gäste kostenlos. Ein Upgrade jederzeit möglich. Bezahlt wird einmalig pro Event.",
       "packageCurrent": "Aktueller Tarif",
-      "packageUpgrade": "Upgraden",
       "deleteTitle": "Event löschen",
       "deleteText": "Dauerhaft und unwiderruflich. Alle Fragen, Ergebnisse und der QR-Code werden entfernt. Dieser Schritt kann nicht rückgängig gemacht werden. Bereits gezahlte Beträge werden nicht zurückerstattet.",
       "deleteButton": "Event löschen",

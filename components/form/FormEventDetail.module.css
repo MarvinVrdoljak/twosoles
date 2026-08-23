@@ -282,6 +282,45 @@
   color: var(--color-text-muted);
 }
 
+/* Price statement, order essentials and legal links next to the upgrade buttons
+   (PAngV, § 312j Abs. 2 BGB). Deliberately one tight block of small print. */
+.pkgLegal {
+  margin: calc(-1 * var(--spacing-8)) 0 0;
+  font-size: var(--font-size-xs);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+/* Withdrawal declaration (§ 356 Abs. 4/5 BGB). Never pre-checked. */
+.consent {
+  display: flex;
+  gap: var(--spacing-12);
+  align-items: flex-start;
+  margin-top: var(--spacing-16);
+  padding-top: var(--spacing-16);
+  border-top: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.consentInput {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.consentText {
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.legalLink {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
 .pkgCurrentTag {
   flex-shrink: 0;
   font-size: var(--font-size-xs);

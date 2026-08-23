@@ -50,6 +50,7 @@ export async function BlockPricing() {
             capacityPrefix={t('capacityPrefix')}
             capacity={tier.capacity}
             ctaLabel={t('cta')}
+            vatNote={tier.free ? undefined : t('vatNote')}
           />
         ))}
       </CommonReveal>

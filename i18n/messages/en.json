@@ -118,6 +118,7 @@
     "perEvent": "/ event",
     "cta": "Start for free",
     "freePrice": "Free",
+    "vatNote": "incl. VAT",
     "tiers": [
       {
         "name": "Small circle",
@@ -340,7 +341,7 @@
           },
           {
             "question": "Is there a refund if we end up not playing?",
-            "answer": "As long as you haven't set the event live and therefore haven't used it yet, just get in touch and we'll find a fair solution. Once the event is live, it counts as an immediately provided digital service for which a refund is no longer possible. If you're unsure, it's best to try the free package first."
+            "answer": "Yes. As a consumer you have a statutory 14-day right of withdrawal for paid bookings; the details are in the withdrawal instructions in our terms. On top of that we make a voluntary commitment: as long as you have not set the event live, we refund the full amount on request, even after the withdrawal period has expired. Just write to us at hello@twosoles.live. If you're unsure, it's best to try the free package first."
           },
           {
             "question": "How secure is the payment?",
@@ -461,174 +462,281 @@
   },
   "legal": {
     "updatedLabel": "Last updated",
-    "updated": "July 2026",
+    "updated": "August 2026",
     "imprint": {
       "title": "Imprint",
       "metaTitle": "Imprint",
-      "metaDescription": "Provider and contact details for TwoSoles.",
+      "metaDescription": "Provider and contact details for TwoSoles under § 5 of the German Digital Services Act (DDG).",
+      "note": "This is a courtesy translation of the German original. TwoSoles is operated from Germany; in case of discrepancies, the German version prevails.",
       "sections": [
         {
-          "heading": "Provider",
-          "body": "This website and the TwoSoles service are operated by:\nMarvin Vrdoljak\nGrimselstrasse 30\n8048 Zürich\nSwitzerland"
+          "heading": "Information under § 5 DDG",
+          "body": "This website and the TwoSoles service are operated by:\nMarvin Vrdoljak\nDiemshoff 38\n48282 Emsdetten\nGermany"
         },
         {
           "heading": "Contact",
-          "body": "Email: hello@twosoles.live"
+          "body": "Email: hello@twosoles.live\nContact form: twosoles.live/contact\n\nThese channels let you reach us directly and electronically. We usually reply within 24 hours."
         },
         {
           "heading": "Legal form and registration",
-          "body": "TwoSoles is run as a sole proprietorship by Marvin Vrdoljak. The business is not entered in the commercial register and is not registered for VAT. For that reason, no company identification number (UID) and no VAT number are shown."
+          "body": "TwoSoles is run as a sole proprietorship by Marvin Vrdoljak. There is no entry in the commercial register. The service offered requires no supervisory authority approval or professional licence."
+        },
+        {
+          "heading": "VAT",
+          "body": "No VAT identification number under § 27a of the German VAT Act (UStG) has been issued."
+        },
+        {
+          "heading": "Responsible for the content under § 18 (2) MStV",
+          "body": "Marvin Vrdoljak\nDiemshoff 38\n48282 Emsdetten\nGermany"
         },
         {
           "heading": "Payment processing",
-          "body": "Paid bookings are handled through the payment provider Stripe. Stripe acts as the merchant of record, meaning it processes the payment as the responsible contracting party and takes care of calculating and remitting any applicable taxes. You can find the details in our privacy policy and terms."
+          "body": "Paid bookings are handled through the payment provider Stripe. Stripe acts as the merchant of record, meaning it processes the payment as the responsible contracting party for the payment, issues the payment receipt and takes care of calculating and remitting VAT. The provider named above remains your contracting party for the provision of the service itself. Details are set out in our terms and in the privacy policy."
+        },
+        {
+          "heading": "Consumer dispute resolution",
+          "body": "The European Commission shut down its Online Dispute Resolution platform on 20 July 2025, so no link to it is provided.\n\nWe are neither willing nor obliged to take part in dispute resolution proceedings before a consumer arbitration board. If something goes wrong, please contact us directly; we almost always find a straightforward solution."
         },
         {
           "heading": "Liability for content",
-          "body": "The content of this website is created with the greatest possible care. However, no guarantee is given for the accuracy, completeness or timeliness of the content. Use of the content is at your own risk."
+          "body": "As a service provider we are responsible for our own content on these pages under the general laws, in accordance with § 7 (1) DDG. Under §§ 8 to 10 DDG, however, we are not obliged as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate unlawful activity. Obligations to remove or block the use of information under the general laws remain unaffected. Liability in this respect is only possible from the point in time at which we become aware of a specific infringement. If we become aware of such infringements, we will remove the content promptly."
         },
         {
           "heading": "Liability for links",
-          "body": "Our offer may contain links to external third-party websites over whose content we have no influence. The respective provider or operator of the pages is always responsible for that third-party content."
+          "body": "Our offer may contain links to external third-party websites over whose content we have no influence. We therefore cannot accept any responsibility for that third-party content. The respective provider or operator of the linked pages is always responsible for their content. The linked pages were checked for possible legal violations at the time of linking; no unlawful content was apparent. Permanent monitoring of the content of linked pages is not reasonable without concrete indications of an infringement. If we become aware of legal violations, we will remove such links promptly."
         },
         {
           "heading": "Copyright",
-          "body": "The content and works published on this website are subject to Swiss copyright law. Reproduction, editing, distribution and any kind of use beyond the limits of copyright require the prior written consent of the provider."
+          "body": "The content and works created by the provider on these pages are subject to German copyright law. Reproduction, editing, distribution and any kind of use beyond the limits of copyright require the provider's prior written consent. Downloads and copies of this page are permitted for private, non-commercial use only. Where the content on this page was not created by the provider, the copyright of third parties is respected. If you nevertheless become aware of a copyright infringement, please let us know; we will remove such content promptly once we are aware of it."
         }
       ]
     },
     "privacy": {
       "title": "Privacy Policy",
       "metaTitle": "Privacy Policy",
-      "metaDescription": "How TwoSoles processes personal data: a transparent overview of what we collect, why and with which services.",
-      "intro": "Protecting your personal data matters to us. Below we explain which data we process when you use TwoSoles, for what purposes and on what basis. The basis is the Swiss Data Protection Act (revDSG). For users in the EU and EEA, the General Data Protection Regulation (GDPR) additionally applies and grants you the rights set out below.",
+      "metaDescription": "How TwoSoles processes personal data: a transparent GDPR overview of what we collect, why, on what legal basis and with which services.",
+      "note": "This is a courtesy translation of the German original. In case of discrepancies, the German version prevails.",
+      "intro": "Protecting your personal data matters to us. Below we explain which data we process when you use TwoSoles, for what purposes and on what legal basis. The applicable law is the General Data Protection Regulation (GDPR), the German Federal Data Protection Act (BDSG) and the German Telecommunications Digital Services Data Protection Act (TDDDG).",
       "sections": [
         {
           "heading": "Controller",
-          "body": "The controller responsible for data processing is:\nMarvin Vrdoljak\nGrimselstrasse 30\n8048 Zürich\nSwitzerland\nEmail: hello@twosoles.live"
+          "body": "The controller within the meaning of Art. 4(7) GDPR is:\nMarvin Vrdoljak\nDiemshoff 38\n48282 Emsdetten\nGermany\nEmail: hello@twosoles.live"
+        },
+        {
+          "heading": "Data protection officer",
+          "body": "We are not required to appoint a data protection officer, as the conditions of Art. 37 GDPR and § 38 BDSG are not met. For any questions about data protection you can reach us directly at hello@twosoles.live."
         },
         {
           "heading": "What data we process",
-          "body": "Account data: the email address and name you provide when registering.\nEvent and game data: the questions you create, uploaded photos of the couple and the anonymous votes cast by your guests. It is not stored which guest voted for what.\nContact data: the details you enter in our contact form (name, email address, optionally the wedding date and guest count, and your message).\nPayment data: for paid bookings, the data required for payment, which is processed directly by our payment provider. We do not receive complete payment data.\nTechnical data: server log data such as IP address, date and time of access and details of the browser used, which arise for technical reasons.\nUsage data: aggregated, anonymous statistics on the use of the website (see the section on audience measurement)."
+          "body": "Account data: the email address and name you provide when registering, plus sign-in timestamps.\nEvent and game data: the questions you create, the couple names, occasion and date, uploaded photos, the anonymous votes cast by your guests and the answers the couple give during the game. It is not stored which guest voted for what.\nContact data: the details you enter in our contact form (name, email address, optionally the wedding date and guest count, and your message).\nPayment data: for paid bookings, the details required for payment, which are processed directly by our payment provider, plus the receipt data passed to us such as amount, currency, date and payment status. We do not receive complete payment method data.\nTechnical data: server log data such as IP address, date and time of access, the address requested, the referrer and details of the browser and operating system.\nUsage data: aggregated, anonymous statistics on the use of the website (see the section on audience measurement)."
         },
         {
           "heading": "Purposes and legal bases",
-          "body": "We process your data to provide the service and to perform our contract with you (Art. 6(1)(b) GDPR), to ensure secure and stable operation and to respond to enquiries based on our legitimate interest (Art. 6(1)(f) GDPR) and, where required, based on your consent (Art. 6(1)(a) GDPR). Under Swiss law, we base the processing on contract performance, our overriding legitimate interest and, where necessary, your consent."
+          "body": "Performance of a contract under Art. 6(1)(b) GDPR: providing your account, creating and running your events, handling paid bookings and the related communication.\nLegitimate interest under Art. 6(1)(f) GDPR: secure and stable operation, prevention of misuse and attacks, answering general enquiries and improving the service through anonymous audience measurement.\nConsent under Art. 6(1)(a) GDPR: processing for which we ask you separately. You can withdraw consent at any time with effect for the future.\nLegal obligation under Art. 6(1)(c) GDPR: compliance with commercial and tax retention requirements."
+        },
+        {
+          "heading": "Visiting the website and server log files",
+          "body": "When you access our pages, our hosting provider automatically processes technical access data. This processing is necessary to deliver the website, ensure its stability and security and fend off attacks. The legal basis is Art. 6(1)(f) GDPR. This data is not merged with other data sources."
+        },
+        {
+          "heading": "Account and sign-in",
+          "body": "To use the service you create a free account. In doing so we process your email address and your name. Sign-in is passwordless via a login link we send you by email, or optionally via sign-in with Google. If you choose the Google login, we receive your email address, your name and, if available, your profile picture from Google; Google learns that you are signing in to TwoSoles. The legal basis is Art. 6(1)(b) GDPR."
+        },
+        {
+          "heading": "Event and game data",
+          "body": "We store the content of your event, that is couple names, occasion, date, questions and uploaded photos, so that you can prepare it and call it up during the game. Guest votes are recorded anonymously only: we store how many votes go to which answer, not who voted how. Guests do not need to register and do not provide a name or any other personal data. Visiting the guest page only generates the technical access data described in the section on server log files. The answers the couple give during the game are stored against the respective partner so that the result can be displayed again later. The legal basis is Art. 6(1)(b) GDPR."
         },
         {
           "heading": "Visibility of your event content",
-          "body": "The content of an event, in particular the couple's names, your questions and the uploaded photos, is shown during the game on the devices of participating guests and on the presenting screen. Access is only possible through an unguessable event link or QR code: only those who receive this link from you can see the content. The photos are held in private storage and are served only through short-lived, server-generated links; direct public access is not possible. The game pages are also excluded from indexing by search engines."
+          "body": "The content of an event, in particular the couple's names, your questions and the uploaded photos, is shown during the game on the devices of participating guests and on the presenting screen. Access is only possible through an unguessable event link or QR code: only those who receive this link from you can see the content. The photos are held in private storage and are served only through server-generated links that are valid for one hour at a time; direct public access is not possible. The game pages are also excluded from indexing by search engines."
+        },
+        {
+          "heading": "Photos and responsibility for your content",
+          "body": "If you upload photos or write questions in which people are recognisable or identifiable, you determine the purposes and means of that processing. If you use TwoSoles purely privately for your own celebration, the household exemption under Art. 2(2)(c) GDPR will normally apply to you. If you use the service commercially, for example as a wedding planner, celebrant or DJ, you are the controller for that content and we process it on your behalf. We will provide you with a data processing agreement under Art. 28 GDPR on request. In both cases it is your responsibility to make sure the people shown agree to being displayed."
+        },
+        {
+          "heading": "Contact form and email enquiries",
+          "body": "If you write to us via the contact form or by email, we process your details in order to handle and answer your enquiry. The legal basis is Art. 6(1)(b) GDPR where the enquiry concerns a contract, otherwise our legitimate interest in answering enquiries under Art. 6(1)(f) GDPR. We delete the data once the enquiry has been dealt with conclusively and no retention obligations stand in the way."
+        },
+        {
+          "heading": "Payment processing",
+          "body": "If you book a paid package, we redirect you to Stripe for payment. In doing so we transmit your email address and the name of the booked package so that Stripe can match the payment and send you the receipt. Stripe acts as the merchant of record and processes the payment data, in particular payment method, billing details and country, on its own responsibility; Stripe’s own privacy policy applies to this. We do not receive complete payment method data such as card numbers. From Stripe we receive the checkout session identifier, the amount paid, the currency and the payment status in order to match and fulfil your booking. The legal bases are Art. 6(1)(b) GDPR and, for retaining the receipts, Art. 6(1)(c) GDPR."
         },
         {
           "heading": "Cookies and local storage",
-          "body": "We only use technically necessary cookies and similar storage techniques, for example to store your login, your language choice and host access during a game. These are required for operation and do not require consent. We do not use tracking or advertising cookies."
+          "body": "We only use technically necessary cookies and comparable storage techniques in your browser, for example to store your login, your language choice and host access during a game. Under § 25(2) no. 2 TDDDG this storage is strictly necessary for the service you have expressly requested and therefore does not require consent. You will not have to dismiss a consent banner here, because we do not use tracking, marketing or advertising cookies and do not build cross-device profiles.\nIn addition, your browser stores locally whether you have already dismissed the one-off intro hint for an event. That entry never leaves your device.\nFonts are served from our own server. No connection is made to Google Fonts or any other font CDN."
         },
         {
           "heading": "Audience measurement",
-          "body": "To improve our service we use Vercel Analytics and Vercel Speed Insights. These services collect aggregated, anonymous information on the use and loading performance of the website, such as pages viewed and technical performance values. They work without cookies, do not create cross-device profiles and do not pass the data on for advertising purposes."
+          "body": "To improve our service we use Vercel Analytics and Vercel Speed Insights. These services collect aggregated, anonymous information on the use and loading performance of the website, such as pages viewed, approximate region of origin and technical performance values. We also count a few anonymous events, namely starting and completing the creation of an event, a completed payment and the start of a game. These counts contain no content from your event and no information about you personally. The services work without cookies, without recognising individuals and without cross-device profiles; no personal reference is established. The legal basis is our legitimate interest in a working, fast service under Art. 6(1)(f) GDPR."
         },
         {
           "heading": "Email communication",
-          "body": "We only send you emails that are necessary for the service (transactional emails), such as the sign-in link, payment confirmations and replies to your enquiries. We do not send a newsletter or advertising emails; any promotional contact only takes place if you have expressly consented beforehand, and you can withdraw such consent at any time with effect for the future."
+          "body": "We only send you emails that are necessary for the service (transactional emails), such as the sign-in link, order and payment confirmations and replies to your enquiries. We do not send a newsletter or advertising emails. Promotional contact only takes place if you have expressly consented beforehand or the conditions of § 7(3) of the German Unfair Competition Act (UWG) are met. You can withdraw consent at any time with effect for the future at no cost other than transmission costs at basic rates."
         },
         {
-          "heading": "Services we use",
-          "body": "For operation we use carefully selected service providers who process data on our behalf:\nHosting and audience measurement: Vercel Inc., USA.\nDatabase, authentication, real-time synchronisation and photo storage: Supabase, with servers located in the European Union (Frankfurt).\nSign in with Google (optional): Google Ireland Limited. This data exchange only takes place if you choose to log in with Google.\nPayment processing: Stripe. Stripe acts as the merchant of record and processes the payment data on its own responsibility, including tax handling.\nContact form: Resend, which processes the details sent through the form and delivers them to us by email.\nWhere required, data processing agreements are in place with these providers."
+          "heading": "Recipients and processors",
+          "body": "We only pass on data where this is necessary to run the service. We use:\nHosting, website delivery and audience and performance measurement with Vercel Analytics and Vercel Speed Insights: Vercel Inc., USA.\nDatabase, authentication, real-time synchronisation and photo storage: Supabase, Inc., USA, with servers located in the European Union (Frankfurt am Main). As part of sign-in, Supabase also processes IP addresses in order to prevent abuse through excessive sign-in attempts.\nSign in with Google, if you choose it: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.\nPayment processing: Stripe Payments Europe, Limited, Dublin, Ireland, and other companies of the Stripe group, including Stripe, Inc., USA.\nSending emails and delivering the contact form: Resend, USA.\nWhere these providers process data on our behalf, data processing agreements under Art. 28 GDPR are in place. Beyond that we only pass on data if we are legally obliged to do so or you have consented. We do not sell data."
         },
         {
           "heading": "International data transfers",
-          "body": "Some of the providers named process data outside Switzerland, in particular in the European Union and the USA. Where data is transferred to a country without an equivalent level of data protection, we ensure appropriate safeguards, such as standard contractual clauses, to protect your data adequately."
+          "body": "Some of the providers named process data in the USA or access data from there. For these transfers we rely on the European Commission’s standard contractual clauses under Art. 46(2)(c) GDPR together with supplementary safeguards and, where the provider concerned is certified, on the adequacy decision for the EU-US Data Privacy Framework under Art. 45 GDPR. Despite these safeguards, it cannot be entirely ruled out that US authorities may access data under certain conditions."
         },
         {
           "heading": "Retention period",
-          "body": "We store your data only for as long as necessary for the stated purposes or as required by statutory retention periods. Account and event data are stored for as long as your account exists. If you delete your account or an event, the associated data is removed. Afterwards the data is deleted or anonymised."
+          "body": "We store personal data only for as long as necessary for the stated purposes. Account and event data remain stored for as long as your account exists. If you delete your account or an individual event in the settings, the associated data including uploaded photos is removed. This does not cover the payment and receipt data for bookings already paid for: it is retained for the tax reasons set out below, even if you delete the associated event or your account. Contact form enquiries are deleted once they have been dealt with conclusively. Server log files are deleted or shortened after a short period. Payment and receipt data is retained for up to ten years due to commercial and tax obligations under § 257 HGB and § 147 AO; during this time it is blocked from further processing."
         },
         {
           "heading": "Your rights",
-          "body": "You have the right to access the data processed about you, as well as to rectification, erasure and restriction of processing. You also have the right to data portability and a right to object, and you can withdraw any consent given at any time with effect for the future. To do so, simply contact the address above. You also have the right to lodge a complaint with a supervisory authority. In Switzerland this is the Federal Data Protection and Information Commissioner (FDPIC), and in the EU the data protection authority responsible for you."
+          "body": "You have the right of access (Art. 15 GDPR), rectification (Art. 16 GDPR), erasure (Art. 17 GDPR), restriction of processing (Art. 18 GDPR) and data portability (Art. 20 GDPR). You can withdraw consent at any time with effect for the future (Art. 7(3) GDPR). Simply contact hello@twosoles.live.\n\nYou also have the right to lodge a complaint with a supervisory authority (Art. 77 GDPR). The authority responsible for us is:\nLandesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen\nKavalleriestraße 2-4\n40213 Düsseldorf\nGermany\n\nYou may also contact the supervisory authority where you live or work."
+        },
+        {
+          "heading": "Right to object",
+          "body": "You have the right to object at any time, on grounds relating to your particular situation, to processing of your personal data based on Art. 6(1)(f) GDPR. If you object, we will no longer process that data unless we can demonstrate compelling legitimate grounds that override your interests, rights and freedoms, or the processing serves to establish, exercise or defend legal claims. If your data is processed for direct marketing purposes, you may object at any time without giving reasons. An informal email to hello@twosoles.live is sufficient."
+        },
+        {
+          "heading": "Whether providing data is required",
+          "body": "Providing your email address is required to set up an account; without it we cannot provide the service. All other details, such as the wedding date or guest count in the contact form, are voluntary. There is no further statutory or contractual obligation to provide data."
         },
         {
           "heading": "Data security",
-          "body": "We take appropriate technical and organisational measures to protect your data against unauthorised access, loss or misuse. Data is transmitted in encrypted form over secure connections (HTTPS)."
+          "body": "We take appropriate technical and organisational measures under Art. 32 GDPR to protect your data against unauthorised access, loss or misuse. These include end-to-end encrypted transmission over HTTPS, access restrictions at database level and private, non-publicly accessible storage for uploaded photos."
         },
         {
-          "heading": "Automated decision-making",
-          "body": "We do not carry out automated decision-making, including profiling, within the meaning of the GDPR."
+          "heading": "No automated decision-making",
+          "body": "We do not carry out automated decision-making in individual cases, including profiling, within the meaning of Art. 22 GDPR."
         },
         {
           "heading": "Minors",
-          "body": "Our service is intended for persons of legal age. We do not knowingly process data of children. Should we become aware that data of minors has been provided to us without the required consent, we will delete it."
-        },
-        {
-          "heading": "Data protection contact",
-          "body": "If you have any questions about data protection or wish to exercise your rights, you can reach us at: hello@twosoles.live."
+          "body": "Our service is intended for persons of legal age. We do not knowingly process data of children within the meaning of Art. 8 GDPR. Should we become aware that data of minors has been provided to us without the required consent, we will delete it without delay."
         },
         {
           "heading": "Changes to this privacy policy",
-          "body": "We may amend this privacy policy, for example in the event of changes to our service or the legal situation. The current version published on this page always applies."
+          "body": "We update this privacy policy when our service or the legal situation changes. The current version published on this page always applies."
         }
       ]
     },
     "terms": {
       "title": "Terms & Conditions",
       "metaTitle": "Terms & Conditions",
-      "metaDescription": "The terms and conditions governing the use of TwoSoles.",
-      "intro": "These Terms and Conditions govern the use of the TwoSoles service, offered by Marvin Vrdoljak. Please read them carefully.",
+      "metaDescription": "The terms and conditions governing the use of TwoSoles, including the withdrawal instructions for consumers.",
+      "note": "Important for consumers: paid bookings come with a 14-day right of withdrawal. The full withdrawal instructions are in section 7, the model withdrawal form in section 9. This English text is a courtesy translation; in case of discrepancies, the German version prevails.",
+      "intro": "These Terms and Conditions govern the use of the TwoSoles service, offered by Marvin Vrdoljak, Diemshoff 38, 48282 Emsdetten, Germany. Please read them carefully.",
       "sections": [
         {
-          "heading": "1. Scope and provider",
-          "body": "These terms apply to the use of the online service provided under TwoSoles. The provider is Marvin Vrdoljak, Grimselstrasse 30, 8048 Zürich, Switzerland (the “provider”). By registering and using the service you agree to these terms. We do not accept conflicting terms unless we expressly consent to them."
+          "heading": "1. Scope, provider and contract language",
+          "body": "These terms apply to all contracts on the use of the online service provided at twosoles.live between you and Marvin Vrdoljak, Diemshoff 38, 48282 Emsdetten, Germany, email hello@twosoles.live (the “provider”, “we”).\nDiffering, conflicting or supplementary terms do not become part of the contract unless we expressly agree to them.\nA consumer is any natural person who enters into the contract for purposes that are predominantly outside their trade, business or profession (§ 13 BGB). An entrepreneur is anyone acting in the course of their trade, business or profession when concluding the contract (§ 14 BGB).\nThe contract languages are German and English. This English version is a courtesy translation; in case of discrepancies the German version prevails."
         },
         {
           "heading": "2. Description of services",
-          "body": "TwoSoles is a digital version of the wedding shoe game. The provider offers a web application that lets guests vote live via QR code and presents the results on a screen. The specific scope of features, in particular the number of guests taking part at the same time, depends on the chosen package. The provider develops the service on an ongoing basis and may adjust individual features, provided the essential service remains intact."
+          "body": "TwoSoles is a digital version of the wedding shoe game. We provide a web application that lets guests vote live via QR code and presents the results on a screen.\nThe scope of features, in particular the number of guests taking part at the same time, depends on the package you choose. The applicable description of services is the one shown in the service at the time of your booking. As long as an event has not been set live, the free package capacity applies, to prevent guests joining unintentionally during setup. The booked capacity becomes available once you set the event live.\nUse requires an internet-capable device, an up-to-date browser and a working internet connection. Providing these is not part of our service."
         },
         {
           "heading": "3. Registration and account",
-          "body": "A free account is required to use the service. Sign-in is passwordless via a login link sent by email or via a supported third-party login. You are obliged to provide truthful information and to keep your login credentials confidential. The service is intended for persons who are at least 18 years old and have full legal capacity. You can delete your account at any time in your account settings; the associated data is removed in the process."
+          "body": "A free account is required to use the service. Sign-in is passwordless via a login link sent by email or via a supported third-party login.\nYou are obliged to provide truthful information and to keep your credentials and login link confidential.\nThe service is intended for persons who are at least 18 years old and have full legal capacity.\nYou can delete your account at any time and without giving reasons in your account settings; the associated data is removed in the process, except for payment and receipt data, which we must continue to retain due to statutory retention obligations. Paid services already fully provided remain unaffected."
         },
         {
-          "heading": "4. Conclusion of contract",
-          "body": "The presentation of the packages in the service is an invitation to submit an offer. By creating a free event or by confirming a paid booking, you submit a binding offer. The contract for the use of the service is concluded between you and the provider as soon as the event is created or the booking is confirmed."
+          "heading": "4. Conclusion of contract, order process and contract text",
+          "body": "The presentation of the packages in the service is not a binding offer but a non-binding invitation for you to make an offer.\nThe order process for a paid package is: create the event in the wizard, select a package, check your details in the summary, submit the binding order using the button marked as subject to payment, and complete the payment at Stripe. You can correct input errors at any time before submitting by going back in the wizard, changing fields or cancelling.\nBy submitting the order you make a binding offer. The contract is concluded as soon as we accept that offer by confirming the payment, at the latest with the order confirmation in text form.\nFor a free event, the contract is concluded when the event is created.\nWe send you the contract text including these terms and the withdrawal instructions with the confirmation in text form. The current version of these terms can be viewed, saved and printed from this page at any time. The contract text is not separately stored in your account.\nWe have not subscribed to any specific codes of conduct."
         },
         {
-          "heading": "5. Prices, payment and taxes",
-          "body": "Use is charged as a one-off payment per event. The price depends on the booked guest capacity; small events of up to ten guests are free. All prices include any applicable taxes.\nPayment is processed by Stripe. Stripe acts as the merchant of record, meaning that Stripe handles the payment as the responsible contracting party for the payment, issues the payment confirmation and takes care of calculating and remitting any applicable taxes. Stripe's own terms may additionally apply to the payment. The data required for payment is transmitted directly to Stripe; the provider does not receive complete payment data.\nAn upgrade to a larger package is possible at any time; in that case only the difference to the package already paid for is charged."
+          "heading": "5. Prices, payment and VAT",
+          "body": "Use is charged as a one-off payment per event. There is no subscription and there are no recurring costs. The price depends on the booked guest capacity; events of up to ten guests are free.\nAll prices are final prices in euros and include statutory VAT. No further costs, in particular shipping or delivery costs, apply. You bear the cost of your own internet connection.\nPayment is processed by Stripe. Stripe acts as the merchant of record, meaning that Stripe handles the payment as the responsible contracting party for the payment, issues the payment receipt and takes care of calculating and remitting VAT. Stripe’s own terms may additionally apply to the payment transaction. We remain your contracting party for the provision of the service. The data required for payment is transmitted directly to Stripe; we do not receive complete payment method data.\nThe price is due immediately and without deduction upon conclusion of the contract. The available payment methods are shown during checkout.\nAn upgrade to a larger package is possible at any time; only the difference to the package already paid for is charged."
         },
         {
           "heading": "6. Provision and play window",
-          "body": "After creating it, you can prepare, edit and test your event without any time limit. Once you deliberately set the event live, the 48-hour play window begins, within which the game can be played. Each event can be set live only once. After the 48 hours the round is over; the saved results remain available in your account."
+          "body": "After creating it, you can prepare, edit and test your event without any time limit.\nOnce you deliberately set the event live, the 48-hour play window begins, within which the game can be played. Each event can be set live only once.\nAfter the 48 hours the agreed play window ends and the event can no longer be edited. The saved results remain available in your account for as long as the account exists."
         },
         {
-          "heading": "7. Withdrawal and refunds",
-          "body": "For online contracts, Swiss law provides no statutory right of withdrawal or return. Regardless of this: as long as a paid event has not yet been set live and therefore has not been used, you can contact the provider, who will offer you a refund as a goodwill gesture. Once the event is set live, the service counts as an immediately and fully provided digital service for which a refund is excluded. We recommend testing the service in the free package beforehand."
+          "id": "withdrawal",
+          "heading": "7. Right of withdrawal for consumers",
+          "body": "Consumers have a statutory right of withdrawal for paid bookings. The following instructions reproduce the statutory model wording.\n\nWithdrawal instructions\n\nRight of withdrawal\nYou have the right to withdraw from this contract within fourteen days without giving any reason. The withdrawal period is fourteen days from the day of the conclusion of the contract.\nTo exercise your right of withdrawal, you must inform us (Marvin Vrdoljak, Diemshoff 38, 48282 Emsdetten, Germany, email: hello@twosoles.live) of your decision to withdraw from this contract by an unequivocal statement (for example a letter sent by post or an email). You may use the attached model withdrawal form, but it is not obligatory.\nTo meet the withdrawal deadline, it is sufficient for you to send your communication concerning your exercise of the right of withdrawal before the withdrawal period has expired.\n\nEffects of withdrawal\nIf you withdraw from this contract, we shall reimburse to you all payments received from you without undue delay and in any event not later than fourteen days from the day on which we are informed about your decision to withdraw from this contract. We will carry out such reimbursement using the same means of payment as you used for the initial transaction, unless you have expressly agreed otherwise. In any event, you will not incur any fees as a result of such reimbursement.\nIf you requested to begin the performance of services during the withdrawal period, you shall pay us an amount which is in proportion to what has been provided until you have communicated to us your withdrawal from this contract, in comparison with the full coverage of the contract.\n\nEnd of the withdrawal instructions"
         },
         {
-          "heading": "8. User obligations and content",
-          "body": "You are responsible for the content you create, in particular your own questions and uploaded photos, and you warrant that you hold the necessary rights and do not infringe the rights of third parties. Where individuals are recognizable in uploaded photos, you warrant that they have consented to the storage and display within the service (right to one's own image). You undertake not to misuse the service, in particular not to submit unlawful, offensive or harmful content. In the event of serious or repeated violations, misuse, unlawful content or non-payment, the provider may temporarily block access or terminate the account. In that case the account and the associated data are deleted; paid services that have already been fully provided are not refunded. You grant the provider the simple, term-limited right to store your content and display it within the service, to the extent necessary to provide it. All rights to the software, the brand and the provider's own content remain with the provider."
+          "heading": "8. Early expiry of the right of withdrawal and voluntary refund",
+          "body": "Your right of withdrawal expires early if, during the order process, you expressly request that we begin performance of the contract before the end of the withdrawal period, you confirm at the same time that you will lose your right of withdrawal once performance begins or upon complete performance of the contract, we have begun performance and we have provided you with a confirmation of the contract in text form (§ 356(4) and (5) BGB).\nSetting your event live counts as complete performance of the service: only then does the booked guest capacity become available for the play window and only then do you use the service in full. Until that point your event stays in preparation, whichever package you paid for.\nWe therefore do not ask for the declaration at checkout, but exactly when you set your event live and fewer than 14 days have passed since your booking. If your event is later than that, your withdrawal period has expired by then anyway and you will not be asked to confirm anything. Without the declaration you cannot set the event live during that period; you can withdraw instead, or simply wait until the period has expired.\nIndependently of the statutory right of withdrawal, we make a voluntary commitment: as long as you have not yet set a paid event live, we will refund the amount paid in full on request, even after the withdrawal period has expired. Just write to us at hello@twosoles.live. We also recommend testing the service in the free package beforehand.\nFor free events there is no statutory right of withdrawal, because you neither pay a price nor provide personal data that we use beyond providing the service and complying with legal obligations (§ 312(1a) BGB). You can delete a free event at any time."
         },
         {
-          "heading": "9. Availability",
-          "body": "The provider strives to keep the service available with as little interruption as possible but does not owe uninterrupted availability. Maintenance, technical faults, dependencies on third parties and force majeure may lead to temporary restrictions. Taking part also requires a working internet connection on the devices involved, which is outside the provider's control. The service is not a data backup service. You should independently save results that are important to you, for example by export or screenshot, as the provider does not owe permanent retention or restoration."
+          "id": "withdrawalForm",
+          "heading": "9. Model withdrawal form",
+          "body": "If you want to withdraw from the contract, you can fill in this form and return it to us. This is not obligatory; an informal email is sufficient.\n\nTo:\nMarvin Vrdoljak\nDiemshoff 38\n48282 Emsdetten\nGermany\nEmail: hello@twosoles.live\n\nI/We (*) hereby give notice that I/We (*) withdraw from my/our (*) contract for the provision of the following service:\n\nOrdered on (*) / received on (*):\nName of consumer(s):\nAddress of consumer(s):\nSignature of consumer(s) (only if this form is notified on paper):\nDate:\n\n(*) Delete as appropriate."
         },
         {
-          "heading": "10. Liability",
-          "body": "The provider is liable without limitation for damage caused intentionally or through gross negligence. In the case of slight negligence, the provider is only liable for the breach of essential contractual obligations and limited to the foreseeable damage typical for the contract. Any further liability is excluded to the extent permitted by law. Mandatory statutory liability provisions remain unaffected."
+          "heading": "10. Rights in case of defects and updates",
+          "body": "For consumers, the statutory provisions on contracts for digital products (§§ 327 et seq. BGB) apply.\nWe provide the service free from product and legal defects and, for the duration of provision, owe the updates necessary to keep the service in conformity with the contract, including security updates (§ 327f BGB). We will inform you about such updates where required.\nIf the service is defective, you may, in accordance with the statutory provisions, demand that it be brought into conformity, terminate the contract, reduce the price and claim damages or reimbursement of futile expenditure (§§ 327i et seq. BGB).\nThe statutory limitation period for claims based on defects is not shortened."
         },
         {
-          "heading": "11. Data protection",
-          "body": "Information on the processing of personal data can be found in our privacy policy."
+          "heading": "11. Changes to the service",
+          "body": "We may change the service beyond what is necessary to maintain conformity with the contract only if there is a valid reason, the change causes you no additional cost and we inform you about it clearly and comprehensibly (§ 327r BGB).\nValid reasons include in particular adapting to a changed technical environment, to an increased number of users, to changed statutory requirements and important operational reasons.\nIf such a change adversely affects your access to or use of the service more than only insignificantly, we will inform you at least 30 days in advance in text form. In that case you may terminate the contract free of charge within 30 days, unless we enable you to continue using the service unchanged at no additional cost and conformity with the contract is maintained."
         },
         {
-          "heading": "12. Changes to these terms",
-          "body": "The provider may amend these terms, for example in the event of changes to the service or the legal situation. You will be informed of material changes in an appropriate manner. For bookings already concluded, the version valid at the time of booking applies."
+          "heading": "12. User obligations and content",
+          "body": "You are responsible for the content you create, in particular your own questions and uploaded photos, and you warrant that you hold the necessary rights and do not infringe the rights of third parties.\nWhere individuals are recognisable in uploaded photos, you warrant that they have consented to the storage and display within the service (§§ 22, 23 KUG, Art. 6 GDPR).\nYou undertake not to misuse the service and in particular not to submit unlawful, offensive, discriminatory, harmful-to-minors content or content that violates personality rights.\nYou will indemnify us against justified third-party claims arising from unlawful use of the service for which you are responsible or from content you have submitted, including the reasonable costs of legal defence. We will inform you of such claims without delay and coordinate with you before making any statements."
         },
         {
-          "heading": "13. Governing law and place of jurisdiction",
-          "body": "Swiss law applies, excluding its conflict-of-law rules and the UN Convention on Contracts for the International Sale of Goods. The place of jurisdiction is Zürich, unless mandatory statutory places of jurisdiction apply. For consumers, the mandatory place of jurisdiction at their domicile is reserved. For consumers with their habitual residence in the European Union, the mandatory consumer protection provisions of their country of residence also remain unaffected; the choice of law does not deprive them of the protection afforded by those provisions. Should individual provisions of these terms be invalid, the validity of the remaining provisions remains unaffected."
+          "heading": "13. Rights in content",
+          "body": "The rights in your content remain with you. You grant us a simple, geographically unlimited right of use, limited to the term and purpose of the contract, covering the storage, reproduction and display of your content within the service to the extent necessary to provide it. This right of use ends when the event or your account is deleted.\nYour content will only be used for advertising or reference purposes with your express prior consent.\nAll rights in the software, the brand, the design and the provider’s own content, in particular the supplied question catalogue, remain with the provider. You receive a simple, non-transferable right of use for the term and within the scope of the contract."
+        },
+        {
+          "heading": "14. Blocking and termination",
+          "body": "In the event of serious or repeated breaches of section 12, misuse, unlawful content or non-payment, we may temporarily block access or terminate the contract for good cause. Before blocking or terminating, we will point out the breach and give you a reasonable period to remedy it, provided this is reasonable in the circumstances and not dispensable due to the severity of the breach.\nIn the case of a justified termination by us, the account and the associated data are deleted. There is no claim to a refund to the extent that the service has already been provided or the reason for termination is attributable to you. Otherwise we refund the share attributable to services not yet provided.\nYour right to terminate for good cause and your statutory termination rights remain unaffected."
+        },
+        {
+          "heading": "15. Availability",
+          "body": "We strive to keep the service available with as little interruption as possible but do not owe uninterrupted availability. Maintenance, technical faults, dependencies on third parties and force majeure may lead to temporary restrictions. Where possible we schedule planned maintenance for low-demand periods.\nTaking part requires a working internet connection on the devices involved, which is outside our control.\nThe service is not a data backup service. You should independently save results that are important to you, for example by export or screenshot.\nYour statutory rights in case of defects under section 10 remain unaffected by this section."
+        },
+        {
+          "heading": "16. Liability",
+          "body": "We are liable without limitation for damage arising from injury to life, body or health, for intent and gross negligence, for fraudulent concealment of a defect, within the scope of a guarantee we have given and under the German Product Liability Act.\nIn the case of slight negligence we are only liable for the breach of a material contractual obligation, that is an obligation whose fulfilment makes the proper performance of the contract possible in the first place and on whose observance you may regularly rely. In that case liability is limited to the foreseeable damage typical for this type of contract at the time the contract was concluded.\nAny further liability is excluded.\nThese liability provisions also apply in favour of our legal representatives, staff and vicarious agents."
+        },
+        {
+          "heading": "17. Data protection and responsibility for guest data",
+          "body": "Information on the processing of personal data can be found in our privacy policy.\nYou are responsible for the content you create in your event. If you use TwoSoles purely privately, the household exemption under Art. 2(2)(c) GDPR will normally apply to you. If you use the service commercially, you are the controller for that content under data protection law and we process it on your behalf. We will provide you with a data processing agreement under Art. 28 GDPR on request."
+        },
+        {
+          "heading": "18. Changes to these terms",
+          "body": "We may amend these terms, for example in the event of changes to the service, the legal situation or supreme court case law, provided this is reasonable for you and the change does not shift the balance of performance and consideration to your disadvantage.\nWe will inform you of intended changes at least six weeks before they take effect, in text form. If you do not object within six weeks of receiving the notification, the changes are deemed accepted. We will point out this consequence and your right to object separately in the notification. If you object, either party may terminate the contract as of the date the change takes effect.\nFor bookings already concluded, the version valid at the time of booking applies."
+        },
+        {
+          "heading": "19. Dispute resolution",
+          "body": "The European Commission shut down its Online Dispute Resolution platform on 20 July 2025.\nWe are neither willing nor obliged to take part in dispute resolution proceedings before a consumer arbitration board. If something goes wrong, please contact us first at hello@twosoles.live."
+        },
+        {
+          "heading": "20. Governing law, place of jurisdiction and final provisions",
+          "body": "The law of the Federal Republic of Germany applies, excluding the UN Convention on Contracts for the International Sale of Goods. If you are a consumer with your habitual residence in another country, the mandatory consumer protection provisions of that country remain unaffected (Art. 6 Rome I Regulation). The choice of law does not deprive you of the protection those provisions afford.\nFor consumers, the statutory places of jurisdiction apply; we do not agree anything to the contrary. If you are a merchant, a legal entity under public law or a special fund under public law, the exclusive place of jurisdiction for all disputes arising from this contractual relationship is our place of business.\nShould individual provisions of these terms be or become wholly or partly invalid, the validity of the remaining provisions remains unaffected. The statutory provisions take the place of the invalid provision."
         }
       ]
     }
+  },
+  "checkout": {
+    "service": "Service",
+    "serviceValue": "TwoSoles, the digital shoe game for one event",
+    "period": "Play window",
+    "periodValue": "48 hours from going live, unlimited time to prepare",
+    "total": "Total price",
+    "vatNote": "incl. VAT, no further costs",
+    "legalHint": "Our <terms>terms</terms> and <privacy>privacy policy</privacy> apply. The withdrawal instructions are in section 7 of the terms.",
+    "submit": "Order with obligation to pay",
+    "upgradeSubmit": "Upgrade with obligation to pay",
+    "upgradeNote": "Only the difference to your current package is charged."
+  },
+  "orderEmail": {
+    "subject": "Your order confirmation for TwoSoles",
+    "preview": "Your TwoSoles order is confirmed.",
+    "heading": "Order confirmation",
+    "intro": "Thank you for your booking. We hereby confirm the contract between you and Marvin Vrdoljak, Diemshoff 38, 48282 Emsdetten, Germany. This email contains the contract details, the withdrawal instructions and the model withdrawal form in text form.",
+    "orderTitle": "Your order",
+    "event": "Event",
+    "package": "Package",
+    "capacity": "Guests",
+    "amount": "Amount paid",
+    "vatNote": "All prices are final prices and include statutory VAT.",
+    "date": "Order date",
+    "merchantNote": "The payment was processed by Stripe as merchant of record. Stripe issues the payment receipt; you can also find it in your account under billing.",
+    "termsTitle": "Terms and conditions",
+    "termsText": "The terms in the version applicable at the time of your booking apply. You can view and save them at any time at {url}.",
+    "privacyText": "Information on data protection is available at {url}.",
+    "footer": "If you have any questions, just reply to this email or write to hello@twosoles.live."
   },
   "eventWizard": {
     "cancel": "Cancel",
@@ -754,7 +862,8 @@
       "subtitle": "Up to 10 guests free. Upgrade any time. Pay once per event.",
       "select": "Select",
       "selected": "Selected",
-      "upTo": "Up to {capacity}"
+      "upTo": "Up to {capacity}",
+      "vatNote": "All prices include VAT. There are no further costs."
     },
     "summary": {
       "title": "Almost there!",
@@ -773,7 +882,6 @@
       "creatingFree": "Creating …",
       "createError": "The event couldn't be created. Please try again.",
       "photoTooLarge": "This image is too large. Please upload a photo of no more than 5 MB.",
-      "submit": "Create event & pay",
       "checkoutError": "Couldn't start the payment. Please try again."
     }
   },
@@ -823,6 +931,8 @@
       "cancel": "Cancel"
     },
     "goLiveConfirm": {
+      "consentLabel": "Yes, set it live now. I expressly request the service before my withdrawal period ends on {date}, and I know that my right of withdrawal ends with it.",
+    "consentRequired": "Please confirm the declaration about the right of withdrawal first; we cannot set the event live without it.",
       "title": "Really set the event live?",
       "text": "Please think this through. It can't be undone:",
       "points": [
@@ -869,7 +979,6 @@
       "packageTitle": "Package & capacity",
       "packageText": "Up to 10 guests free. Upgrade any time. Pay once per event.",
       "packageCurrent": "Current plan",
-      "packageUpgrade": "Upgrade",
       "deleteTitle": "Delete event",
       "deleteText": "Permanent and irreversible. All questions, results and the QR code are removed. This step cannot be undone. Payments already made are non-refundable.",
       "deleteButton": "Delete event",

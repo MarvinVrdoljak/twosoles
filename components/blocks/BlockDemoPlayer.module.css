@@ -72,7 +72,7 @@
      and top-left origin keeps it in-bounds. Only below ~548px, where the 500px
      scene no longer fits and the JS scaler kicks in. The scaler effect overrides
      this (proper scale, centred, height-compensated) once mounted. */
-  @media (max-width: 547px) {
+  @media (width <= 547px) {
     transform: scale(0.58);
     transform-origin: top left;
   }
@@ -535,6 +535,7 @@
 @media (--bp-medium-down) {
   .scene {
     width: 500px;
+
     /* Centre the fixed-width scene when it fits (548-767px, where the JS scaler
        leaves it unscaled). Below 548px it is wider than the container, so this
        resolves to 0 and the JS translateX handles centring instead. */
@@ -544,6 +545,7 @@
   .devices {
     flex-wrap: wrap;
     width: 100%;
+
     /* Pull the phone fan further up so it overlaps the Leinwand a bit more. */
     margin-top: -40px;
   }
